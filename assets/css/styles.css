@@ -240,7 +240,7 @@ body.no-header-wrapper {
   min-height: 400px;
 }
 .header-wrapper-about {
-  background: #65758e url('../images/background/heading-background-2.png') no-repeat 50% top;
+  background: #65758e url('../images/background/heading-background-2.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -587,7 +587,7 @@ body.no-header-wrapper {
   opacity: 1;
 }
 .latest-work .item.item-1 .figure-container a {
-  background: #65758e url('../images/work/work-example-1.1.png') no-repeat 50% 50%;
+  background: #65758e url('../images/work/work-example-1.1.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -595,7 +595,7 @@ body.no-header-wrapper {
 }
 .latest-work .item.item-2 .figure-container a {
   display: block;
-  background: #65758e url('../images/work/work-example-2.1.png') no-repeat 50% 50%;
+  background: #65758e url('../images/work/work-example-2.1.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
