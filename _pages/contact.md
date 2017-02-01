@@ -11,10 +11,10 @@ promo_intro: We'd love to chat with you if you have a project idea or want to fi
 		<h2 class="title text-center">Start your project or startup today!</h2>
 		<p class="intro text-center">We are excited to work on bold challenges because those are usually the ones that matter the most in changing lives and livelihoods</p>
 		<ul class="contact-info list-inline text-center">
-			<li class="tel"><span class="fs1" aria-hidden="true" data-icon="&#x77;"></span><br /> <a href="tel:+254705504211">+254-705-504211</a></li>
-			<li class="email"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br /> <a href="mailto:innovate@zegetech.com">innovate@zegetech.com</a></li>
-			<li class="Skype"><span class="fs1" aria-hidden="true" data-icon="&#xe0a2;"></span><br /> <a href="skype:zegetech">zegetech</a></li>
-			<li class="tel"><span class="fs1 fa fa-whatsapp" aria-hidden="true"></span><br /> <a href="whatsapp:+254705504211">+254-705-504211</a></li>
+			<li class="tel"><span class="fs1" aria-hidden="true" data-icon="&#x77;"></span><br /> <a href="tel:+254705504211"> +254-705-504211 </a></li>
+			<li class="Skype"><span class="fs1" aria-hidden="true" data-icon="&#xe0a2;"></span><br /> <a href="skype:zegetech"> zegetech </a></li>
+			<li class="tel"><span class="fs1 fa fa-whatsapp" aria-hidden="true"></span><br /> <a href="whatsapp:+254705504211"> +254-705-504211 </a></li>
+			<li class="email"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br /> <a href="mailto:innovate@zegetech.com"> innovate@zegetech.com </a></li>
 		</ul>
 		<div class="text-center col-md-12 col-sm-12 col-xs-12 form-group">
 			<a href="estimate.html" class="btn btn-lg  btn-cta btn-success">Estimate your project</a>
