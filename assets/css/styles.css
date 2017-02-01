@@ -1975,10 +1975,11 @@ body.no-header-wrapper {
 }
 .footer-fixed .typeform-label{
   background: #f4f5f6;
-  height: 100%;
   position: fixed;
-  right: 105px;
-  width: 165px;
+  right: 115px;
+  bottom: 0px;
+  width: 140px;
+  height: 50px;
   z-index: 99;
 }
 .footer .footer-content {
