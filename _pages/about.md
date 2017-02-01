@@ -103,7 +103,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/development.png" alt=""/>
+							<img class="img-responsive" src="assets/images/team/development.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Engineering</h3>
