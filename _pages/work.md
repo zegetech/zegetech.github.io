@@ -23,97 +23,30 @@ custom_scripts: |
       <button class="btn button last" data-filter=".payments">Payments</button>
     </div><!--//filters-->
     <div class="items-wrapper isotope row">
-      <div class="item startup saas ussd payments col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
+    {% for project in site.projects limit:6 %}
+      {% capture tags_classes %}{% for tag in project.tags %} {{tag | downcase}} {% endfor %}{% endcapture %}
+      <div class="item {{ tags_classes }} col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
         <div class="item-inner">
           <figure class="figure">
-            <a href="case-study-pesazetu.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-1.png" alt="" /></a>
-            <a class="info-mask" href="case-study-pesazetu.html">
-              <span class="desc">Pesa Zetu is a crowdfunding platform that aims to give borrowers small loans for business, health and educational purposes.</span>
+            <a href="{{project.url}}"><img class="img-responsive" src="/assets/images/work/{{project.thumbnail}}" alt="" /></a>
+            <a class="info-mask" href="{{project.url}}">
+              <span class="desc">{{project.description}}</span>
               <span class="btn btn-cta btn-cta-primary" >View case study</span>
             </a><!--//info-mask-->
           </figure>
           <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-pesazetu.html">PesaZetu: P2P Lending Platform</a></h3>
-            <div class="meta">Startup / SaaS / USSD/ Payments</div>
+            <h3 class="sub-title"><a href="{{project.url}}">{{project.subtitle}}</a></h3>
+            {% assign tags = project.tags | join:" / " %}
+            <div class="meta">{{ tags }}</div>
           </div><!--//content-->                    
         </div><!--//item-inner-->
       </div><!--//item-->
-      <div class="item saas mobile-app payments col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
-        <div class="item-inner">
-          <figure class="figure">
-            <a href="case-study-agronet.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-2.png" alt="" /></a>
-            <a class="info-mask" href="case-study-agronet.html">
-              <span class="desc">Agronet aims to address this through access to finance, information and markets for the smallholder dairy communities.</span>
-              <span class="btn btn-cta btn-cta-primary" >View case study</span>
-            </a><!--//info-mask-->
-          </figure>
-          <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-agronet.html">Agronet: Dairy Mobile Money System</a></h3>
-            <div class="meta">SaaS / Mobile app / Payments</div>
-          </div><!--//content-->                    
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item saas mobile-app col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
-        <div class="item-inner">
-          <figure class="figure">
-            <a href="case-study-cashbox.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-3.jpg" alt="" /></a>
-            <a class="info-mask" href="case-study-cashbox.html">
-              <span class="desc">Cashbox is a mobile point of sale application that agrodealers use at their store to manage their customers, payments and inventory.</span>
-              <span class="btn btn-cta btn-cta-primary" >View case study</span>
-            </a><!--//info-mask-->
-          </figure>
-          <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-cashbox.html">Cashbox: Agrodealer Mobile POS</a></h3>
-            <div class="meta">SaaS / Mobile app </div>
-          </div><!--//content-->                    
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item startup saas payments col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
-        <div class="item-inner">
-          <figure class="figure">
-            <a href="case-study-mpayer.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-4.png" alt="" /></a>
-            <a class="info-mask" href="case-study-mpayer.html">
-              <span class="desc">MPAYER is a platform that manages customer payments, communication and engagement for customer intensive businesses </span>
-              <span class="btn btn-cta btn-cta-primary" >View case study</span>
-            </a><!--//info-mask-->
-          </figure>
-          <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-mpayer.html">MPAYER: Payment gateway</a></h3>
-            <div class="meta">Startup / SaaS / Payments</div>
-          </div><!--//content-->                    
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item payments col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
-        <div class="item-inner">
-          <figure class="figure">
-            <a href="case-study-mkesho.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-5.jpg" alt="" /></a>
-            <a class="info-mask" href="case-study-mkesho.html">
-              <span class="desc">MKESHO is a microfinance product that enables bank clients to save and borrow from their feature phones</span>
-              <span class="btn btn-cta btn-cta-primary" >View case study</span>
-            </a><!--//info-mask-->
-          </figure>
-          <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-mkesho.html">MKESHO: Mobile Finance</a></h3>
-            <div class="meta">Payments</div>
-          </div><!--//content-->                    
-        </div><!--//item-inner-->
-      </div><!--//item-->
-      <div class="item payments mobile-app col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
-        <div class="item-inner">
-          <figure class="figure">
-            <a href="case-study-pay4us.html"><img class="img-responsive" src="assets/images/work/work-example-thumb-6.jpg" alt="" /></a>
-            <a class="info-mask" href="case-study-pay4us.html">
-              <span class="desc">Pay4Us is an Android application that manages and informal savings and investment groups table banking activities.</span>
-              <span class="btn btn-cta btn-cta-primary" >View case study</span>
-            </a><!--//info-mask-->
-          </figure>
-          <div class="content text-left">
-            <h3 class="sub-title"><a href="case-study-pay4us.html">Pay4Us: Table banking system</a></h3>
-            <div class="meta">Payments / Mobile app</div>
-          </div><!--//content-->                    
-        </div><!--//item-inner-->
-      </div><!--//item-->
-
+<!--       <li>
+        <img src="{{ album.thumbnail-path }}" alt="{{ album.title }}"/>
+        <a href="{{ album.url }}">{{ album.title }}</a>
+        <p>{{ album.short-description }}</p>
+      </li> -->
+    {% endfor %}
     </div><!--//items-wrapper-->
   </div><!--//container-fluid-->
 </section><!--//work-list"-->
@@ -127,7 +60,7 @@ custom_scripts: |
       <p class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
       </p>
-      <img src="assets/images/work/agileprocess.png" class="img-responsive" />
+      <img src="/assets/images/work/agileprocess.png" class="img-responsive" />
     </p>
     <p class="container text-center">
       <h2 class="title">Our Philosophy</h2>

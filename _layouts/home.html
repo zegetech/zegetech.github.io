@@ -25,7 +25,7 @@
 <section id="who" class="who section">
   <div class="container text-center">
     <h2 class="title text-center">Who we are</h2>
-    <img src="assets/images/background/world_map.png" width="500px" class="img-responsive" style="display: inline;">
+    <img src="/assets/images/background/world_map.png" width="500px" class="img-responsive" style="display: inline;">
     <p class="intro text-center">We are a compact team of developers and designers based in Nairobi and working all over Africa. We use <a href="http://stackshare.io/zege-technologies/zege-technologies">cool tools and technologies</a> to build mobile and desktop web applications. Fast! <br/> We <i class="icon_heart_alt"></i> Fintech<br/> We <i class="icon_heart_alt"></i> Africa</p>
     <div class="row benefits text-center">
       <div class="item col-md-3 col-sm-6 col-xs-12">
@@ -74,72 +74,31 @@
   <div class="container-fluid text-center">
     <h2 class="title text-center">Case Studies</h2>
     <div id="work-carousel" class="items owl-carousel owl-theme">
+
+    {% for project in site.projects limit:3 %}
       <div class="item item-1">
         <div class="row">
-          <figure class="figure-container col-md-6 col-sm-12 col-xs-12">
+          <figure class="figure-container col-md-6 col-sm-12 col-xs-12" style="display: block; background: #65758e url('/assets/images/work/{{project.thumbnail}}') no-repeat 50% 50%;-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
             <a href="https://app.pesazetu.co/" target="_blank"></a>
           </figure>
           <div class="content col-md-6 col-sm-12 col-xs-12">
             <div class="content-inner">
-              <h3 class="project-title">PesaZetu: Peer to Peer Lending platform</h3>
+              <h3 class="project-title">{{project.subtitle}}</h3>
               <ul class="meta list-unstyled">
-                <li><strong>Client:</strong> Pesa Zetu</li>
-                <li><strong>Partners:</strong> Busara Center, FSD, TransUnion, Musoni, First Access, CGAP, CIS Kenya, IBM</li>
-                <li><strong>What we did:</strong> Web development, UI and UX Design, API development, USSD</li>
+                <li><strong>Client: </strong>{{project.client}} </li>
+                <li><strong>Partners: </strong>{{project.partners}} </li>
+                <li><strong>What we did: </strong>{{project.tasks}} </li>
               </ul><!--//meta-->
               <div class="desc">
-                <p>Access to capital is a critical factor that affect the growth of african businesses. Pesa Zetu is a crowdfunding platform that aims to give borrowers small loans for business, health and educational purposes. The funding sources come from individual lenders on the platform and uses MPESA for the disbursements of loans and collections of repayments. </p>
+                <p>{{project.challenge | truncatewords : 20}} </p>
               </div><!--//desc-->
-              <p class="link" ><i class="fa fa-briefcase"></i> <a class="more-link" href="case-study-pesazetu.html">Read full case study</a></p>
-              <p class="link" ><i class="fa fa-external-link"></i> <a class="site-link" href="https://app.pesazetu.co/" target="_blank">Website link</a></p>
+              <p class="link" ><i class="fa fa-briefcase"></i> <a class="more-link" href="{{project.url}}">Read full case study</a></p>
+              {% if project.project_url%}<p class="link" ><i class="fa fa-external-link"></i> <a class="site-link" href="{{project.project_url}}" target="_blank">Website link</a></p>{% endif %}
             </div><!--//content-inner-->
           </div><!--//content-->
         </div><!--//row-->
       </div><!--//item-->
-      <div class="item item-2">
-        <div class="row">
-          <figure class="figure-container col-md-6 col-sm-12 col-xs-12">
-            <a class="img-link" href="http://agronet.zegetech.com" target="_blank"></a>
-          </figure>
-          <div class="content col-md-6 col-sm-12 col-xs-12">
-            <div class="content-inner">
-              <h3 class="project-title">Agronet: Mobile Money platform for Dairy </h3>
-              <ul class="meta list-unstyled">
-                <li><strong>Client:</strong> Agronet</li>
-                <li><strong>Partners:</strong> Palmhouse Dairies, Strathmore Business School, TRAC, Scales and Software</li>
-                <li><strong>What we did:</strong> Market Survey and Research, Business modelling, App development, Web Development</li>
-              </ul><!--//meta-->
-              <div class="desc">
-                <p>Dairy is the largest agricultural activity in Kenya and ranks highly in Africa. With the milk deficit still very high, you'd think that dairy farming would be profitable for all. Unfortunatley, for most smallholder farmers it hardly is. Agronet aims to address this through access to finance, information and markets for the smallholder dairy communities.</p>
-              </div><!--//desc-->
-              <p class="link" ><i class="fa fa-briefcase"></i> <a class="more-link" href="case-study-agronet.html">Read full case study</a></p>
-              <p class="link" ><i class="fa fa-external-link"></i> <a class="site-link" href="http://agronet.zegetech.com" target="_blank">Website link</a></p>
-            </div><!--//content-inner-->
-          </div><!--//content-->
-        </div><!--//row-->
-      </div><!--//item-->
-      <div class="item item-3">
-        <div class="row">
-          <figure class="figure-container col-md-6 col-sm-12 col-xs-12">
-            <a class="img-link" href="#" target="_blank"></a>
-          </figure>
-          <div class="content col-md-6 col-sm-12 col-xs-12">
-            <div class="content-inner">
-              <h3 class="project-title">Cashbox: Mobile Point of Sale</h3>
-              <ul class="meta list-unstyled">
-                <li><strong>Client:</strong> Kenya Markets Trust (KMT)</li>
-                <li><strong>Partners:</strong> Farmshop, FSD</li>
-                <li><strong>What we did:</strong> Android App Development, Training</li>
-              </ul><!--//meta-->
-              <div class="desc">
-                <p>Agriculture as a critical backbone of the economy needs proper supply and distribution systems to provide inputs to farmers. Kenya Markets Trust (KMT) provides agrodealers with systems to improve and optimise their businesses. Cashbox is a mobile point of sale application that agrodealers use at their store to manage their customers, payments and inventory</p>
-                <p class="link" ><i class="fa fa-briefcase"></i> <a class="more-link" href="case-study-cashbox.html">Read full case study</a></p>
-                <p class="link" ><i class="fa fa-external-link"></i> <a class="site-link" href="#" target="_blank">Website link</a></p>
-              </div><!--//desc-->
-            </div><!--//conten-inner-->
-          </div><!--//content-->
-        </div><!--//row-->
-      </div><!--//item-->
+    {% endfor %}
     </div><!--//owl-carousel-->
     <a class="btn btn-cta btn-cta-secondary" href="work.html">View more case studies</a>
   </div><!--container-fluid-->
@@ -160,13 +119,13 @@
 </div><!--//quote-->
 <div class="meta">
   <div class="profile">
-    <img class="img-circle" src="assets/images/client/client-william.jpg" alt="" width="100px"/>
+    <img class="img-circle" src="/assets/images/client/client-william.jpg" alt="" width="100px"/>
     <p class="name">William Keliehor<br />
       <span class="source-title">New York, USA<br/>FinTech Advisory and Investor</span>
     </p>
   </div><!--//profile-->
   <div class="client-logo col-md-5">
-    <!-- <img class="img-responsive" src="assets/images/client/logo-amex.png" alt=""/> -->
+    <!-- <img class="img-responsive" src="/assets/images/client/logo-amex.png" alt=""/> -->
   </div><!--//client-logo-->
 </div><!--//meta-->        
 </div><!--//item-inner-->        
@@ -181,13 +140,13 @@
     </div><!--//quote-->
     <div class="meta">
       <div class="profile">
-        <img class="img-circle" src="assets/images/client/client-james.jpg" alt="" width="100px"/>
+        <img class="img-circle" src="/assets/images/client/client-james.jpg" alt="" width="100px"/>
         <p class="name">James Vancel<br />
           <span class="source-title">Nairobi, Kenya<br/>MD Busara Center</span>
         </p>
       </div><!--//profile-->
       <div class="client-logo col-md-5">
-        <img class="img-responsive" src="assets/images/client/logo-busara.png" alt=""/>
+        <img class="img-responsive" src="/assets/images/client/logo-busara.png" alt=""/>
       </div><!--//client-logo-->
     </div><!--//meta-->     
   </div><!--//item-inner-->           
@@ -204,13 +163,13 @@
     </div><!--//quote-->
     <div class="meta">
       <div class="profile">
-        <img class="img-circle" src="assets/images/client/client-cameron.jpg" alt="" width="100px"/>
+        <img class="img-circle" src="/assets/images/client/client-cameron.jpg" alt="" width="100px"/>
         <p class="name">Cameron Goldie-Scott<br />
           <span class="source-title">Amsterdam, Netherlands<br/>CEO Musoni Systems</span>
         </p>
       </div><!--//profile-->
       <div class="client-logo col-md-5">
-        <img class="img-responsive" src="assets/images/client/logo-musoni.png" alt=""/>
+        <img class="img-responsive" src="/assets/images/client/logo-musoni.png" alt=""/>
       </div><!--//client-logo-->
     </div><!--//meta-->  
   </div><!--//item-inner-->              
@@ -225,13 +184,13 @@
     </div><!--//quote-->
     <div class="meta">
       <div class="profile">
-        <img class="img-circle" src="assets/images/client/client-hilda.jpg" alt="" width="100px"/>
+        <img class="img-circle" src="/assets/images/client/client-hilda.jpg" alt="" width="100px"/>
         <p class="name">Hilda Moraa<br />
           <span class="source-title">Nairobi, Kenya<br/>CEO Pezesha</span>
         </p>
       </div><!--//profile-->
       <div class="client-logo col-md-5">
-        <img class="img-responsive" src="assets/images/client/logo-pezesha.png" alt=""/>
+        <img class="img-responsive" src="/assets/images/client/logo-pezesha.png" alt=""/>
       </div><!--//client-logo-->
     </div><!--//meta-->  
   </div><!--//item-inner-->              
@@ -246,16 +205,16 @@
     <h2 class="title">Who we have worked with</h2>
     <p class="intro">Payment Solutions / SaaS / Mobile apps / Marketing sites / Internal apps</p>
     <ul class="logo-list list-inline row">
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-equity.jpg" alt="" /></li>
-      <li class="col-md-3 col-sm-3 col-xs-6 xs-break"><img class="img-responsive col-md-9" src="assets/images/logos/logo-firstaccess.png" alt="" /></li>
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-devex.png" alt="" /></li>                   
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-safaricom.png" alt="" /></li> 
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-equity.jpg" alt="" /></li>
+      <li class="col-md-3 col-sm-3 col-xs-6 xs-break"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-firstaccess.png" alt="" /></li>
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-devex.png" alt="" /></li>                   
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-safaricom.png" alt="" /></li> 
     </ul><!--//logo-list-->
     <ul class="logo-list list-inline row last">
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-sab.jpg" alt="" /></li>
-      <li class="col-md-3 col-sm-3 col-xs-6 xs-break"><img class="img-responsive col-md-9" src="assets/images/logos/logo-fsdkenya.png" alt="" /></li>
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-coop.jpg" alt="" /></li>                   
-      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="assets/images/logos/logo-angloamerican.png" alt="" /></li>                   
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-sab.jpg" alt="" /></li>
+      <li class="col-md-3 col-sm-3 col-xs-6 xs-break"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-fsdkenya.png" alt="" /></li>
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-coop.jpg" alt="" /></li>                   
+      <li class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive col-md-9" src="/assets/images/logos/logo-angloamerican.png" alt="" /></li>                   
     </ul><!--//logos-list-->               
   </div><!--//container-->
 </section><!--//logos-->

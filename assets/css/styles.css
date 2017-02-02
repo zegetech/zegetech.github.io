@@ -586,13 +586,6 @@ body.no-header-wrapper {
   -moz-opacity: 1;
   opacity: 1;
 }
-.latest-work .item.item-1 .figure-container a {
-  background: #65758e url('../images/work/work-example-1.1.jpg') no-repeat 50% 50%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 .latest-work .item.item-2 .figure-container a {
   display: block;
   background: #65758e url('../images/work/work-example-2.1.jpg') no-repeat 50% 50%;

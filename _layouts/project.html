@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+{% include head.html %}
+<body class="case-study-page no-header-wrapper">     
+	{% include header_nav.html %}
+	<div class="breadcrumbs container">
+		<ul class="breadcrumbs-list list-inline">
+			<li><a href="/">Home</a><i class="fa fa-angle-right"></i></li>
+			<li><a href="/work.html">Our work</a><i class="fa fa-angle-right"></i></li>
+			<li class="current">Case Study: {{ page.title }}</li>
+		</ul>
+	</div><!--//breadcrumbs-->
+	<article class="case-study-article article">
+		<div class="container">
+			<h1 class="project-title text-center">{{page.subtitle}}</h1>
+			<h2 class="project-type text-center">{{page.tags | join: " / "}}</h2>
+			<div class="row">
+				<div class="content-wrapper col-md-10 col-sm-12 col-xs-12 col-md-push-1 col-sm-push-0 col-xs-push-0"> 
+					<div class="content">
+						<section class="slideshow">
+							<div id="slider" class="flexslider">
+								<ul class="slides">
+									{% for slide in page.slides %}
+									<li><img class="img-responsive" src="/assets/images/work/projects/{{slide}}" alt="" /></a></li>
+									{% endfor %}
+								</ul>
+							</div>
+							<div id="carousel" class="flexslider">
+								<ul class="slides">
+									{% for slide in page.slides %}
+									<li><img src="/assets/images/work/projects/{{slide}}" alt="" /></a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</section><!--//slideshow-->
+						<ul class="meta list-unstyled">
+							<li><strong>Client:</strong> {{page.client}} </li>
+							{% if page.partners %}<li><strong>Partners:</strong> {{page.partners}} </li>{% endif %}
+							<li><strong>What we did:</strong> {{page.tasks}}</li>
+							{% if page.project_url%}<li><strong>Site link:</strong> <a href="{{page.project_url}}" target="_blank">{{page.project_url}}</a></li>{% endif %}
+						</ul><!--//meta-->
+						<section class="content-section">
+							<h3 class="section-title">Challenge</h3>
+							<p>{{page.challenge}} </p>
+						</section><!--//content-section-->
+						<section class="content-section">
+							<h3 class="section-title">Project Goals</h3>
+							<ul class="list-unstyled">
+								{% for goal in page.goals %}
+								<li><i class="fa fa-arrow-circle-right"></i> {{goal}} </li>
+								{% endfor %}
+							</ul>
+						</section><!--//content-section-->
+						<section class="content-section">
+							<h3 class="section-title">Our Solution</h3>
+							<p>{{page.solution}}  </p>
+						</section><!--//content-section-->
+						<section class="content-section">
+							<h3 class="section-title">Results</h3>
+							<p>{{page.results}}</p>
+							<a class="btn btn-cta btn-cta-primary" href="/contact.html">Get in touch</a>
+						</section><!--//content-section-->
+					</div><!--//content-->    
+					<div class="testimonial-wrapper text-center">
+						<div class="testimonial-inner">
+							<div class="quote-container text-left">
+								<i class="fa fa-quote-left"></i> 
+								<blockquote class="quote">{{page.testimonial}}</blockquote><!--//quote-->                              
+							</div><!--//quote-->
+							<div class="meta">
+								<div class="profile">
+									<img class="img-circle" src="/assets/images/work/projects/{{page.testifier_image}}" alt="" />
+									<p class="name">{{page.testifier_name}}<br />
+										<span class="source-title">{{page.testifier_role}}</span>
+									</p>
+								</div><!--//profile-->
+							</div><!--//meta-->     
+						</div><!--//testimonial-inner-->   
+					</div><!--//testimonail-->                                            
+				</div><!--//content-wrapper-->              
+			</div><!--//row-->            
+		</div><!--//container-->
+	</article><!--//case-study-->
+	{% include quickchat.html %}
+	{% include footer.html %}

@@ -16,7 +16,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/kariuki.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/kariuki.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Kariuki Gathitu</h3>
@@ -37,7 +37,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/stella.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/stella.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Stella Njoki</h3>
@@ -61,7 +61,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/projectmanagement.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/projectmanagement.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Projects</h3>
@@ -75,7 +75,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/productdesign.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/productdesign.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Products</h3>
@@ -89,7 +89,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/design.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/design.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Design</h3>
@@ -103,7 +103,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/development.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/development.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Engineering</h3>
@@ -117,7 +117,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 				<div class="item-inner">
 					<div class="row">
 						<figure class="figure col-md-5 col-sm-12 col-xs-12">
-							<img class="img-responsive" src="assets/images/team/customerdevelopment.jpg" alt=""/>
+							<img class="img-responsive" src="/assets/images/team/customerdevelopment.jpg" alt=""/>
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Outreach</h3>

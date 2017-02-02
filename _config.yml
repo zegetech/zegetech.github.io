@@ -20,7 +20,7 @@ description: > # this means to ignore newlines until "baseurl:"
   DEVELOP AMAZING PRODUCTS. FAST
   unlock your business technology potential
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://zegetech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -33,6 +33,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
 include: ['_pages']
+collections:
+  projects:
+    output: true
+
 # # Where things are
 # source:      .
 # destination: ./_site
