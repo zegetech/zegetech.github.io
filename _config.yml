@@ -36,6 +36,7 @@ include: ['_pages']
 collections:
   projects:
     output: true
+  # - clients
 
 # # Where things are
 # source:      .
