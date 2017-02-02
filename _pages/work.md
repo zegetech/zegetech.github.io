@@ -151,7 +151,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Quality</h3>
-            <p>We love a good night sleep. No code goes untested. Peer review ensures that code is satisfactory. We use <a href="">git-flow feature branch cycles</a> for code. Automated testing and continous deliver to keep things maintainable. </p>
+            <p>We love a good night sleep. No code goes untested. Peer review ensures that code is satisfactory. We use <a href="">git-flow feature branch cycles</a> for code. Automated testing and continous delivery to keep things maintainable. </p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
@@ -195,7 +195,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Trust</h3>
-            <p>The first month of collaboration is trial. You can terminate if unhappy with the relationship for any reason. We keep business confidentioal and are happy to sign an NDA. The code created belongs to you.</p>
+            <p>The first month of collaboration is trial. You can terminate if unhappy with the relationship for any reason. We keep business confidential and are happy to sign an NDA. The code created belongs to you.</p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
