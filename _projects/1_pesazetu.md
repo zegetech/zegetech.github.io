@@ -28,5 +28,5 @@ testimonial: Working on PesaZetu has been one of the most challenging and exciti
 testifier_image: profile-titus.jpg
 testifier_name: Titus Nderitu
 testifier_role: UI / UX Designer
-testifier_company: Digital Brush, Coventry UK
+testifier_company: Digital Brush, Loughborough UK
 ---

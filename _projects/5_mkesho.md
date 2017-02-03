@@ -4,31 +4,23 @@ tags: [Payments]
 thumbnail: "showcase_mkesho.jpg"
 description: "MKESHO is a microfinance product that enables bank clients to save and borrow from their feature phones."
 subtitle: "MKESHO: Mobile Finance"
-title:  "Pesa Zetu"
+title:  "MKESHO"
 slides:
-- case-study-0.png
-- case-study-1.png
-- case-study-2.png
-- case-study-3.png
-- case-study-4.png
-- case-study-5.png
-- case-study-6.png
-- case-study-7.png
-- case-study-8.png
-client: PezaZetu
-partners: Busara Center, FSD, TransUnion, Musoni, First Access, CGAP, CIS Kenya, IBM
-tasks: Web development, UI and UX Design, API development, USSD
-project_url: http://app.pesazetu.co
-challenge: Access to capital is a critical factor that affect the growth of african businesses. Pesa Zetu is a crowdfunding platform that aims to give borrowers small loans for business, health and educational purposes. The funding sources come from individual lenders on the platform and uses MPESA for the disbursements of loans and collections of repayments.
+- mkesho1.jpg
+- mkesho2.jpg
+- mkesho3.jpg
+client: Equity Bank
+tasks: Payment Integration
+project_url: http://ke.equitybankgroup.com/business/products/ways-to-bank/mobile-banking/m-kesho
+challenge: MPESA was a blessing to kenyans and kenyan businesses. Soon enough it became an alternative defacto currency that had out grown its initial peer to peer vision. Equity bank required automation of MPESA functionalities in the absence of an MPESA API. 
 goals:
-- Consectetur adipiscing elit
-- Integer eget lorem vitae
-- Lorem vitae elit
-- Suscipit suscipit
-solution: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in leo turpis. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla. Praesent id enim ut orci pretium faucibus a et massa. Sed quis velit imperdiet. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-results: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in leo turpis. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla. Praesent id enim ut orci pretium faucibus a et massa.
-testimonial: We had great experience working with Phasellus ut cursus tellus. Etiam ullamcorper varius diam, nec consequat dolor gravida non. Nullam commodo feugiat arcu, ut scelerisque nisl vulputate eget. Cras a euismod elit. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla.
-testifier_image: client-ghoncheh.jpg
-testifier_name: Ghoncheh Lee
-testifier_role: Busines Development Manager
+- Automate the disbursements and deposits of MPESA in the absence API integration
+- Integrate payment transaction to the core banking system
+- Deploy loan and savings services via a SIM toolkit application with Safaricom
+solution: Project "Ambata" (translated to "connect") was born with the need to innovate and do the impossible. Connect to safaricom and automate trasncation swithout an API. Because MPESA APIs were non existant at the time, we used existing MPESA portal. Using web robots or web drivers, we accurately and securly replicaed the web process to automate and integrate disbursements to and from the core banking system
+results: We were able for the first time ever to handle over 2000 MPESA disbursements transactions per minute, from approximately 1000 every hour at best. MKESHO was ground breaking in ushering in numerous bank/mobile products and opeing up MPESA to teh business community in kenya. It opened up the peer to business industry for MPESA 
+testimonial: Having tried a number of major software companies in the region, to our surprise, it was a member of the zegetech team that cracked this enormous challenge that put Equity bank onthe map as a mobile focused and innovative brand. We were first to market and we loved it.
+testifier_image: profile-karobia.jpg
+testifier_name: Eric Karobia
+testifier_role: Projects and Innovations @ Equity Bank
 ---
