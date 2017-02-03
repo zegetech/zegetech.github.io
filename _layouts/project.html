@@ -36,7 +36,7 @@
 							</div>
 						</section><!--//slideshow-->
 						<ul class="meta list-unstyled">
-							<li><strong>Client:</strong> {{page.client}} </li>
+							{% if page.client %}<li><strong>Client:</strong> {{page.client}} </li>{% endif %}
 							{% if page.partners %}<li><strong>Partners:</strong> {{page.partners}} </li>{% endif %}
 							<li><strong>What we did:</strong> {{page.tasks}}</li>
 							{% if page.project_url%}<li><strong>Site link:</strong> <a href="{{page.project_url}}" target="_blank">{{page.project_url}}</a></li>{% endif %}

@@ -1,34 +1,33 @@
 ---
 layout: project
 tags: [Payments, Mobile app]
-thumbnail: "showcase_pay4us.jpg"
-description: "Pay4Us is an Android application that manages and informal savings and investment groups table banking activities."
+thumbnail: showcase_pay4us.jpg
+description: Pay4Us is a mobile application that manages an informal savings and investment groups' table banking activities.
 subtitle: "Pay4Us: Table banking system"
-title:  "Pesa Zetu"
+title:  Pay4US
 slides:
-- case-study-0.png
-- case-study-1.png
-- case-study-2.png
-- case-study-3.png
-- case-study-4.png
-- case-study-5.png
-- case-study-6.png
-- case-study-7.png
-- case-study-8.png
-client: PezaZetu
-partners: Busara Center, FSD, TransUnion, Musoni, First Access, CGAP, CIS Kenya, IBM
-tasks: Web development, UI and UX Design, API development, USSD
-project_url: http://app.pesazetu.co
-challenge: Access to capital is a critical factor that affect the growth of african businesses. Pesa Zetu is a crowdfunding platform that aims to give borrowers small loans for business, health and educational purposes. The funding sources come from individual lenders on the platform and uses MPESA for the disbursements of loans and collections of repayments.
+- pay4us1.jpg
+- pay4us2.jpg
+- pay4us3.jpg
+- pay4us4.jpg
+- pay4us5.jpg
+- pay4us6.jpg
+- pay4us7.jpg
+- pay4us8.jpg
+# client: None
+partners: HAKISHEP, Maono Self Help Groups
+tasks: Product development, Android application, Market research, Field Research
+# project_url: http://app.pesazetu.co
+challenge: Across the continent, Africans are saving and investing more of their own money. Currently, local investment clubs (Chamas) hold over Ksh35B (US$469Million) and one in every three adult Kenyans is a member of one, as reported by the chairman of the Kenya Association of Investment Groups (KAIG). Chamas however lack transparency, accountability, security and convenience, which affect their growth and effectiveness leading to stagnation and eventual disintegration.
 goals:
-- Consectetur adipiscing elit
-- Integer eget lorem vitae
-- Lorem vitae elit
-- Suscipit suscipit
-solution: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in leo turpis. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla. Praesent id enim ut orci pretium faucibus a et massa. Sed quis velit imperdiet. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.
-results: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi in leo turpis. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla. Praesent id enim ut orci pretium faucibus a et massa.
-testimonial: We had great experience working with Phasellus ut cursus tellus. Etiam ullamcorper varius diam, nec consequat dolor gravida non. Nullam commodo feugiat arcu, ut scelerisque nisl vulputate eget. Cras a euismod elit. Ut ex neque, cursus vulputate facilisis sed, tempor quis ligula. Pellentesque sodales sagittis fringilla.
-testifier_image: client-ghoncheh.jpg
-testifier_name: Ghoncheh Lee
-testifier_role: Busines Development Manager
+- Build a mobile based solution for conveniently managing the informal savings groups operations
+- Provide transparency and accountability to groups
+- Use mobile money for savings and withdrawals
+- Connect groups with each other for sharing information, knowledge and co-investments
+solution: With pay4us, Chamas run their table banking activities to enable growth and sustainability. The use of mobile money unlocks the much needed convenience that groups needs to last. Pay4Us also aims to empower the members with financial literacy. By enabling sustainability of micro-finance we unlock the doors to sustainable development and empowerment of the Africa people.
+results: Through the Pay4Us android application, over 40 savings groups were managed with a total membership of 724. The Android application was built for offline an online use and payments were processed on MPESA.
+testimonial: I thoroughly enjoyed my time working on Pay4Us. My days spent in Kibera and Korogosho brought meaning to my work and determination to see these groups acheive things greater that either of the members would alone. I truly saw the power of many. For this I love zegetech, because we not only took up projects that paid then bills, but most importantly those that made a difference, truely living up to our motto, innovate 4 life
+testifier_image: profile-kinyanjui.jpg
+testifier_name: Njoroge Kinyanjui
+testifier_role: Lead Developer, Pay4Us
 ---
