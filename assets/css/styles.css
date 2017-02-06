@@ -1,3 +1,4 @@
+/*Pallete https://color.adobe.com/zegetech-color-theme-9165806/*/
 /* ======= Base ======= */
 body {
   font-family: 'Maven Pro', arial, sans-serif;
@@ -261,7 +262,7 @@ body.no-header-wrapper {
   width: 100%;
   z-index: 40;
   padding: 15px inherit;
-  background: rgba(21, 34, 53, 0.9);
+  background: rgba(36, 46, 60, 0.9); 
   -webkit-transition: padding 0.6s ease-in-out;
   -moz-transition: padding 0.6s ease-in-out;
   -ms-transition: padding 0.6s ease-in-out;

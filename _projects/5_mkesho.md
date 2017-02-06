@@ -2,8 +2,8 @@
 layout: project
 tags: [Payments]
 thumbnail: "showcase_mkesho.jpg"
-description: "MKESHO is a microfinance product that enables bank clients to save and borrow from their feature phones."
-subtitle: "MKESHO: Mobile Finance"
+description: "MKESHO is a mobile finance product that enables bank clients to save and borrow from their feature phones."
+subtitle: "MKESHO: Payment integration and automation"
 title:  "MKESHO"
 slides:
 - mkesho1.jpg

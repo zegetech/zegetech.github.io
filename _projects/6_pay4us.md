@@ -3,7 +3,7 @@ layout: project
 tags: [Payments, Mobile app]
 thumbnail: showcase_pay4us.jpg
 description: Pay4Us is a mobile application that manages an informal savings and investment groups' table banking activities.
-subtitle: "Pay4Us: Table banking system"
+subtitle: "Pay4Us: Table banking platform"
 title:  Pay4US
 slides:
 - pay4us1.jpg

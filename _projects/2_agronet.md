@@ -26,7 +26,7 @@ goals:
 - Provide the dairy processor an information system for managing their supply chain and payments
 - Provide behavioural change mechanism (training and information) for farmer that will lead to higher yields
 solution: Agronet aims to address these by providing access to finance, information and markets for the smallholder dairy communities. The system tries to do this through proper payment and information interaction between the stakeholders in the ecosystem. Data and information about farming activities, primarily focused on the level of transactions that are undertaken at the farm level is used. Through the system, small-scale farmers are empowered through agricultural financing, access to markets and markets information, higher profits and increased transparency.
-results: Agronet mapped out the dairy landscape in Githunguri region via and intense base line survey. We developed information modules and increased stakeholders interaction through mobile and SMS. 
+results: Agronet mapped out the dairy landscape in Githunguri region via an intense baseline survey. We developed information modules and increased stakeholders interaction through mobile and SMS. 
 testimonial: Experiencing how amazing, eager and receptive small scale farmers are opened up my eye to the realisation that Africa is in dire need of solutions like Agronet, because they really hit home. Zegetechs commitment to bringing innovative technology that bring lasting impact inspires me to pay attention to the marginalised economies in our region. I was impressed by the zegetech team's capability to execute both technical and non-technical aspects of the project in building this product.
 testifier_image: profile-mackinley.jpg
 testifier_name: Mackinley Musembi
