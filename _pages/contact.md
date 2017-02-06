@@ -17,7 +17,7 @@ promo_intro: We'd love to chat with you if you have a project idea or want to fi
 			<li class="email"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br /> <a href="mailto:innovate@zegetech.com"> innovate@zegetech.com </a></li>
 		</ul>
 		<div class="text-center col-md-12 col-sm-12 col-xs-12 form-group">
-			<a href="estimate.html" class="btn btn-lg  btn-cta btn-success">Estimate your project</a>
+			<a href="estimate.html" class="btn btn-lg  btn-cta btn-cta-primary">Estimate your project</a>
 		</div> 
 	</div><!--//container-->
 </section><!--//contact-section-->

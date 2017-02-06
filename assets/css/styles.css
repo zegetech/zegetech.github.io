@@ -1,15 +1,8 @@
-/*   
- * Template Name: DevStudio - Responsive Website Template for web design & development agencies
- * Version: 1.5
- * Author: Xiaoying Riley at 3rd Wave Media
- * Website: http://themes.3rdwavemedia.com/
- * Twitter: @3rdwave_themes
-*/
 /* ======= Base ======= */
 body {
-  font-family: 'Merriweather Sans', arial, sans-serif;
+  font-family: 'Maven Pro', arial, sans-serif;
   color: #666;
-  font-size: 16px;
+  font-size: 17px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -54,13 +47,13 @@ a.btn-cta,
 }
 a.btn-cta-primary,
 .btn-cta-primary {
-  background: #eea740;
+  background: #DF4627;
   border: none;
   color: #fff;
 }
 a.btn-cta-primary:hover,
 .btn-cta-primary:hover {
-  background: #ec9c29;
+  background: #ae323b;
   border: none;
   color: #fff;
 }
@@ -77,7 +70,7 @@ a.btn-cta-secondary:hover,
   color: #fff;
 }
 .highlight {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .form-control {
   -webkit-box-shadow: none;
@@ -268,7 +261,7 @@ body.no-header-wrapper {
   width: 100%;
   z-index: 40;
   padding: 15px inherit;
-  background: rgba(48, 56, 67, 0.9);
+  background: rgba(21, 34, 53, 0.9);
   -webkit-transition: padding 0.6s ease-in-out;
   -moz-transition: padding 0.6s ease-in-out;
   -ms-transition: padding 0.6s ease-in-out;
@@ -286,10 +279,10 @@ body.no-header-wrapper {
   line-height: 2.4;
 }
 .header.header-shrink .main-nav .nav .nav-item {
-  font-size: 12px;
+  font-size: 13px;
 }
 .header h1.logo {
-  font-family: "Russo One", arial, sans-serif;
+  font-family: "Dosis", arial, sans-serif;
   margin-top: 0;
   margin-bottom: 0;
   font-weight: 800;
@@ -304,7 +297,7 @@ body.no-header-wrapper {
   text-decoration: none;
 }
 .header h1.logo a .highlight {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .header .main-nav .navbar-toggle {
   margin-right: 0;
@@ -327,11 +320,11 @@ body.no-header-wrapper {
 .header .main-nav .nav .nav-item {
   font-weight: normal;
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 14px;
   margin-right: 15px;
 }
 .header .main-nav .nav .nav-item.active > a {
-  color: #71c4e0;
+  color: #1886C3;
   background: none;
   font-weight: bold;
 }
@@ -339,7 +332,7 @@ body.no-header-wrapper {
   color: #fff;
 }
 .header .main-nav .nav .nav-item a:hover {
-  color: #71c4e0;
+  color: #1886C3;
   background: none;
 }
 .header .main-nav .nav .nav-item a:focus {
@@ -351,10 +344,13 @@ body.no-header-wrapper {
   background: none;
 }
 .header .main-nav .nav .nav-item.active {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .header .main-nav .nav .nav-item.last {
   margin-right: 0;
+}
+.header .main-nav .nav .nav-item.last a:hover{
+  color: #fff;
 }
 .header .main-nav .nav.active {
   position: relative;
@@ -433,7 +429,7 @@ body.no-header-wrapper {
 }
 .promo .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   margin-bottom: 15px;
@@ -455,7 +451,7 @@ body.no-header-wrapper {
 }
 .home-promo .title {
   font-size: 26px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
   margin-bottom: 45px;
@@ -468,10 +464,10 @@ body.no-header-wrapper {
   margin-top: 20px;
   margin-bottom: 20px;
   font-size: 56px;
-  color: #71c4e0;
+  color: #1886C3;
 }
 .home-promo .title .bottom {
-  font-family: 'Merriweather Sans', arial, sans-serif;
+  font-family: 'Maven Pro', arial, sans-serif;
   font-style: italic;
   text-transform: lowercase;
   font-weight: 500;
@@ -486,7 +482,7 @@ body.no-header-wrapper {
 }
 .who .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -532,7 +528,7 @@ body.no-header-wrapper {
   padding-right: 0;
 }
 .latest-work .title {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   font-size: 36px;
   color: #505c70;
@@ -593,7 +589,7 @@ body.no-header-wrapper {
   color: rgba(255, 255, 255, 0.8);
 }
 .latest-work .item .content .project-title {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   text-align: center;
   font-size: 22px;
   font-weight: bold;
@@ -621,7 +617,7 @@ body.no-header-wrapper {
   color: #909cb0;
 }
 .latest-work .item .content .link a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .latest-work .item .content .link .fa {
   color: #909cb0;
@@ -647,7 +643,7 @@ body.no-header-wrapper {
 }
 .testimonials .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -715,7 +711,7 @@ body.no-header-wrapper {
   margin-top: 0;
   margin-bottom: 30px;
   color: #505c70;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 700;
 }
 .logos .intro {
@@ -747,7 +743,7 @@ body.no-header-wrapper {
   font-weight: 300;
   margin-top: 0;
   margin-bottom: 30px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -765,14 +761,14 @@ body.no-header-wrapper {
   font-weight: 300;
 }
 .cta-section .contact-info .info {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
 }
 .cta-section .contact-info a {
   color: #86cde5;
 }
 .cta-section .contact-info a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 /* ======= Latest blog posts ======= */
 .latest-blog {
@@ -781,7 +777,7 @@ body.no-header-wrapper {
 }
 .latest-blog .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -827,7 +823,7 @@ body.no-header-wrapper {
   color: #65758e;
 }
 .latest-blog .item-inner .sub-title a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .latest-blog .item-inner .content-wrapper {
   padding: 30px;
@@ -839,7 +835,7 @@ body.no-header-wrapper {
 }
 .work-list .title {
   font-size: 28px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -876,7 +872,7 @@ body.no-header-wrapper {
   color: #65758e;
 }
 .work-list .item .sub-title a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .work-list .item .figure {
   position: relative;
@@ -916,7 +912,7 @@ body.no-header-wrapper {
   display: inline-block;
 }
 .work-list .item .figure .info-mask span.btn:hover {
-  background: #ec9c29;
+  background: #ae323b;
 }
 .work-list .item .figure:hover .info-mask {
   visibility: visible;
@@ -952,7 +948,7 @@ body.no-header-wrapper {
   color: #c6c6c6;
 }
 .breadcrumbs a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .breadcrumbs .breadcrumbs-list li {
   padding-right: 0;
@@ -965,7 +961,7 @@ body.no-header-wrapper {
   padding: 80px 0;
 }
 .case-study-article .project-title {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   margin-bottom: 30px;
   color: #505c70;
@@ -1137,7 +1133,7 @@ body.no-header-wrapper {
 }
 .services .title {
   font-size: 28px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -1200,7 +1196,7 @@ body.no-header-wrapper {
 }
 .team .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -1286,7 +1282,7 @@ body.no-header-wrapper {
 }
 .join-us .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -1316,7 +1312,7 @@ body.no-header-wrapper {
 }
 .photos .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -1379,7 +1375,7 @@ body.no-header-wrapper {
   color: #999;
 }
 .blog-list .item .meta .meta-list li a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-list .item .meta .meta-list .post-time {
   font-size: 16px;
@@ -1395,7 +1391,7 @@ body.no-header-wrapper {
   display: block;
 }
 .blog-list .item .meta .meta-list .post-time span.date {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   font-size: 26px;
 }
@@ -1512,13 +1508,13 @@ body.no-header-wrapper {
   color: #999;
 }
 .blog-post-wrapper .meta .post-author a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-post-wrapper .meta .post-comments-link a {
   color: #999;
 }
 .blog-post-wrapper .meta .post-comments-link a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-post-wrapper .meta .post-comments-link .fa {
   margin-right: 5px;
@@ -1536,7 +1532,7 @@ body.no-header-wrapper {
 }
 .blog-post-wrapper .comment-area .title {
   font-size: 22px;
-  font-family: "Open Sans", arial, sans-serif;
+  font-family: "Dosis", arial, sans-serif;
   font-weight: 700;
   margin-bottom: 30px;
 }
@@ -1570,7 +1566,7 @@ body.no-header-wrapper {
   color: #65758e;
 }
 .blog-post-wrapper .comment-area .comment-container .comment-item .comment-body .name a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-post-wrapper .comment-area .comment-container .comment-item .comment-body .time {
   color: #999;
@@ -1604,7 +1600,7 @@ body.no-header-wrapper {
   color: #65758e;
 }
 .blog-sidebar .widget a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-sidebar .widget .title {
   font-size: 20px;
@@ -1690,7 +1686,7 @@ body.no-header-wrapper {
 }
 .blog-entry .title {
   margin-bottom: 15px;
-  font-family: "Open Sans", arial, sans-serif;
+  font-family: "Dosis", arial, sans-serif;
   font-weight: 700;
 }
 .blog-entry .meta {
@@ -1708,7 +1704,7 @@ body.no-header-wrapper {
 }
 .blog-entry .custom-list-style li .fa {
   margin-right: 5px;
-  color: #71c4e0;
+  color: #1886C3;
 }
 .blog-entry p {
   margin-bottom: 30px;
@@ -1735,7 +1731,7 @@ body.no-header-wrapper {
   line-height: 1.6;
 }
 .custom-quote .fa {
-  color: #71c4e0;
+  color: #1886C3;
   margin-right: 10px;
 }
 .custom-quote .source {
@@ -1756,7 +1752,7 @@ body.no-header-wrapper {
 }
 .contact-section .title {
   font-size: 36px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   color: #505c70;
   margin-top: 0;
@@ -1776,7 +1772,7 @@ body.no-header-wrapper {
 .contact-section .contact-info li {
   margin-right: 60px;
   margin-bottom: 30px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
 }
 .contact-section .contact-info li a {
   color: #65758e;
@@ -1859,7 +1855,7 @@ body.no-header-wrapper {
 .section-404 .title-404 {
   font-size: 120px;
   font-weight: 800;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   color: #65758e;
 }
 .section-404 .intro {
@@ -1871,7 +1867,7 @@ body.no-header-wrapper {
   width: 760px;
 }
 .modal .modal-title {
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 800;
   font-size: 36px;
   color: #505c70;
@@ -1899,7 +1895,7 @@ body.no-header-wrapper {
 .modal.modal-contact .contact-info li {
   margin-right: 60px;
   margin-bottom: 30px;
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
 }
 .modal.modal-contact .contact-info li a {
   color: #65758e;
@@ -1971,11 +1967,11 @@ body.no-header-wrapper {
   color: rgba(255, 255, 255, 0.6);
 }
 .footer .footer-content a:hover {
-  color: #71c4e0;
+  color: #1886C3;
 }
 .footer .footer-content .sub-title {
   color: rgba(255, 255, 255, 0.9);
-  font-family: 'Open Sans', arial, sans-serif;
+  font-family: 'Dosis', arial, sans-serif;
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 30px;
@@ -2183,7 +2179,7 @@ body.no-header-wrapper {
   border: 2px solid rgba(0, 0, 0, 0.4);
 }
 .config-panel #color-options li.theme-1 a {
-  background: #71c4e0;
+  background: #1886C3;
 }
 .config-panel #color-options li.theme-2 a {
   background-color: #71e08b;
