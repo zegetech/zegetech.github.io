@@ -55,7 +55,7 @@ custom_scripts: |
 <section id="services" class="services section">
   <div class="container text-center">
     <h2 class="title">We build platforms</h2>
-    <p class="intro"><b>Idea . Concept . Design . Develop . Test . Pilot . Launch . Support . PROFIT!</b><br/>We develop products from idea to launch. We use an <a href="http://www.allaboutagile.com/what-is-agile-10-key-principles/">agile approach</a> in taking the idea through <a href="http://www.gv.com/sprint/">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.
+    <p class="intro"><b>Idea . Scope . Discovery . Design . Develop . Pilot . Launch . Grow . PROFIT!</b><br/>We develop products from idea to launch. We use an <a href="http://www.allaboutagile.com/what-is-agile-10-key-principles/">agile approach</a> in taking the idea through <a href="http://www.gv.com/sprint/">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.
       <h2 class="title">We <i class="icon_heart"></i> Agile</h2>
       <p class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
@@ -63,6 +63,7 @@ custom_scripts: |
       <img src="/assets/images/work/agileprocess.png" class="img-responsive" />
     </p>
     <p class="container text-center">
+    <a id="philosophy"> </a>
       <h2 class="title">Our Philosophy</h2>
     </p>
     <div class="service-items row">
