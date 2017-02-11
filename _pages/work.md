@@ -55,7 +55,7 @@ custom_scripts: |
 <section id="services" class="services section">
   <div class="container text-center">
     <h2 class="title">We build platforms</h2>
-    <p class="intro"><b>Idea . Scope . Discovery . Design . Develop . Pilot . Launch . Grow . PROFIT!</b><br/>We develop products from idea to launch. We use an <a href="http://www.allaboutagile.com/what-is-agile-10-key-principles/">agile approach</a> in taking the idea through <a href="http://www.gv.com/sprint/">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.
+    <p class="intro"><b>Idea . Scope . Discovery . Design . Develop . Pilot . Launch . Grow . PROFIT!</b><br/>We develop products from idea to launch. We use <a href="http://agilemanifesto.org/principles.html" target="_blank">agile principles</a> in taking the idea through <a href="http://www.gv.com/sprint/" target="_blank">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.
       <h2 class="title">We <i class="icon_heart"></i> Agile</h2>
       <p class="video-container">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
@@ -74,7 +74,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Our Process</h3>
-            <p><a href="">Agile methodology</a> ensures flexiblity and adaptability to project changes. We build with scalability and high performance in mind. Product quality is important, thus the need for quality-driven development and testing. </p>
+            <p><a href="http://agilemanifesto.org/principles.html" target="_blank">Agile principles</a> ensures flexiblity and adaptability to project changes. We build with scalability and high performance in mind. Product quality is important, thus the need for quality-driven development and testing. </p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
@@ -85,7 +85,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Quality</h3>
-            <p>We love a good night sleep. No code goes untested. Peer review ensures that code is satisfactory. We use <a href="">git-flow feature branch cycles</a> for code. Automated testing and continous delivery to keep things maintainable. </p>
+            <p>We love a good night sleep. No code goes untested. Peer review ensures that code is satisfactory. We use <a href="http://nvie.com/posts/a-successful-git-branching-model/" target="_blank">git-flow feature branch cycles</a> for code. Automated testing and continous delivery to keep things maintainable. </p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
@@ -96,7 +96,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Transparency</h3>
-            <p>We believe that transparency and communication are key to building good software. You get full access to our PM tool <a href="http://asana.com">Asana</a> and others like <a href="http://trello.com">Trello</a>. Get end-of-week reports and set priority for following week.</p>
+            <p>We believe that transparency and communication are key to building good software. You get full access to our PM tool <a href="https://asana.com" target="_blank">Asana</a> and others like <a href="https://trello.com" target="_blank">Trello</a>. Get end-of-week reports and set priority for following week.</p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
@@ -140,7 +140,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Technology</h3>
-            <p>We choose <a href="https://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails">Ruby on Rails</a> and <a href="http://blog.rangle.io/why-use-angular-2-on-a-new-application/">AngularJS 2</a>. We build USSD apps and APIs. We have vast experience integrating to external services like Mailchimp, Social platforms, Bank system and payment gateways</p>
+            <p>We choose <a href="https://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails" target="_blank">Ruby on Rails</a> and <a href="http://blog.rangle.io/why-use-angular-2-on-a-new-application/" target="_blank">AngularJS 2</a>. We build USSD apps and APIs. We have vast experience integrating to external services like Mailchimp, Social platforms, Bank system and payment gateways</p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->

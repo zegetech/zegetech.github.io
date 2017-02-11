@@ -10,8 +10,8 @@ slides:
 - cashbox2.jpg
 - cashbox3.jpg
 - cashbox4.jpg
-client: Kenya Markets Trust (KMT)
-partners: Farmshop, FSD
+client: <a href="http://kenyamarkets.org/" target="_blank">Kenya Markets Trust (KMT)</a>
+partners: <a href="http://farmshop.co.ke" target="_blank">Farmshop</a>, <a href="http://fsdkenya.org/" target="_blank">FSD Kenya</a>
 tasks: Android App Development, Training
 project_url: 
 challenge: Agriculture as a critical backbone of the economy needs proper supply and distribution systems to provide inputs to farmers. Doing this in an efficient way is a big challenge for agrodealers. There is no visibility into the outlets, nor is there proper customer engagement and tracking. 
