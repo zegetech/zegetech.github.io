@@ -13,7 +13,8 @@ promo_intro: We'd love to chat with you if you have a project idea or want to fi
 		<ul class="contact-info list-inline text-center">
 			<li class="tel"><a href="tel:+254705504211"><span class="fs1" aria-hidden="true" data-icon="&#x77;"></span><br/>  +254-705-504211 </a></li>
 			<li class="Skype"><a href="skype:zegetech"><span class="fs1" aria-hidden="true" data-icon="&#xe0a2;"></span><br/> zegetech </a></li>
-			<li class="tel"><a href="intent://send/+254705504211#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><span class="fs1 fa fa-whatsapp" aria-hidden="true"></span><br/> +254-705-504211 </a></li>
+			<li class="tel"><a href="whatsapp://send?phone=+254705504211&text=i would like to know more about how you can help me build my product"><span class="fs1 fa fa-whatsapp" aria-hidden="true"></span><br/> +254-705-504211 </a></li>
+			whatsapp://send?text=Hello World!&phone=+9198********1
 			<li class="email"><a href="mailto:innovate@zegetech.com"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br/> innovate@zegetech.com </a></li>
 		</ul>
 		<div class="text-center col-md-12 col-sm-12 col-xs-12 form-group">
