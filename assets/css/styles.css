@@ -225,14 +225,6 @@ body.no-header-wrapper {
   background-size: cover;
   min-height: 400px;
 }
-.header-wrapper-case-study {
-  background: #65758e url('../images/background/case-study-background-1.jpg') no-repeat 50% top;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  min-height: 400px;
-}
 .header-wrapper-about {
   background: #65758e url('../images/background/heading-background-2.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
