@@ -1,9 +1,9 @@
 ---
 layout: default
 title: About
-permalink: /about.html
-promo_title: About us
-promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising to the occasion. Every Zegetan must push their own limits in order to build a better world and RISE<br/> We <i class="icon_heart"></i> Fintech<br/> We <i class="icon_heart"></i> Africa
+permalink: /team.html
+promo_title: The Team
+promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Every Zegetan must push their own limits in order to build a better world and RISE<br/> We <i class="icon_heart"></i> Fintech<br/> We <i class="icon_heart"></i> Africa
 ---
 <!-- ******team Section****** -->
 <section id="team" class="team section">
@@ -48,7 +48,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 					<div class="social text-center">
 						<ul class="social-list list-inline">
 							<li><a href="https://ke.linkedin.com/in/stella-njoki-0b841a32"><i class="fa fa-linkedin"></i></a></li>
-							<li><a href="http://twitter.com/stelanjoki"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="http://twitter.com/stellanjoki"><i class="fa fa-twitter"></i></a></li>
 							<li><a href="http://pinterest.com/astellkinjo"><i class="fa fa-pinterest-p"></i></a></li>
 						</ul>
 					</div><!--//social-->
@@ -56,6 +56,7 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 			</div><!--//item-->
 		</div>
 		<h2 class=" text-center">Agile Teams</h2>
+		<p class="intro text-center">We work with full-term hires as well as associates in the various teams across different projects. We provide highly qualified expertise for each of our projects at every step of the development cycle, matching our talent to specific project needs. </p>
 		<div class="row">
 			<div class="item col-md-6 col-sm-6 col-xs-12">
 				<div class="item-inner">
@@ -137,14 +138,13 @@ promo_intro: Run . Inspire . Shatter . Everything . RISE . We believe in Rising 
 		<p class="intro text-center">Ideas are easy, execution is hard. We love what we do and are constantly looking for others like us who want to bring ideas to life with passion, resilience, creativity and innovation.</p>
 		<div class="row">
 			<div class="info col-md-7 col-sm-6 col-xs-12">
-				<p>Do you want to impact millions across Africa through technology? If so, then you are in good company. We work with full term hires as well as associates and freelancers in the various teams across different projects. We believe in always rising to the occasion and facing every challenge and opportunity headon </p>
-				<p>Run . Inspire . Shatter . Everything . <b>RISE</b> . We work with the best, top 2% talent in the region. We believe in the swahili proverb, <b>"Kizuri Chajiuza, Kibaya Chajitembeza"</b> - "A good thing sells itself, a bad thing is hawked"</p>
+				<p>Do you want to impact millions across Africa through technology? If so, then you are in good company. We work with the best, top 2% talent in the region and strongly believe in the swahili proverb, <b>"Kizuri Chajiuza, Kibaya Chajitembeza"</b> - "A good thing sells itself, a bad thing hawks itself"</p>
 				<p>If you would love to join our team and become a Zegetan, please email your CV and linkedin profile to <a href="mailto:talent@zegetech.com">talent@zegetech.com</a> or follow the link below.</p>
 				<a href="talent.html" class="btn btn-cta btn-cta-primary">Apply to join our team!</a>
 			</div>
 			<div class="partner col-md-4 col-sm-5 col-xs-12 col-md-push-1 col-sm-push-1 col-xs-push-0">
 				<h3 class="sub-title">Want to partner with us?</h3>
-				<p>We love to work with other teams, companies and agencies in our projects as we do from time to time. Collaboration and partnership is at the heart of our business. We understand that sometimes, help is required and a joint effort may lift a mighty load. So if you share our passion for excellence and love for Africa, then we'd love to sit down and chat.</p>
+				<p>We love working with other teams, companies and agencies. Collaboration and partnership is central to our business. We understand that sometimes, combining efforts may achieve better results. If you share our passion for excellence and love for Africa, then we'd love to sit down and chat.</p>
 				<a href="partner.html" class="btn btn-cta btn-cta-primary">Partner with us!</a>
 			</div><!--//partner-->
 		</div><!--//row-->

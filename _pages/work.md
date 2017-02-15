@@ -159,7 +159,7 @@ custom_scripts: |
     <h3>
       Need a successful project?
     </h3>
-    <a class="btn btn-cta btn-cta-primary" href="estimate.html">Get an Estimate</a>         
+    <a id="get-estimate-btn" class="btn btn-cta btn-cta-primary" href="estimate.html">Get an Estimate</a>         
   </div><!--//container-->
 </section> <!--//services -->
 

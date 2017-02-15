@@ -36,6 +36,25 @@ $(document).ready(function() {
              $('#header').removeClass('header-shrink');             
          }
     }); 
-    
+
+    // Animation js jQuery extension
+    $.fn.extend({
+        animateCss: function (animationName) {
+            var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            this.addClass('animated ' + animationName).one(animationEnd, function() {
+                $(this).removeClass('animated ' + animationName);
+            });
+        }
+    });
+
+    function loopwobble (elem,i,delay) { 
+        setTimeout(function () {  
+            $(elem).animateCss('wobble');
+            if (--i) loopwobble(elem,i,delay);
+        }, delay)
+    }
+
+    loopwobble('#get-estimate',10,15000);
+    loopwobble('#get-estimate-btn',10,20000);
 
 });

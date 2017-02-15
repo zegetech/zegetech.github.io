@@ -16,7 +16,7 @@ client: PezaZetu
 partners: <a href="http://busaracenter.org/" target="_blank">Busara Center</a>, <a href="http://fsdkenya.org/" target="_blank">FSD Kenya</a>, <a href="https://www.transunion.com/" target="_blank">TransUnion</a>, <a href="http://musonisystem.com/" target="_blank">Musoni Systems</a>, <a href="https://www.firstaccessmarket.com/" target="_blank">First Access</a>, <a href="http://cgap.org/" target="_blank">CGAP</a>, <a href="http://www.ciskenya.co.ke/" target="_blank">CIS Kenya</a>, <a href="http://www.research.ibm.com/labs/africa/" target="_blank">IBM Research</a>
 tasks: Web development, UI and UX Design, API development, USSD
 project_url: http://app.pesazetu.co
-challenge: The opportunity and finance gap in Africa needs bridging. Kenyans being entrepreneurial in nature, are diligent in building businesses that serve critical customer bases with essential services albeit mostly in the informal, undocumented sector. However, lack of financial access instigates challenges for entrepreneurs taking away their ability to ride on opportunities. 
+challenge: The opportunity and finance gap in Africa needs bridging. Kenyans being entrepreneurial in nature, are diligent in building businesses that serve critical customer bases with essential services albeit mostly in the informal, undocumented sector. However, lack of financial access instigates challenges for entrepreneurs taking away their ability to ride on opportunities.
 goals:
 - Build a peer to peer market connecting individual borrowers and lenders
 - Create a seamless customer journey through all channels with MPESA as the initial mode of payment

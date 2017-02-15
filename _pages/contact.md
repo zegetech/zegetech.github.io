@@ -3,21 +3,21 @@ layout: default
 title: Contact
 permalink: /contact.html
 promo_title: Contact us
-promo_intro: We'd love to chat with you if you have a project idea or want to find out more about our services. Coffee on us!
+promo_intro: We are excited to work on bold challenges because those are usually the ones that matter the most in changing lives and livelihoods
 ---
 <!-- ******Contact Section****** --> 
 <section class="contact-section section">
 	<div class="container">
-		<h2 class="title text-center">Start your project or startup today!</h2>
-		<p class="intro text-center">We are excited to work on bold challenges because those are usually the ones that matter the most in changing lives and livelihoods</p>
+		<h2 class="title text-center">Start your project today!</h2>
+		<p class="intro text-center">Let us help you with your project, whether it is building out the product that runs your startup, or automating some process in your business</p>
 		<ul class="contact-info list-inline text-center">
 			<li class="tel"><a href="tel:+254705504211"><span class="fs1" aria-hidden="true" data-icon="&#x77;"></span><br/>  +254-705-504211 </a></li>
 			<li class="Skype"><a href="skype:zegetech"><span class="fs1" aria-hidden="true" data-icon="&#xe0a2;"></span><br/> zegetech </a></li>
 			<li class="tel"><a href="whatsapp://send?phone=+254705504211&text=i would like to know more about how you can help me build my product"><span class="fs1 fa fa-whatsapp" aria-hidden="true"></span><br/> +254-705-504211 </a></li>
-			<li class="email"><a href="mailto:innovate@zegetech.com"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br/> innovate@zegetech.com </a></li>
+			<li class="email"><a href="mailto:hi@zegetech.com"><span class="fs1" aria-hidden="true" data-icon="&#xe010;"></span><br/> hi@zegetech.com </a></li>
 		</ul>
 		<div class="text-center col-md-12 col-sm-12 col-xs-12 form-group">
-			<a href="estimate.html" class="btn btn-lg  btn-cta btn-cta-primary">Estimate your project</a>
+			<a id="get-estimate-btn" href="estimate.html" class="btn btn-lg  btn-cta btn-cta-primary wiggle-anim">Estimate your project</a>
 		</div> 
 	</div><!--//container-->
 </section><!--//contact-section-->
