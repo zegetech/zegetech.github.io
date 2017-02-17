@@ -10,6 +10,13 @@ custom_scripts: |
   <script type="text/javascript" src="assets/plugins/isotope.pkgd.min.js"></script>    
   <script type="text/javascript" src="assets/js/isotope-custom.js"></script>
 ---
+<!-- ******Intro Section****** -->
+<section id="services" class="services section">
+  <div class="container text-center">
+  <h2 class="title">We build platforms</h2>
+      <p class="intro"><b>Idea . Scope . Discovery . Design . Develop . Pilot . Launch . Grow . PROFIT!</b><br/>We develop products from idea to launch. We use <a href="http://agilemanifesto.org/principles.html" target="_blank">agile principles</a> in taking the idea through <a href="http://www.gv.com/sprint/" target="_blank">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.</p>
+  </div>
+</section>
 <!-- ******Work list Section****** -->
 <section id="work-list" class="section work-list">
   <div class="container text-center">
@@ -23,7 +30,7 @@ custom_scripts: |
       <button class="btn button last" data-filter=".payments">Payments</button>
     </div><!--//filters-->
     <div class="items-wrapper isotope row">
-    {% for project in site.projects limit:6 %}
+      {% for project in site.projects limit:6 %}
       {% capture tags_classes %}{% for tag in project.tags %} {{tag | downcase}} {% endfor %}{% endcapture %}
       <div class="item {{ tags_classes }} col-lg-4 col-md-4 col-sm-6 col-sm-12 ">
         <div class="item-inner">
@@ -46,7 +53,7 @@ custom_scripts: |
         <a href="{{ album.url }}">{{ album.title }}</a>
         <p>{{ album.short-description }}</p>
       </li> -->
-    {% endfor %}
+      {% endfor %}
     </div><!--//items-wrapper-->
   </div><!--//container-fluid-->
 </section><!--//work-list"-->
@@ -54,16 +61,8 @@ custom_scripts: |
 <!-- ******Services Section****** -->
 <section id="services" class="services section">
   <div class="container text-center">
-    <h2 class="title">We build platforms</h2>
-    <p class="intro"><b>Idea . Scope . Discovery . Design . Develop . Pilot . Launch . Grow . PROFIT!</b><br/>We develop products from idea to launch. We use <a href="http://agilemanifesto.org/principles.html" target="_blank">agile principles</a> in taking the idea through <a href="http://www.gv.com/sprint/" target="_blank">sprints</a>, building prototypes and running proof-of-concepts, deploying to staging environments for piloting within record time and thereafter go on to launch. We then provide support, training and consultancy to the technology and business teams. We help you innovate by working with you to build bold innovative products that can plug into your business to harness new opportunities and expand your horizons.
-      <h2 class="title">We <i class="icon_heart"></i> Agile</h2>
-      <p class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
-      </p>
-      <img src="/assets/images/work/agileprocess.png" class="img-responsive" />
-    </p>
     <p class="container text-center">
-    <a id="philosophy"> </a>
+      <a id="philosophy"> </a>
       <h2 class="title">Our Philosophy</h2>
     </p>
     <div class="service-items row">
@@ -156,6 +155,11 @@ custom_scripts: |
         </div><!--//item-inner-->
       </div><!--//item-->
     </div><!--//row--> 
+    <h2 class="title">We <i class="icon_heart"></i> Agile</h2>
+    <p class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
+    </p>
+    <img src="/assets/images/work/agileprocess.png" class="img-responsive" />
     <h3>
       Need a successful project?
     </h3>
