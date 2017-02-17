@@ -2,6 +2,7 @@
 layout: default
 title: Contact
 permalink: /contact.html
+priority: 0.80
 promo_title: Contact us
 promo_intro: We are excited to work on bold challenges because those are usually the ones that matter the most in changing lives and livelihoods
 ---

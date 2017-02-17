@@ -2,6 +2,7 @@
 layout: default
 title: Work
 permalink: /work.html
+priority: 0.80
 promo_title: Our Work
 promo_intro: Our approach involves working with you to understand the vision for your ideas in order to build well-placed and thought out products through a well-defined process from idea to launch
 custom_scripts: |
@@ -133,7 +134,7 @@ custom_scripts: |
         </div><!--//item-inner-->
       </div><!--//item-->
       <div class="item col-lg-3 col-md-6 col-sm-6 col-xs-12">
-        <div class="item-inner">
+        <div class="item-inner"> 
           <div class="header-box">
             <i class="fs1 icon_tools" aria-hidden="true"></i>
           </div><!--//header-->

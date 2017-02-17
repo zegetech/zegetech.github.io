@@ -5,4 +5,5 @@
 layout: home
 title: Home
 permalink: /
+priority: 1.00
 ---

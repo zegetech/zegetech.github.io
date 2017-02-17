@@ -2,6 +2,7 @@
 layout: default
 title: About
 permalink: /team.html
+priority: 0.80
 promo_title: The Team
 promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Every Zegetan must push their own limits in order to build a better world and RISE<br/> We <i class="icon_heart"></i> Fintech<br/> We <i class="icon_heart"></i> Africa
 ---
