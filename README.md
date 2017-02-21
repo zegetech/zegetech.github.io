@@ -12,6 +12,7 @@ Zegetech Website | http://zegetech.github.io | http://zegetech.com
 2. Google Webmaster tools
 3. Google Analytics
 4. Facebook Pixel
+5. Twitter Metadata
 
 ## Interaction
 1. Drift
