@@ -16,4 +16,4 @@ Zegetech Website | http://zegetech.github.io | http://zegetech.com
 ## Interaction
 1. Drift
 2. Typeform
-3. Little Javascript spice
+3. Little Javascript and CSS magic
