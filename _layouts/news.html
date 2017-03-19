@@ -137,7 +137,7 @@ custom_scripts: |
                 <section class="widget recent-posts">
                     <h3 class="title">Recent Articles</h3>
                     <ul class="list-unstyled">
-                    {% for post in site.posts |  sample: 5 %}
+                    {% for post in site.posts limit:5 %}
                         <li>
                             <img class="thumb img-responsive" src="/assets/images/blog/{{post.blog-image}}" alt="" />
                             <span class="post-info">
