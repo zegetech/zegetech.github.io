@@ -6,7 +6,7 @@ categories: developer
 permalink: news/:year/:month/:day/:title.html
 author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
-intro: We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the “[What’s your stack](https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform)” study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
+intro: We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the “<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform">What’s your stack</a>” study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
 ---
 {:.post-figure}
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
