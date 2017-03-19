@@ -29,12 +29,18 @@ markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
+  - octopress-paginate
+  # - jekyll-paginate
+# paginate: 5
+# paginate_path: "/news/page:num/"
 exclude:
   - Gemfile
   - Gemfile.lock
 include: ['_pages']
 collections:
   projects:
+    output: true
+  news:
     output: true
   # - clients
 sitemap:

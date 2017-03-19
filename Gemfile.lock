@@ -38,7 +38,6 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-feed (0.8.0)
       jekyll (~> 3.3)
-    jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.5.0)
       sass (~> 3.4)
     jekyll-watch (1.5.0)
@@ -55,6 +54,10 @@ GEM
     minitest (5.10.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
+    octopress-hooks (2.6.2)
+      jekyll (>= 2.0)
+    octopress-paginate (1.2.0)
+      octopress-hooks
     parallel (1.10.0)
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
@@ -79,8 +82,8 @@ DEPENDENCIES
   html-proofer
   jekyll (= 3.3.1)
   jekyll-feed (~> 0.6)
-  jekyll-paginate
   minima (~> 2.0)
+  octopress-paginate
 
 RUBY VERSION
    ruby 2.3.1p112
