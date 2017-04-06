@@ -34,7 +34,7 @@ It emerged from the developer distribution that backend skills featured 3 times 
 ![image-title-here](/assets/images/blog/stack-off/chart-2.png){:class="img-responsive center"}
 Male developers were dominant at 74% with female developers accounting for 19%. Female developers were 90% more likely to be Frontend developers, while male developers were pretty much evenly distributed across frontend, backend, mobile and data.
 
-The most popular tools, libraries and frameworks for frontend developers were Bootstrap, Jquery and Angularjs. It was noted that a large number of developers have not explored the SPA (single page applications) trend in creating web 2.0 interactive applications
+The most popular tools, libraries and frameworks for frontend developers were Bootstrap, Jquery and Angular. It was noted that a large number of developers have not explored the SPA (single page applications) trend in creating web 2.0 interactive applications
 ![image-title-here](/assets/images/blog/stack-off/chart-3.png){:class="img-responsive center"}
 
 The most popular tools for backend developers were MySQL, PostgreSQL, MongoDB, PHP and Laravel. The race was close however with other tools featuring prominently such as Redis, Python, Ruby, Java, Django and Ruby on Rails.
