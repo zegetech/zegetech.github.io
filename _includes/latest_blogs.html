@@ -3,7 +3,7 @@
   <div class="container">
     <h2 class="title text-center">In The News</h2>
     <div class="row">
-    <!-- counts the number of published posts to determine layout -->
+      <!-- counts the number of published posts to determine layout -->
       {% assign counter = 0 %}
       {% for post in site.posts %}
       {% unless item.published == false %}
@@ -18,15 +18,18 @@
           <figure class="figure">
             <a href="{{post.url}}"><img class="img-responsive" src="{{post.path-to-image}}" alt="" /></a>
           </figure>
-        </div><!--//item-inner-->
+        </div>
+        <!--//item-inner-->
       </div>
       <div class="itm col-md-6 col-sm-6 col-xs-12">
         <div class="content-wrapper text-center">
-            <h3 class="sub-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h3>
-            <div class="desc">
-              <p>{{post.content}}</p>
-            </div><!--//desc-->
-        </div><!--//content-wrapper text-center-->
+          <h3 class="sub-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h3>
+          <div class="desc">
+            <p>{{post.content}}</p>
+          </div>
+          <!--//desc-->
+        </div>
+        <!--//content-wrapper text-center-->
       </div>
       <!--//item-->
       {% endfor %}
@@ -44,13 +47,19 @@
             <h3 class="sub-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h3>
             <div class="desc">
               <p>{{post.content}}</p>
-            </div><!--//desc-->
+            </div>
+            <!--//desc-->
           </div>
           <!--//content-wrapper text-center-->
-        </div><!--//item-inner-->
-      </div><!--//item-->
+        </div>
+        <!--//item-inner-->
+      </div>
+      <!--//item-->
       {% endfor %}
-    {% endif %}
-    </div><!--//row-->
-  </div><!--//container-->
-</section><!--//latest-blog-->
+      {% endif %}
+    </div>
+    <!--//row-->
+  </div>
+  <!--//container-->
+</section>
+<!--//latest-blog-->

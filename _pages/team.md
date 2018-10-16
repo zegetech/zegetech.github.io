@@ -67,7 +67,7 @@ promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Eve
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Projects</h3>
-							<h4 class="role">Workflow . Reporting . Evaluation</h4>
+							<h4 class="role">Management . Reporting . Evaluation</h4>
 							<p>Our project managers ensure communication and engagement with all stakeholders is timely and efficient. They drive the success of every project they oversee to deliver on time and in budget </p>
 						</div><!--//info-->
 					</div><!--//row-->
@@ -81,7 +81,7 @@ promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Eve
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Products</h3>
-							<h4 class="role">Design . Modelling . Marketing . QA</h4>
+							<h4 class="role">UX . Modelling . Content . QA</h4>
 							<p>We work within the market to find new solutions, understand business models and interact with users to ensure our products solves the challenges set out, finding a market fit</p>
 						</div><!--//info-->
 					</div><!--//row-->
@@ -95,7 +95,7 @@ promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Eve
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Design</h3>
-							<h4 class="role">UI . UX . Frontend</h4>
+							<h4 class="role">UI . Frontend . Graphics . Brand</h4>
 							<p>Implementing a customer journey is a critical role within the product development cycle. We love to WOW! Through wireframing, mockups and design, we make products that are simple and intuitive</p>
 						</div><!--//info-->
 					</div><!--//row-->
@@ -123,7 +123,7 @@ promo_intro: Run . Inspire . Shatter . Everything . We RISE to the occasion. Eve
 						</figure>
 						<div class="info col-md-7 col-sm-12 col-xs-12">
 							<h3 class="name">Outreach</h3>
-							<h4 class="role">Research . Support . Sales . Training</h4>
+							<h4 class="role">Sales . Marketing . Support . Training</h4>
 							<p>Customer Development is everything. We provide hands on support throughout the project catering to each stakeholders. We give support to strengthen their use and optimisation of our products in their lives. </p>
 						</div><!--//info-->
 					</div><!--//row-->

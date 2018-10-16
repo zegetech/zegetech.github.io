@@ -140,7 +140,7 @@ custom_scripts: |
           </div><!--//header-->
           <div class="desc">
             <h3 class="sub-title">Technology</h3>
-            <p>We choose <a href="https://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails" target="_blank">Ruby on Rails</a> and <a href="http://blog.rangle.io/why-use-angular-2-on-a-new-application/" target="_blank">AngularJS 2</a>. We build USSD apps and APIs. We have vast experience integrating to external services like Mailchimp, Social platforms, Bank system and payment gateways</p>
+            <p>We choose <a href="https://www.toptal.com/ruby-on-rails/after-two-decades-of-programming-i-use-rails" target="_blank">Ruby on Rails</a> and <a href="http://blog.rangle.io/why-use-angular-2-on-a-new-application/" target="_blank">Angular</a>. We build USSD apps and APIs. We have vast experience integrating to external services like Mailchimp, Social platforms, Bank system and payment gateways</p>
           </div>
         </div><!--//item-inner-->
       </div><!--//item-->
