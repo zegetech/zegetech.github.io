@@ -70,6 +70,10 @@ a.btn-cta-secondary:hover,
   border: none;
   color: #fff;
 }
+.center{
+  margin: 0 auto;
+  text-align: center;
+}
 .highlight {
   color: #1886C3;
 }
@@ -243,6 +247,14 @@ body.no-header-wrapper {
 }
 .header-wrapper-contact {
   background: #65758e url('../images/background/heading-background-4.jpg') no-repeat 50% top;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 400px;
+}
+.header-wrapper-news {
+  background: #65758e url('../images/background/heading-background-5.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
