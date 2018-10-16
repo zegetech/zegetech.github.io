@@ -2048,6 +2048,11 @@ body.no-header-wrapper {
 .footer .social-icons li {
   margin-bottom: 15px;
 }
+.footer img{
+  display: block;
+  max-width: 12%;
+  height: auto;
+}
 .social-icons {
   list-style: none;
   padding: 10px 0;
