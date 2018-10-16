@@ -1,12 +1,13 @@
 ---
 layout: news
+excerpt: We asked developers which area of development they are most comfortable with, which languages they use on a daily basis, what tools they use in building their application
 title:  "Kenya Stack Off developer survey results"
 date:   2017-03-10 16:16:01 -0600
 categories: developer
 permalink: news/:year/:month/:day/:title.html
 author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
-# path-to-image: assets/images/blog/stack-off/stack-off.jpg
+path-to-image: assets/images/blog/stack-off/stack-off.jpg
 intro: We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the “<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform">What’s your stack</a>” study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
 ---
 {:.post-figure}

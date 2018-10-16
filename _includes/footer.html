@@ -24,10 +24,10 @@
             {% for post in site.posts limit:2 %}
             <div class="item">
               <figure class="figure">
-                <img class="img-responsive" src="{{post.blog-image}}" alt="" />
+                <img class="img-responsive" src="{{post.path-to-image }}" alt="" />
               </figure>
               <div class="content">
-                <h4 class="post-title"><a href="{{post.external_url}}" target="_blank">{{post.title}}</a></h4>
+                <h4 class="post-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h4>
                 <p class="intro">{{ post.excerpt }}</p>
                 <ul class="meta list-inline">
                   <!-- <li>{{post.Month}}{{post.year}}</li> -->
