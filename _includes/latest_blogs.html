@@ -3,16 +3,6 @@
   <div class="container">
     <h2 class="title text-center">In The News</h2>
     <div class="row">
-      <!-- counts the number of published posts to determine layout -->
-      {% assign counter = 0 %}
-      {% for post in site.posts %}
-      {% unless item.published == false %}
-      {% assign counter=counter | plus:1 %}
-      {% endunless %}
-      {% endfor %}
-      <!-- If only one post exists display post and content side by side -->
-      {% if counter == 1%}
-      {% for post in site.posts%}
       <div class="item col-md-6 col-sm-6 col-xs-12">
         <div class="item-inner">
           <figure class="figure">
