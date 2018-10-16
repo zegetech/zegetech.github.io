@@ -21,32 +21,21 @@
         <div class="footer-col col-md-6 col-sm-8 blog-col">
           <div class="footer-col-inner">
             <h3 class="sub-title">In The News</h3>
+            {% for post in site.posts limit:2 %}
             <div class="item">
               <figure class="figure">
-                <img class="img-responsive" src="/assets/images/blog/kariuki-tiny-thumb.jpg" alt="" />
+                <img class="img-responsive" src="{{post.path-to-image}}" alt="" />
               </figure>
               <div class="content">
-                <h4 class="post-title"><a href="https://thefounder.co.ke/kariuki-gathitu-founder-m-payer/" target="_blank">Kariuki on The Founder</a></h4>
-                <p class="intro">Kariuki Gathitu is the founder and lead system architect and software developer at Zege Tech...</p>
+                <h4 class="post-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h4>
+                <p class="intro">{{ post.excerpt }}</p>
                 <ul class="meta list-inline">
-                  <li>June 2016</li>
-                  <li>The Founder</li>
+                  <li>{{post.Month}}{{post.year}}</li>
+                  <li>{{post.title}}</li>
                 </ul>
-              </div><!--//content-->
+              </div>
             </div>  
-            <div class="item">
-              <figure class="figure">
-                <img class="img-responsive" src="/assets/images/blog/mikemacharia-tiny-thumb.jpg" alt="" />
-              </figure>
-              <div class="content">
-                <h4 class="post-title"><a href="http://www.mediamaxnetwork.co.ke/features/215814/10-techies-behind-kenyas-digital-explosion/" target="_blank">10 techies behind Kenya’s digital explosion</a></h4>
-                <p class="intro">Innovation and development in Kenya is bustling. But who is actually driving this innovation and what are their stories...</p>
-                <ul class="meta list-inline">
-                  <li>April 2016</li>
-                  <li>Mediamax</li>
-                </ul>
-              </div><!--//content-->
-            </div>                                                     
+            {% endfor %}                                                   
           </div><!--//footer-col-inner-->
         </div><!--//foooter-col--> 
         <div class="footer-col col-md-3 col-sm-12 contact-col">

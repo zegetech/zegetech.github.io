@@ -3,32 +3,54 @@
   <div class="container">
     <h2 class="title text-center">In The News</h2>
     <div class="row">
+    <!-- counts the number of published posts to determine layout -->
+      {% assign counter = 0 %}
+      {% for post in site.posts %}
+      {% unless item.published == false %}
+      {% assign counter=counter | plus:1 %}
+      {% endunless %}
+      {% endfor %}
+      <!-- If only one post exists display post and content side by side -->
+      {% if counter == 1%}
+      {% for post in site.posts%}
       <div class="item col-md-6 col-sm-6 col-xs-12">
         <div class="item-inner">
           <figure class="figure">
-            <a href="https://thefounder.co.ke/kariuki-gathitu-founder-m-payer/"><img class="img-responsive" src="/assets/images/blog/kariuki-thumb.jpg" alt="" /></a>
+            <a href="{{post.url}}"><img class="img-responsive" src="{{post.path-to-image}}" alt="" /></a>
           </figure>
-          <div class="content-wrapper text-center">
-            <h3 class="sub-title"><a href="https://thefounder.co.ke/kariuki-gathitu-founder-m-payer/" target="_blank">Kariuki on The Founder</a></h3>
-            <div class="desc">
-              <p>Kariuki Gathitu is the founder and lead system architect and software developer at Zege Technologies, an IT company that primarily builds software for mobile payments. He developed M-PAYER, a mobile payment management system that has been widely recognised locally and globally, and was also largely involved in the development of M-KESHO in 2010.</p>
-            </div><!--//desc-->
-          </div><!--//content-wrapper text-center-->
         </div><!--//item-inner-->
-      </div><!--//item-->
+      </div>
+      <div class="itm col-md-6 col-sm-6 col-xs-12">
+        <div class="content-wrapper text-center">
+            <h3 class="sub-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h3>
+            <div class="desc">
+              <p>{{post.content}}</p>
+            </div><!--//desc-->
+        </div><!--//content-wrapper text-center-->
+      </div>
+      <!--//item-->
+      {% endfor %}
+      {% else %}
+      <!-- end single post display -->
+
+      <!-- display for multiple posts -->
+      {% for post in site.posts limit:2%}
       <div class="item col-md-6 col-sm-6 col-xs-12">
         <div class="item-inner">
           <figure class="figure">
-            <a href="http://www.mediamaxnetwork.co.ke/features/215814/10-techies-behind-kenyas-digital-explosion/"><img class="img-responsive" src="/assets/images/blog/mikemacharia-thumb.jpg" alt="" /></a>
+            <a href="{{post.url}}"><img class="img-responsive" src="{{post.path-to-image}}" alt="" /></a>
           </figure>
           <div class="content-wrapper text-center">
-            <h3 class="sub-title"><a href="http://www.mediamaxnetwork.co.ke/features/215814/10-techies-behind-kenyas-digital-explosion/" target="_blank">10 techies behind Kenya’s digital explosion</a></h3>
+            <h3 class="sub-title"><a href="{{post.url}}" target="_blank">{{post.title}}</a></h3>
             <div class="desc">
-              <p>Innovation and development in Kenya is bustling. But who is actually driving this innovation and what are their stories. Discover 10 Top tech executives changing the Kenyan technology landscape through their organisations.</p>
+              <p>{{post.content}}</p>
             </div><!--//desc-->
-          </div><!--//content-wrapper text-center-->
+          </div>
+          <!--//content-wrapper text-center-->
         </div><!--//item-inner-->
       </div><!--//item-->
+      {% endfor %}
+    {% endif %}
     </div><!--//row-->
   </div><!--//container-->
 </section><!--//latest-blog-->
