@@ -1,6 +1,8 @@
 [![Build Status](https://travis-ci.org/zegetech/zegetech.github.io.svg?branch=master)](https://travis-ci.org/zegetech/zegetech.github.io)
 # zegetech.github.io
-Zegetech Website | http://zegetech.github.io | http://zegetech.com 
+Zegetech Website 
+http://zegetech.github.io - `develop` Branch
+http://zegetech.com - `master` Branch
 
 ## Stack
 1. Jekyll
