@@ -6,9 +6,9 @@ categories: developer
 permalink: news/:year/:month/:day/:title.html
 author: Melvin Atieno
 blog-image: ssg/old-gold.png
-intro: Think back to your first website. I want to assume you started off, like most developers by creating a series of html files. Each called  in assets such as images, CSS and perhaps a sprinkle of JavaScript. View the files on your browser and that was it!!. No web server required. Life was simple!!!That's how it all began.
+intro: Think back to your first website. I want to assume you started off, like most developers by creating a series of HTML files. Each called  in assets such as images, CSS and perhaps a sprinkle of JavaScript. View the files on your browser and that was it!!. No web server required. Life was simple!!!That's how it all began.
 ---
-{:.post-figure}
+
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
 
@@ -59,11 +59,11 @@ Static site generators essentially abandon updating websites through a back-end 
 <h2> The good</h2>
 
 **1) Speed :**
-Perhaps the most immediately noticeable characteristic of a static site is how fast it is. As mentioned above, there are no database queries to run, no templating and no processing whatsoever on every request.
+Perhaps the most immediately noticeable characteristic of a static site is how fast it is. As mentioned above, there are no database queries to run, no templating and no processing on every request.
 Web servers are really good at delivering static pages quickly, and the entire site consists of static HTML files that are sitting on the server, waiting to be served, so a request is served back to the user pretty much instantly.
 
 **2)security :**
-Platforms like WordPress are used by millions of people around the world, meaning they're common targets for hackers and malicious attacks — no way around it. Wherever there's user input/authentication or multiple processes running code on every request, there's a potential security hole to exploit. To be on top of the situation, site administrators need to keep patching their systems with security updates, constantly playing cat and mouse with attackers, a routine that may be overlooked by less experienced users.
+Platforms like WordPress are used by millions of people around the world, meaning they're common targets for hackers and malicious attacks. Wherever there's user input/authentication or multiple processes running code on every request, chances are there's a security hole to exploit. For management, site administrators need to keep patching their systems with security updates.
 Static sites keep it simple, since there's not much to mess up when there's only a web server serving plain HTML pages.
 
 **3) Traffic surges :**
@@ -150,7 +150,7 @@ Run the following commands on your terminal
 
 **=> Now browse to http://localhost:4000**
 
-Go to [cloudcannon](https://learn.cloudcannon.com/jekyll/running-jekyll/)
+
 
 
 
