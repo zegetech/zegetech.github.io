@@ -1,6 +1,6 @@
 ---
 layout: news
-title:  Static Site Generators. The why and the how.
+title:  Static Site are back
 date:   2017-03-10 16:16:01 -0600
 categories: developer
 permalink: news/:year/:month/:day/:title.html
