@@ -1,6 +1,6 @@
 ---
 layout: news
-title:  Static Site are back
+title:  Static Sites are back
 date:   2017-03-10 16:16:01 -0600
 categories: developer
 permalink: news/:year/:month/:day/:title.html
@@ -12,7 +12,7 @@ intro: Think back to your first website. I want to assume you started off, like 
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
 
-<h1>BRIEF HISTORY</h1>
+# BRIEF HISTORY 
 
 
 {{page.intro}}
@@ -41,7 +41,7 @@ Content Management Systems store page content in a database and provide faciliti
 3. There are additional points of failure. A software upgrade or database failure can bring your site down.
 
 
-<h1>Static sites came back...with a twist</h1>
+# Static sites came back...with a twist!
 
 
 **Oh Hail Static Site generators!!!**
@@ -56,7 +56,7 @@ This contrasts CMS-based sites, which look for updates and build pages when a vi
 Static site generators essentially abandon updating websites through a back-end system and do not require server processing to generate pages. Instead, generators create and update pages through an editor and save the updated versions to the hosting platform.
 
 
-<h2> The good</h2>
+## The good
 
 **1) Speed :**
 Perhaps the most immediately noticeable characteristic of a static site is how fast it is. As mentioned above, there are no database queries to run, no templating and no processing on every request.
@@ -76,7 +76,7 @@ Using a CMS is not necessarily easy, and it offers considerable power to content
 A static site can use Markdown files. That limits the user’s options; they make fewer mistakes and cannot adversely affect the pages. Some will miss the CMS content administration panels, but you can either:
 
 
-<h2>The better</h2>
+## The better
 
 The continued success of Static site generators  can be attributed to the ability to seperate  the build phase of the site from the actual hosting of it.
 An architectural approach called the JAMstack.
