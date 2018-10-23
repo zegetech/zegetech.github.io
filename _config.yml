@@ -27,7 +27,7 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
   - octopress-paginate
   # - jekyll-paginate
@@ -36,6 +36,8 @@ gems:
 exclude:
   - Gemfile
   - Gemfile.lock
+  - vendor
+  - docker-compose.yml
 include: ['_pages']
 collections:
   projects:

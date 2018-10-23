@@ -150,7 +150,7 @@ Run the following commands on your terminal
     bundle exec jekyll serve 
     ```
 
-**=> Now browse to http://localhost:4000**
+Now browse to [http://localhost:4000](http://localhost:4000)
 
 
 {:class="text-primary"}
@@ -199,7 +199,6 @@ Great now run Jekyll
 
 ```
 bundle exec jekyll serve
-
 ```
 
 **Resources:**
