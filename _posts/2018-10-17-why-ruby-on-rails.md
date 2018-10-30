@@ -1,6 +1,7 @@
 ---
 layout: news
 title: "Why Ruby on Rails?"
+date:   2018-10-17 16:16:01 -0600
 categories: developer
 author: Ngari Ndung'u
 blog-image: ror/rails-blog.jpg
@@ -12,26 +13,24 @@ intro: Ruby on Rails, abbreviated RoR or just Rails is a web application framewo
 ![Photo of a railroad with pink vegetation](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 <span style="font-size:12px; margin:auto; display:block; text-align:center;">Photo by Esteban Trivelli on Unsplash</span>
 
-## What is Rails?
-
 {{ page.intro }}
 
 As the name implies, rails is built on top of ruby. [Ruby](https://www.ruby-lang.org/en/) is a dynamic programming language built for simplicity and speed.
 Ruby borrows concepts from other programming languages such as perl and lisp and has a simple easy to read syntax.
 Here's the iconic hello world program:
-
-    puts "Hello world!"
-
+```ruby
+puts "Hello world!"
+```
 Feel like seeing your name several times?
-
-    name = "awesome name here"
-    5.times { puts name }
-
+```ruby
+name = "awesome name here"
+5.times { puts name }
+```
 It can't get any easier can it? See more examples [here](https://www.ruby-lang.org/en/about/)
 
 ### Rails and competitors
 
-Applications built with rails follow the MVC(Model-View-Controller) architectural pattern.
+Applications built with rails follow the MVC (Model-View-Controller) architectural pattern.
 Similar frameworks include [django](https://www.djangoproject.com/)
 , built on python and [Laravel](https://laravel.com/)
 , built on PHP. 
@@ -93,10 +92,10 @@ You can also find the official documentation at [ruby-doc](https://ruby-doc.org/
 
 ### Installation
 
-If you're working on a linux based system, ruby will be available from the repositories. On debian/ubuntu based systems:
-   
-    sudo apt-get install ruby
-
+Ruby works best with unix based operating systems such as MacOs and Linux. Windows doesn't play too well and you'll end up hacking your system considerably to make it work. On a linux based system, ruby will be available from the package repositories. On debian/ubuntu based systems run
+```bash
+sudo apt-get install ruby
+```
 This will install ruby system-wide for all users. There are a few issues with installing ruby this way. 
 First if on an older distribution, the installed ruby packages may be outdated.
 Second, what happens if you want to work on a project that relies on a lower ruby version?
@@ -106,19 +105,19 @@ A ruby version manager helps smooth out these bumps. Popular options include [rb
 RVM is installed on a per-user basis and installs the different ruby versions in a folder in the user's home directory.
 Follow instructions on the [install page](https://rvm.io/rvm/install) to get rvm.
 Once installed you simply choose which ruby version to develop on:
-
-    rvm list known # show available rubies
-    rvm install 2.5.1
-    rvm use 2.5.1 --default # use ruby-2.5.1 and set it as default
-    ruby -v # make sure that you have ruby installed
-
+```bash
+rvm list known # show available rubies
+rvm install 2.5.1
+rvm use 2.5.1 --default # use ruby-2.5.1 and set it as default
+ruby -v # make sure that you have ruby installed
+```
 With ruby installed we're ready to install rails:
-
-    gem -v # ensure that you have rubygems installed
-    gem install bundler # dependency management package
-    gem install rails # fetch the latest rails packages
-    rails -v # show installed rails version
-
+```bash
+gem -v # ensure that you have rubygems installed
+gem install bundler # dependency management package
+gem install rails # fetch the latest rails packages
+rails -v # show installed rails version
+```
 > Always ensure that the rvm PATH entry is the last line in your .bashrc
 
 ### Getting Started
