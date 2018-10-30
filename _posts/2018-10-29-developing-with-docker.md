@@ -62,13 +62,142 @@ You can check out the [post-installation docs](https://docs.docker.com/install/l
 ## The Dockerfile
 
 Finally time to get our site on docker. The dockerfile is where we will define the environment that we need to run our site.
-The 'docker build' command builds an image from the dockerfile and a context, which can be a directory or a repository.
+The 'docker build' command builds an image from the dockerfile and a context, which can be a directory or a git repository.
 Let's take a look at the file we'll be using:
 
-    
+        
+    # zegetech website docker file
+    # build off of alpine
+    FROM alpine:3.8
+    # update packages
+    RUN apk update
+    # install ruby
+    RUN apk add ruby=2.5.2-r0 git ruby-dev build-base zlib-dev ruby-json
+    # install bundler
+    RUN gem install bundler -N
+    # fetch repo
+    COPY . /blog
+    # set mount point
+    VOLUME /blog
+    # switch to repo directory
+    WORKDIR blog
+    # install dependencies
+    RUN bundle install
+    # exposed port
+    EXPOSE 4000
+    # run server
+    ENTRYPOINT ["bundle", "exec","jekyll","serve"]
+    CMD ["-H", "0.0.0.0"]
+
+This file shows the basic structure of a dockerfile. Every line in the dockerfile is an instruction of the form INSTRUCTION arguments.
+The instruction is case insensitive, but is capitalized by convention.
+Comments begin with a # and should also appear on their own line.
+Here's a rundown of the instructions we're using in our dockerfile:
+
+FROM
+: defines the base image to build off of. Required and should come before other instructions. Only ARG is allowed to come before.
+
+RUN
+: run a command inside the container. The command is the same as what you'd run in your terminal. There's no limit to how many RUN instructions you can have.
+
+COPY
+: copy the specified directory on the host to a location in the container.
+
+VOLUME
+: set a location for the container to persist data
+
+WORKDIR
+: sets the directory that all commands coming after will be run in
+
+EXPOSE
+: tells the docker daemon what ports our application will be running on
+
+ENTRYPOINT
+: provides the default command that will be run when the container is instantiated
+
+CMD
+: the command to run when the container is instantiated. When used in conjuction with ENTRYPOINT, it is used to provide additional parameters to the ENTRYPOINT command.
+
+There are more instructions that are not used here. The full set is on the [dockerfile reference](https://docs.docker.com/engine/reference/builder/) page.
 
 ## First run
 
+Before we can run the container, we have to build our image first.
+
+    docker build -t name:tag . # the dot specifies the current directory as the build context
+
+This command will run through the dockerfile executing instructions sequentially.
+It will look for the image specified in the FROM instruction locally and download it if its missing.
+Docker will then run the next instruction and output an intermediate image. This process is repeated until we have our final image.
+
+Now to run our image:
+
+    docker run -p 127.0.0.1:80:4000 --mount type=bind,src="$(pwd)",target=/site <image-name:image-tag>
+
+The '-p' flag publishes a container's ports to the host. In this case, we are mapping port 4000 on the container to port 80 on the host.
+Our application can then be reached by visiting 'localhost' in the browser.
+
+The '--mount' flag specifies the type of storage that will be provided to the container.
+The possible values for type are 'bind', 'volume' and 'tmpfs'. In this case, we are using a bind mount, that will mount a directory on the host("$(pwd)" which resolves to the current directory) into the container at location /site.
+With this type of storage, whatever happens in the container's /site directory is reflected in our working directory.
+[Documentation on volumes](https://docs.docker.com/storage/volumes/).
+
+You can get quick documentation on docker commands by running 'docker <command> --help'.
+
+Now, each time you want to start your development server all you have to do is run this long command(it can be longer).
+But for the sake of saving limited mental resources, we have 'docker-compose'.
+
 ## The docker-compose.yml file
 
+> Compose is a tool for defining and running multi-container Docker applications.
+
+But that doesn't stop us from using it to run a single container on our local machines.
+Here's the file we will be using:
+
+~~~yaml
+version: "3"
+services:
+  site:
+    command: jekyll serve
+    image: jekyll/jekyll:latest
+    volumes:
+      - ./:/srv/jekyll
+      - ./vendor/bundle:/usr/local/bundle
+    ports:
+      - 4000:4000
+      - 35729:35729
+      - 3000:3000
+      - 80:4000
+~~~
+
+The structure of the docker-compose file is defined in the [compose file reference](https://docs.docker.com/compose/compose-file/#service-configuration-reference).
+
+Our compose file comprises of only two keys, version and services. version specifies which compose file format we are using.
+services in a multi container application would contain definitions for each type of container we wish to run.
+These could be a database container, a container for the api and maybe a container for the frontend components.
+
+The services key contains a single nested key, site. This is the name of thesingle service that we will be running.
+If the options inside look familiar, they should. Options inside the dockerfile are analogous to instructions you'd write in the Dockerfile.
+
+command
+: overrides CMD in the Dockerfile(if present)
+
+image
+: image to run. Similar to FROM
+
+volumes
+: specifies the type of storage to be afforded to the container. Similar to the --mount flag of the docker run command
+
+ports
+: bind container ports to host ports. Analogous to the -p flag
+
+With the docker-compose file in place, the command to run our container decomposes to:
+
+    docker-compose up
+
+Or it would, if we had actually installed docker-compose. docker-compose is a separate tool from the docker cli. You can install it from [here](https://docs.docker.com/compose/install/#install-compose).
+
 ## Ready
+
+And... that's it! Now anybody wanting to get started hacking on our code only needs to clone the repo, 'cd' into the directory and run 'docker-compose up'.
+They might need to go get a coffee depending on internet speed but hey, time spent enjoying a coffee is time not wasted fighting with dependencies.
