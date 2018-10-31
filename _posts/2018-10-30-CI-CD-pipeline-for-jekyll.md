@@ -37,13 +37,13 @@ A development process is considered to follow continuous integration and continu
 3. It contains a self-testing mechanism for the project's builds.
 4. It contains automated deployment.
 
-Now let's incorporate continuous Integration and  Continuous Deployment practices for our Jekyll site.
+Now let's incorporate continuous integration and  continuous deployment practices for our Jekyll site.
 
 ## 1. Maintain a single source repository
 
 We will do this by pushing the project to [github](https://guides.github.com/activities/hello-world/) following  [gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) workflow.
 
-Anyone else who wants to contribute to the projector is part of the team, will clone from this repository and merge any changes to it.
+Now anyone who wants to contribute to the project or is part of the team, will clone/fork this repository.
 
 ## 2. Integrate automated builds for the project
 
@@ -93,7 +93,7 @@ Then using rvm, a package manager, we specified the ruby version we want to be u
         -2.5.1
 
 
-We then had Travis install Jekyll bundler.
+We then had Travis install Jekyll and  bundler.
 
     install:
         - gem install jekyll bundler   
@@ -125,7 +125,7 @@ We then added an optional step, after_success. This means, quite obviously, that
     
 
 
-Now when you log in to your Travis account, on your dashboard there is a list of all your repositories. To the right of the one, you are using to follow this tutorial, move the slider to the right to activate the repository.
+Now when you log in to your Travis account and activate the repository. 
 Great, now push some changes to GitHub. Automated builds!!! 
 
 ## 3. Contains self-testing mechanism for the project's builds.
@@ -152,22 +152,13 @@ The above only installs the gem. To use it we update the .travis.yml to contain 
         - bundle exec htmlproofer ./_site 
 
 
-The `./site` tag is to avoid testing external sites.
+The `./_site` tag is to avoid testing external sites.
 
 Great, now you can make a few changes, push them and see what happens.
 
 
 ## 4. Contains automated deployment.
-We are going to deploy to [firebase](https://firebase.google.com), only because I used it for this particular project.
-Now update your .travis.yml file's install by adding the following.
-    
-    install:
-        - npm install -g firebase-tools
-  
-This tells Travis to install firebase tools.
-In order to do that Travis will need node_js. That is why we initially added the node_js step, with the version to our .travis.yml file.
-
-This only installs the tools. We will also need to add a deployment step. At the bottom of your .travis.yml file. Add this:
+We will also need to add a deployment step. At the bottom of your .travis.yml file. Add this:
 
     deploy:
         provider: firebase
@@ -177,7 +168,7 @@ This only installs the tools. We will also need to add a deployment step. At the
         on:
             branch: release
 
-The `provider` key tells Travis where we are going to deploy our site to `firebase`.
+The `provider` key tells Travis where we are going to deploy our site to `firebase`. Travis will install all the dependencies required to deploy to firebase.
 
 The  `skip_cleanup` always defaults to false if not specified. This means Travis by default cleans up after a build. Travis automatically resets your working directory by deleting all changes made during the build.<br/>
 Since the directory is what we want to deploy, we want Travis to skip the cleanup. We do this by setting it to true.
@@ -188,18 +179,10 @@ Travis only accesses the account when it provides a token.
 The `env` key simply tells Travis to obtain the key from an environment variable. <br/>
 A firebase token is a token generated through  [firebase login: ci](https://github.com/firebase/firebase-tools#using-with-ci-systems).
 
-To obtain yours;
-        On a machine with a browser, install the Firebase CLI.
-
-        Run firebase login: ci to log in and print out a new access token (the current CLI session will not be affected).
-
-        Store the output token in a secure but accessible way in your CI system. As an environment variable, called FIREBASE_TOKEN or anything else you like.
-
-
 The `on` key sets your build to deploy only under specific circumstances.
-In our case `on: branch: release`.
+In our case on branch release.
 
-Great. So this is what your final .travis.yml file looks like.
+Great. So this is what the final .travis.yml file looks like.
 
         ```yml
 
@@ -209,7 +192,6 @@ Great. So this is what your final .travis.yml file looks like.
         rvm: 
             - 2.5.1
         install:
-            - npm install -g firebase-tools
             - gem install jekyll bundler
             - gem install html-proofer
         before_script:
