@@ -17,7 +17,7 @@ With Docker, you can manage your infrastructure the same way you manage your app
 **English?** 
 Docker is a platform that allows you to use a container as a computer inside your computer. A Container is a packaged application with all of the parts it needs.
 
-Imagine you are working on a project Q and you send your code to a friend. Your friend runs the exact same code on exactly the same data set but gets slightly different results or worse, no results at all. This could be due to a mirage of reasons; a different operating system, a different version of one of the project's packages etc.
+Imagine you are working on a project Q and you send your code to a friend. Your friend runs the exact same code on exactly the same data set but gets slightly different results or worse, no results at all. This could be due to a number of reasons; a different operating system, a different version of one of the project's packages etc.
 
 **Docker fixes this.**
 
@@ -37,7 +37,7 @@ Run your provisioning scripts in your virtual machine just as you would in stagi
 
 Provisioning scripts are scripts containing information that tells your environment what tools to download, setup and how to configure them.
 
-Dump your code into your machine. If it works, you know it's going to work the same way in any of similar environments i.e staging or production.
+Dump your code into your machine. If it works, you know it's going to work the same way in any similar environment i.e staging or production.
 
 
 **The hustle!!!**
@@ -61,10 +61,10 @@ Now an image is an executable package that includes everything needed to run an 
 
 An image is not a whole machine, you don't need that. Instead, an image sits on top of a machine, your machine.<br/>
 Using your image, you can now run a container.<br/>
-A container is a runtime instance of an image, what the image becomes in memory when executed (that is, an image with a state, or a user process).<br/>
+A container is a runtime instance of an image. It's what the image becomes in memory when executed (that is, an image with a state, or a user process).<br/>
 You can run as many containers as you want until you run out of processing power or RAM.
 
-To share your image, you can push it to Docker hub(sort of like GitHub for docker).<br/>
+To share your image, you can push it to [Docker hub](https://hub.docker.com)(sort of like GitHub for docker).<br/>
 Any machine that has docker installed can pull the image and run it without any installations or provisions because the image contains everything.
 
 
@@ -77,7 +77,7 @@ Here's a picture:
 ![virtual-machine-vs-containers](/assets/images/blog/docker/Container-vs-VMs.jpg)
 {:class="img-responsive center"}
 
-Also, with Docker, instead of putting the project codes into environments as in virtual machines, you build the environment as well and now you can run that environment anywhere.
+With Docker, instead of putting the project code into an  environment as in virtual machines, you build the environment as well and now you can run that environment anywhere.
 
 ## Terminologies:
 
@@ -101,13 +101,13 @@ Now that you have the picture, here are a few terms you will come across in your
 6. **Docker Containers.** 
     A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc
 7. **Volumes.**
-    Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
+    Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It is initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
 8. **Docker Hub.**
     Registry for Docker images. You can think of the registry as a directory of all available Docker images.
 
 ## Why use docker
 
-1. **Continuous Integration** -Every time your source code is updated, continuous integration tools like Travis, Perkins can save the new version as a Docker image, tag it with a version number and push to Docker Hub, then deploy it to production.
+1. **Continuous Integration** -Every time your source code is updated, continuous integration tools like Travis and Jenkins can save the new version as a Docker image, tag it with a version number and push to Docker Hub, then deploy it to production.
 
 2. **Security** - Separating the different components of a large application into different containers can have security benefits: if one container is compromised the others remain unaffected.
 
