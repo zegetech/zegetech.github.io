@@ -11,25 +11,23 @@ intro: Docker is a platform for developers and sysadmins to develop, deploy, and
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
 
-## What is docker
-
-[Docker](https://docs.docker.com/get-started/#docker-concepts) is a platform for developers, sysadmins, and etc to develop, deploy, and run applications within loosely isolated environments known as a containers.
+[Docker](https://docs.docker.com/get-started/#docker-concepts) is a platform for developers, sysadmins, and etc to develop, deploy, and run applications within loosely isolated environments known as containers.
 With Docker, you can manage your infrastructure the same way you manage your applications. 
 
 **English?** 
-Docker is a platform that allows you to use a container as a computer inside your computer.A Container is packaged application with all of the parts it needs.
+Docker is a platform that allows you to use a container as a computer inside your computer. A Container is a packaged application with all of the parts it needs.
 
 Imagine you are working on a project Q and you send your code to a friend. Your friend runs the exact same code on exactly the same data set but gets slightly different results or worse, no results at all. This could be due to a mirage of reasons; a different operating system, a different version of one of the project's packages etc.
 
 **Docker fixes this.**
 
-In order to fully understand how,  we need to understand how docker works. To do that, we are going to compare it to a virtual machine because that seems to be the hang.
+In order to fully understand how we need to understand how docker works. To do that, we are going to compare it to a virtual machine because that seems to be the hang.
 
 
 
 ## [Virtual machine.](https://azure.microsoft.com/en-us/overview/what-is-a-virtual-machine/)
 A virtual machine is a guest computer within your computer that exhibits behavior separate from your computer. 
-A virtual machine runs a full-blown “guest” operating system with virtual access to host resources through a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html). In general, Virtual machines  provide an environment with more resources than most applications need.
+A virtual machine runs a full-blown “guest” operating system with virtual access to host resources through a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html). In general, Virtual machines provide an environment with more resources than most applications need.
 
 **How it works.**
 
@@ -58,10 +56,10 @@ Here's a picture:
 
 
 
-To create a docker container, you first create a Docker file which is in turn used to build an image.
+To create a Docker container, you first create a Docker file which is in turn used to build an image.
 Now an image is an executable package that includes everything needed to run an application; the code, a runtime, libraries, environment variables, and configuration files. It is a complete application!!!!! 
 
-An image  is not a whole machine, you don't need that. Instead, an image sits on top of a machine, your machine.<br/>
+An image is not a whole machine, you don't need that. Instead, an image sits on top of a machine, your machine.<br/>
 Using your image, you can now run a container.<br/>
 A container is a runtime instance of an image, what the image becomes in memory when executed (that is, an image with a state, or a user process).<br/>
 You can run as many containers as you want until you run out of processing power or RAM.
@@ -103,17 +101,17 @@ Now that you have the picture, here are a few terms you will come across in your
 6. **Docker Containers.** 
     A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc
 7. **Volumes.**
-    Volumes are the “data” part of a container.Data volumes exist as specially designed directories and files on the host filesystem. It initialized when a container is created.It  remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
+    Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
 8. **Docker Hub.**
     Registry for Docker images. You can think of the registry as a directory of all available Docker images.
 
 ## Why use docker
 
-1. **Continuous Integration** -Every time your source code is updated, continous intergration tools like travis, perkins can save the new version as a Docker image, tag it with a version number and push to Docker Hub, then deploy it to production.
+1. **Continuous Integration** -Every time your source code is updated, continuous integration tools like Travis, Perkins can save the new version as a Docker image, tag it with a version number and push to Docker Hub, then deploy it to production.
 
 2. **Security** - Separating the different components of a large application into different containers can have security benefits: if one container is compromised the others remain unaffected.
 
-3. **Environment management** -  Docker eliminates environment inconsistencies and the "works on my machine" problem by packaging the application, configs and dependencies into an isolated container.
+3. **Environment management** -  Docker eliminates environment inconsistencies and the "works on my machine" problem by packaging the application, configs, and dependencies into an isolated container.
 
 4. **Isolation** - Dependencies or settings within a container will not affect any installations or configurations on your computer, or on any other containers that may be running.
 
