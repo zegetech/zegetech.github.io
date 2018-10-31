@@ -1,28 +1,24 @@
 ---
 layout: news
 title:  Static Sites are back
-date:   2017-03-10 16:16:01 -0600
+date:   2018-10-10 16:16:01 -0600
 categories: developer
 permalink: news/:year/:month/:day/:title.html
 author: Melvin Atieno
-blog-image: ssg/old-gold.png
+blog-image: ssg/typewriter-old.jpg
 intro: Remember your first website? I want to assume you started off, like most developers, by creating a series of HTML files linking within it images, CSS and perhaps a sprinkle of JavaScript. Files load on your browser and that was it!!. No web server required. Life was simple!!!
 ---
-
-![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
-
-
-# BRIEF HISTORY 
+![old never dies](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
 {{page.intro}}
 
 With more experience and possibly changing times, there came a need to create larger, more complex websites. Creating and managing them as single static files became tiresome and prone to errors.
 
-Take the example of a navigation bar and a footer, similar on every page. If a change is made on either of the components in a single page, the remaining pages would need to be updated. This would mean directly editing each one of the files. Like I said tiresome!!
+Take the example of a navigation bar and a footer, similar on every page. If a change is made on either of the components in a single page, the remaining pages would need to be updated. This would mean directly editing each one of the files and then using our beloved [Filezilla](https://filezilla-project.org/) to update the web server. Like I said tiresome!!
 
 **...Then came content management systems (CMS)**
 
-Content Management Systems basically display page content from a database. The content is displayed within its designed shell and theme page. Examples include Wordpress, Magento, Joomla, Drupal...
+[Content Management Systems](https://www.opensourcecms.com/) basically display page content from a database. The content is displayed within its designed shell and theme page. Examples include Wordpress, Magento, Joomla, Drupal...
 
 *Here's how they work:*
 1. Determine which page is required.
@@ -40,21 +36,18 @@ Content Management Systems basically display page content from a database. The c
 
 # Static sites came back...with a twist!
 
-**All Hail Static Site generators!!!**
+A [Static Site Generator(SSG)](https://www.staticgen.com/) is a compromise between using a hand-coded static site and a full CMS while retaining the benefits of both.
 
-A Static Site Generator(SSG) is a compromise between using a hand-coded static site and a full CMS while retaining the benefits of both.
-
-In essence, it generates a static HTML-only website using CMS-like concepts such as templates. The content can be extracted from a database but, more typically, markdown files are used.
+In essence, it generates a static HTML-only website using CMS-like concepts such as templates. The content can be extracted from a database but, more typically, [markdown](https://www.markdownguide.org/) files are used.
 
 It creates web pages through a series of customizable templates and user data entry. Static sites generate pages when the owner makes changes to them and hosts the page as a pre-made set of HTML, CSS, and JavaScript files. 
 This contrasts CMS-based sites, which look for updates and build pages when a visitor accesses them.
 
 Static site generators essentially abandon updating websites through a back-end system and do not require server processing to generate pages. Instead, generators create and update pages through an editor and save the updated versions to the hosting platform.
 
-
 ## The good
 
-**1) Speed**
+**1) Blazing fast**
 
 Perhaps the most immediately noticeable characteristic of a static site is how fast it is. As mentioned above, there are no database queries to run, no templating and no processing on every request.
 
@@ -75,7 +68,7 @@ A static site can use Markdown files. This limits the user’s options; they mak
 
 **5) Developer friendly, Client friendly**
 
-May developers shun at the thought of building a website... why, because developers want to code, not do data entry in a CMS and call that web design. That's why SSG brings the developer workflow back to designing websites and provides avenues for automation such as CI/CD deployments. For the non-developer customer, they too can create user-generated content through various services and plugins that facilitate seamless integration. Best of both worlds
+Many developers shun at the thought of building a website... why, because developers want to code, not do data entry in a CMS and call that web design. That's why SSG brings the developer workflow back to designing websites and provides avenues for automation such as CI/CD deployments. For the non-developer customer, they too can create user-generated content through various [services and plugins](https://headlesscms.org/) that facilitate seamless integration. Best of both worlds
 
 ## The better
 
@@ -83,7 +76,7 @@ The continued success of Static site generators can be attributed to the ability
 
 **An architectural approach called the JAMstack.**
 
-The JAMstack is a way of building websites and apps that deliver better performance, higher security, lower cost of scaling, and a better developer experience.
+The [JAMstack](https://jamstack.org/) is a way of building websites and apps that deliver better performance, higher security, lower cost of scaling, and a better developer experience.
 
 *A project is built with JAMstack if it meets the following criteria :*
 
@@ -97,14 +90,13 @@ All server-side processes or database actions are abstracted into reusable APIs,
 **MarkUp:**
 Templated markup should be prebuilt at deploy time, usually using a site generator for content sites, or a build tool for web apps.
 
-# Jekyll
+![Jekyll](/assets/images/blog/ssg/jekyll-logo.png){:class="img-resposive center"}
 
 Now that that's settled am sure you want to get started with a static site generator. 
-With the whole lot of available options like Hugo, Hexo, Gatsby, NUXT, MkDocs, Jekyll...etc
+With the whole lot of available options like [Hugo, Hexo, Gatsby, NUXT, MkDocs, Jekyll...etc](https://www.staticgen.com/)
 you are probably wondering which one you should use.
 
 Try Jekyll. A mature product, with a huge support community. Jekyll is natively supported by GitHub pages, which is a big bonus.
- 
 
 Jekyll has everything you need and nothing you don't to get started with your website.
 - It is fast
@@ -113,14 +105,11 @@ Jekyll has everything you need and nothing you don't to get started with your we
 
 The Zegetech site is built on Jekyll. Navigate around to see what I mean.
 
-{:class="text-primary"}
-**Getting started**
+## Getting started with Jekyll
 
 Requirements:
 
 - [Ruby](https://www.ruby-lang.org/en/downloads/) version 2.2.5 or above, ruby version can be checked by running ruby -v)
-
-
 - [RubyGems](https://rubygems.org/pages/download) (which you can check by running gem -v)
 
 Setup is relatively straightforward.
@@ -133,30 +122,25 @@ Run the following commands on your terminal
     ```
 
 - Create a new Jekyll site.
-
     ```bash
     jekyll new my-site
     ```
 
 - Change into your site's directory.
-
     ```bash
     cd my-site
     ```
 
 - Build the site and make it available on a local server
-
     ```bash
     bundle exec jekyll serve 
     ```
 
-Now browse to [http://localhost:4000](http://localhost:4000)
+Now browse to [http://localhost:4000](http://localhost:4000) to see your brand new boilerplate Jekyll website
 
-
-{:class="text-primary"}
 **Directory structure**
 
-On installation a jekyll site usually looks something like this:
+On installation, a jekyll site usually looks something like this:
 
 ![jekyll-default-file-structure](/assets/images/blog/ssg/jekyll-directory-structure.png){:class="img-responsive center"}
 
@@ -182,7 +166,8 @@ On installation a jekyll site usually looks something like this:
 >    - Converting a Ruby object to JSON
 >    - Pagination
 >    - Interact with APIs such as Github
->   Jekyll itself is a Gem as well many Jekyll plugins including jekyll-feed, jekyll-seo-tag, and jekyll-archives.
+>
+> Jekyll itself is a Gem as well many Jekyll plugins including jekyll-feed, jekyll-seo-tag, and jekyll-archives.
 
 7. `Gemfile.lock`- This file is auto-generated and includes all the Gems in Gemfile with the addition of a version number even if it wasn’t specified. This ensures that other people we share the source code to will have the same version of the gems.
 
@@ -194,26 +179,18 @@ On installation a jekyll site usually looks something like this:
 
 `_includes`- Page snippets which can be included throughout the site. Includes are often used for page sections which are duplicated across the site like a header, footer, navigation bar, forms etc...
 
-
 Great now run Jekyll
-
-```
+```bash
 bundle exec jekyll serve
 ```
-
 **Resources:**
 
 This is simply an introduction to get you started. Below is a list of resources that will get you more acquainted with Jekyll.
 
-
 - [Jekyll's official site](https://jekyllrb.com/docs/).
-
 - [Cloudcannon](https://learn.cloudcannon.com/).
-
-- [Tania Rascia](https://www.taniarascia.com/make-a-static-website-with-jekyll/)
- 
+- [Online MD Editor](https://stackedit.io/)
 - [Learning Markdown and liquid](https://hermens.com.au/2016/10/14/Getting-started-with-Jekyll-Part-5/)
-
 
 Watch out for Part 2 of this article where we'll talk about:
 **Creating a CI/CD  pipeline for a Jekyll based website.**
