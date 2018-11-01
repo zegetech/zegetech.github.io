@@ -31,13 +31,13 @@ Because you'll probably be using docker for the long haul, I'd recommend install
 This will make the upgrade process as mundane as it should be.
 
 Once installed you can check what version you are running:
-
-    docker -v 
-
+~~~
+docker -v
+~~~
 ... and run your first container:
-
-    sudo docker run hello-world
-
+~~~ bash
+sudo docker run hello-world
+~~~
 Notice the use of `sudo` in the command above. Docker by default runs as the `root` user, meaning that all docker commands will need to be prepended with `sudo`.
 That however doesn't mean that it can't be changed.
 
@@ -46,22 +46,22 @@ That however doesn't mean that it can't be changed.
 The docker daemon grants access to members of the `docker` group. Any user you add to this group can run docker without using `sudo`.
 This group is created automatically when you install docker.
 To check if the docker group exists on your system:
-
-    grep 'docker' /etc/groups
-    usermod [tab] [tab] [tab] # hit the tab key thrice, then look for docker in the output. Takes advantage of bash completion
-
+~~~ bash
+grep 'docker' /etc/groups
+usermod [tab] [tab] [tab] # hit the tab key thrice, then look for docker in the output. Takes advantage of bash completion
+~~~
 If for some reason you don't have the docker group, create it:
-
-    sudo groupadd docker
-
+~~~
+sudo groupadd docker
+~~~
 Then add the user to the docker group:
-
-    sudo usermod -aG docker $USER # $USER evaluates to the currently logged in user
-
+~~~
+sudo usermod -aG docker $USER # $USER evaluates to the currently logged in user
+~~~
 Log out, then back in and you should be able to run:
-
-    docker run hello-world
-
+~~~
+docker run hello-world
+~~~
 Be sure to review docker's [security note](https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface) before adding a user to the docker group.
 You can check out the [post-installation docs](https://docs.docker.com/install/linux/linux-postinstall/) if you wish to customize docker further.
 
@@ -71,7 +71,7 @@ Finally time to get our site on docker. The dockerfile is where we will define t
 The `docker build` command builds an image from the dockerfile and a context, which can be a directory or a git repository.
 Let's take a look at the file we'll be using:
 
-~~~yaml        
+~~~ yaml        
 # zegetech website docker file
 # build off of alpine
 FROM alpine:3.8
@@ -130,17 +130,17 @@ There are more instructions that are not used here. The full set is on the [dock
 ## First run
 
 Before we can run the container, we have to build our image first.
-
-    docker build -t name:tag . # the dot specifies the current directory as the build context
-
+~~~
+docker build -t name:tag . # the dot specifies the current directory as the build context
+~~~
 This command will run through the dockerfile executing instructions sequentially.
 It will look for the image specified in the `FROM` instruction locally, and download it if its missing.
 Docker will then run the next instruction and output an intermediate image. This process is repeated until we have our final image.
 
 Now to run our image:
-
-    docker run -p 127.0.0.1:80:4000 --mount type=bind,src="$(pwd)",target=/site <image-name:image-tag>
-
+~~~
+docker run -p 127.0.0.1:80:4000 --mount type=bind,src="$(pwd)",target=/site <image-name:image-tag>
+~~~
 The `-p` flag publishes a container's ports to the host. In this case, we are mapping port 4000 on the container to port 80 on the host.
 Our application can then be reached by visiting `localhost` in the browser.
 
@@ -161,7 +161,7 @@ But for the sake of saving limited mental resources, we have `docker-compose`.
 But that doesn't stop us from using it to run a single container on our local machines.
 Here's the file we will be using:
 
-~~~yaml
+~~~ yaml
 version: "3"
 services:
   site:
@@ -199,13 +199,13 @@ ports
 : bind container ports to host ports. Analogous to the `-p` flag
 
 With the docker-compose file in place, the command to run our container decomposes to:
-
-    docker-compose up
-
+~~~
+docker-compose up
+~~~
 Or it would, if we had actually installed docker compose. Compose is a separate tool from the docker cli. You can install it from [here](https://docs.docker.com/compose/install/#install-compose).
 
 Note that the `docker-compose.yml` file we use here doesn't depend on the image we built earlier, but uses `jekyll/jekyll:latest`.
-This particular image is an official image provided by the Jekyll team and hosted on [Docker hub](https://hub.docker.com/) free for anyone to use.
+This particular image is an official image provided by the Jekyll team and hosted on [Docker hub](https://hub.docker.com/), free for anyone to use.
 Similar images are to be found for a huge number of stacks you might want to build with. These essentially negate the need for a `Dockerfile` unless you're using a highly customized environment.
 
 ## Ready
