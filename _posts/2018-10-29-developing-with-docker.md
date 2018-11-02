@@ -76,7 +76,7 @@ Finally time to get our site on docker. The dockerfile is where we will define t
 The `docker build` command builds an image from the dockerfile and a context, which can be a directory or a git repository.
 Let's take a look at the file we'll be using:
 
-~~~ yaml        
+~~~dockerfile        
 # zegetech website docker file
 # build off of alpine
 FROM alpine:3.8
@@ -191,16 +191,16 @@ These could be a database container, a container for the api and maybe a contain
 The `services` key contains a single nested key, `site`. This is the name of the service that we will be running.
 If the options inside look familiar, they should. Options inside the dockerfile are analogous to instructions you'd write in the Dockerfile.
 
-command
+`command`
 : overrides `CMD` in the Dockerfile(if present)
 
-image
+`image`
 : image to run. Similar to `FROM`
 
-volumes
+`volumes`
 : specifies the type of storage to be afforded to the container. Similar to the `--mount` flag of the `docker run` command
 
-ports
+`ports`
 : bind container ports to host ports. Analogous to the `-p` flag
 
 With the docker-compose file in place, the command to run our container decomposes to:
@@ -217,6 +217,12 @@ This command runs a *new* container for the specified service, `site` overriding
 The `--service-ports` flag will publish the ports specified in the compose file, which the `run` command doesn't publish by default.
 The ports can also be supplied with the `-p` flag to avoid collision with containers that may already be running.
 
+Note that the `docker-compose.yml` file we use here doesn't depend on the image we built earlier, but uses `jekyll/jekyll:latest`.
+This particular image is an official image provided by the Jekyll team and hosted on [Docker hub](https://hub.docker.com/), free for anyone to use.
+Similar images are to be found for a huge number of stacks you might want to build with. These essentially negate the need for a `Dockerfile` unless you're using a highly customized environment.
+
+## Shell access to the container
+
 When things break, as they normally do, or when you want to evolve your environment, a shell into the container is invaluable.
 We can open a shell into an already running container by running:
 ~~~
@@ -225,6 +231,20 @@ docker-compose exec site sh
 Or launch a new container and open a shell into it with:
 ~~~
 docker-compose run site sh
+~~~
+These commands require that you run them from the same directory as your `docker-compose.yml` or specify the path:
+~~~
+docker-compose -f /path/to/compose.yml run site sh
+~~~
+You can alternatively use similar commands provided by the Docker CLI:
+~~~bash
+docker exec -it --rm [container] sh # requires a running container
+docker run -it --rm [image] sh # creates and starts a new container
+~~~
+The combined flags `-i` and `-t` open an interactive terminal into the container, while the `--rm` flag destroys the container once the command exits.
+You can find the container to `exec` into by running:
+~~~
+docker container ps
 ~~~
 Once we have a shell we can run commands as we would normally:
 ~~~shell
@@ -237,9 +257,6 @@ Since we provided a volume to our container, the changes we made to the Gemfile 
 docker-compose build
 ~~~
 Take a look at the [compose command-line reference](https://docs.docker.com/compose/reference/) for a full list of commands and their usage.
-Note that the `docker-compose.yml` file we use here doesn't depend on the image we built earlier, but uses `jekyll/jekyll:latest`.
-This particular image is an official image provided by the Jekyll team and hosted on [Docker hub](https://hub.docker.com/), free for anyone to use.
-Similar images are to be found for a huge number of stacks you might want to build with. These essentially negate the need for a `Dockerfile` unless you're using a highly customized environment.
 
 ## Ready
 
