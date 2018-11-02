@@ -4,7 +4,7 @@ title: Developing with Docker
 author: Ngari Ndung'u
 blog-image: docker/container.jpg
 image-attribution: Photo by Randy Fath on Unsplash
-intro: So, you probably already know [what docker is] and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
+intro: So, you probably already know [what docker is](what-and-why-docker) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
 ---
@@ -38,6 +38,11 @@ docker -v
 ~~~ bash
 sudo docker run hello-world
 ~~~
+Here's what this command does:
+- Looks for an image named `hello-world` on your machine,
+- If not found, looks for the image on [Docker hub](https://hub.docker.com/),
+- Once found, it downloads the image and runs the container. The `hello-world` container runs, prints out a message and exits.
+
 Notice the use of `sudo` in the command above. Docker by default runs as the `root` user, meaning that all docker commands will need to be prepended with `sudo`.
 That however doesn't mean that it can't be changed.
 
@@ -47,7 +52,7 @@ The docker daemon grants access to members of the `docker` group. Any user you a
 This group is created automatically when you install docker.
 To check if the docker group exists on your system:
 ~~~ bash
-grep 'docker' /etc/groups
+grep 'docker' /etc/group
 usermod [tab] [tab] [tab] # hit the tab key thrice, then look for docker in the output. Takes advantage of bash completion
 ~~~
 If for some reason you don't have the docker group, create it:
@@ -179,11 +184,11 @@ services:
 
 The structure of the docker-compose file is defined in the [compose file reference](https://docs.docker.com/compose/compose-file/#service-configuration-reference).
 
-Our compose file comprises of only two keys, version and services. version specifies which compose file format we are using.
-services in a multi container application would contain definitions for each type of container we wish to run.
+Our compose file comprises of only two keys, `version` and `services`. `version` specifies which compose file format we are using.
+`services` in a multi container application would contain definitions for each type of container we wish to run.
 These could be a database container, a container for the api and maybe a container for the frontend components.
 
-The services key contains a single nested key, site. This is the name of the service that we will be running.
+The `services` key contains a single nested key, `site`. This is the name of the service that we will be running.
 If the options inside look familiar, they should. Options inside the dockerfile are analogous to instructions you'd write in the Dockerfile.
 
 command
@@ -204,6 +209,34 @@ docker-compose up
 ~~~
 Or it would, if we had actually installed docker compose. Compose is a separate tool from the docker cli. You can install it from [here](https://docs.docker.com/compose/install/#install-compose).
 
+If we maybe wanted to run our server with live-reload enabled:
+~~~
+docker-compose run --service-ports site jekyll serve --livereload
+~~~
+This command runs a *new* container for the specified service, `site` overriding the command specified with `command` or `CMD`.
+The `--service-ports` flag will publish the ports specified in the compose file, which the `run` command doesn't publish by default.
+The ports can also be supplied with the `-p` flag to avoid collision with containers that may already be running.
+
+When things break, as they normally do, or when you want to evolve your environment, a shell into the container is invaluable.
+We can open a shell into an already running container by running:
+~~~
+docker-compose exec site sh
+~~~
+Or launch a new container and open a shell into it with:
+~~~
+docker-compose run site sh
+~~~
+Once we have a shell we can run commands as we would normally:
+~~~shell
+bundle add bigdecimal # had to do this when building my image
+bundle install
+jekyll serve --host 0.0.0.0
+~~~
+Since we provided a volume to our container, the changes we made to the Gemfile are persisted and we can update our image with:
+~~~
+docker-compose build
+~~~
+Take a look at the [compose command-line reference](https://docs.docker.com/compose/reference/) for a full list of commands and their usage.
 Note that the `docker-compose.yml` file we use here doesn't depend on the image we built earlier, but uses `jekyll/jekyll:latest`.
 This particular image is an official image provided by the Jekyll team and hosted on [Docker hub](https://hub.docker.com/), free for anyone to use.
 Similar images are to be found for a huge number of stacks you might want to build with. These essentially negate the need for a `Dockerfile` unless you're using a highly customized environment.
