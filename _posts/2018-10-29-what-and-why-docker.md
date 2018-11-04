@@ -5,79 +5,94 @@ categories: developer
 permalink: news/:year/:month/:day/:title.html
 author: Melvin Atieno
 blog-image: docker/docker1.png
-intro: Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers. English? Docker is a platform that allows you to use a container as a computer inside your computer.
+intro: The first time I had someone "simply" explain what docker is, this is what they said, "Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers".If you are a beginner programmer or techie you probably need to understand the fundamental concepts around containers and how they compare to virtual machines before you can fully dive into dockerization. This is a beginner-friendly guide that I hope will serve that purpose.
 ---
 
-![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
+{:.post-figure}
+![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
+
+{{page.intro}}
+
+To get us started I am going to explain how a computer works, what virtual machines and containers are using an analogy.
+
+A computer is sort of like a house. The different rooms represent different applications.
+
+Here's a picture:
 
 
-[Docker](https://docs.docker.com/get-started/#docker-concepts) is a platform for developers, sysadmins, and etc to develop, deploy, and run applications within loosely isolated environments known as containers.
-With Docker, you can manage your infrastructure the same way you manage your applications. 
+A house
 
-**English?** 
-Docker is a platform that allows you to use a container as a computer inside your computer. A Container is a packaged application with all of the parts it needs.
+![house outline](/assets/images/blog/docker/house.jpeg){:style="width:60%; height:60%" }
 
-Imagine you are working on a project Q and you send your code to a friend. Your friend runs the exact same code on exactly the same data set but gets slightly different results or worse, no results at all. This could be due to a number of reasons; a different operating system, a different version of one of the project's packages etc.
+A computer.
 
-**Docker fixes this.**
-
-In order to fully understand how we need to understand how docker works. To do that, we are going to compare it to a virtual machine because that seems to be the hang.
+![computer house](/assets/images/blog/docker/computer.jpeg){:style="width:60%; height:60%" }
 
 
+Like houses, all computers contain applications based on the user's needs.
+
+Say you want a gaming room, you find out what your room needs, provide the requirements then get your gaming room. You want a baby's room, find out what it needs, provide the requirements then get it...so on and so on.
+A  problem might arise when you want a say a home office. An office requires a quiet atmosphere. The gaming room is the mother of all that is loud. The two rooms cannot possibly exist under the same roof.
+
+The same applies when it comes to computers. If you need a program, you provision your computer to accommodate it. If you want an application and you find out its requirements will affect your already existing programs, problem.
+
+Containers and Virtual Machines are similar in their goals to solve this problem by isolating an application and its requirements into a self-contained unit that can run anywhere.
+A closer look.
 
 ## [Virtual machine.](https://azure.microsoft.com/en-us/overview/what-is-a-virtual-machine/)
-A virtual machine is a guest computer within your computer that exhibits behavior separate from your computer. 
-A virtual machine runs a full-blown “guest” operating system with virtual access to host resources through a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html). In general, Virtual machines provide an environment with more resources than most applications need.
+A virtual machine is essentially an emulation of a computer running on your computer resources. It executes programs like a real computer.
+Using our house analogy, a virtual machine is similar to getting an apartment for your office. A fully equipped apartment.
 
-**How it works.**
+The virtual machine’s emulation engine, called a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html), handles the virtual hardware, including a CPU, memory, hard drive, network interface, and other devices. 
 
-Create a virtualized environment-called, simply enough, a virtual machine on your computer. 
-You version it to an exact duplicate of your staging and production environments for your project.
-Run your provisioning scripts in your virtual machine just as you would in staging and production.
+The virtual hardware devices provided by the hypervisor map to real hardware on your physical machine. For example, a virtual machine’s virtual hard disk is stored in a file located on your hard drive.
 
-Provisioning scripts are scripts containing information that tells your environment what tools to download, setup and how to configure them.
+The virtual machine that is running on the host machine (again, using a hypervisor) is also often called a “guest machine.” If you run an application in a guest machine, the guest machine will contain both the application and whatever it needs to run that application (e.g. system binaries and libraries). It also carries an entire virtualized hardware stack of its own, including virtualized network adapters, storage, and CPU — which means it also has its own full-fledged guest operating system. 
 
-Dump your code into your machine. If it works, you know it's going to work the same way in any similar environment i.e staging or production.
+You can have several virtual machines installed on your system. You’re only limited by the amount of storage you have available for them.
+
+In general, Virtual machines provide an environment with more resources than most applications need.
 
 
-**The hustle!!!**
+
+## Containers
+
+Unlike a virtual machine which provides hardware virtualization, a container provides operating-system-level virtualization by abstracting the “user space”. You might want to see the different types of [virtualization](https://www.redswitches.com/blog/different-types-virtualization-cloud-computing-explained/).
+
+Containers, using our house analogy can be compared to a hotel. The apartment is not fully occupied and not easy to move from one building/apartment to another. With Hotels problem is solved!
+
+In the Hotel room, you have only what you need, everything else is shared/common with the others hotel clients.
+
+This is how containers system work:
+ you have a server, it could be a physical server or a virtual server (VM). You install an OS. The containers you create interact with the OS’s kernel. It uses certain features of the kernel to create an isolated application platform.
+
+
+Here's a picture:
+
+![docker-structure](/assets/images/blog/docker/docker-structure.png){:class="img-responsive center"}
+
+
+You can see that all the operating system level architecture is being shared across containers. The only parts that are created from scratch are the bins and libs. This is what makes containers so lightweight.
+
+
+**The difference**
+
+
+Here's a picture:
+
+![virtual-machine-vs-containers](/assets/images/blog/docker/Container-vs-VMs.jpg){:class="img-responsive center"}
 
 
 ## [Docker](https://docs.docker.com/get-started/).
 
-Docker runs off of Docker containers.
-A container runs natively on Linux and shares the kernel of the host machine with other containers.
-It runs a discrete process, taking no more memory than any other executable, making it lightweight.
+Now docker.
 
-Here's a picture:
+Docker is an open-source project based on Linux containers. It uses Linux Kernel features like namespaces and control groups to create containers on top of an operating system.
 
-![docker-structure](/assets/images/blog/docker/docker-structure.png)
-{:class="img-responsive center"}
+Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications. 
 
+How to create a Docker container will be covered in the [next]("link to next post") post.
 
-
-To create a Docker container, you first create a Docker file which is in turn used to build an image.
-Now an image is an executable package that includes everything needed to run an application; the code, a runtime, libraries, environment variables, and configuration files. It is a complete application!!!!! 
-
-An image is not a whole machine, you don't need that. Instead, an image sits on top of a machine, your machine.<br/>
-Using your image, you can now run a container.<br/>
-A container is a runtime instance of an image. It's what the image becomes in memory when executed (that is, an image with a state, or a user process).<br/>
-You can run as many containers as you want until you run out of processing power or RAM.
-
-To share your image, you can push it to [Docker hub](https://hub.docker.com)(sort of like GitHub for docker).<br/>
-Any machine that has docker installed can pull the image and run it without any installations or provisions because the image contains everything.
-
-
-
-
-**The difference?**
-
-Here's a picture:
-
-![virtual-machine-vs-containers](/assets/images/blog/docker/Container-vs-VMs.jpg)
-{:class="img-responsive center"}
-
-With Docker, instead of putting the project code into an  environment as in virtual machines, you build the environment as well and now you can run that environment anywhere.
 
 ## Terminologies:
 
@@ -102,8 +117,8 @@ Now that you have the picture, here are a few terms you will come across in your
     A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc
 7. **Volumes.**
     Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It is initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
-8. **Docker Hub.**
-    Registry for Docker images. You can think of the registry as a directory of all available Docker images.
+8. **[Docker hub.](https://hub.docker.com).**
+    Registry for Docker images. You can think of the registry as a directory of all available Docker images.sort of like GitHub for docker
 
 ## Why use docker
 
@@ -116,6 +131,10 @@ Now that you have the picture, here are a few terms you will come across in your
 4. **Isolation** - Dependencies or settings within a container will not affect any installations or configurations on your computer, or on any other containers that may be running.
 
 5. **portability** - Container host environments are very consistent, no matter which type of operating system is hosting them.
+
+Now I hope this makes a little more sense:
+> Docker is a platform for developers, sysadmins, and etc to develop, deploy, and run applications within loosely isolated environments known as containers.
+With Docker, you can manage your infrastructure the same way you manage your applications.
 
 Here are a couple of resources that might come in handy.
 
