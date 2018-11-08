@@ -253,7 +253,7 @@ body.no-header-wrapper {
   background-size: cover;
   min-height: 400px;
 }
-.header-wrapper-news {
+.header-wrapper-blog {
   background: #65758e url('../images/background/heading-background-5.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;

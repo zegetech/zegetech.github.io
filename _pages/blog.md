@@ -1,13 +1,13 @@
 ---
 layout: default
-title: News
-permalink: /news.html
+title: Blog
+permalink: /blog.html
 priority: 0.80
-promo_title: News
+promo_title: Blog
 promo_intro: Find out what we are up to, what's new and what trending as we share discoveries, insights and knowledge.
 paginate:
   per_page: 10 
-  permalink: /news/page:num/  
+  permalink: /blog/page:num/  
 ---
 <!-- ******Blog list Section****** -->
 <section id="blog-list" class="blog-list section">
@@ -56,9 +56,9 @@ paginate:
                         <li class="active"><a href="#">{{ i }}<span class="sr-only">(current)</span></a></li>
                     {% else %}
                         {%if i==1 %}
-                            <li><a href="/news.html">{{ i }}</a></li>
+                            <li><a href="/blog.html">{{ i }}</a></li>
                         {% else %}
-                            <li><a href="/news/page{{i}}">{{ i }}</a></li>
+                            <li><a href="/blog/page{{i}}">{{ i }}</a></li>
                         {% endif %}
                     {% endif %}
                 {% endfor %}
