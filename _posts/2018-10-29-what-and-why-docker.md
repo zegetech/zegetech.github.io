@@ -1,5 +1,5 @@
 ---
-layout: news
+layout: blog
 title:  Containerization with Docker
 categories: developer
 author: Melvin Atieno

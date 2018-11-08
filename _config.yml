@@ -32,7 +32,7 @@ plugins:
   - octopress-paginate
   # - jekyll-paginate
 # paginate: 5
-# paginate_path: "/news/page:num/"
+# paginate_path: "/blog/page:num/"
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -42,7 +42,7 @@ include: ['_pages']
 collections:
   projects:
     output: true
-  news:
+  blog:
     output: true
   # - clients
 sitemap:
