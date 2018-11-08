@@ -73,7 +73,6 @@ Containerization has been around for decades, but it is Docker that has reinvigo
 
 How to create a Docker container will be covered in the [next]("link to next post") post.
 
-
 ## Terminologies:
 
 Now that you have the picture, here are a few terms you will come across in your docker-journey:
