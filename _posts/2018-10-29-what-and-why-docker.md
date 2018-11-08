@@ -1,10 +1,9 @@
 ---
 layout: news
-title:  Docker
+title:  Containerization with Docker
 categories: developer
-permalink: news/:year/:month/:day/:title.html
 author: Melvin Atieno
-blog-image: docker/docker1.png
+blog-image: docker/docker_ship.png
 intro: The first time I had someone "simply" explain what docker is, this is what they said, "Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers".If you are a beginner programmer or techie you probably need to understand the fundamental concepts around containers and how they compare to virtual machines before you can fully dive into dockerization. This is a beginner-friendly guide that I hope will serve that purpose.
 ---
 
@@ -17,17 +16,9 @@ To get us started I am going to explain how a computer works, what virtual machi
 
 A computer is sort of like a house. The different rooms represent different applications.
 
-Here's a picture:
+Here's a picture comparison of a computer as a house:
 
-
-A house
-
-![house outline](/assets/images/blog/docker/house.jpeg){:style="width:60%; height:60%" }
-
-A computer.
-
-![computer house](/assets/images/blog/docker/computer.jpeg){:style="width:60%; height:60%" }
-
+![house outline](/assets/images/blog/docker/housevscomp.jpg){:class="img-responsive center"}
 
 Like houses, all computers contain applications based on the user's needs.
 
@@ -53,11 +44,9 @@ You can have several virtual machines installed on your system. You’re only li
 
 In general, Virtual machines provide an environment with more resources than most applications need.
 
-
-
 ## Containers
 
-Unlike a virtual machine which provides hardware virtualization, a container provides operating-system-level virtualization by abstracting the “user space”. You might want to see the different types of [virtualization](https://www.redswitches.com/blog/different-types-virtualization-cloud-computing-explained/).
+Unlike a virtual machine which provides hardware virtualization, a container provides operating-system-level virtualization by abstracting the “user space”. You might want to see the different types of [virtualization](https://www.redswitches.com/blog/different-types-virtualization-cloud-computing-explained/). Among the most popular containerisation engines are [Docker](https://docs.docker.com) and [CoreOs's RKT](https://coreos.com/rkt/)
 
 Containers, using our house analogy can be compared to a hotel. The apartment is not fully occupied and not easy to move from one building/apartment to another. With Hotels problem is solved!
 
@@ -66,28 +55,19 @@ In the Hotel room, you have only what you need, everything else is shared/common
 This is how containers system work:
  you have a server, it could be a physical server or a virtual server (VM). You install an OS. The containers you create interact with the OS’s kernel. It uses certain features of the kernel to create an isolated application platform.
 
-
-Here's a picture:
-
 ![docker-structure](/assets/images/blog/docker/docker-structure.png){:class="img-responsive center"}
-
 
 You can see that all the operating system level architecture is being shared across containers. The only parts that are created from scratch are the bins and libs. This is what makes containers so lightweight.
 
-
 **The difference**
-
-
-Here's a picture:
 
 ![virtual-machine-vs-containers](/assets/images/blog/docker/Container-vs-VMs.jpg){:class="img-responsive center"}
 
+## Docker
 
-## [Docker](https://docs.docker.com/get-started/).
+[Docker is an open-source](https://docs.docker.com/get-started/) project based on Linux containers. It uses Linux Kernel features like namespaces and control groups to create containers on top of an operating system.
 
-Now docker.
-
-Docker is an open-source project based on Linux containers. It uses Linux Kernel features like namespaces and control groups to create containers on top of an operating system.
+![docker logo](/assets/images/blog/docker/docker.png){:class="img-responsive center"}
 
 Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications. 
 
@@ -98,10 +78,8 @@ How to create a Docker container will be covered in the [next]("link to next pos
 
 Now that you have the picture, here are a few terms you will come across in your docker-journey:
 
-
 1. **Docker Engine.**
     Docker engine is the layer on which Docker runs. It’s a lightweight runtime and tooling that manages containers, images, builds, and more. It runs natively on Linux systems and is made up of :
-
     - A Docker Daemon that runs in the host computer.
     - A Docker Client that then communicates with the Docker Daemon to execute commands.
     - A REST API for interacting with the Docker Daemon remotely.
@@ -117,7 +95,7 @@ Now that you have the picture, here are a few terms you will come across in your
     A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc
 7. **Volumes.**
     Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It is initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.
-8. **[Docker hub.](https://hub.docker.com).**
+8. **[Docker hub](https://hub.docker.com).**
     Registry for Docker images. You can think of the registry as a directory of all available Docker images.sort of like GitHub for docker
 
 ## Why use docker
@@ -142,5 +120,4 @@ Resources
 
 1. [Virtual machine](https://en.wikipedia.org/wiki/Virtual_machine).
 2. [Official docker documentation](https://docs.docker.com/get-started/#docker-concepts).
-3. [Romin Irani's Docker Tutorial Series ](https://rominirani.com/docker-tutorial-series-a7e6ff90a023)
-
+3. [Official docker compose documentation](https://docs.docker.com/compose/)
