@@ -7,12 +7,12 @@ intro: So, you probably already know [what docker is](what-and-why-docker) and w
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
 ---
-![Fruits in a transparent container](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}
+![Docker crayon sketch](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}
 {{ page.intro }}
 
 ## Docker Installation
 
-The docker team offers two docker editions, Docker CE(community edition) and Docker EE(enterprise edition).
+The docker team offers two docker editions, Docker CE (community edition) and Docker EE (enterprise edition).
 The enterprise edition is meant for enterprises running multi-container applications at scale and requiring enhanced security, certification and support.
 For getting started with docker, what you want is [docker-ce](https://docs.docker.com/install/).
 
@@ -60,7 +60,7 @@ Then add the user to the docker group:
 ~~~
 sudo usermod -aG docker $USER # $USER evaluates to the currently logged in user
 ~~~
-Log out, then back in and you should be able to run:
+Close your terminal, then open it again and you should be able to run:
 ~~~
 docker run hello-world
 ~~~
@@ -111,29 +111,14 @@ The instruction is case insensitive, but is capitalized by convention.
 Comments begin with a `#` and should also appear on their own line.
 Here's a rundown of the instructions we're using in our dockerfile:
 
-FROM
-: specifies the base image to build our image off of. [Alpine](https://alpinelinux.org/about/) in this case. This instruction is required and should come before other instructions. Only ARG is allowed to come before.
-
-RUN
-: run a command inside the container. The command is the same as what you'd run in your terminal. There's no limit to how many RUN instructions you can have.
-
-COPY
-: copy the specified directory on the host to a location in the image.
-
-VOLUME
-: set a location for the container to persist data
-
-WORKDIR
-: sets the directory that all commands coming after will be run in
-
-EXPOSE
-: tells the docker daemon what ports our application will be reachable on
-
-ENTRYPOINT
-: provides the default command that will be run when the container is instantiated
-
-CMD
-: the command to run when the container is instantiated. When used in conjuction with ENTRYPOINT, it is used to provide additional parameters to the ENTRYPOINT command.
++ **`FROM`** specifies the base image to build our image off of. [Alpine](https://alpinelinux.org/about/) in this case. This instruction is required and should come before other instructions. Only `ARG` is allowed to come before.
++ **`RUN`** runs a command inside the container. The command is the same as what you'd run in your terminal. There's no limit to how many RUN instructions you can have.
++ **`COPY`** copies the specified directory on the host to a location in the image.
++ **`VOLUME`** sets a location for the container to persist data
++ **`WORKDIR`** sets the directory that all commands coming after will be run in
++ **`EXPOSE`** tells the docker daemon what ports our application will be reachable on
++ **`ENTRYPOINT`** provides the default command that will be run when the container is instantiated
++ **`CMD`** sets the command to run when the container is instantiated. When used in conjuction with `ENTRYPOINT`, it is used to provide additional parameters to the `ENTRYPOINT` command.
 
 There are more instructions that are not used here. The full set is on the [dockerfile reference](https://docs.docker.com/engine/reference/builder/) page.
 
