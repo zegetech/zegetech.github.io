@@ -67,7 +67,7 @@ You can see that all the operating system level architecture is being shared acr
 
 [Docker is an open-source](https://docs.docker.com/get-started/) project based on Linux containers. It uses Linux Kernel features like namespaces and control groups to create containers on top of an operating system.
 
-![docker logo](/assets/images/blog/docker/docker.png){:class="img-responsive center"}
+![docker logo](/assets/images/blog/docker/dockerlogo.png){:class="img-responsive center"}
 
 Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications. 
 
