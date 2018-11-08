@@ -1,5 +1,5 @@
 ---
-layout: news 
+layout: blog 
 title: Docker in your dev box
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
