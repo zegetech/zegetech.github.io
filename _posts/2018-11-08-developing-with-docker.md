@@ -1,16 +1,13 @@
 ---
 layout: news 
-title: Developing with Docker
+title: Docker in your dev box
 author: Ngari Ndung'u
-blog-image: docker/container.jpg
-image-attribution: Photo by Randy Fath on Unsplash
+blog-image: docker/whale.jpg
 intro: So, you probably already know [what docker is](what-and-why-docker) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
 ---
 ![Fruits in a transparent container](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}
-{{ page.image-attribution }}
-{:.image-attribution}
 {{ page.intro }}
 
 ## Docker Installation
@@ -76,30 +73,38 @@ Finally time to get our site on docker. The dockerfile is where we will define t
 The `docker build` command builds an image from the dockerfile and a context, which can be a directory or a git repository.
 Let's take a look at the file we'll be using:
 
-~~~dockerfile        
-# zegetech website docker file
+```dockerfile        
 # build off of alpine
 FROM alpine:3.8
+
 # update packages
 RUN apk update
+
 # install ruby
 RUN apk add ruby=2.5.2-r0 git ruby-dev build-base zlib-dev ruby-json
+
 # install bundler
 RUN gem install bundler -N
+
 # copy repo
 COPY . /blog
+
 # set mount point
 VOLUME /blog
+
 # switch to repo directory
 WORKDIR blog
+
 # install app dependencies
 RUN bundle install
+
 # exposed port
 EXPOSE 4000
+
 # run server
 ENTRYPOINT ["bundle", "exec","jekyll","serve"]
 CMD ["-H", "0.0.0.0"]
-~~~
+```
 
 This file shows the basic structure of a dockerfile. Every line in the dockerfile is an instruction of the form `INSTRUCTION arguments`.
 The instruction is case insensitive, but is capitalized by convention.
@@ -160,6 +165,7 @@ Now, each time you want to start your development server all you have to do is r
 But for the sake of saving limited mental resources, we have `docker-compose`.
 
 ## The docker-compose.yml file
+![docker-compose](/assets/images/blog/docker/docker-compose.png){:class="img-responsive center"}
 
 > Compose is a tool for defining and running multi-container Docker applications.
 
@@ -246,6 +252,18 @@ You can find the container to `exec` into by running:
 ~~~
 docker container ps
 ~~~
+To simplify this command, you can create an alias with the following
+```sh
+# If bash is installed in containter
+dsh() { docker exec -it $@ bash; }
+# if bash isn't in the containter 
+dsh() { docker exec -it $@ sh; }
+```
+This will allow you to log into the container with the following command
+```bash
+dsh $CONTAINER
+```
+
 Once we have a shell we can run commands as we would normally:
 ~~~shell
 bundle add bigdecimal # had to do this when building my image
