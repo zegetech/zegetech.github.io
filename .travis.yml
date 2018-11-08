@@ -1,23 +1,15 @@
-language: nodejs
+language: ruby
 
-node_js:
-  - "5.11"
+rvm:
+  - 2.5.1
 
 branches:
   only:
     - release
-
-before_install:
-  - rvm install 2.5.1
-  - rvm use 2.5.1
-  - . $HOME/.nvm/nvm.sh && nvm install 6.1 && nvm use 6.1
-  - bundle check || bundle install
+    - master
 
 install:
-  - npm install -g firebase-tools 
   - gem install bundler
-
-before_script:
   - bundle check || bundle install
 
 script:
@@ -25,6 +17,10 @@ script:
   - bundle exec jekyll build
   # - bundle exec htmlproofer ./_site
 
-after_success:
-  - echo "Deploying"
-  - firebase deploy --token $FIREBASE_TOKEN
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  on:
+    branch: release
