@@ -51,7 +51,7 @@ You will, however, have to manage your own operating system, provide middleware 
 
 ### PaaS
 
-Paas stands for Platform as a Service. The service provider provides you with a configured infrastructure. On top of infrastructure, PaaS includes middleware, runtimes, development, testing and deployment tools.
+Paas stands for Platform as a Service. The service provider provides you with a pre-configured infrastructure.PaaS includes middleware, runtimes, development, testing and deployment tools.
 Here's a picture;
 
 ![PaaS model](/assets/images/blog/cloud-computing/paas.png){:class="img-responsive center"}
@@ -61,7 +61,7 @@ Here's a picture;
 All you provide is code for your application and the data.
 Example of Paas providers are [Heroku](https://www.heroku.com/), [Go daddy](https://uk.godaddy.com), etc
 
-In this case, all you will have to do is create code for your application, then upload the files for your provider to handle.
+In this case, all you will have to do is create code for your application, then upload the files for your provider to deploy.
 
 
 ### SaaS
