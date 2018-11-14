@@ -36,7 +36,7 @@ paginate:
                     </figure>
                     <div class="content">
                         <div class="desc">
-                            <p>{{ post.intro }}</p>
+                            <p>{{ post.intro | markdownify }}</p>
                             <a class="read-more" href="{{ post.url }}">Read more <i class="fa fa-long-arrow-right"></i></a>
                         </div><!--//desc-->
                     </div><!--//content-->
