@@ -63,7 +63,7 @@ You can also provide your SSH public key to completely skip setting up password 
 
 The internet can be a scary dangerous place. This becomes obvious within hours of provisioning a new server.
 The number of failed login attempts that show up in my server logs is just insane. A firewall is the first line of defence for your server.
-UFW(uncomplicated firewall) on ubuntu gives us an interface to setup rules for how our server handles traffic.
+`UFW`(uncomplicated firewall) on ubuntu gives us an interface to setup rules for how our server handles traffic.
 We can choose to only leave open the few ports we will be using; `80` and `443` for the webserver, `22` for ssh.
 We can also filter based on network protocol, `tcp` or `udp`, ip ranges and much more.
 [This article](https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw/) shows how to get a basic setup going.
@@ -87,33 +87,60 @@ This has the added advantage of saving your server resources that would have bee
 - sidekiq - is a background job scheduler for ruby applications. Rails provides a default job scheduler but that is really only meant for development.
   It holds its jobs in RAM, thus all enqued jobs are lost when the server shuts down. Sidekiq persists jobs between server restarts.
   Support for sidekiq is also baked into rails and can be configured as shown [here](https://guides.rubyonrails.org/active_job_basics.html#setting-the-backend).
-#### dev vs production 
+- Database server - database setup for whatever backend you choose to use in production will mostly be the same as your local setup.
+  Of particular importance is to make sure that your database is protected behind a password and that the db port is not open to the outside world.
+  [Here's](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps) how you can secure your postgres installation.
 
-We will install a few extra packages on our *production* machine:
+### The Rails Environment
 
-#### Web server - Nginx
+If it's not obvious by now, there are a lot of moving parts before we have a *production ready* environment.
+All that work and we haven't installed Ruby yet! And even after we have everything installed, how do we get our code onto the server.
+Will we have to ftp, scp, sftp and more p's into the server everytime we want to deploy a new version of our code?
+No, no we won't. For deploying ruby applications, we have [Capistrano](https://capistranorb.com/).
 
-#### Que manager - sidekiq
+#### Capistrano
 
-#### Cache system - memcached
+> A remote server automation and deployment tool written in Ruby.
 
-#### Redis
+Capistrano allows us to write *tasks* that define our entire(almost) deployment workflow and then perform those tasks on any number of servers.
+Cap builds upon [Rake](https://github.com/ruby/rake/blob/master/doc/rational.rdoc) "Ruby Make", adding the functionality necessary to connect to and run code on remote servers.
+The cap [SSHKit](https://github.com/capistrano/sshkit) toolkit provides most of capistrano's functionality, and has useful [examples](https://github.com/capistrano/sshkit/blob/master/EXAMPLES.md).
 
-#### app server|Puma
+Various gems are available to integrate capistrano with rails applications:
+- capistrano/rails - common rails deployment tasks
+- capistrano/rvm - integration with RVM managed ruby environments
+- capistrano/bundler - integration with bundler
+- capistrano/puma - tasks to manage the puma application server
 
-#### db server|Postgres
+With cap [added to a rails application](https://www.digitalocean.com/community/tutorials/deploying-a-rails-app-on-ubuntu-14-04-with-capistrano-nginx-and-puma#step-6-%E2%80%94-adding-deployment-configurations-in-the-rails-app), a `cap [environment] deploy` is all we need to run to deploy a new version of our site.
+Capistrano also provides the ability to rollback a deploy if the most recent one breaks.
+That by itself is reason enough to *capify* all the things.
 
-#### build environment
+Since cap connects to the server via SSH, we can use it to run any command as we normally would on the server.
+By writing `tasks`, scripts that list the commands to run, both locally and on remote servers, we can automate the process of setting up our server.
+One only needs set up the server once, while extracting the logic out into cap tasks.
+In this way, we can have a tasks to install postgres, another for nginx, one to create a database role, one to update the system, and so on.
+Once you have the scripts together, provisioning a new server stops being a pain. But how do you get those tasks into a different project?
+[Rails application templates](https://guides.rubyonrails.org/rails_application_templates.html) is how.
 
-#### security - firewall, DDoS protection, https
+Rails application templates provide a way to add 'code' to a new or existing rails application.
+The dsl provides actions to add gems and sources to the `Gemfile`, add initializers, rake tasks and arbitrary files.
+We can set rails configuration variables or even run rails and git commands as the template is applied.
+We can use [Thor actions](https://www.rubydoc.info/github/wycats/thor/Thor/Actions#source_paths-instance_method) to fetch and manipulate data from disparate sources for use in our cap tasks.
+To generate a new application and apply the template:
+~~~shell
+rails new [appname] -m /path/to/template.rb # path can also be a url
+~~~
+Or to apply to an existing app:
+~~~shell
+bin/rails app:template LOCATION=/path/to/template.rb # location variable can also be a url
+~~~
 
-- ufw
-- fail2ban
-- 
-deploy user vs root user
+#### Example you ask?
 
-## getting code on the server?
+[Rails seed](https://github.com/kgathi2/rails_seed) is a Rails Application Template with the lofty goal of getting you up and running a production-ready environment in 15 minutes.
+And it works... mostly. If nothing else, it should give you a more [concrete](https://sw.wikipedia.org/wiki/Zege) image of the gibberish written here.
+The template contains tasks that take care of installing the typical ruby and rails dependencies, setting up postgres, adding firewall rules and most other setup tasks.
 
-#### capistrano and rake
+The template for now works for Rails 5.0 and is tested on Ubuntu xenial and bionic. It should also work with rails >=5.1 once you [setup encrypted credentials](https://www.starkandwayne.com/blog/rails-5-1-applications-can-be-a-lot-more-secretive-on-cloud-foundry-and-heroku/).
 
-## templates - rails-seed
