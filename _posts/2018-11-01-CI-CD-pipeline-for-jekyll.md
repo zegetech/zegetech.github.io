@@ -4,7 +4,8 @@ title:  Creating a CI/CD pipeline for Jekyll
 categories: developer
 author: Melvin Atieno
 blog-image: ci-cd/rocketlaunch.jpg
-intro: Continuous Integration (CI) is a development practice that involves the aggregation of small bits of code into a shared repository, frequently.<br/>Continuous Deployment is closely related to Continuous Integration. It refers to the release to production of a software that passes set automated tests. In other words it means frequently making the most recently functional version of a software available for use.
+intro: |
+    Continuous Integration (CI) is a development practice that involves the aggregation of small bits of code into a shared repository, frequently.<br/>Continuous Deployment is closely related to Continuous Integration. It refers to the release to production of a software that passes set automated tests. In other words it means frequently making the most recently functional version of a software available for use.
 
 ---
 {:.post-figure}

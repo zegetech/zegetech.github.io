@@ -4,7 +4,8 @@ title:  Containerization with Docker
 categories: developer
 author: Melvin Atieno
 blog-image: docker/docker_ship.png
-intro: The first time I had someone "simply" explain what docker is, this is what they said, "Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers".If you are a beginner programmer or techie you probably need to understand the fundamental concepts around containers and how they compare to virtual machines before you can fully dive into dockerization. This is a beginner-friendly guide that I hope will serve that purpose.
+intro: |
+    The first time I had someone "simply" explain what docker is, this is what they said, "Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers".If you are a beginner programmer or techie you probably need to understand the fundamental concepts around containers and how they compare to virtual machines before you can fully dive into dockerization. This is a beginner-friendly guide that I hope will serve that purpose.
 ---
 
 {:.post-figure}

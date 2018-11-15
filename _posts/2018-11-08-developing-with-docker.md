@@ -1,9 +1,11 @@
 ---
 layout: blog 
 title: Docker in your dev box
+categories: developer
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
-intro: So, you probably already know [what docker is](what-and-why-docker) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
+intro: | 
+  So, you probably already know [what docker is](what-and-why-docker) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
 ---
@@ -128,7 +130,7 @@ Before we can run the container, we have to build our image first.
 ~~~
 docker build -t name:tag . # the dot specifies the current directory as the build context
 ~~~
-This command will run through the dockerfile executing instructions sequentially.
+This command will run through the `Dockerfile` executing instructions sequentially.
 It will look for the image specified in the `FROM` instruction locally, and download it if its missing.
 Docker will then run the next instruction and output an intermediate image. This process is repeated until we have our final image.
 
@@ -137,7 +139,7 @@ Now to run our image:
 docker run -p 127.0.0.1:80:4000 --mount type=bind,src="$(pwd)",target=/site <image-name:image-tag>
 ~~~
 The `-p` flag publishes a container's ports to the host. In this case, we are mapping port 4000 on the container to port 80 on the host.
-Our application can then be reached by visiting `localhost` in the browser.
+Our application can then be reached by visiting [localhost](http://localhost) in the browser served on the default port:80
 
 The `--mount` flag specifies the type of storage that will be provided to the container.
 The possible values for type are `bind`, `volume` and `tmpfs`. In this case, we are using a bind mount, that will mount a directory on the host(`"$(pwd)"` which resolves to the current directory) into the container at location `/site`.
@@ -146,16 +148,16 @@ With this type of storage, whatever happens in the container's `/site` directory
 
 You can get quick documentation on docker commands by running `docker <command> --help`.
 
-Now, each time you want to start your development server all you have to do is run this long command(it can be longer).
-But for the sake of saving limited mental resources, we have `docker-compose`.
+Now, each time you want to start your development server all you have to do is run this long command (and it can get even longer).
+But for the sake of saving limited mental resources, we have [docker-compose](https://docs.docker.com/compose).
 
-## The docker-compose.yml file
+## Docker Compose
 ![docker-compose](/assets/images/blog/docker/docker-compose.png){:class="img-responsive center"}
 
 > Compose is a tool for defining and running multi-container Docker applications.
 
-But that doesn't stop us from using it to run a single container on our local machines.
-Here's the file we will be using:
+Using a `docker-compose.yml` or `docker-compose.yaml` file, we define the multi-contaier application to be built and run. However that doesn't stop us from using it to run a single container on our local machines.
+Here's the `docker-compose.yml` file we will be using:
 
 ~~~ yaml
 version: "3"
@@ -181,18 +183,10 @@ These could be a database container, a container for the api and maybe a contain
 
 The `services` key contains a single nested key, `site`. This is the name of the service that we will be running.
 If the options inside look familiar, they should. Options inside the dockerfile are analogous to instructions you'd write in the Dockerfile.
-
-`command`
-: overrides `CMD` in the Dockerfile(if present)
-
-`image`
-: image to run. Similar to `FROM`
-
-`volumes`
-: specifies the type of storage to be afforded to the container. Similar to the `--mount` flag of the `docker run` command
-
-`ports`
-: bind container ports to host ports. Analogous to the `-p` flag
++ **`command`** overrides `CMD` in the Dockerfile(if present)
++ **`image`**: defines the image to run. Similar to `FROM`
++ **`volumes`** specifies the type of storage to be afforded to the container. Similar to the `--mount` flag of the `docker run` command
++ **`ports`** binds the container ports to host ports. Analogous to the `-p` flag
 
 With the docker-compose file in place, the command to run our container decomposes to:
 ~~~
@@ -233,10 +227,6 @@ docker exec -it --rm [container] sh # requires a running container
 docker run -it --rm [image] sh # creates and starts a new container
 ~~~
 The combined flags `-i` and `-t` open an interactive terminal into the container, while the `--rm` flag destroys the container once the command exits.
-You can find the container to `exec` into by running:
-~~~
-docker container ps
-~~~
 To simplify this command, you can create an alias with the following
 ```sh
 # If bash is installed in containter
@@ -248,8 +238,16 @@ This will allow you to log into the container with the following command
 ```bash
 dsh $CONTAINER
 ```
+This can be run from any location in the project, unlike the docker-compose version. 
 
-Once we have a shell we can run commands as we would normally:
+### Listing Docker containers
+You can find a list of `$CONTAINER`s to `exec` into by running:
+~~~
+docker container ps
+# or 
+docker ps
+~~~
+Once we have a shell, we can run commands as we would normally:
 ~~~shell
 bundle add bigdecimal # had to do this when building my image
 bundle install
@@ -263,5 +261,6 @@ Take a look at the [compose command-line reference](https://docs.docker.com/comp
 
 ## Ready
 
-And... that's it! Now anybody wanting to start hacking on our code only needs to clone the repo, `cd` into the directory and run `docker-compose up`.
+And... that's it! Now anybody wanting to start hacking on a docker-compose project only needs to clone the repo, `cd` into the directory and run `docker-compose up`. The amazing part is that it could be any project stack, php, ruby, java, node, anything. No need to set up a local machine to get a working environment. The project comes bundled and isolated thanks to Docker so it will work great without interfering with your current setup. 
+
 They might need to go get a coffee depending on internet speed but hey, time spent enjoying a coffee is time not wasted fighting with dependencies.
