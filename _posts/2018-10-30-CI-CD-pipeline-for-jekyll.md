@@ -12,7 +12,7 @@ intro: Continuous Integration (CI) is a development practice that involves the a
 
 **Prerequisites:**
 1. A Jekyll site or simply the Jekyll boilerplate. Read [part one](/blog/2017/03/10/static-site-generators-are-back.html).
-2. A basic understanding of [Git](https://try.github.io/). We are going to use for version control.
+2. A basic understanding of [Git](https://try.github.io/). We are going to use it for version control.
 3. A Github repository containing the Jekyll site.
 4. An account with [Travis](https://docs.travis-ci.com/).
 5. An account with [firebase](https://firebase.google.com/).
