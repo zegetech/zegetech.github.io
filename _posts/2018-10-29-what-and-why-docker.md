@@ -72,7 +72,7 @@ You can see that all the operating system level architecture is being shared acr
 
 Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications. 
 
-How to create a Docker container will be covered in the [next]("link to next post") post.
+How to create a Docker container will be covered in the [next](/developer/2018/11/08/developing-with-docker.html) post.
 
 ## Terminologies:
 

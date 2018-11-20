@@ -16,7 +16,7 @@ slides:
 - agronet7.jpg
 - agronet8.jpg
 client: Agronet
-partners: <a href="http://www.palmhousedairies.com/" target="_blank">Palmhouse Dairies</a>, <a href="http://sbs.strathmore.edu/" target="_blank">Strathmore Business School</a>, <a href="http://trac-fund.com/" target="_blank">TRAC Fund</a>, <a href="http://www.scale-software.co.ke/" target="_blank">Scales and Software</a>
+partners: <a href="http://www.palmhousedairies.com/" target="_blank">Palmhouse Dairies</a>, <a href="http://sbs.strathmore.edu/" target="_blank">Strathmore Business School</a>
 tasks: Market Survey and Research, Business modelling, App development, Web Development
 project_url: http://agronet.zegetech.com
 challenge: Dairy is the largest agricultural activity in Kenya and ranks highly in Africa. With the milk deficit still very high, you'd think that dairy farming would be profitable for all. Unfortunatley, for most smallholder farmers it hardly is.
