@@ -238,3 +238,5 @@ There are, however, a couple of things to note when deploying to GitHub pages.
 Here's is a list of [allowed or whitelisted plugins and themes](https://github.com/github/pages-gem/blob/master/lib/github-pages/plugins.rb#L21-L42).
 
 2. Another workaround would be to install [pages-gem](https://github.com/github/pages-gem) which helps GitHub Page's users bootstrap and maintain a Jekyll build environment that most closely matches the GitHub pages build environment. With this, if it works locally you are sure it'll work on Github pages.
+
+3. You are not required to install `Jekyll` separately If you decide to use `github-pages gem`. This is because Jekyll 3.7.4 is a runtime dependency for the github-pages gem. If you have a different version of Jekyll installed then there may be discrepancies between your site run locally and the same site hosted on github pages. 
