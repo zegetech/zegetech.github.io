@@ -2,45 +2,73 @@
 layout: blog 
 title: Deploying a monolithic rails application
 author: Ngari Ndung'u
-blog-image: 
+blog-image: deployment/monolith.jpg
 intro: So, you finally have your app in a state that you aren't too embarrassed to show off. How do you open it up to the world?
   How do you manage the influx of users? How will you keep it safe from the *dangerous* internets? These are questions we face every time we work on a new product.
   This post explores one of the ways to deploy your shiny new rails application and the common tooling behind it.
 ---
+![Stone pillar](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
+
+{:.image-attribution}
+Photo by Pedro Lastra on Unsplash
 
 {{ page.intro }}
 
 ## Monolithic?
 
-If this invokes an image of the stone pillars at [stonehedge], good. An app built on the monolithic architecture is easily viewed as one integrated piece.
+If this invokes an image of the stone pillars at [stonehenge](https://www.history.com/topics/british-history/stonehenge), good. An app built on the monolithic architecture is easily viewed as one integrated piece.
 The database, business logic, API and user interface components are all worked on within the same codebase, and deployed as a whole.
 If you have built a rails app following the [introductory guide](https://guides.rubyonrails.org/getting_started.html) you will end up with a monolith.
 Heres the directory structure you get when you initialize a rails application with `rails new [appname]`:
-![Directory structure of a new rails application]()
+
+![Directory structure of a new rails application](/assets/images/blog/deployment/rails_new_dir.png){:.img-responsive,.center-block}
+
 Everything that constitutes your app will be found within this one folder. User interface components? You'll find that in `app/views`.
 Data models? That's in `app/models`. How you get data onto your user interface? `app/controllers`.
 That's the typical MVC framework setup.
 
-You will have heard of micro-services in the last few years. The micro-service architecture encourages the development of applications as disparate services, with each service catering to a single business requirement.
-Each service can be viewed as a monolith application, albeit with reduced business scope.
+You will have heard of micro-services in the last few years. If not, [here's an intro](https://www.nginx.com/blog/introduction-to-microservices/).
+The micro-service architecture encourages the development of applications as disparate services, with each service catering to a single business requirement.
+Each service publishes an api through which other services can consume its data.
+A single service can be viewed as a monolith application, albeit with reduced business scope.
 We'll cover deploying a *traditional* rails app in this post, and follow it up with deploying a micro-services based app in a later post.
+
+## Application Environments
+
+Every application typically exists within several environments. You have your development machine, a CI/CD server, plus one or more staging and production servers.
+Rails configures 3 environments for us when we start a new application. Test, staging and production.
+We are at liberty to add to these environments to align with our application needs.
+Deploying our app on multiple environments allows us to test how it behaves on each, and most important, prevents us from breaking code in production.
+
+Continuous delivery requires that we deploy our code as often as possible. When to start? I'd say as soon as you have the boilerplate ready.
+Why? First it gives you a ready avenue to present work to the client or customer as the product evolves. Second, it gives you the opportunity to test and understand your production requirements from day one.
+You avoid getting hit by strange bugs right when the product is ready to launch.
+And third, what better way to keep motivated than to actually be losing money with every delay in releasing the product?
 
 ## Deployment options
 
 Unless you are lucky enough to work in a server room and have one of those servers as your development machine, you will need somewhere to host your site.
-We have the choice of deploying our site to a PaaS provider such as [Heroku] or using a VPS from a IaaS provider.
+We have the choice of deploying our site to a PaaS provider such as [Heroku](https://www.heroku.com/) or using a VPS from a IaaS provider.
+This can also be a combination of the cloud services [discussed here](../../11/12/cloud-cloud-computing.html).
+
 Deploying to a platform such as heroku abstracts away the complexities of setting up a performant and secure environment for your application.
 No need to worry about setting up and updating the OS, the database server or any of your app dependencies. You simply upload your code and the platform takes care of the rest.
 
-The more *painful* approach is to create a VPS on a provider such as [digital ocean], [linode] or [aws lightsail].
+The more *painful* approach is to create a VPS on a provider such as [digital ocean](https://www.digitalocean.com/), [linode](https://www.linode.com/) or [aws lightsail](https://aws.amazon.com/lightsail/).
 With a vps, you control every aspect of the server. If something fails, that's on you.
 The process of setting up is not much different from what you did to get the app running on your development machine.
 But, on top of getting your app to run, you have to make considerations for overall site security and app performance.
+Why would anyone want to do it this way?
+- Total control over your server - install everything you want and nothing more to help reduce the attack surface.
+  Optimise your server for performance or security as you see fit, or even 'gain' a bit more memory by allocating swap.
+- Cost - you only pay for resources, not management. Consider that postgres on Heroku, if you go beyond 10k records(which you will), is 9$ per month.
+ With a vps on the other hand, if you're paying 5$ per month, it will still be 5$ with a full-blown postgres install.
+
 And you guessed it... we're going with the painful approach.
 
-## Our production environment
+## Setting up the Production|Staging Environment
 
-### Base Environment
+#### Base Environment
 
 You will mostly get your pick of operating system with most cloud providers. And here is where the choices start.
 We will be going with Ubuntu 18.04(Bionic Beaver). This is an LTS(long term support) version of Ubuntu with at least 5 years of security support.
@@ -136,11 +164,72 @@ Or to apply to an existing app:
 bin/rails app:template LOCATION=/path/to/template.rb # location variable can also be a url
 ~~~
 
-#### Example you ask?
+### Example you ask? Introducing Rails seed
 
-[Rails seed](https://github.com/kgathi2/rails_seed) is a Rails Application Template with the lofty goal of getting you up and running a production-ready environment in 15 minutes.
-And it works... mostly. If nothing else, it should give you a more [concrete](https://sw.wikipedia.org/wiki/Zege) image of the gibberish written here.
+![Germinating coffee beans](/assets/images/blog/deployment/seed.jpg){:.img-responsive}
+
+{:.image-attribution}
+Photo by Christian Joudrey on Unsplash
+
+[Rails seed](https://github.com/kgathi2/rails_seed) is a Rails Application Template, developed within Zegetech with the lofty goal of getting you up and running a production-ready environment in 15 minutes.
+And it works... mostly. If nothing else, it should give you a more [concrete](https://sw.wikipedia.org/wiki/Zege) image of the jumble written here.
 The template contains tasks that take care of installing the typical ruby and rails dependencies, setting up postgres, adding firewall rules and most other setup tasks.
 
-The template for now works for Rails 5.0 and is tested on Ubuntu xenial and bionic. It should also work with rails >=5.1 once you [setup encrypted credentials](https://www.starkandwayne.com/blog/rails-5-1-applications-can-be-a-lot-more-secretive-on-cloud-foundry-and-heroku/).
+The template for now works for Rails 5.0 and is tested on Ubuntu 16.04(xenial) and 18.04(bionic). It should also work with rails >=5.1 once you [setup encrypted credentials](https://www.starkandwayne.com/blog/rails-5-1-applications-can-be-a-lot-more-secretive-on-cloud-foundry-and-heroku/).
 
+#### Staging on Vagrant
+
+To test out our *seedified* app, we are going to be using a [Vagrant](https://www.vagrantup.com/) managed virtual machine(VM).
+
+> Vagrant is a tool for building and managing virtual machine environments in a single workflow.
+
+Vagrant provides the tooling to build VMs declaratively and package them into *boxes* that can be shared to provide a consistent development or production environment.
+Vagrant by default uses [VirtualBox](https://www.virtualbox.org/) to run the VMs.
+#### Vagrantfile
+{% highlight Vagrantfile %}
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/bionic64"
+  config.vm.network "private_network", ip: "192.168.100.100"
+  # config.vm.network "public_network"
+  config.vm.provision "shell", path: "bootstrap.sh"
+end
+{% endhighlight %}
+
+Here's what this `Vagrantfile` does:
+- configures the box(OS) to base off of
+- sets up a private network and assigns a static ip to our VM
+- provides a provisioning script, `bootstrap.sh` that will be run the first time our VM is started
+
+Once we have this file in our base application directory, we can start our VM with:
+~~~
+vagrant up
+~~~
+and SSH into it with:
+~~~
+vagrant ssh
+~~~
+This logs in to the VM as the `vagrant` user. Assuming that you used [our provisioning script](https://github.com/kgathi2/rails_seed#vps-preparation), you can log in as the `deploy` user with:
+~~~
+ssh deploy@192.168.100.100
+~~~
+To deploy our app to the VM, we only need to add the `server` declaration in `deploy/staging.rb`:
+~~~
+server "192.168.100.100", user: "deploy", roles: %w{app db web}, my_property: :my_value
+~~~
+We can then deploy our app by running:
+~~~shell
+cap staging provision
+cap staging setup
+cap staging deploy
+~~~
+Rails-seed will provide guidance on what other tasks need to be completed for a successful deploy.
+
+#### Potential Issues
+
+As of this writing, there are issues with the default Ubuntu mirror in Bionic. You might get errors about *SHA checksum mismatch* or *Redirection loop encountered...*
+For now you can switch to a different mirror to resolve the errors. For example, add this to your provisioning script to switch to the mirror provided by OVH:
+~~~bash
+sudo sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/ubuntu.bhs.mirrors.ovh.net/g' /etc/apt/sources.list
+~~~
+
+If you do give rails-seed a try, which you totally should, feel free to reach out. We're totally willing to geek out.
