@@ -41,9 +41,11 @@ We are at liberty to add to these environments to align with our application nee
 Deploying our app on multiple environments allows us to test how it behaves on each, and most important, prevents us from breaking code in production.
 
 Continuous delivery requires that we deploy our code as often as possible. When to start? I'd say as soon as you have the boilerplate ready.
-Why? First it gives you a ready avenue to present work to the client or customer as the product evolves. Second, it gives you the opportunity to test and understand your production requirements from day one.
-You avoid getting hit by strange bugs right when the product is ready to launch.
-And third, what better way to keep motivated than to actually be losing money with every delay in releasing the product?
+Why?
+- It gives you a ready avenue to present work to the client or customer as the product evolves.
+- Gives you the opportunity to test and understand your production requirements from day one.
+  You avoid getting hit by strange bugs right when the product is ready to launch.
+- And finally, what better way to keep motivated than to actually be losing money with every delay in releasing the product?
 
 ## Deployment options
 
@@ -68,65 +70,78 @@ And you guessed it... we're going with the painful approach.
 
 ## Setting up the Production|Staging Environment
 
-#### Base Environment
+1. #### Base Environment
 
-You will mostly get your pick of operating system with most cloud providers. And here is where the choices start.
-We will be going with Ubuntu 18.04(Bionic Beaver). This is an LTS(long term support) version of Ubuntu with at least 5 years of security support.
-Unless your deploy will be short lived, make sure to choose an OS with guaranteed updates.
+    You will mostly get your pick of operating system with most cloud providers. And here is where the choices start.
+    We will be going with Ubuntu 18.04(Bionic Beaver). This is an LTS(long term support) version of Ubuntu with at least 5 years of security support.
+    Unless your deploy will be short lived, make sure to choose an OS with guaranteed updates.
 
-#### User Setup
+2. #### User Setup
 
-When you create a new server with the cloud providers defaults, you mostly receive a root password in your email.
-You can then log in to the server as the root user. This base setup is insecure. If your password was to fall into the wrong hands, your server would no longer be yours!
-Running as the root user also does not leave room for error. There will be no prompts warning you when you try to remove a critical system file.
+    When you create a new server with the cloud providers defaults, you mostly receive a root password in your email.
+    You can then log in to the server as the root user. This base setup is insecure. If your password was to fall into the wrong hands, your server would no longer be yours!
+    Running as the root user also does not leave room for error. There will be no prompts warning you when you try to remove a critical system file.
 
-It is recommended practice to always create a *normal* user and use SSH key authentication to log in to your server.
-You can refer to [this article](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04) for an explanation and step-by-step.
+    It is recommended practice to always create a *deploy* user and use SSH key authentication to log in to your server.
+    The deploy user should be a normal system user who can gain super-user privileges with `sudo`.
+    You can refer to [this article](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04) for an explanation and step-by-step.
 
-An alternative to performing these steps after your server has been built is to provide a script that the cloud provider will run as part of the provisioning task.
-This is referred as *User data* on digital ocean while aws lightsail asks for a *launch script*. Here's an [example script](https://github.com/kgathi2/rails_seed#vps-preparation).
-You can also provide your SSH public key to completely skip setting up password login to the server.
+    An alternative to performing these steps after your server has been built is to provide a script that the cloud provider will run as part of the provisioning task.
+    This is referred as [*User data*](https://www.digitalocean.com/docs/droplets/resources/metadata/#about-user-data) on digital ocean while aws lightsail asks for a *launch script*. Here's an [example script](https://github.com/kgathi2/rails_seed#vps-preparation).
+    User data is fed into [CloudInit](https://cloudinit.readthedocs.io/en/latest/) which runs the provided commands as root the first time the server starts.
 
-#### Basic network security setup
+    You can also provide your SSH public key to completely skip setting up password login to the server.
+    To generate an SSH key on a linux box run:
+    ~~~
+    ssh-keygen
+    ~~~
+    This will generate a public/private key pair and save to `id_rsa.pub` and `id_rsa` respectively, in `~/.ssh/`.
+    You can view the contents of your public key using:
+    ~~~
+    cat ~/.ssh/id_rsa.pub
+    ~~~
+    You can then copy the printed key onto your cloud provider's dashboard to have it available everytime you create a new server.
+    For a general walkthrough on setting up ssh, see [this post](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604)
+3. #### Basic network security setup
 
-The internet can be a scary dangerous place. This becomes obvious within hours of provisioning a new server.
-The number of failed login attempts that show up in my server logs is just insane. A firewall is the first line of defence for your server.
-`UFW`(uncomplicated firewall) on ubuntu gives us an interface to setup rules for how our server handles traffic.
-We can choose to only leave open the few ports we will be using; `80` and `443` for the webserver, `22` for ssh.
-We can also filter based on network protocol, `tcp` or `udp`, ip ranges and much more.
-[This article](https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw/) shows how to get a basic setup going.
+    The internet can be a scary dangerous place. This becomes obvious within hours of provisioning a new server.
+    The number of failed login attempts that show up in my server logs is just insane. A firewall is the first line of defence for your server.
+    `UFW`(uncomplicated firewall) on ubuntu gives us an interface to setup rules for how our server handles traffic.
+    We can choose to only leave open the few ports we will be using; `80` and `443` for the webserver, `22` for ssh.
+    We can also filter based on network protocol, `tcp` or `udp`, ip ranges and much more.
+    [This article](https://www.linode.com/docs/security/firewalls/configure-firewall-with-ufw/) shows how to get a basic setup going.
 
-[Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) is the next tool we will want to set up.
-Fail2ban provides some protection against brute-force attacks on your site. It can detect repeated failed authentication attempts and automatically ban the offending ip for a set time.
-This has the added advantage of saving your server resources that would have been consumed replying to these attempts.
+    [Fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) is the next tool we will want to set up.
+    Fail2ban provides some protection against brute-force attacks on your site. It can detect repeated failed authentication attempts and automatically ban the offending ip for a set time.
+    This has the added advantage of saving your server resources that would have been consumed replying to these attempts.
 
-#### Server components
+4. #### Server components
 
-- Web server - [Nginx](https://nginx.org/en/) is a high performance web server with powerful reverse proxy features.
-  We will be setting up Nginx to serve static files(html, css, images...) for our site, while forwarding all other requests to Puma.
-  [The rails documentation](https://guides.rubyonrails.org/configuring.html#using-a-reverse-proxy) provides a sample configuration file.
-- Application server - [Puma](https://github.com/puma/puma) is the default server for rails apps and what starts when you run `rails server` on your development machine.
-  There is thus no special effort required to install and run puma. It also comes with sensible defaults that can be applied in production.
-- Cache system - [memcached](https://memcached.org/) - caching helps speed up our server response times by storing the results of database queries in RAM and serving subsequent requests from this stored data.
-  Memcached support is baked into rails. Once [installed], there is just one [configuration option](https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-memcachestore) to change.
-- Redis
-  [Redis](https://redis.io/) is an in-memory key-value database normally used in rails applications to provide a job queue and for caching.
-  In the context of our application, it is a requirement for [sidekiq](https://github.com/mperham/sidekiq).
-- sidekiq - is a background job scheduler for ruby applications. Rails provides a default job scheduler but that is really only meant for development.
-  It holds its jobs in RAM, thus all enqued jobs are lost when the server shuts down. Sidekiq persists jobs between server restarts.
-  Support for sidekiq is also baked into rails and can be configured as shown [here](https://guides.rubyonrails.org/active_job_basics.html#setting-the-backend).
-- Database server - database setup for whatever backend you choose to use in production will mostly be the same as your local setup.
-  Of particular importance is to make sure that your database is protected behind a password and that the db port is not open to the outside world.
-  [Here's](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps) how you can secure your postgres installation.
+    - Web server - [Nginx](https://nginx.org/en/) is a high performance web server with powerful reverse proxy features.
+      We will be setting up Nginx to serve static files(html, css, images...) for our site, while forwarding all other requests to Puma.
+      [The rails documentation](https://guides.rubyonrails.org/configuring.html#using-a-reverse-proxy) provides a sample configuration file.
+    - Application server - [Puma](https://github.com/puma/puma) is the default server for rails apps and what starts when you run `rails server` on your development machine.
+      There is thus no special effort required to install and run puma. It also comes with sensible defaults that can be applied in production.
+    - Cache system - [memcached](https://memcached.org/) - caching helps speed up our server response times by storing the results of database queries in RAM and serving subsequent requests from this stored data.
+      Memcached support is baked into rails. Once [installed], there is just one [configuration option](https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-memcachestore) to change.
+    - Redis
+      [Redis](https://redis.io/) is an in-memory key-value database normally used in rails applications to provide a job queue and for caching.
+      In the context of our application, it is a requirement for [sidekiq](https://github.com/mperham/sidekiq).
+    - sidekiq - is a background job scheduler for ruby applications. Rails provides a default job scheduler but that is really only meant for development.
+      It holds its jobs in RAM, thus all enqued jobs are lost when the server shuts down. Sidekiq persists jobs between server restarts.
+      Support for sidekiq is also baked into rails and can be configured as shown [here](https://guides.rubyonrails.org/active_job_basics.html#setting-the-backend).
+    - Database server - database setup for whatever backend you choose to use in production will mostly be the same as your local setup.
+      Of particular importance is to make sure that your database is protected behind a password and that the db port is not open to the outside world.
+      [Here's](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps) how you can secure your postgres installation.
 
-### The Rails Environment
+## The Rails Environment
 
 If it's not obvious by now, there are a lot of moving parts before we have a *production ready* environment.
 All that work and we haven't installed Ruby yet! And even after we have everything installed, how do we get our code onto the server.
 Will we have to ftp, scp, sftp and more p's into the server everytime we want to deploy a new version of our code?
 No, no we won't. For deploying ruby applications, we have [Capistrano](https://capistranorb.com/).
 
-#### Capistrano
+### Capistrano
 
 > A remote server automation and deployment tool written in Ruby.
 
