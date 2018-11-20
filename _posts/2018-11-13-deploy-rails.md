@@ -186,15 +186,14 @@ To test out our *seedified* app, we are going to be using a [Vagrant](https://ww
 Vagrant provides the tooling to build VMs declaratively and package them into *boxes* that can be shared to provide a consistent development or production environment.
 Vagrant by default uses [VirtualBox](https://www.virtualbox.org/) to run the VMs.
 #### Vagrantfile
-{% highlight Vagrantfile %}
+~~~ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/bionic64"
   config.vm.network "private_network", ip: "192.168.100.100"
   # config.vm.network "public_network"
   config.vm.provision "shell", path: "bootstrap.sh"
 end
-{% endhighlight %}
-
+~~~
 Here's what this `Vagrantfile` does:
 - configures the box(OS) to base off of
 - sets up a private network and assigns a static ip to our VM
