@@ -81,7 +81,9 @@ The most recommended PaaS for a RoR(Ruby On Rails)application are:
 2.  [IBM Cloud(formerly Bluemix)](https://www.ibm.com/cloud/)
 3.  [EngineYard](https://www.engineyard.com/)
 
-Now PaaS can be taken a notch higher to include pre-built server-side application logic such as push notifications, user authentication, google analytics etc as services. In essence, developers can outsource all the behind-the-scenes aspects of a web or mobile application so that they only have to write and maintain the frontend. These aspects, when offered over the cloud, are referred to as **BaaS(Backend as a service)**.Among today's BaaS vendors are [Parse](https://parseplatform.org/),[Kinvey](https://devcenter.kinvey.com/rest/guides), [Buddy](https://buddy.com/) and [Appcelerator](https://www.appcelerator.com/).
+Now PaaS can be taken a notch higher to include pre-built server-side application logic such as push notifications, user authentication, google analytics etc as services. In essence, developers can outsource all the behind-the-scenes aspects of a web or mobile application so that they only have to write and maintain the frontend. These aspects, when offered over the cloud, are referred to as **BaaS(Backend as a service)**.Among today's BaaS vendors are [Parse](https://parseplatform.org/),[Kinvey](https://devcenter.kinvey.com/rest/guides), [Buddy](https://buddy.com/) and [Appcelerator](https://www.appcelerator.com/) and [Firebase](https://firebase.google.com/).
+
+Since technology should be accessible to everyone, there exists a number  of open-source PaaS solutions. Here are some examples[Cloud Foundry](https://www.cloudfoundry.org/) which provides a choice of clouds, developer frameworks and application services,[dokku](http://dokku.viewdocs.io/dokku/) and [Flynn](https://flynn.io/).
 
 ### SaaS
 
@@ -98,3 +100,21 @@ As a customer rather than purchasing a software to install it, customers subscri
 Anything or Everything as a service(XaaS). A general term for all the above service models and other services offered over the cloud.There are a vast number of tools and technologies that are and can be offered over the cloud.Database as a Service (DBaaS),Malware as a Service (MaaS), Disaster Recovery as a Service (DRaaS), Communications as a Service (CaaS) and Network as a Service (NaaS).This is the future of cloud computing. It aims at offering evrything as a service.
 
 ![everything as a service](/assets/images/blog/cloud-computing/everything.jpeg){:class="img-responsive center"}
+
+
+## Cloud Testing.
+
+Cloud testing refers to the testing of cloud based applications. Cloud based applications are those that use resources provided in the cloud, ranging from infrastructure to softwares. 
+cloud based application testing can be offered as a service in the cloud or done locally.Some of the tests done to ensure that the applications are viable include:
+1. performance testing.
+2. load testing.
+3. capacity testing.
+4. fail-over testing.
+5. Application security testing.
+6. Latency testing.
+7. Browser testing.
+
+Some popular cloud testing service providers are;[Apica System](https://www.apicasystems.com/),[Load Storm](https://loadstorm.com/),[SOASTA](https://www.akamai.com/us/en/products/web-performance/cloudtest.jsp),[NeoLoad](https://www.neotys.com/solutions/cloud-load-testing).
+
+Tools that can be used locally to carry out these tests include:[vagrant](https://iaas.readthedocs.io/en/latest/team/development/vagrant/testing.html) which acts as a glue layer between different virtualization solutions,[virtual box](https://www.virtualbox.org/wiki/VirtualBox) and [VMware](https://www.vmware.com/) which are crossplatform virtualization tools.
+
