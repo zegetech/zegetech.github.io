@@ -2529,3 +2529,11 @@ body.no-header-wrapper {
     min-height: 520px;
   }
 }
+
+/* image attribution */
+.image-attribution {
+  font-size:12px;
+  margin:auto;
+  display:block;
+  text-align:center;
+}
