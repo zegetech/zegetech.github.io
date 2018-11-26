@@ -25,6 +25,11 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@zegetech" />
 <meta name="twitter:description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
+{% if site.related_posts and page.title %}
+<meta name="twitter:title" content="{{ page.title }} | Zegetech" />
+<meta name="twitter:image" content="{{ site.url }}/assets/images/blog/{{ page.blog-image }}" />
+{% else %}
 <meta name="twitter:title" content="Ruby on Rails, Angular and mobile development team | Zegetech" />
+{% endif %}
 <meta name="robots" content="index, follow" />
 <meta name="format-detection" content="telephone=no" />
