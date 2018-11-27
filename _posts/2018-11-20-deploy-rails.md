@@ -1,8 +1,8 @@
 ---
 layout: blog 
-title: Deploying a monolithic rails application
+title: Deploying a production ready monolithic rails application
 author: Ngari Ndung'u
-blog-image: deployment/monolith.jpg
+blog-image: deployment/stonehenge.jpg
 intro: So, you finally have your app in a state that you aren't too embarrassed to show off. How do you open it up to the world?
   How do you manage the influx of users? How will you keep it safe from the *dangerous* internets? These are questions we face every time we work on a new product.
   This post explores one of the ways to deploy your shiny new rails application and the common tooling behind it.
@@ -16,7 +16,7 @@ Photo by Pedro Lastra on Unsplash
 
 ## Monolithic?
 
-If this invokes an image of the stone pillars at [stonehenge](https://www.history.com/topics/british-history/stonehenge), good. An app built on the monolithic architecture is easily viewed as one integrated piece.
+If this invokes an image of the stone pillars at [stonehenge](https://en.wikipedia.org/wiki/Stonehenge), good. An app built on the monolithic architecture is easily viewed as one integrated piece.
 The database, business logic, API and user interface components are all worked on within the same codebase, and deployed as a whole.
 If you have built a rails app following the [introductory guide](https://guides.rubyonrails.org/getting_started.html) you will end up with a monolith.
 Heres the directory structure you get when you initialize a rails application with `rails new [appname]`:
@@ -51,12 +51,12 @@ Why?
 
 Unless you are lucky enough to work in a server room and have one of those servers as your development machine, you will need somewhere to host your site.
 We have the choice of deploying our site to a PaaS provider such as [Heroku](https://www.heroku.com/) or using a VPS from a IaaS provider.
-This can also be a combination of the cloud services [discussed here](../../11/12/cloud-cloud-computing.html).
+This can also be a combination of the cloud services [discussed here](/technology/2018/11/12/cloud-cloud-computing.html).
 
 Deploying to a platform such as heroku abstracts away the complexities of setting up a performant and secure environment for your application.
 No need to worry about setting up and updating the OS, the database server or any of your app dependencies. You simply upload your code and the platform takes care of the rest.
 
-The more *painful* approach is to create a VPS on a provider such as [digital ocean](https://www.digitalocean.com/), [linode](https://www.linode.com/) or [aws lightsail](https://aws.amazon.com/lightsail/).
+The more *painful* approach is to create a VPS on a provider such as [Digital Ocean](https://www.digitalocean.com/), [Linode](https://www.linode.com/) or [AWS Lightsail](https://aws.amazon.com/lightsail/).
 With a vps, you control every aspect of the server. If something fails, that's on you.
 The process of setting up is not much different from what you did to get the app running on your development machine.
 But, on top of getting your app to run, you have to make considerations for overall site security and app performance.
@@ -87,11 +87,11 @@ And you guessed it... we're going with the painful approach.
     You can refer to [this article](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04) for an explanation and step-by-step.
 
     An alternative to performing these steps after your server has been built is to provide a script that the cloud provider will run as part of the provisioning task.
-    This is referred as [*User data*](https://www.digitalocean.com/docs/droplets/resources/metadata/#about-user-data) on digital ocean while aws lightsail asks for a *launch script*. Here's an [example script](https://github.com/kgathi2/rails_seed#vps-preparation).
+    This is referred as [*User data*](https://www.digitalocean.com/docs/droplets/resources/metadata/#about-user-data) on Digital Ocean while AWS Lightsail asks for a *launch script*. Here's an [example script](https://github.com/kgathi2/rails_seed#vps-preparation).
     User data is fed into [CloudInit](https://cloudinit.readthedocs.io/en/latest/) which runs the provided commands as root the first time the server starts.
 
-    You can also provide your SSH public key to completely skip setting up password login to the server.
-    To generate an SSH key on a linux box run:
+    To completely skip setting up password login to the server, you can provide your SSH public key to the host server to allow your local machine to SSH it.
+    To generate an SSH key on your linux local machine run:
     ~~~
     ssh-keygen
     ~~~
@@ -118,19 +118,15 @@ And you guessed it... we're going with the painful approach.
 4. #### Server components
 
     - Web server - [Nginx](https://nginx.org/en/) is a high performance web server with powerful reverse proxy features.
-      We will be setting up Nginx to serve static files(html, css, images...) for our site, while forwarding all other requests to Puma.
+      We will be setting up Nginx to serve static files (html, css, images...) for our site, while forwarding all other requests to Puma.
       [The rails documentation](https://guides.rubyonrails.org/configuring.html#using-a-reverse-proxy) provides a sample configuration file.
     - Application server - [Puma](https://github.com/puma/puma) is the default server for rails apps and what starts when you run `rails server` on your development machine.
       There is thus no special effort required to install and run puma. It also comes with sensible defaults that can be applied in production.
-    - Cache system - [memcached](https://memcached.org/) - caching helps speed up our server response times by storing the results of database queries in RAM and serving subsequent requests from this stored data.
-      Memcached support is baked into rails. Once [installed], there is just one [configuration option](https://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-memcachestore) to change.
-    - Redis
-      [Redis](https://redis.io/) is an in-memory key-value database normally used in rails applications to provide a job queue and for caching.
-      In the context of our application, it is a requirement for [sidekiq](https://github.com/mperham/sidekiq).
-    - sidekiq - is a background job scheduler for ruby applications. Rails provides a default job scheduler but that is really only meant for development.
-      It holds its jobs in RAM, thus all enqued jobs are lost when the server shuts down. Sidekiq persists jobs between server restarts.
+    - Cache and Queues - [Redis](https://redis.io/) is an in-memory key-value database normally used in rails applications to provide a job queue and for caching.
+      In the context of our application, it is a requirement for [sidekiq](https://github.com/mperham/sidekiq). Caching helps speed up our server response times by storing the results of database queries in RAM and serving subsequent requests from this stored data. In earlier years, for caching, [memcached](https://memcached.org/) was the prefered choice due to its speed and robustness. However, Redis has come a long way since then, making it the prefered caching solution, and keeping dependancies one less!!!
+    - Sidekiq - is a popular background job scheduler for ruby applications. Rails provides a default job scheduler but that is really only meant for development as holds its jobs in RAM, thus all enqueued jobs are lost when the server shuts down. Sidekiq persists jobs between server restarts.
       Support for sidekiq is also baked into rails and can be configured as shown [here](https://guides.rubyonrails.org/active_job_basics.html#setting-the-backend).
-    - Database server - database setup for whatever backend you choose to use in production will mostly be the same as your local setup.
+    - Database - database setup for whatever backend you choose to use in production will mostly be the same as your local setup.
       Of particular importance is to make sure that your database is protected behind a password and that the db port is not open to the outside world.
       [Here's](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps) how you can secure your postgres installation.
 
@@ -145,8 +141,8 @@ No, no we won't. For deploying ruby applications, we have [Capistrano](https://c
 
 > A remote server automation and deployment tool written in Ruby.
 
-Capistrano allows us to write *tasks* that define our entire(almost) deployment workflow and then perform those tasks on any number of servers.
-Cap builds upon [Rake](https://github.com/ruby/rake/blob/master/doc/rational.rdoc) "Ruby Make", adding the functionality necessary to connect to and run code on remote servers.
+Capistrano allows us to write *tasks* that define our entire (almost) deployment workflow and then perform those tasks on any number of servers.
+`cap` builds upon [`rake`](https://github.com/ruby/rake/blob/master/doc/rational.rdoc) "Ruby Make", adding the functionality necessary to connect to and run code on remote servers.
 The cap [SSHKit](https://github.com/capistrano/sshkit) toolkit provides most of capistrano's functionality, and has useful [examples](https://github.com/capistrano/sshkit/blob/master/EXAMPLES.md).
 
 Various gems are available to integrate capistrano with rails applications:
@@ -167,10 +163,10 @@ Once you have the scripts together, provisioning a new server stops being a pain
 [Rails application templates](https://guides.rubyonrails.org/rails_application_templates.html) is how.
 
 Rails application templates provide a way to add 'code' to a new or existing rails application.
-The dsl provides actions to add gems and sources to the `Gemfile`, add initializers, rake tasks and arbitrary files.
+The DSL provides actions to add gems and sources to the `Gemfile`, add initializers, rake tasks and arbitrary files.
 We can set rails configuration variables or even run rails and git commands as the template is applied.
 We can use [Thor actions](https://www.rubydoc.info/github/wycats/thor/Thor/Actions#source_paths-instance_method) to fetch and manipulate data from disparate sources for use in our cap tasks.
-To generate a new application and apply the template:
+To generate a new application and apply the template we run:
 ~~~shell
 rails new [appname] -m /path/to/template.rb # path can also be a url
 ~~~
@@ -178,6 +174,7 @@ Or to apply to an existing app:
 ~~~shell
 bin/rails app:template LOCATION=/path/to/template.rb # location variable can also be a url
 ~~~
+
 
 ### Example you ask? Introducing Rails seed
 

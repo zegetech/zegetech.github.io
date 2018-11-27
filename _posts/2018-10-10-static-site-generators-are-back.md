@@ -1,7 +1,6 @@
 ---
 layout: blog
 title:  Static Sites are back
-date:   2018-10-10 16:16:01 -0600
 categories: developer
 author: Melvin Atieno
 blog-image: ssg/typewriter-old.jpg
