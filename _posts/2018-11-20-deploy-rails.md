@@ -1,6 +1,7 @@
 ---
 layout: blog 
 title: Deploying a production ready monolithic rails application
+categories: developer
 author: Ngari Ndung'u
 blog-image: deployment/stonehenge.jpg
 intro: So, you finally have your app in a state that you aren't too embarrassed to show off. How do you open it up to the world?
