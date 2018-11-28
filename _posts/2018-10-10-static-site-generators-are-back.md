@@ -4,6 +4,7 @@ title:  Static Sites are back
 categories: developer
 author: Melvin Atieno
 blog-image: ssg/typewriter-old.jpg
+redirect_from: /news/2018/10/10/static-site-generators-are-back.html
 intro: |
     Remember your first website? I want to assume you started off, like most developers, by creating a series of HTML files linking within it images, CSS and perhaps a sprinkle of JavaScript. Files load on your browser and that was it!!. No web server required. Life was simple!!!
 ---

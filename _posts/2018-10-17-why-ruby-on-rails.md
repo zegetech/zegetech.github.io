@@ -4,6 +4,9 @@ title: "Why Ruby on Rails?"
 categories: developer
 author: Ngari Ndung'u
 blog-image: ror/rails-blog.jpg
+redirect_from:
+  - /developer/2018/10/17/why-ruby-on-rails.html
+  - /news/2018/10/17/why-ruby-on-rails.html
 intro: |
   Ruby on Rails, abbreviated RoR or just Rails is a web application framework for developing database backed web applications.
   Rails has been used to build some of the most popular websites including Github, Airbnb and Hulu. Twitter also began life as a rails application.

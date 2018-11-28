@@ -4,6 +4,9 @@ title:  Kenya Stack Off developer survey results
 categories: developer
 author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
+redirect_from: 
+  - /developer/2017/03/31/developer-stack-report-out.html
+  - /news/2017/03/31/developer-stack-report-out.html
 intro: |
     We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the [What’s your stack](https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform) study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
 ---

@@ -4,6 +4,7 @@ title: Docker in your dev box
 categories: developer
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
+redirect_from: /developer/2018/11/08/developing-with-docker
 intro: | 
   So, you probably already know [what docker is](/blog/2018/10/29/what-and-why-docker.html) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
