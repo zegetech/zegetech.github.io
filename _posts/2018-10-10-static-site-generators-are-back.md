@@ -192,4 +192,4 @@ This is simply an introduction to get you started. Below is a list of resources 
 - [Learning Markdown and liquid](https://hermens.com.au/2016/10/14/Getting-started-with-Jekyll-Part-5/)
 
 Watch out for Part 2 of this article where we'll talk about:
-**Creating a CI/CD  pipeline for a Jekyll based website.**
+[**Creating a CI/CD  pipeline for a Jekyll based website.**](/blog/2018/11/01/CI-CD-pipeline-for-jekyll)
