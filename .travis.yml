@@ -16,7 +16,7 @@ install:
 script:
   - echo "Building and Testing"
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site
+  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href
 
 deploy:
   skip_cleanup: true
