@@ -1,12 +1,13 @@
 ---
 layout: blog
-title:  "Kenya Stack Off developer survey results"
-date:   2017-03-10 16:16:01 -0600
+title:  Kenya Stack Off developer survey results
 categories: developer
 author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
-intro: We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the “<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform">What’s your stack</a>” study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
+intro: |
+    We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the [What’s your stack](https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform) study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
 ---
+
 {:.post-figure}
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 
@@ -59,7 +60,7 @@ However, the trends are shifting. 90% of tech startups and developers are buildi
 
 Then there are the unshakable technologies that have always been there and are not going anywhere. These are [RDBMS’s](https://en.wikipedia.org/wiki/Relational_database_management_system) like MySQL, PostgreSQL and Oracle that have long been used in all sorts of ways across the tech industry. ACID vs BASE has been the fight between SQL vs NoSQL with contenders like MongoDB, Cassandra and Redis. These promise scalability and speed for key/store and document type storage that will wet your appetite. But with PostgreSQL now supporting full text search and indices on NoSQL data type through the [JSONB](https://www.compose.com/articles/is-postgresql-your-next-json-database/) and HSTORE, is the fight over?
 
-Lastly the trend in mobile development is shaping up. The fight for productivity was initiated by the hybrids such as Phonegap, and Cordova powered SDK’s in building mobile applications using HTML, CSS and JavaScript based on the mobile webview. These guaranteed rapid development and efficient workflows but with compromised speed. However, the growth of mobile device processing over the years have greatly minimised this disadvantage. The webview is faster many times over. However that notwithstanding, developers still want to build pure native applications that perform at the device’s optimum levels. This has ushered in new technologies that allow developers to use HTML, CSS and Javascript to build applications that compile directly to their native counterparts. Two such tools are Google backed [NativeScript](https://www.nativescript.org/) and Facebook backed [React Native](https://facebook.github.io/react-native/), which are instigating a healthy [mobile toolkit rivalry](http://blog.backand.com/angular-2-nativescript-vs-react-native/).  
+Lastly the trend in mobile development is shaping up. The fight for productivity was initiated by the hybrids such as Phonegap, and Cordova powered SDK’s in building mobile applications using HTML, CSS and JavaScript based on the mobile webview. These guaranteed rapid development and efficient workflows but with compromised speed. However, the growth of mobile device processing over the years have greatly minimised this disadvantage. The webview is faster many times over. However that notwithstanding, developers still want to build pure native applications that perform at the device’s optimum levels. This has ushered in new technologies that allow developers to use HTML, CSS and Javascript to build applications that compile directly to their native counterparts. Two such tools are Google backed [NativeScript](https://www.nativescript.org/) and Facebook backed [React Native](https://facebook.github.io/react-native/), which are instigating a healthy mobile toolkit rivalry).  
 
 All in all, the main focus for developers is productivity, speed, portability, write-once-deploy-everywhere, efficiency as well as community. Those are the key factors that influence the growth of any tool now and in the future.
 We are looking forward to seeing which tools get onto most developers stacks and how these tools will affect the growth of the software industry in Kenya.

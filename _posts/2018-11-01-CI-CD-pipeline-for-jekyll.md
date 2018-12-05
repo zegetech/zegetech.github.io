@@ -4,14 +4,15 @@ title:  Creating a CI/CD pipeline for Jekyll
 categories: developer
 author: Melvin Atieno
 blog-image: ci-cd/rocketlaunch.jpg
-intro: Continuous Integration (CI) is a development practice that involves the aggregation of small bits of code into a shared repository, frequently.<br/>Continuous Deployment is closely related to Continuous Integration. It refers to the release to production of a software that passes set automated tests. In other words it means frequently making the most recently functional version of a software available for use.
+intro: |
+    Continuous Integration (CI) is a development practice that involves the aggregation of small bits of code into a shared repository, frequently.<br/>Continuous Deployment is closely related to Continuous Integration. It refers to the release to production of a software that passes set automated tests. In other words it means frequently making the most recently functional version of a software available for use.
 
 ---
 {:.post-figure}
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 
 **Prerequisites:**
-1. A Jekyll site or simply the Jekyll boilerplate. Read [part one](/blog/2017/03/10/static-site-generators-are-back.html).
+1. A Jekyll site or simply the Jekyll boilerplate. Read [part one](/developer/2018/10/10/static-site-generators-are-back.html).
 2. A basic understanding of [Git](https://try.github.io/). We are going to use for version control.
 3. A Github repository containing the Jekyll site.
 4. An account with [Travis](https://docs.travis-ci.com/).
@@ -237,3 +238,5 @@ There are, however, a couple of things to note when deploying to GitHub pages.
 Here's is a list of [allowed or whitelisted plugins and themes](https://github.com/github/pages-gem/blob/master/lib/github-pages/plugins.rb#L21-L42).
 
 2. Another workaround would be to install [pages-gem](https://github.com/github/pages-gem) which helps GitHub Page's users bootstrap and maintain a Jekyll build environment that most closely matches the GitHub pages build environment. With this, if it works locally you are sure it'll work on Github pages.
+
+3. You are not required to install `Jekyll` separately If you decide to use `github-pages gem`. This is because Jekyll 3.7.4 is a runtime dependency for the github-pages gem. If you have a different version of Jekyll installed then there may be discrepancies between your site run locally and the same site hosted on github pages. 
