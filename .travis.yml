@@ -1,5 +1,10 @@
 language: ruby
 
+addons:
+  apt:
+    packages:
+    - libcurl4-openssl-dev
+    
 rvm:
   - 2.5.1
 
@@ -16,7 +21,7 @@ install:
 script:
   - echo "Building and Testing"
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href --disable_external
+  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href --http-status-ignore "999,302"
 
 deploy:
   skip_cleanup: true
