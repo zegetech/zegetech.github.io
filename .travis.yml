@@ -1,10 +1,5 @@
 language: ruby
 
-addons:
-  apt:
-    packages:
-      - libssl1.0.0
-
 rvm:
   - 2.5.1
 
@@ -21,7 +16,7 @@ install:
 script:
   - echo "Building and Testing"
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href
+  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href --disable_external
 
 deploy:
   skip_cleanup: true
