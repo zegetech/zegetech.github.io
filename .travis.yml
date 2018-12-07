@@ -3,7 +3,7 @@ language: ruby
 addons:
   apt:
     packages:
-    - libcurl4-openssl-dev
+    - libcurl4-openssl-dev # required to avoid SSL errors
     
 rvm:
   - 2.5.1
@@ -21,7 +21,7 @@ install:
 script:
   - echo "Building and Testing"
   - bundle exec jekyll build
-  - bundle exec htmlproofer ./_site --empty_alt_ignore --allow_hash_href --http-status-ignore "999,302"
+  - bundle exec rake test
 
 deploy:
   skip_cleanup: true
