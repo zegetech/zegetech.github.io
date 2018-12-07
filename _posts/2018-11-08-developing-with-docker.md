@@ -5,7 +5,7 @@ categories: developer
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
 intro: | 
-  So, you probably already know [what docker is](blog/2018/10/29/what-and-why-docker.html) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
+  So, you probably already know [what docker is](/blog/2018/10/29/what-and-why-docker.html) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
 ---
