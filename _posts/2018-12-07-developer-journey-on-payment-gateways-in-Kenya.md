@@ -9,6 +9,7 @@ intro: With the rise in use of mobile payment in Kenya, businesses are scramblin
 {{page.intro}}
 
 
+
 With the multiple payment gateways in Kenya, it will probably be a real hurdle for a Kenyan developer to choose the most optimal payment solution for his problem. When thinking about your choice, the very first thing that would come into your mind is the friction of onboarding - the time it would take you to integrate it to your app. Then, you would probably think of  googling for sample integration codes and reviews  on the internet...you'll think of many other things. I would like to make it easier for you by outlining my analysis on payment gateways in Kenya.
 
 It is an theoritical and technical analysis of the following Payment Gateways, in no particular order:
