@@ -27,4 +27,5 @@ group :jekyll_plugins do
    gem 'octopress-paginate'
    gem "html-proofer"
    gem "jekyll-redirect-from"
+   gem "jekyll-relative-links"
 end
