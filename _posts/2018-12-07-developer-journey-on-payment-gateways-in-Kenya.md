@@ -21,7 +21,7 @@ An IPN(instant payment notification) endpoint together with related query endpoi
 pesapal provides a demo site with both personal and merchant accounts to test integration. Missing direct payment endpoints however, it was not possible to test out the API.
 ### [![Mpesa](/assets/images/blog/mpesa.jpg){:class="img-responsive center"}](https://developer.safaricom.co.ke/docs)
 M-Pesa is a mobile phone-based money transfer, financing and microfinancing service, launched in 2007 by Vodafone for Safaricom.Mpesa recently commercialized their APIs allowing businesses and developers to intergrate their payment services into their various solutions.There exists a documentation for the Mpesa APIs and a sandbox for testing.The documentation is slightly flawed in that the paramenters are not clearly described and one would have to jump a few huddles before getting around them. There are no provided examples for the request parameters which adds to the struggle.The credentials expire in an hour so for testing one would have to constantly renew them.
-### [![iPay](/assets/images/blog/ipay.jpg){:class="img-responsive center"}](https://ipayafrica.com/)
+### [![iPay](/assets/images/blog/ipay-logo.png){:class="img-responsive center"}](https://ipayafrica.com/)
 iPay provides mobile money(Mpesa, Airtel and EazzyPay) and credit card integrations.
 The API can be consumed either through ‘Web-based integration’ which is the usual redirect or ‘REST API integration’. Plugins for the major CMSs are provided, as well as an android library.
 Documentation is provided though it could certainly be done better. The test credentials are not made obvious. I only figured them out while taking a second read through, after my enquiry email went unanswered.
@@ -87,6 +87,18 @@ On a scale of 1-5, here are my findings based on the following features:
 | Flutterwave - Rave | 4 | 4 | 4 | 4 | 4 |
 | Beyonic | 4 | 4 | 3 | 4 | 3 |
 | Direct Pay | - | - | - | - | - | 
+
+Here's a table that shows Payment gateways with and without publicly accessible APIs. I believe this will help you save some time:
+
+| With | Without |
+|----|----|
+| Jenga | Sapama Cash |
+| Flutterwave| Pesapal |
+| Africa's Talking| JamboPay |
+| iPay| KopoKopo |
+| Beyonic| DirectPay |
+| Daraja|  |
+| Lipisha | |
 
 If there's any other payment gateway in Kenya I've left out, I will add it very as I come across it. 
 
