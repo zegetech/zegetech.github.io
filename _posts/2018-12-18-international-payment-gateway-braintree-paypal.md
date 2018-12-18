@@ -32,4 +32,4 @@ To test Paypal Gateway integration, you'll have to sign up for a [sandbox accoun
 
 [Paypal Postman Collection](https://documenter.getpostman.com/view/1238477/RzfnkSKR)
 
-In comparison to the local payment gateways
+In comparison to the local payment gateways, I would say that international Payment gateways are better in terms on developer onboarding, documentation, security handling, payment method support, platform support and testing.
