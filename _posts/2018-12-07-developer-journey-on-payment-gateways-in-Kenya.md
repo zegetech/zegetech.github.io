@@ -44,6 +44,9 @@ Another added feature of Jenga System is that you can actually partner with them
 The annoying thing about them is the process of getting a testing account with them. It requires one to fill out an application form that won't be responded to immediately. It took them 3 days to actually okay my application and this was after I reached out to them again. Maybe it would have taken more than a month. 
 Nevertheless, they have a relatively easy to follow documentation of their APIs and a Postman Collection! They also provide sample credentials on their documentation. You can actually test their APIs with their sample credentials if you don't want to apply for a test account. 
 If you need to test the APIs with your test account credentials, you have to authenticate your requests. You have to generate a digital signature using RSA and sign your requests using it. Instructions for this are found on their documentation.
+
+[Jenga Postman Collection](https://documenter.getpostman.com/view/1238477/Rzfnikkt)
+
 ### [![Lipisha](/assets/images/blog/lipisha.webp){:class="img-responsive center"}](https://lipisha.com/payments/accounts/index.php/app/launch)
 Lipisha is a payment service provider that allows integration through webhooks, popular e-commerce Plugins, and RestAPIs. The details on integration through plugins is not available. The APIs allow integration of mobile and card payment services. The available option for mobile payment services is M-Pesa. The endpoints also allow integration of payout services to clients' mobile wallet.The documentation could be made clearer for all the services Lipisha can provide. They offer a sandbox for testing and the endpoints can be tested manually using postman.
 ### [![Flutterwave](/assets/images/blog/rave.svg){:class="img-responsive center"}](https://rave.flutterwave.com/)
@@ -75,7 +78,7 @@ On a scale of 1-5, here are my findings based on the following features:
 - Testability
 
 | Gateway | Developer friendly | Documentation | Accesibility | Multiple Libraries | Testability| 
-| ----| ----|---  | --------    |-------| --------| ----------|
+| ----|----|----|----|----|----|----|
 | Africas Talking | 5| 5| 4 | 3 | 4 |
 | Lipisha| 3 | 3 | 4 | 3 | 4 |
 | pesapal| 3 | 3 | 4 | 3 | 3 |
@@ -101,5 +104,7 @@ Here's a table that shows Payment gateways with and without publicly accessible 
 | Lipisha | |
 
 If there's any other payment gateway in Kenya I've left out, I will add it very as I come across it. 
+
+[Github Repo on the Payment Gateways' collections](https://github.com/tomshy/PaymentGatewaysKe)
 
 Happy development!
