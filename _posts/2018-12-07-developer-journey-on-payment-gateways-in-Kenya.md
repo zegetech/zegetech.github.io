@@ -21,6 +21,8 @@ An IPN(instant payment notification) endpoint together with related query endpoi
 pesapal provides a demo site with both personal and merchant accounts to test integration. Missing direct payment endpoints however, it was not possible to test out the API.
 ### [![Mpesa](/assets/images/blog/mpesa.jpg){:class="img-responsive center"}](https://developer.safaricom.co.ke/docs)
 M-Pesa is a mobile phone-based money transfer, financing and microfinancing service, launched in 2007 by Vodafone for Safaricom.Mpesa recently commercialized their APIs allowing businesses and developers to intergrate their payment services into their various solutions.There exists a documentation for the Mpesa APIs and a sandbox for testing.The documentation is slightly flawed in that the paramenters are not clearly described and one would have to jump a few huddles before getting around them. There are no provided examples for the request parameters which adds to the struggle.The credentials expire in an hour so for testing one would have to constantly renew them.
+
+[Mpesa Daraja Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEx)
 ### [![iPay](/assets/images/blog/ipay-logo.png){:class="img-responsive center"}](https://ipayafrica.com/)
 iPay provides mobile money(Mpesa, Airtel and EazzyPay) and credit card integrations.
 The API can be consumed either through ‘Web-based integration’ which is the usual redirect or ‘REST API integration’. Plugins for the major CMSs are provided, as well as an android library.
@@ -28,7 +30,9 @@ Documentation is provided though it could certainly be done better. The test cre
 The API requires a HMAC signature be sent along with the payload. With parameters having to be concatenated in a particular order for this to work, it can be more than a slight annoyance.
 The shortened parameter names do not help either.
 ### [![Africa's Talking](/assets/images/blog/africastalking.png){:class="img-responsive center"}](http://docs.africastalking.com/)
-Africa's talking provides Restful APIs for integration with their various services. These services include; SMS,voice, Payments,USSD, and Airtime. Our point of focus was mainly their payment services.C2B, B2C, and B2B. The services are offered over mobile, banks and cards. There are client SDKs for PHP, Python, C#, Java, JS, and Ruby. For mobile payments, Africa's talking does the hosting and one needs a dedicated pay bill with Safaricom M-Pesa(application process takes approximately 5 days). They do not offer any other mobile payment services. The bank payment and card payment services are currently only available in Nigeria. The accepted cards are MasterCard and Verve cards. Africa's talking offers a sandbox, a simulator and associated endpoints for testing. On integration one also gets a dashboard on which they can monitor transactions and carry out other maintenance services such as getting credentials for authentication and creating products.[Here's a collection we made for testing on postman](#)
+Africa's talking provides Restful APIs for integration with their various services. These services include; SMS,voice, Payments,USSD, and Airtime. Our point of focus was mainly their payment services.C2B, B2C, and B2B. The services are offered over mobile, banks and cards. There are client SDKs for PHP, Python, C#, Java, JS, and Ruby. For mobile payments, Africa's talking does the hosting and one needs a dedicated pay bill with Safaricom M-Pesa(application process takes approximately 5 days). They do not offer any other mobile payment services. The bank payment and card payment services are currently only available in Nigeria. The accepted cards are MasterCard and Verve cards. Africa's talking offers a sandbox, a simulator and associated endpoints for testing. On integration one also gets a dashboard on which they can monitor transactions and carry out other maintenance services such as getting credentials for authentication and creating products.
+
+[Africa's Talking Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEu )
 ### [![Jambo Pay](/assets/images/blog/jambopay.png){:class="img-responsive center"}](https://www.jambopay.com/)
 Jambopay has two ways for integrating with their API; ‘Express Checkout’ and ‘Redirect Checkout’.
 Express checkout allows the customer to complete payment within the site while redirect checkout loads a Jambopay provided page to complete payment.
@@ -49,6 +53,8 @@ If you need to test the APIs with your test account credentials, you have to aut
 
 ### [![Lipisha](/assets/images/blog/lipisha.webp){:class="img-responsive center"}](https://lipisha.com/payments/accounts/index.php/app/launch)
 Lipisha is a payment service provider that allows integration through webhooks, popular e-commerce Plugins, and RestAPIs. The details on integration through plugins is not available. The APIs allow integration of mobile and card payment services. The available option for mobile payment services is M-Pesa. The endpoints also allow integration of payout services to clients' mobile wallet.The documentation could be made clearer for all the services Lipisha can provide. They offer a sandbox for testing and the endpoints can be tested manually using postman.
+
+[Lipisha Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEw)
 ### [![Flutterwave](/assets/images/blog/rave.svg){:class="img-responsive center"}](https://rave.flutterwave.com/)
 Also called Rave, the Flutterwave Rave API provides mobile money and card payment integration, with bank integration in Nigeria.
 Nodejs and Android SDKs are provided along with plugins for the more popular CMSs.
