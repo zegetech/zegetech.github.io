@@ -78,7 +78,7 @@ On a scale of 1-5, here are my findings based on the following features:
 - Testability
 
 | Gateway | Developer friendly | Documentation | Accesibility | Multiple Libraries | Testability| 
-| ----|----|----|----|----|----|----|
+|----|----|----|----|----|----|
 | Africas Talking | 5| 5| 4 | 3 | 4 |
 | Lipisha| 3 | 3 | 4 | 3 | 4 |
 | pesapal| 3 | 3 | 4 | 3 | 3 |
