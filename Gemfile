@@ -26,4 +26,5 @@ group :jekyll_plugins do
    # gem "jekyll-sitemap"
    gem 'octopress-paginate'
    gem "html-proofer"
+   gem "jekyll-relative-links"
 end
