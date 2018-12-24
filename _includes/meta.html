@@ -22,14 +22,14 @@
 <!-- <meta property="place:location:latitude"              content="Sample Location: Latitude" />  -->
 <!-- <meta property="place:location:longitude"             content="Sample Location: Longitude" />  -->
 
+<!-- general twitter tags -->
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@zegetech" />
-<meta name="twitter:description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
 {% if site.related_posts and page.title %}
-<meta name="twitter:title" content="{{ page.title }} | Zegetech" />
+<!-- post specific tags -->
+<meta name="twitter:title" content="{{ page.title | prepend: "Zegetech | " | truncate: 70 }}" />
 <meta name="twitter:image" content="{{ site.url }}/assets/images/blog/{{ page.blog-image }}" />
-{% else %}
-<meta name="twitter:title" content="Ruby on Rails, Angular and mobile development team | Zegetech" />
+<meta name="twitter:description" content="{{ page.intro | truncate: 200 }}" />
 {% endif %}
 <meta name="robots" content="index, follow" />
 <meta name="format-detection" content="telephone=no" />
