@@ -7,29 +7,32 @@
 <meta name="theme-color" content="#242e3c" />
 
 <meta property="fb:app_id" content="2224550211104435" /> 
-<meta property="og:type" content="business.business" />
+<!-- general twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@zegetech" />
+
+{%- if site.related_posts and page.title -%}
+<!-- post specific tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{ page.title }}" />
+<meta property="og:image" content="{{ site.url }}/assets/images/blog/{{ page.blog-image }}" />
+<meta property="og:description" content="{{ page.intro }}" />
+{%- else -%}
 <meta property="og:title" content="Ruby on Rails, Angular and mobile development team | Zegetech" />
 <meta property="og:image" content="https://zegetech.com/webicon.jpg" />
-<meta property="og:image:width" content="600" />
-<meta property="og:image:height" content="365" />
-<meta property="og:url" content="https://zegetech.com" />
 <meta property="og:description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
-<meta property="og:site_name" content="Zege Technologies" />
+<meta property="og:type" content="business.business" />
 <meta property="business:contact_data:street_address" content="Ngong' Road" /> 
 <meta property="business:contact_data:locality"       content="Nairobi" /> 
 <meta property="business:contact_data:postal_code"    content="00623" /> 
 <meta property="business:contact_data:country_name"   content="Kenya" /> 
 <!-- <meta property="place:location:latitude"              content="Sample Location: Latitude" />  -->
 <!-- <meta property="place:location:longitude"             content="Sample Location: Longitude" />  -->
+{%- endif -%}
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="365" />
+<meta property="og:url" content="https://zegetech.com" />
+<meta property="og:site_name" content="Zege Technologies" />
 
-<!-- general twitter tags -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@zegetech" />
-{% if site.related_posts and page.title %}
-<!-- post specific tags -->
-<meta name="twitter:title" content="{{ page.title | prepend: "Zegetech | " | truncate: 70 }}" />
-<meta name="twitter:image" content="{{ site.url }}/assets/images/blog/{{ page.blog-image }}" />
-<meta name="twitter:description" content="{{ page.intro | truncate: 200 }}" />
-{% endif %}
 <meta name="robots" content="index, follow" />
 <meta name="format-detection" content="telephone=no" />
