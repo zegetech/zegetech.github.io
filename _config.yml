@@ -28,14 +28,13 @@ url: "https://zegetech.com" # the base hostname & protocol for your site, e.g. h
 twitter_username: jekyllrb
 github_username:  jekyll
 
-
 # Build settings
 permalink: /blog/:year/:month/:day/:title:output_ext
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-  # - octopress-paginate
+  - octopress-paginate
   - jekyll-relative-links
   # - jekyll-paginate
 # paginate: 5
