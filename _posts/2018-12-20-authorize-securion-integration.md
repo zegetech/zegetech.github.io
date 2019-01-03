@@ -67,26 +67,8 @@ With visa being more of a payment processor than a payment gateway, it offers a 
 There are APIs for use by merchants, card issuing banks, acquiring banks(enable merchants to be paid) and for use by individual developers.
 The APIs are available to test with a visa developer account.
 
-Once you register and verify a visa developer account, the normal flow for testing an API is;
-- create a project and select the api(s) to test, 
-- download the generated private key, 
-- download the client certificate,
-- configure your client(Postman,soapUI...) for mutual ssl with downloaded key/certificate pair,
-- make API calls using basic authentication with the *User ID* and password provided within the project sandbox.
-
-Visa makes using SSL somewhat easier by automating the process of obtaining the private key and certificate.
-This in the usual case would require generating a private key using OpenSSL for example, and making a CSR(Certificate Signing Request) to obtain the certificate.
-Visa includes instructions for setting up soapUI for SSL and has a `/helloworld` endpoint for verifying that it works.
-The key and certificate can be used directly in Postman by following the instructions [here](https://learning.getpostman.com/docs/postman/sending_api_requests/certificates/).
-
-Visa has 3 APIs for payments, *Visa Direct*, *Visa Checkout* and *CyberSource Payments*. 
-Visa direct and CyberSource payment APIs can be used with other visa APIs while the Checkout API can only be used on its own. Visa Checkout also has limited availability.
-
-I tested the Visa Direct API which has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
-Test data is provided within the project sandbox, with the API reference providing usable sample request and response bodies.
-The api accepts both json and xml request bodies and by default responds sends an xml response. You can pass an *Accept* header with `application/json` as the value to get back a json response.
-
-Besides the payment APIs, visa has the following API categories:
+Visa has the following API categories:
+  - Payments
   - ID Intelligence - for user identification
   - Data and Analytics
   - Risk and Fraud - validate accounts, tokenization and data protection
@@ -94,3 +76,35 @@ Besides the payment APIs, visa has the following API categories:
   - Commercial - B2B and business data
   - Visa DPS(Debit Processing Services)
   - Offers and Benefits - run offers and promotions for card holders
+
+Visa has 3 APIs for payments, [*Visa Direct*](https://developer.visa.com/capabilities/visa_direct/docs), [*Visa Checkout*](https://developer.visa.com/capabilities/visa_checkout/docs) and [*CyberSource Payments*](https://developer.visa.com/capabilities/cybersource/docs). 
+- Visa direct is meant for use by licensed Visa acquirers(bank/financial institution) or entities sponsored by an acquirer. The API enables real-time push payments directly onto Visa cards.
+- CyberSource payments is a solution for merchants to process payments from multiple debit and credit cards with global availability.
+- Visa Checkout is available in select countries and supports Visa, MasterCard, American Express and Discover cards. It provides simple website integration via a javascript library and mobile integration via iOS and android SDKs. 
+
+Visa direct and CyberSource payment APIs can be used with other visa APIs while the Checkout API can only be used on its own.
+
+| | Geographical availability | Target Users | Authentication | Integration options | Tokenization |
+| --- | --- | --- | --- | --- | --- |
+| Visa Direct | global | acquirer/acquirer sponsored entity | Basic | REST | No |
+| CyberSource Payments | global | merchants | API Key - Shared secret(x-pay-token) | REST | Yes |
+| Visa Checkout | select countries | merchants | x-pay-token | js, iOS and android SDKs | Yes |
+
+<br/>
+I tested the Visa Direct API which has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
+The API is secured via two-way SSL/mutual SSL authentication.
+Once you register and verify a visa developer account, the normal flow for testing the API is;
+- create a project and select the api(s) to test, 
+- download the generated private key, 
+- download the client certificate,
+- configure your client(Postman,soapUI...) for mutual ssl with downloaded key/certificate pair,
+- make API calls using basic authentication with the *User ID* and password provided within the project sandbox.
+Visa makes using SSL somewhat easier by automating the process of obtaining the private key and certificate.
+This in the usual case would require generating a private key using OpenSSL for example, and making a CSR(Certificate Signing Request) to obtain the certificate.
+Visa includes instructions for setting up soapUI for SSL and has a `/helloworld` endpoint for verifying that it works.
+The key and certificate can be used directly in Postman by following the instructions [here](https://learning.getpostman.com/docs/postman/sending_api_requests/certificates/).
+
+Test data is provided within the project sandbox, with the API reference providing usable sample request and response bodies.
+The api accepts both json and xml request bodies and by default sends an xml response. You can pass an *Accept* header with `application/json` as the value to get back a json response.
+
+
