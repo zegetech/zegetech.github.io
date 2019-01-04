@@ -2540,14 +2540,14 @@ body.no-header-wrapper {
 /* table styling for api post */
 table{
   border-collapse: collapse;
-  /* border-spacing: 0; */
-  border:2px solid #000000;
+  border-spacing: 0;
+  border:2px solid #414141;
 }
 
 th{
-  border:2px solid #000000;
+  border:2px solid #414141;
 }
 
 td{
-  border:2px solid #000000;
+  border:2px solid #414141;
 }

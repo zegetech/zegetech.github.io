@@ -1,9 +1,19 @@
 ---
 layout: blog
-author: Ngari Ndung'u
+author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
 title: International Payment Gateways
-intro:
+blog-image: internationalPGs/online_payment.jpg
+intro: Last year we went out and tested the popular Kenyan payment gateways. We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability.   To kick off the year, we went global!  Yes, we looked into popular international payment gateways integration and  Visa and Mastercards integration. With developers in mind, we set out to see what these platforms have to offer. Here’s what we found.
 ---
+![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
+
+{{page.intro}}
+
+# PAYMENT GATEWAYS.
+
+## 1. [Authorize.Net](https://www.authorize.net/)
+   
+
 
 <a href="https://www.authorize.net/">
 ![Authorize.Net logo](https://www.authorize.net/etc/clientlibs/anet/main/fonts/anet-logo-white.svg){: style="background:linear-gradient(180deg, #4f90bd, #2f5571);padding:1em;" .img-responsive}
@@ -38,6 +48,8 @@ The API is well documented and can be wholly tested on the [API reference page](
 The reference also has sample code that can easily be copied into your application.
 Much of Authorize.Net functionality is available via the API including card mobile, Visa and Paypall Express payments, fraud management, recurrent billing and customer management.
 
+## 2. [SecurionPay](https://securionpay.com/)
+
 <a href="https://securionpay.com/">
 ![SecurionPay logo](https://securionpay.com/wp-content/uploads/2017/11/logo_v_rich.png){:.img-responsive .center}
 </a>
@@ -54,48 +66,9 @@ The fully featured dashboard gives a feel of the functionality offered for a liv
 What I found a bit strange is that the API uses basic authentication, with the *API Secret Key* being passed as the username and with a blank password.
 The API is overall easy to test and things just work.
 
-<a href="https://www.visa.co.ke/">
-![Visa logo](https://www.visa.co.ke/content/dam/VCOM/Brand/logo-footer.png){:.img-responsive .center}
-</a>
+## 3. [BrainTree](https://www.braintreepayments.com/)
 
-> We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
-
-Chances are if you don't have a visa branded credit/debit card now, you've probably held one before.
-Being the first(and largest?) card network, Visa has an advertised presence in over 200 territories, enabling fast payments across them regardless of the cardholders local currency.
-
-With visa being more of a payment processor than a payment gateway, it offers a wide range of APIs catering to their varied clientelle.
-There are APIs for use by merchants, card issuing banks, acquiring banks(enable merchants to be paid) and for use by individual developers.
-The APIs are available to test with a visa developer account.
-
-Once you register and verify a visa developer account, the normal flow for testing an API is;
-- create a project and select the api(s) to test, 
-- download the generated private key, 
-- download the client certificate,
-- configure your client(Postman,soapUI...) for mutual ssl with downloaded key/certificate pair,
-- make API calls using basic authentication with the *User ID* and password provided within the project sandbox.
-
-Visa makes using SSL somewhat easier by automating the process of obtaining the private key and certificate.
-This in the usual case would require generating a private key using OpenSSL for example, and making a CSR(Certificate Signing Request) to obtain the certificate.
-Visa includes instructions for setting up soapUI for SSL and has a `/helloworld` endpoint for verifying that it works.
-The key and certificate can be used directly in Postman by following the instructions [here](https://learning.getpostman.com/docs/postman/sending_api_requests/certificates/).
-
-Visa has 3 APIs for payments, *Visa Direct*, *Visa Checkout* and *CyberSource Payments*. 
-Visa direct and CyberSource payment APIs can be used with other visa APIs while the Checkout API can only be used on its own. Visa Checkout also has limited availability.
-
-I tested the Visa Direct API which has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
-Test data is provided within the project sandbox, with the API reference providing usable sample request and response bodies.
-The api accepts both json and xml request bodies and by default responds sends an xml response. You can pass an *Accept* header with `application/json` as the value to get back a json response.
-
-Besides the payment APIs, visa has the following API categories:
-  - ID Intelligence - for user identification
-  - Data and Analytics
-  - Risk and Fraud - validate accounts, tokenization and data protection
-  - Trials - simulations
-  - Commercial - B2B and business data
-  - Visa DPS(Debit Processing Services)
-  - Offers and Benefits - run offers and promotions for card holders
-
-# [![BrainTree](/assets/images/blog/internationalPGs/braintree.png){:class="img-responsive center"}](https://developers.braintreepayments.com/)
+[![BrainTree](/assets/images/blog/internationalPGs/braintree.png){:class="img-responsive center"}](https://developers.braintreepayments.com/)
 
 This is one of the top international payment gateways. It was recently acquired by Paypal.It accepts both Mobile and Web Payments with a smooth integration for both cases and offers support for various payment ways including PayPal, Cards, Apple Pay, Venmo, Google Pay, Masterpass, Samsung Pay, Visa Checkout, UnionPay and ACH Direct Debit. 
 
@@ -109,7 +82,9 @@ You can check out some of the integration examples [here](https://developers.bra
 
 After a successful integration, check out whether the new transactions have been included in your sandbox account.
 
-# [![Paypal](/assets/images/blog/internationalPGs/Paypal.png){:class="img-responsive center"}](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+
+[![Paypal](/assets/images/blog/internationalPGs/Paypal.png){:class="img-responsive center"}](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
 
 Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
 
@@ -123,11 +98,13 @@ To test Paypal Gateway integration, you'll have to sign up for a [sandbox accoun
 
 In comparison to the local payment gateways, I would say that international Payment gateways are better in terms of developer onboarding, documentation, security handling, payment method support, platform support and testing.
 
+## 5. [Stripe](https://stripe.com/)
+
 ![stripe logo](/assets/images/blog/internationalPGs/stripe.png){:class="img-resposive center"}
 
-Stripe is an online platform that offers online transactions management services. The services offered include [payment](https://stripe.com/docs/quickstart), [billings](https://stripe.com/docs/billing/quickstart), [sigma](https://stripe.com/docs/sigma), [issuing](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal) among others. Our main focus being the payment service.
+Stripe is an online platform that offers online payment processing services. Stripe offers a wide range of services that support payment processing. These services are inclusive but not restricted to [billings services](https://stripe.com/docs/billing/quickstart), [connect, for third party integration](https://stripe.com/connect), [sigma for stripe data analysis](https://stripe.com/docs/sigma), [issuing, for creating, issuing, and management of virtual payment cards](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal).
 
-Stripe allows merchants to accept payments on both web and mobile apps. Stripe supports a range of payment methods, card payments from Visa, Mastercard, AmericanExpress, Discover, and JCB. Stripe also supports other payment methods such as [ACH debits](https://en.wikipedia.org/wiki/Automated_clearing_house), [Apple Pay](https://www.apple.com/apple-pay/), and [Google Pay](https://pay.google.com/about/). Integration is made easy by the availability of a number of options for both developers and non-developers. For non-developers, Stripe offers a number of pre-built platforms, plugins, and extensions to allow integration without writing code. For developers, Stripe offers a number of officially supported API libraries for most common languages, Python, Ruby, PHP, Java, Node, Go and .NET.
+Stripe allows merchants to accept payments on both web and mobile apps. Stripe supports card payments from Visa, Mastercard, AmericanExpress, Discover, and JCB. Stripe also supports other payment methods such as [ACH debits](https://en.wikipedia.org/wiki/Automated_clearing_house), [Apple Pay](https://www.apple.com/apple-pay/), and [Google Pay](https://pay.google.com/about/). Integration is made easy by the availability of a number of options for both developers and non-developers. For non-developers, Stripe offers a number of pre-built platforms, plugins, and extensions to allow integration without writing code. For developers, Stripe allows direct integration with thier API. For mobile apps, Stripe offers integration support through SDKs for IOS and Android devices. For web apps, Stripe offers SDKs in most popular programming languages such as; Python,Ruby, PHP, Java, Node, Go and .NET. 
 
 The Stripe payment API is restful, centered around intuitive objects such as Account, Charge, Customer, Refund, and Transfer. The API responses are returned in JSON format. The Stripe API has a number of interesting features, Idempotency and cross-origin resource sharing support being the most notable ones.
 The API is well documented and can be tested by using one's preferred tool.
@@ -135,3 +112,75 @@ The API is well documented and can be tested by using one's preferred tool.
 To get started the Stripe API, one has to create an account with Stripe. API keys for both test and live mode are managed in the account's dashboard.
 
 Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
+
+# MASTERCARD AND VISA CARD
+
+## 1. [Visa]()
+
+<a href="https://www.visa.co.ke/">
+![Visa logo](https://www.visa.co.ke/content/dam/VCOM/Brand/logo-footer.png){:.img-responsive .center}
+</a>
+
+> We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
+
+Chances are if you don't have a visa branded credit/debit card now, you've probably held one before.
+Being the first(and largest?) card network, Visa has an advertised presence in over 200 territories, enabling fast payments across them regardless of the cardholders local currency.
+
+With visa being more of a payment processor than a payment gateway, it offers a wide range of APIs catering to their varied clientelle.
+There are APIs for use by merchants, card issuing banks, acquiring banks(enable merchants to be paid) and for use by individual developers.
+The APIs are available to test with a visa developer account.
+
+Visa has the following API categories:
+  - Payments
+  - ID Intelligence - for user identification
+  - Data and Analytics
+  - Risk and Fraud - validate accounts, tokenization and data protection
+  - Trials - simulations
+  - Commercial - B2B and business data
+  - Visa DPS(Debit Processing Services)
+  - Offers and Benefits - run offers and promotions for card holders
+
+Visa has 3 APIs for payments, [*Visa Direct*](https://developer.visa.com/capabilities/visa_direct/docs), [*Visa Checkout*](https://developer.visa.com/capabilities/visa_checkout/docs) and [*CyberSource Payments*](https://developer.visa.com/capabilities/cybersource/docs). 
+- Visa direct is meant for use by licensed Visa acquirers(bank/financial institution) or entities sponsored by an acquirer. The API enables real-time push payments directly onto Visa cards.
+- CyberSource payments is a solution for merchants to process payments from multiple debit and credit cards with global availability.
+- Visa Checkout is available in select countries and supports Visa, MasterCard, American Express and Discover cards. It provides simple website integration via a javascript library and mobile integration via iOS and android SDKs. 
+
+Visa direct and CyberSource payment APIs can be used with other visa APIs while the Checkout API can only be used on its own.
+
+| | Geographical availability | Target Users | Authentication | Integration options | Tokenization |
+| --- | --- | --- | --- | --- | --- |
+| Visa Direct | global | acquirer/acquirer sponsored entity | Basic | REST | No |
+| CyberSource Payments | global | merchants | API Key - Shared secret(x-pay-token) | REST | Yes |
+| Visa Checkout | select countries | merchants | x-pay-token | js, iOS and android SDKs | Yes |
+{:.table}
+
+<br/>
+I tested the Visa Direct API which has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
+The API is secured via two-way SSL/mutual SSL authentication.
+Once you register and verify a visa developer account, the normal flow for testing the API is;
+- create a project and select the api(s) to test, 
+- download the generated private key, 
+- download the client certificate,
+- configure your client(Postman,soapUI...) for mutual ssl with downloaded key/certificate pair,
+- make API calls using basic authentication with the *User ID* and password provided within the project sandbox.
+Visa makes using SSL somewhat easier by automating the process of obtaining the private key and certificate.
+This in the usual case would require generating a private key using OpenSSL for example, and making a CSR(Certificate Signing Request) to obtain the certificate.
+Visa includes instructions for setting up soapUI for SSL and has a `/helloworld` endpoint for verifying that it works.
+The key and certificate can be used directly in Postman by following the instructions [here](https://learning.getpostman.com/docs/postman/sending_api_requests/certificates/).
+
+Test data is provided within the project sandbox, with the API reference providing usable sample request and response bodies.
+The api accepts both json and xml request bodies and by default sends an xml response. You can pass an *Accept* header with `application/json` as the value to get back a json response.
+
+## 2. [Master card]()
+
+[![Mastercard](/assets/images/blog/internationalPGs/mastercard.png){:class="img-responsive center"}](https://developer.mastercard.com/)
+
+Mastercard is one of the master players in the card payment industries. It has been around for 5 decades now and still doing more in influencing the payments industry globally. 
+
+A quick look at Mastercard Payment APIs really shows how quickly one can get up and running with little hustle and enhanced security - you don't have to spend time on how to handle security, Mastercard does that for you leaving you with the focus on building your product. So, to the APIs.
+
+Apart from Payment APIs, Mastercard also provides security APIs and Data Services APIs. Data services apis generate insights from Mastercard's data while Security apis lets you leverage Mastercard's cybersecurity technologies to help curb fraud, reduce risks and improve user experience.
+
+My focus was on Payment APIs. Mastercard provides multiple Payment APIs including Masterpass APIs, Bill Payment Vlidator APIs, Send APIs, Mastercard merchant QR APIs just to name a few. I decided to test out the [Masterpass API](https://developer.mastercard.com/documentation/masterpass-merchant-integration-v7). This allows you to implement a seamless checkout on a merchant's site without having the consumers keying in their card details. Its integration is relatively simple. Mastercard provides an easy to follow documentation that outlines the mobile and web integration guidelines. It provides client SDKs and Server SDKs that are simple to use. You just need to create a sandbox account and you are good to go with the integration. However, the sandbox account sign up process was in a mess as of this writing but I reached out to them and I was able to have a sandbox account in place. If you run into any problem don't hesitate reaching out to the support team - fast in responding, they reply in minutes. 
+
+Like I said before, Mastercard handles the security bit letting you focus on your product. However, I would like to dive a little into how they handle security when consuming Masterpass API. This is about DSRP - Digital Secure Remote Payments and DTVC - Dynamic Token Verification code. DSRP is an EMV-based technology that stores consumer's card information in cryptograms that are transported alongside the transactions. Instead of the merchant capturing the card number, a 16-digit token is passed to the merchant application. This helps in reducing consumer's account compromise. In DTVC, a CVC2 value and month/year values are generated by Masterpass which are then used by the merchant instead of the real CVC2 and month/year values in the transaction message. For more on this [click here](https://developer.mastercard.com/page/masterpass-dsrp-and-tokenization).
