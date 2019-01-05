@@ -3,7 +3,7 @@ layout: blog
 author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
 title: International Payment Gateways
 blog-image: internationalPGs/online_payment.jpg
-intro: Last year we went out and tested the popular Kenyan payment gateways. We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability.   To kick off the year, we went global!  Yes, we looked into popular international payment gateways integration and  Visa and Mastercards integration. With developers in mind, we set out to see what these platforms have to offer. Here’s what we found.
+intro: Last year we went out and tested the popular Kenyan payment gateways. We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability.   To kick off this year, we went global!  Yes, we looked into popular international payment gateways integration and  Visa and Mastercards integration. With developers in mind, we set out to see what these platforms have to offer. Here’s what we found.
 ---
 ![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
@@ -112,6 +112,21 @@ The API is well documented and can be tested by using one's preferred tool.
 To get started the Stripe API, one has to create an account with Stripe. API keys for both test and live mode are managed in the account's dashboard.
 
 Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
+
+## 6. [Pay U](https://www.payu.co.za/)
+
+![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg){:class="img-resposive center"}
+
+PayU is an online payment gateway that allows merchants to make and receive payments.
+For integration, Pay U offers plugins for common web frameworks such as Joomla and Wordpress, a customizable page redirect and direct integration through their API.
+Pay U does not provide SDKs for popular mobile platforms, Windows, iOS, and Android.
+
+The Pay U API is SOAP. The requests and the responses are XML based.
+A test environment is provided for testing with test credentials are provided on the [test credentials page](https://help.payu.co.za/display/developers/Test+Credentials).
+
+PayU supports major payment methods, credit cards, cheque cards and Electronic Funds Transfers (EFTs).
+It offers a range of supporting services including Fraud Management, Business funding and consumer funding.
+
 
 # MASTERCARD AND VISA CARD
 
