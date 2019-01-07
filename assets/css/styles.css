@@ -2540,7 +2540,8 @@ body.no-header-wrapper {
 /* table styling for api post */
 table{
   border-collapse: collapse;
-  border-spacing: 0;
+  table-layout: auto;
+  width: 100%;
   border:2px solid #414141;
 }
 
