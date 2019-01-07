@@ -16,7 +16,7 @@ intro: Last year we went out and tested the popular Kenyan payment gateways. We 
 
 
 <a href="https://www.authorize.net/">
-![Authorize.Net logo](https://www.authorize.net/etc/clientlibs/anet/main/fonts/anet-logo-white.svg){: style="background:linear-gradient(180deg, #4f90bd, #2f5571);padding:1em;" .img-responsive}
+![Authorize.Net logo](https://www.authorize.net/etc/clientlibs/anet/main/fonts/anet-logo-white.svg){: style="background:linear-gradient(180deg, #4f90bd, #2f5571);padding:1em;" .pg-images .img-responsive .center }
 </a>
 
 Authorize.Net is a subsidiary of Visa and has been in existence since 1996. Through it a merchant can accept card payments from Visa, MasterCard and American Express.
@@ -51,7 +51,7 @@ Much of Authorize.Net functionality is available via the API including card mobi
 ## 2. [SecurionPay](https://securionpay.com/)
 
 <a href="https://securionpay.com/">
-![SecurionPay logo](https://securionpay.com/wp-content/uploads/2017/11/logo_v_rich.png){:.img-responsive .center}
+![SecurionPay logo](https://securionpay.com/wp-content/uploads/2017/11/logo_v_rich.png){:.pg-images .img-responsive .center}
 </a>
 
 SecurionPay provides payment services for businesses within the EU with support for high-risk businesses.
@@ -69,6 +69,7 @@ The API is overall easy to test and things just work.
 ## 3. [BrainTree](https://www.braintreepayments.com/)
 
 [![BrainTree](/assets/images/blog/internationalPGs/braintree.png){:class="img-responsive center"}](https://developers.braintreepayments.com/)
+{:.pg-images .image-responsive .center}
 
 This is one of the top international payment gateways. It was recently acquired by Paypal.It accepts both Mobile and Web Payments with a smooth integration for both cases and offers support for various payment ways including PayPal, Cards, Apple Pay, Venmo, Google Pay, Masterpass, Samsung Pay, Visa Checkout, UnionPay and ACH Direct Debit. 
 
@@ -85,6 +86,7 @@ After a successful integration, check out whether the new transactions have been
 ## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
 
 [![Paypal](/assets/images/blog/internationalPGs/Paypal.png){:class="img-responsive center"}](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+{:.pg-images .img-responsive .center}
 
 Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
 
@@ -101,6 +103,7 @@ In comparison to the local payment gateways, I would say that international Paym
 ## 5. [Stripe](https://stripe.com/)
 
 ![stripe logo](/assets/images/blog/internationalPGs/stripe.png){:class="img-resposive center"}
+{:.pg-images .img-responsive .center}
 
 Stripe is an online platform that offers online payment processing services. Stripe offers a wide range of services that support payment processing. These services are inclusive but not restricted to [billings services](https://stripe.com/docs/billing/quickstart), [connect, for third party integration](https://stripe.com/connect), [sigma for stripe data analysis](https://stripe.com/docs/sigma), [issuing, for creating, issuing, and management of virtual payment cards](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal).
 
@@ -115,7 +118,8 @@ Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
 
 ## 6. [Pay U](https://www.payu.co.za/)
 
-![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg){:class="img-resposive center"}
+![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg)
+{:.pg-images .img-responsive .center}
 
 PayU is an online payment gateway that allows merchants to make and receive payments.
 For integration, Pay U offers plugins for common web frameworks such as Joomla and Wordpress, a customizable page redirect and direct integration through their API.
@@ -133,7 +137,7 @@ It offers a range of supporting services including Fraud Management, Business fu
 ## 1. [Visa]()
 
 <a href="https://www.visa.co.ke/">
-![Visa logo](https://www.visa.co.ke/content/dam/VCOM/Brand/logo-footer.png){:.img-responsive .center}
+![Visa logo](https://www.visa.co.ke/content/dam/VCOM/Brand/logo-footer.png){:.pg-images .img-responsive .center}
 </a>
 
 > We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
@@ -160,14 +164,6 @@ Visa has 3 APIs for payments, [*Visa Direct*](https://developer.visa.com/capabil
 - CyberSource payments is a solution for merchants to process payments from multiple debit and credit cards with global availability.
 - Visa Checkout is available in select countries and supports Visa, MasterCard, American Express and Discover cards. It provides simple website integration via a javascript library and mobile integration via iOS and android SDKs. 
 
-Visa direct and CyberSource payment APIs can be used with other visa APIs while the Checkout API can only be used on its own.
-
-| | Geographical availability | Target Users | Authentication | Integration options | Tokenization |
-| --- | --- | --- | --- | --- | --- |
-| Visa Direct | global | acquirer/acquirer sponsored entity | Basic | REST | No |
-| CyberSource Payments | global | merchants | API Key - Shared secret(x-pay-token) | REST | Yes |
-| Visa Checkout | select countries | merchants | x-pay-token | js, iOS and android SDKs | Yes |
-{:.table}
 
 <br/>
 I tested the Visa Direct API which has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
@@ -189,6 +185,7 @@ The api accepts both json and xml request bodies and by default sends an xml res
 ## 2. [Master card]()
 
 [![Mastercard](/assets/images/blog/internationalPGs/mastercard.png){:class="img-responsive center"}](https://developer.mastercard.com/)
+{:.pg-images .img-responsive .center}
 
 Mastercard is one of the master players in the card payment industries. It has been around for 5 decades now and still doing more in influencing the payments industry globally. 
 
