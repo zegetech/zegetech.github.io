@@ -2555,3 +2555,12 @@ td{
   padding: 1px 5px 1px 5px;
 
 }
+
+/* style for consistent image sizes for global payment gateways blog*/
+.pg-images{
+  height: auto; 
+  width: auto; 
+  max-width: 400px; 
+  max-height: 400px;
+}
+
