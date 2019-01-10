@@ -32,11 +32,15 @@ An IPN (instant payment notification) endpoint together with related query endpo
 iPay provides mobile money (Mpesa, Airtel and EazzyPay) and credit card integrations.
 The API can be consumed either through ‘Web-based integration’ which is a page redirect to their website or ‘REST API integration’. Plugins for the major CMSs are provided, as well as an android library.
 
-Documentation is provided though it could certainly be done better. The test credentials are not made obvious. I only figured them out while taking a second read through, after enquires went unanswered.
+The documentation provided is useable though it could be done better. The test credentials are somewhat hidden. I only figured them out while taking a second read through, after enquiries went unanswered.
+It wasn't immediately obvious as to the availability of a testing sandbox.
 
-The API requires an HMAC signature be sent along with the payload. With parameters having to be concatenated in a particular order for this to work, it can be more than a slight annoyance.
+The API requires that a HMAC signature of the data be sent along in the request body. 
+The parameter values have to be concatenated in a particular order to get the expected string to hash. This can be more than a slight annoyance and the shortened parameter names do not help either.
 
-The shortened parameter names do not help either. It worked but took a while.
+Whether because of the used secret key while testing, or a difference in the HMAC algorithm used, the hash generated was always incorrect.
+The API does however respond with the expected hash and the string hashed to obtain it which made testing easier.
+You can find the scripts we used to generate the signature [here.](https://gist.github.com/NgariNdungu/e8c83a03038d445488e73cefa6c42032)
 
 ### [![Africa's Talking](/assets/images/blog/africastalking.png){:class="img-responsive center"}](http://docs.africastalking.com/)
 Africa's talking provides Restful APIs for integration with their various services. These services include; SMS,voice, Payments,USSD, and Airtime. Our point of focus was mainly their payment services. Customer to Business (C2B), Business to Customer (B2C), and Business to business (B2B). The services are offered over mobile, banks and cards. There are client SDKs for PHP, Python, C#, Java, JS, and Ruby. For mobile payments, Africa's talking does the hosting and one needs a dedicated pay bill with Safaricom M-Pesa (application process takes approximately 5 days). They do not offer any other mobile payment services. The bank payment and card payment services are currently only available in Nigeria. The accepted cards are MasterCard and Verve cards. Africa's talking offers a sandbox, a simulator and associated endpoints for testing. On integration one also gets a dashboard on which they can monitor transactions and carry out other maintenance services such as getting credentials for authentication and creating products.
@@ -72,13 +76,16 @@ Lipisha is a payment service provider that allows integration through webhooks, 
 
 [Lipisha Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEw)
 
-### [![Flutterwave](/assets/images/blog/rave.svg){:class="img-responsive center"}](https://rave.flutterwave.com/)
+### [![Flutterwave](/assets/images/blog/rave.svg){:class="img-responsive center"}](https://flutterwave.com/developers/)
 Also called Rave, the Flutterwave Rave API provides mobile money and card payment integration, with bank integration in Nigeria.
 Nodejs and Android SDKs are provided along with plugins for the more popular CMSs.
 Documentation for the API is provided, though it can be a bit of a challenge to navigate through.
 The main documentation page is focused on quick integration using their javascript library and page embeds, with the reference page giving the fuller outlook of the API.
 For testing, a sandbox url is provided, with test credentials, cards, bank accounts and mobile numbers included.
-A main gripe with the API is the use of 3DES encryption on their protected endpoints. This makes direct testing with Postman far from easy.
+
+The API *charge* endpoints require that the request parameters be encrypted with [3DES encryption.](https://developer.flutterwave.com/v2.0/reference#rave-encryption)
+Trying to perform the encryption in postman was an exercise in futility. The included `crypto-js` library's implementation of the algorithm proved incompatible with rave.
+There are code examples for js, php, python, java and c#. [Here's](https://gist.github.com/NgariNdungu/2aa67db5f5a2d0c454e7b22d1c4de845) the working code for ruby.
 
 ### [![Kopokopo](/assets/images/blog/kopo.png){:class="img-responsive center"}](https://app.kopokopo.com/push_api)
 My experience with Kopokopo integration was unsuccessful. I couldn't create an account with them because of their business requirements. You need to send them copies of your ID and business registration documents for review before trying out their APIs. However, they support RESTful API posts and FTP file serving system - you can setup your own FTP server or use their FTP server. What happens with this kind of FTP system is that K2(KopoKopo) generates csv files having transaction details and sends them to your configured FTP server, you can then parse the csv files however you like. 
@@ -89,9 +96,7 @@ They support payments in Mpesa, Masterpass and T-Kash.
 Beyonic is focused on mobile money integrations. With their API you can receive money and make payments in Kenya, Uganda, Rwanda, Tanzania and Rwanda.
 
 There are official client libraries for Python, Ruby and PHP with code samples for Java. 
-
 There is a Woo-Commerce plugin for integrating with Wordpress sites, and beta integration with Zapier.
-
 The API is well documented with helpful pointers for the developer to follow.
 
 At the time of testing, the test environment seemed to be in maintenance. Being unable to load BXC(Beyonic test currency) we couldn’t test the payments endpoints.
