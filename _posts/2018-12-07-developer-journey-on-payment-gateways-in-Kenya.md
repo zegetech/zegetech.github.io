@@ -35,11 +35,15 @@ An IPN (instant payment notification) endpoint together with related query endpo
 iPay provides mobile money (Mpesa, Airtel and EazzyPay) and credit card integrations.
 The API can be consumed either through ‘Web-based integration’ which is a page redirect to their website or ‘REST API integration’. Plugins for the major CMSs are provided, as well as an android library.
 
-Documentation is provided though it could certainly be done better. The test credentials are not made obvious. I only figured them out while taking a second read through, after enquires went unanswered.
+The documentation provided is useable though it could be done better. The test credentials are somewhat hidden. I only figured them out while taking a second read through, after enquiries went unanswered.
+It wasn't immediately obvious as to the availability of a testing sandbox.
 
-The API requires an HMAC signature be sent along with the payload. With parameters having to be concatenated in a particular order for this to work, it can be more than a slight annoyance.
+The API requires that a HMAC signature of the data be sent along in the request body. 
+The parameter values have to be concatenated in a particular order to get the expected string to hash. This can be more than a slight annoyance and the shortened parameter names do not help either.
 
-The shortened parameter names do not help either. It worked but took a while.
+Whether because of the used secret key while testing, or a difference in the HMAC algorithm used, the hash generated was always incorrect.
+The API does however respond with the expected hash and the string hashed to obtain it which made testing easier.
+You can find the scripts we used to generate the signature [here.](https://gist.github.com/NgariNdungu/e8c83a03038d445488e73cefa6c42032)
 
 ### 4. Africa's Talking
 [![Africa's Talking](/assets/images/blog/localgateways/africastalking.png){:class="img-responsive center img-standard"}](http://docs.africastalking.com/)
@@ -87,7 +91,10 @@ Nodejs and Android SDKs are provided along with plugins for the more popular CMS
 Documentation for the API is provided, though it can be a bit of a challenge to navigate through.
 The main documentation page is focused on quick integration using their javascript library and page embeds, with the reference page giving the fuller outlook of the API.
 For testing, a sandbox url is provided, with test credentials, cards, bank accounts and mobile numbers included.
-A main gripe with the API is the use of 3DES encryption on their protected endpoints. This makes direct testing with Postman far from easy.
+
+The API *charge* endpoints require that the request parameters be encrypted with [3DES encryption.](https://developer.flutterwave.com/v2.0/reference#rave-encryption)
+Trying to perform the encryption in postman was an exercise in futility. The included `crypto-js` library's implementation of the algorithm proved incompatible with rave.
+There are code examples for js, php, python, java and c#. [Here's](https://gist.github.com/NgariNdungu/2aa67db5f5a2d0c454e7b22d1c4de845) the working code for ruby.
 
 ### 10. Kopokopo
 [![Kopokopo](/assets/images/blog/localgateways/kopo.png){:class="img-responsive center img-standard"}](https://app.kopokopo.com/push_api)
@@ -100,9 +107,7 @@ They support payments in Mpesa, Masterpass and T-Kash.
 Beyonic is focused on mobile money integrations. With their API you can receive money and make payments in Kenya, Uganda, Rwanda, Tanzania and Rwanda.
 
 There are official client libraries for Python, Ruby and PHP with code samples for Java. 
-
 There is a Woo-Commerce plugin for integrating with Wordpress sites, and beta integration with Zapier.
-
 The API is well documented with helpful pointers for the developer to follow.
 
 At the time of testing, the test environment seemed to be in maintenance. Being unable to load BXC(Beyonic test currency) we couldn’t test the payments endpoints.
