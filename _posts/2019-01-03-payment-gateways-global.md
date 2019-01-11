@@ -1,23 +1,23 @@
 ---
 layout: blog
 author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
-title: International Payment Gateways
+title: Are global payment gateways all that... and more
 blog-image: internationalPGs/online_payment.jpg
-intro: Last year we went out and tested the popular [Kenyan payment gateways](/blog/2018/12/07/developer-journey-on-payment-gateways-in-Kenya.html). We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability.   To kick off this year, we went global!  Yes, we looked into popular international payment gateways, Visa and Mastercard integration. With developers in mind, we set out to see what these platforms have to offer and how they offered it. Here’s why and what we found.
+intro: Last year we went out and tested the popular [Kenyan payment gateways](/blog/2018/12/07/payment-gateways-Kenya.html). We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability. To kick off this year, we went global!  Yes, we looked into popular international payment gateways, Visa and Mastercard integration. With developers in mind, we set out to see what these platforms have to offer and how they offered it. Here’s what we found.
 ---
 ![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
 {{page.intro}}
 
- If a great, ideal, API existed, what would it look like? What would it have to offer in terms of security, usability, and standards? This was the motivation behind the research on the [kenyan payment gateways](/blog/2018/12/07/developer-journey-on-payment-gateways-in-Kenya.html). Since we are in the globalization era, It would be wrong to not look into what the rest of the world had to offer. So we did. We looked into the different international payment gateways, their standards, and how do they compare to each other? We will let you decide how the Kenyan payment gateways compare.
+ If a great, ideal, API existed, what would it look like? What would it have to offer in terms of security, usability, and standards? This was the motivation behind the research on the [kenyan payment gateways](/blog/2018/12/07/payment-gateways-Kenya.html). Since we are in the globalization era, It would be wrong to not look into what the rest of the world had to offer. So we did. We looked into the different international payment gateways, their standards, and how do they compare to each other? We will let you decide how the Kenyan payment gateways compare.
 
 # PAYMENT GATEWAYS.
 
 ## 1. [Authorize.Net](https://www.authorize.net/)
 
-[![Authorize.Net](/assets/images/blog/internationalPGs/authorize.jpg)](https://www.authorize.net/)
-{:.image-responsive .center}
-
+<a href="https://www.authorize.net/">
+![Authorize.Net logo](https://www.authorize.net/etc/clientlibs/anet/main/fonts/anet-logo-white.svg){: style="background:linear-gradient(180deg, #4f90bd, #2f5571);padding:1em;" .pg-images .img-responsive .center }
+</a>
 
 Authorize.Net is a subsidiary of Visa and has been in existence since 1996. Through it a merchant can accept card payments from Visa, MasterCard and American Express.
 It also has PayPal, Apple Pay and E-check integrations.
@@ -50,8 +50,9 @@ Much of Authorize.Net functionality is available via the API including card mobi
 
 ## 2. [SecurionPay](https://securionpay.com/)
 
-[![SecurionPay](/assets/images/blog/internationalPGs/securion.png)](https://securionpay.com/)
-{:.image-responsive .center}
+<a href="https://securionpay.com/">
+![SecurionPay logo](https://securionpay.com/wp-content/uploads/2017/11/logo_v_rich.png){:.pg-images .img-responsive .center}
+</a>
 
 SecurionPay provides payment services for businesses within the EU with support for high-risk businesses.
 It supports major cards, including Visa, MasterCard and American Express. Supporting services include customer and card management and support for subscription based businesses.
@@ -67,8 +68,8 @@ The API is overall easy to test and things just work.
 
 ## 3. [BrainTree](https://www.braintreepayments.com/)
 
-[![BrainTree](/assets/images/blog/internationalPGs/braintree1.png)](https://developers.braintreepayments.com/)
-{:.image-responsive .center}
+[![BrainTree](/assets/images/blog/internationalPGs/braintree.png){:class="img-responsive center"}](https://developers.braintreepayments.com/)
+{:.pg-images .image-responsive .center}
 
 This is one of the top international payment gateways. It was recently acquired by Paypal. It accepts both Mobile and Web Payments with a smooth integration for both cases and offers support for various payment ways including PayPal, Cards, Apple Pay, Venmo, Google Pay, Masterpass, Samsung Pay, Visa Checkout, UnionPay and ACH Direct Debit. 
 
@@ -83,8 +84,8 @@ After a successful integration, check out whether the new transactions have been
 
 ## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
 
-[![Paypal](/assets/images/blog/internationalPGs/paypal.png)](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
-{:.img-responsive .center}
+[![Paypal](/assets/images/blog/internationalPGs/Paypal.png){:class="img-responsive center"}](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+{:.pg-images .img-responsive .center}
 
 Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
 
@@ -99,8 +100,8 @@ To test Paypal Gateway integration, one needs to sign up for a [sandbox account]
 
 ## 5. [Stripe](https://stripe.com/)
 
-![stripe logo](/assets/images/blog/internationalPGs/stripe.png)
-{:.img-responsive .center}
+![stripe logo](/assets/images/blog/internationalPGs/stripe.png){:class="img-resposive center"}
+{:.pg-images .img-responsive .center}
 
 Stripe is an online platform that offers online payment processing services. Stripe offers a wide range of services that support payment processing. These services are; [billings services](https://stripe.com/docs/billing/quickstart), [connect,(for third party integration)](https://stripe.com/connect), [sigma (for stripe data analysis)](https://stripe.com/docs/sigma), [issuing, (for creating, issuing, and management of virtual payment cards)](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal).
 
@@ -116,7 +117,7 @@ Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
 ## 6. [Pay U](https://www.payu.co.za/)
 
 ![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg)
-{:.img-responsive .center}
+{:.pg-images .img-responsive .center}
 
 PayU is an online payment gateway that allows merchants to make and receive payments.
 For integration, Pay U offers plugins for common web frameworks such as Joomla and Wordpress, a customizable page redirect and direct integration through their API.
@@ -131,11 +132,11 @@ It offers a range of supporting services including Fraud Management, Business fu
 
 # MASTER AND VISA CARD
 
-## 1. [Visa](https://www.visa.co.ke/)
+## 1. [Visa]()
 
-[![Mastercard](/assets/images/blog/internationalPGs/visa.png)](https://www.visa.co.ke/)
-{:.img-responsive .center}
-
+<a href="https://www.visa.co.ke/">
+![Visa logo](https://www.visa.co.ke/content/dam/VCOM/Brand/logo-footer.png){:.pg-images .img-responsive .center}
+</a>
 
 > We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
 
@@ -181,8 +182,8 @@ The api accepts both json and xml request bodies and by default sends an xml res
 
 ## 2. [Master card]()
 
-[![Mastercard](/assets/images/blog/internationalPGs/master.jpg)](https://developer.mastercard.com/)
-{:.img-responsive .center}
+[![Mastercard](/assets/images/blog/internationalPGs/mastercard.png){:class="img-responsive center"}](https://developer.mastercard.com/)
+{:.pg-images .img-responsive .center}
 
 Mastercard is one of the master players in the card payment industries. It has been around for about 5 decades.
 
