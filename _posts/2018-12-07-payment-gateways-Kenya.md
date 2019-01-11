@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Getting paid online in Kenya has never been easier, but is it easy enough.  
+title: Developers getting paid online in Kenya, Whats the fuss!  
 author: Tom Nyongesa, Ngari Ndung'u, Melvin Atieno
 blog-image: localgateways/kenyan-gateways.png
 intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome of this - an easy payment interface that hides the complex processes of really getting this done. This process is largely a developer's task. This is a developer's journey analysing Kenyan online payment gateways and their ease of integration.
