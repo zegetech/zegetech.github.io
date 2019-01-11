@@ -15,11 +15,11 @@ intro: Last year we went out and tested the popular [Kenyan payment gateways](/b
 
 ## 1. [Authorize.Net](https://www.authorize.net/)
 
-[![Authorize.Net](/assets/images/blog/internationalPGs/authorize.jpg)](https://www.authorize.net/)
-{:.image-responsive .center}
-
 Authorize.Net is a subsidiary of Visa and has been in existence since 1996. Through it a merchant can accept card payments from Visa, MasterCard and American Express.
 It also has PayPal, Apple Pay and E-check integrations.
+
+[![Authorize.Net](/assets/images/blog/internationalPGs/authorize.jpg)](https://www.authorize.net/)
+{:.image-responsive .center}
 
 Authorize.Net provides both hosted integration, through javascript and mobile SDKs, and direct API integration options. 
 SDKs are provided for PHP, Ruby, Java, C#, Python, Node, Android and iOS to ease integration.
@@ -49,11 +49,11 @@ Much of Authorize.Net functionality is available via the API including card mobi
 
 ## 2. [SecurionPay](https://securionpay.com/)
 
-[![SecurionPay](/assets/images/blog/internationalPGs/securion.png)](https://securionpay.com/)
-{:.image-responsive .center}
-
 SecurionPay provides payment services for businesses within the EU with support for high-risk businesses.
 It supports major cards, including Visa, MasterCard and American Express. Supporting services include customer and card management and support for subscription based businesses.
+
+[![SecurionPay](/assets/images/blog/internationalPGs/securion.png)](https://securionpay.com/)
+{:.image-responsive .center}
 
 SecurionPay has a full featured API giving access to the full dashboard functionality. The API is REST based and uses JSON for requests.
 An account is easy to get, even when registering from an unsupported country, with the *test-mode* account providing the necessary details for API authentication.
@@ -66,32 +66,26 @@ The API is overall easy to test and things just work.
 
 ## 3. [BrainTree](https://www.braintreepayments.com/)
 
-[![BrainTree](/assets/images/blog/internationalPGs/braintree1.png)](https://developers.braintreepayments.com/)
-{:.image-responsive .center}
-
 This is one of the top international payment gateways. It was recently acquired by Paypal. It accepts both Mobile and Web Payments with a smooth integration for both cases and offers support for various payment ways including PayPal, Cards, Apple Pay, Venmo, Google Pay, Masterpass, Samsung Pay, Visa Checkout, UnionPay and ACH Direct Debit. 
+
+[![BrainTree](/assets/images/blog/internationalPGs/braintree.png)](https://developers.braintreepayments.com/)
+{:.image-responsive .center}
 
 Braintree [does not provide a public REST API for consumption](https://www.braintreepayments.com/blog/when-rest-isnt-good-enough/). However, it offers a nice documentation and sample codes on client and server SDKs. The SDKs are provided based on top languages Java, .NET, Node.js, PHP, Python & Ruby and client SDKs for languages including Android, Ios and Javascript for Web. They also offer a testing bed for your proof of concept tests.The sandbox account is created [here](https://www.braintreepayments.com/sandbox). 
 
 For request authorization, the *Merchant Id*, *Public Key* and *private key* are all obtained in the sandbox.
-
-
 Integration examples [here](https://developers.braintreepayments.com/start/example-integrations#repositories).
-
 After a successful integration, check out whether the new transactions have been included in your sandbox account.
 
 ## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
 
+Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
+
 [![Paypal](/assets/images/blog/internationalPGs/paypal.png)](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
 {:.img-responsive .center}
 
-
-Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
-
 It accepts Payments made through Paypal, phone, mail, fax, Visa, MasterCard®, American Express and Discover.
-
 Paypal provides an easy to follow API documentation for both SOAP and REST APIs. 
-
 To test Paypal Gateway integration, one needs to sign up for a [sandbox account](https://www.sandbox.paypal.com/bizsignup/), create a paypal App whose credentials will be used to get an access token that will be used to authorize access to secure resources on Paypal's server. 
 
 [Paypal Postman Collection](https://documenter.getpostman.com/view/1238477/RzfnkSKR)
@@ -99,28 +93,26 @@ To test Paypal Gateway integration, one needs to sign up for a [sandbox account]
 
 ## 5. [Stripe](https://stripe.com/)
 
+Stripe is an online platform that offers online payment processing services. Stripe offers a wide range of services that support payment processing. These services are; [billings services](https://stripe.com/docs/billing/quickstart), [connect,(for third party integration)](https://stripe.com/connect), [sigma (for stripe data analysis)](https://stripe.com/docs/sigma), [issuing, (for creating, issuing, and management of virtual payment cards)](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal).
+
 ![stripe logo](/assets/images/blog/internationalPGs/stripe.png)
 {:.img-responsive .center}
-
-Stripe is an online platform that offers online payment processing services. Stripe offers a wide range of services that support payment processing. These services are; [billings services](https://stripe.com/docs/billing/quickstart), [connect,(for third party integration)](https://stripe.com/connect), [sigma (for stripe data analysis)](https://stripe.com/docs/sigma), [issuing, (for creating, issuing, and management of virtual payment cards)](https://stripe.com/docs/issuing) and [Terminal ](https://stripe.com/docs/terminal).
 
 Stripe allows merchants to accept payments on both web and mobile apps. Stripe supports card payments from Visa, Mastercard, AmericanExpress, Discover, and JCB. Stripe also supports other payment methods such as [ACH debits](https://en.wikipedia.org/wiki/Automated_clearing_house), [Apple Pay](https://www.apple.com/apple-pay/), and [Google Pay](https://pay.google.com/about/). Integration is made easy by the availability of a number of options for both developers and non-developers. For non-developers, Stripe offers a number of pre-built platforms, plugins, and extensions to allow integration without writing code. For developers, Stripe allows direct integration with thier API. For mobile apps, Stripe offers integration support through SDKs for IOS and Android devices. For web apps, Stripe offers SDKs in most popular programming languages such as; Python,Ruby, PHP, Java, Node, Go and .NET. 
 
 The Stripe payment API is restful, centered around intuitive objects such as Account, Charge, Customer, Refund, and Transfer. The API responses are returned in JSON format. The Stripe API has a number of interesting features, Idempotency and cross-origin resource sharing support being the most notable ones.
 The API is well documented and can be tested by using one's preferred tool.
 
-To get started the Stripe API, one has to create an account with Stripe. API keys for both test and live mode are managed in the account's dashboard.
-
-Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
+To get started the Stripe API, one has to create an account with Stripe. API keys for both test and live mode are managed in the account's dashboard. Pricing is on a pay-as-you-go basis, 2.9%  + 30¢ per successful card charge.
 
 ## 6. [Pay U](https://www.payu.co.za/)
-
-![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg)
-{:.img-responsive .center}
 
 PayU is an online payment gateway that allows merchants to make and receive payments.
 For integration, Pay U offers plugins for common web frameworks such as Joomla and Wordpress, a customizable page redirect and direct integration through their API.
 Pay U does not provide SDKs for popular mobile platforms, Windows, iOS, and Android.
+
+![Pay U logo](/assets/images/blog/internationalPGs/payu.jpg)
+{:.img-responsive .center}
 
 The Pay U API is SOAP. The requests and the responses are XML based.
 A test environment is provided for testing with test credentials that are provided on the [test credentials page](https://help.payu.co.za/display/developers/Test+Credentials).
@@ -133,10 +125,10 @@ It offers a range of supporting services including Fraud Management, Business fu
 
 ## 1. [Visa](https://www.visa.co.ke/)
 
+> We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
+
 [![Visa](/assets/images/blog/internationalPGs/visa.png)](https://www.visa.co.ke/)
 {:.img-responsive .center}
-
-> We are a global payments technology company working to enable consumers, businesses, banks and governments to use digital currency.
 
 Chances are if you don't have a visa branded credit/debit card now, you've probably held one before.
 Being the first(and largest?) card network, Visa has an advertised presence in over 200 territories, enabling fast payments across them regardless of the cardholders local currency.
@@ -160,8 +152,6 @@ Visa has 3 APIs for payments, [*Visa Direct*](https://developer.visa.com/capabil
 - CyberSource payments is a solution for merchants to process payments from multiple debit and credit cards with global availability.
 - Visa Checkout is available in select countries and supports Visa, MasterCard, American Express and Discover cards. It provides simple website integration via a javascript library and mobile integration via iOS and android SDKs. 
 
-
-<br/>
 The Visa Direct API has endpoints for funds transfer, watchlist screening, query, aliases(store and retrieve customer data), mVisa and funds reversal.
 The API is secured via two-way SSL/mutual SSL authentication.
 Once you register and verify a visa developer account, the normal flow for testing the API is;
@@ -180,12 +170,12 @@ The api accepts both json and xml request bodies and by default sends an xml res
 
 ## 2. [Master card]()
 
-[![Mastercard](/assets/images/blog/internationalPGs/master.jpg)](https://developer.mastercard.com/)
-{:.img-responsive .center}
-
 Mastercard is one of the master players in the card payment industries. It has been around for about 5 decades.
 
 A quick look at Mastercard Payment APIs really shows how quickly one can get up and running with little hustle and enhanced security - you don't have to spend time on how to handle security, Mastercard does that for you leaving you with the focus on building your product. So, to the APIs.
+
+[![Mastercard](/assets/images/blog/internationalPGs/mastercard.png)](https://developer.mastercard.com/)
+{:.img-responsive .center}
 
 Apart from Payment APIs, Mastercard also provides security APIs and Data Services APIs. Data services apis generate insights from Mastercard's data while Security apis lets you leverage Mastercard's cybersecurity technologies to help curb fraud, reduce risks and improve user experience.
 
@@ -198,7 +188,6 @@ The Masterpass API allows a seamless checkout on a merchant's site without havin
 Mastercard handles the security allowing integrators to focus on their product. The security is handled using a technology, DSRP - Digital Secure Remote Payments and DTVC - Dynamic Token Verification code. DSRP is an EMV-based technology that stores consumer's card information in cryptograms that are transported alongside the transactions. Instead of the merchant capturing the card number, a 16-digit token is passed to the merchant application. This helps in reducing consumer's account compromise. In DTVC, a CVC2 value and month/year values are generated by Masterpass which are then used by the merchant instead of the real CVC2 and month/year values in the transaction message. For more on this [click here](https://developer.mastercard.com/page/masterpass-dsrp-and-tokenization).
 
 Here's a summary:
-
 
 | |Geographical availability|Target Users|Authentication|Integration options|Tokenization?|API Design|Data Format|
 | --- | --- | --- | --- | --- | --- | --- | --- |
