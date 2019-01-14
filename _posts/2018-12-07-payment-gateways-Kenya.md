@@ -40,6 +40,8 @@ The API requires an HMAC signature to be sent along with the payload. With param
 
 The shortened parameter names do not help either. It worked but took a while.
 
+[iPay Postman Collections](https://documenter.getpostman.com/view/1238477/RznHKdTM)
+
 ### 4. Africa's Talking
 ![Africa's Talking](/assets/images/blog/localgateways/africastalking.png){:class="img-responsive center img-standard"}
 
@@ -112,6 +114,8 @@ The API is well documented with helpful pointers for the developer to follow.
 
 At the time of testing, the test environment seemed to be in maintenance. Being unable to load BXC(Beyonic test currency) we couldn’t test the payments endpoints.
 It was still possible to test some collection endpoints using the documented test numbers.
+
+[Beyonic Postman Collection](https://documenter.getpostman.com/view/1238477/RznHKdXd)
 
 ### 12. Direct Pay
 ![Direct Pay](/assets/images/blog/localgateways/dpo.png){:class="img-responsive center img-standard"}
