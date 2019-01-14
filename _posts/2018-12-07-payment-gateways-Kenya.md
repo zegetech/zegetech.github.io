@@ -3,10 +3,11 @@ layout: blog
 title: Developers getting paid online in Kenya, Whats the fuss!  
 author: Tom Nyongesa, Ngari Ndung'u, Melvin Atieno
 blog-image: localgateways/kenyan-gateways.png
-intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome of this - an easy payment interface that hides the complex processes of really getting this done. This process is largely a developer's task. This is a developer's journey analysing Kenyan online payment gateways and their ease of integration.
+intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome - an easy payment interface that hides the complex processes of integration. This process is largely a developer's task. And this is a developer's journey in analysing Kenyan online payment gateways and their ease of integration.
 ---
 ![Payment Gateways](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 {{page.intro}}
+
 With the multiple payment gateways in Kenya, it will probably be a real hurdle for a Kenyan developer to choose the most optimal payment solution for his problem. When thinking about their choice, the very first thing that would come into their mind is the friction of onboarding and the time it would take to integrate it to a real app. Then the learning curve. They would probably think of  googling for sample integration codes and reviews  on the internet...they'll think of many other things. We would like to make it easier. 
 
 This is a theoretical and technical analysis of popular Kenyan Payment Gateways, in no particular order:
