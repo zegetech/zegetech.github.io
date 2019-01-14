@@ -1,30 +1,43 @@
+{% comment %} Variable meta for page and post {% endcomment %}
+{% assign dynamic_title = page.title or site.title %}
+
+{% if page.intro %}
+    {% assign dynamic_description = page.intro  %}
+{% else %}
+    {% assign dynamic_description = site.description  %}
+{% endif %}
+
+{% if page.blog-image %}
+    {% capture dynamic_image %}/assets/images/blog/{{ page.blog-image }}{% endcapture %}
+{% else %}
+    {% assign dynamic_image = "/webicon.jpg"  %}
+{% endif %}
+
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
-<!-- <meta name="author" content="" />    -->
-<meta name="keywords" content="ruby rails angular zege technologies agile sprint MPESA safaricom fintech software developer nairobi freelancer kenya mobile developer android ios" />   
+<meta name="description" content= "{{ site.description }}" />
+<meta name="keywords" content= "{{ site.keywords }}" />   
 <meta name="theme-color" content="#242e3c" />
+<meta name="robots" content="index, follow" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="twitter:site" content="@zegetech" />
+<!-- <meta name="author" content="Zegetans all over the globe" />    -->
 
-<meta property="fb:app_id" content="2224550211104435" /> 
-<meta property="og:type" content="business.business" />
-<meta property="og:title" content="Ruby on Rails, Angular and mobile development team | Zegetech" />
-<meta property="og:image" content="https://zegetech.com/webicon.jpg" />
-<meta property="og:image:width" content="600" />
-<meta property="og:image:height" content="365" />
-<meta property="og:url" content="https://zegetech.com" />
-<meta property="og:description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
-<meta property="og:site_name" content="Zege Technologies" />
 <meta property="business:contact_data:street_address" content="Ngong' Road" /> 
 <meta property="business:contact_data:locality"       content="Nairobi" /> 
 <meta property="business:contact_data:postal_code"    content="00623" /> 
 <meta property="business:contact_data:country_name"   content="Kenya" /> 
-<!-- <meta property="place:location:latitude"              content="Sample Location: Latitude" />  -->
-<!-- <meta property="place:location:longitude"             content="Sample Location: Longitude" />  -->
+<meta property="place:location:latitude"              content="-1.2972761" /> 
+<meta property="place:location:longitude"             content="36.7591803" /> 
 
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@zegetech" />
-<meta name="twitter:description" content="Zegetech is an Agile team with excellent track record &amp; great communication skills. We love Ruby on Rails, Angular and mobile development! Ping us!" />
-<meta name="twitter:title" content="Ruby on Rails, Angular and mobile development team | Zegetech" />
-<meta name="robots" content="index, follow" />
-<meta name="format-detection" content="telephone=no" />
+<meta property="fb:app_id" content="2224550211104435" /> 
+<meta property="og:type" content="business.business" />
+<meta property="og:site_name" content="Zege Technologies" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="365" />
+
+<meta property="og:title" content= "{{ dynamic_title }}" />
+<meta property="og:image" content="{{ dynamic_image | absolute_url}}" />
+<meta property="og:url" content="{{ page.url | absolute_url}}" />
+<meta property="og:description" content= "{{ dynamic_description | truncate: 160 }}" />

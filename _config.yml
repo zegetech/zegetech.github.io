@@ -13,14 +13,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Ruby on Rails Software developement &amp; consultancy | Zege Technologies
+title: Ruby on Rails, Angular and mobile development team | Zegetech
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  FULLSTACK SOFTWARE DEVELOPMENT CONSULTANCY
-  DEVELOP AMAZING PRODUCTS. FAST
-  unlock your business technology potential
+  Zegetech is an Agile team with excellent track record &amp; 
+  great communication skills. We love Ruby on Rails, 
+  Angular and mobile development! Ping us!
+keywords: > 
+  ruby rails angular zege technologies agile sprint 
+  MPESA safaricom fintech software developer nairobi 
+  freelancer kenya mobile developer android ios
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://zegetech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://zegetech.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
@@ -30,10 +34,10 @@ markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
-  - octopress-paginate
-  # - jekyll-paginate
-# paginate: 5
-# paginate_path: "/blog/page:num/"
+  - jekyll-relative-links
+  - jekyll-paginate
+paginate: 5
+paginate_path: "/blog/page:num/"
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -63,5 +67,9 @@ sitemap:
 # # layouts_dir:     ./_layouts
 # data_dir: ./_data
 # # collections: null
-
 # # include: ['_pages']
+
+# configure relative links
+relative_links:
+  enabled: true
+  collections: true

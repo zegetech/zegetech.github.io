@@ -2537,3 +2537,22 @@ body.no-header-wrapper {
   display:block;
   text-align:center;
 }
+/* table styling for api post */
+table{
+  border-collapse: collapse;
+  border: 1px solid #7a7979;
+}
+
+th{
+  border: 1px solid #7a7979;
+  background-color: #999;
+  color: #414a58;
+  padding: 2px 5px 2px 5px;
+}
+
+td{
+  /* border:2px solid #000000; */
+  padding: 1px 5px 1px 5px;
+}
+
+

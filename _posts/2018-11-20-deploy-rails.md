@@ -52,7 +52,7 @@ Why?
 
 Unless you are lucky enough to work in a server room and have one of those servers as your development machine, you will need somewhere to host your site.
 We have the choice of deploying our site to a PaaS provider such as [Heroku](https://www.heroku.com/) or using a VPS from a IaaS provider.
-This can also be a combination of the cloud services [discussed here](/technology/2018/11/12/cloud-cloud-computing.html).
+This can also be a combination of the cloud services [discussed here](2018-11-12-cloud-cloud-computing.md).
 
 Deploying to a platform such as heroku abstracts away the complexities of setting up a performant and secure environment for your application.
 No need to worry about setting up and updating the OS, the database server or any of your app dependencies. You simply upload your code and the platform takes care of the rest.
