@@ -1,9 +1,9 @@
 ---
 layout: blog
-title: Developers getting paid online in Kenya, Whats the fuss!  
+title: Integrating payments in Kenya, Whats the fuss!  
 author: Tom Nyongesa, Ngari Ndung'u, Melvin Atieno
 blog-image: localgateways/kenyan-gateways.png
-intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome. They want an easy payment interface that hides the complex processes of integration. This process is largely a developer's task. And this is a developer's journey in analysing Kenyan online payment gateways and their ease of integration.
+intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome - an easy payment interface that hides the complex processes of integration. This process is largely a developer's task. And this is a developer's journey in analysing Kenyan online payment gateways and their ease of integration.
 ---
 ![Payment Gateways](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 {{page.intro}}
@@ -14,7 +14,6 @@ This is a theoretical and technical analysis of popular Kenyan Payment Gateways,
 
 ### 1. Mpesa
 ![Mpesa](/assets/images/blog/localgateways/mpesa.jpg){:class="img-responsive center"}
-Any Kenya focused business would first think of Mpesa.
 
 [M-Pesa](https://developer.safaricom.co.ke/docs) is a mobile phone-based money transfer, financing and microfinancing service, launched in 2007 by Vodafone for Safaricom. Mpesa not so recently released their APIs allowing businesses and developers to intergrate their payment services. This saw the launch of their first generation API which they dubbed "G2" that led to a great shift in MPESA adoption. G2 was however a painful and utterly unfriendly API to integate to, with VPN setups and SOAP protocol on asynchronous and sychronous requests being the biggest pain points. Then, most recently, MPESA launched "Daraja" their new RESTful API managed by Apigee, the API management platform recently acquired by Google. This promises better experience and easier integration.
 
@@ -23,7 +22,7 @@ There is documentation for Daraja Mpesa APIs and a sandbox for testing. The docu
 [Mpesa Daraja Postman docs](https://documenter.getpostman.com/view/5951719/RzfnkSEx)
 
 ### 2. Pesapal
-![PesaPal](/assets/images/blog/localgateways/Pesapal.png){:class="img-responsive center"}
+![PesaPal](/assets/images/blog/localgateways/pesapal.png){:class="img-responsive center"}
 [Pesapal](https://www.pesapal.com/) is one of the better known payment gateways and has been around for a while. A pesapal wallet allows a merchant to accept payments from mobile money, cards and select mobile banking accounts. The API's main integration method is via page redirection.
 
 Official plugins are provided for Magento, Shopify and WHMCS. Code samples are provided for .NET and PHP.
@@ -38,11 +37,13 @@ The API can be consumed either through ‘Web-based integration’ which is a pa
 Documentation is provided though it could certainly be done better. The test credentials could be a bit more obvious as one would need some time to figure them out.
 
 The API requires an HMAC signature to be sent along with the payload. With parameters having to be concatenated in a particular order for this to work, it can be more than a slight annoyance.
-
 The shortened parameter names do not help either. It worked but took a while.
+
+[iPay Postman Collections](https://documenter.getpostman.com/view/1238477/RznHKdTM)
 
 ### 4. Africa's Talking
 ![Africa's Talking](/assets/images/blog/localgateways/africastalking.png){:class="img-responsive center img-standard"}
+
 [Africa's talking](http://docs.africastalking.com/) provides Restful APIs for integration with their various services. These services include; SMS, voice, Payments, USSD, and Airtime. Our point of focus was mainly their payment services. Customer to Business (C2B), Business to Customer (B2C), and Business to business (B2B). The services are offered over mobile, banks and cards. There are client SDKs for PHP, Python, C#, Java, JS, and Ruby. For mobile payments, Africa's talking does the hosting and one needs a dedicated pay bill with Safaricom M-Pesa (application process takes approximately 5 days). They do not offer any other mobile payment services. The bank payment and card payment services are currently only available in Nigeria. The accepted cards are MasterCard and Verve cards. Africa's talking offers a sandbox, a simulator and associated endpoints for testing. On integration one also gets a dashboard on which they can monitor transactions and carry out other maintenance services such as getting credentials for authentication and creating products.
 
 [Africa's Talking Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEu )
@@ -100,12 +101,12 @@ They support payments in Mpesa, Masterpass and T-Kash.
 ![Beyonic](/assets/images/blog/localgateways/beyonic.png){:class="img-responsive center img-standard"}
 [Beyonic](https://beyonic.com/) is focused on mobile money integrations. With their API you can receive money and make payments in Kenya, Uganda, Rwanda, Tanzania and Rwanda.
 
-There are official client libraries for Python, Ruby and PHP with code samples for Java. 
-There is a Woo-Commerce plugin for integrating with Wordpress sites, and beta integration with Zapier.
-The API is well documented with helpful pointers for the developer to follow.
+There are official client libraries for Python, Ruby and PHP with code samples for Java. There is a Woo-Commerce plugin for integrating with Wordpress sites, and beta integration with Zapier. The API is well documented with helpful pointers for the developer to follow.
 
 At the time of testing, the test environment seemed to be in maintenance. Being unable to load BXC(Beyonic test currency) we couldn’t test the payments endpoints.
 It was still possible to test some collection endpoints using the documented test numbers.
+
+[Beyonic Postman Collection](https://documenter.getpostman.com/view/1238477/RznHKdXd)
 
 ### 12. Direct Pay
 ![Direct Pay](/assets/images/blog/localgateways/dpo.png){:class="img-responsive center img-standard"}
@@ -113,6 +114,7 @@ It was still possible to test some collection endpoints using the documented tes
 
 ### 13 Mpayer
 ![Mpayer](/assets/images/blog/localgateways/mpayer.png){:class="img-responsive center img-standard"}
+
 [Mpayer](http://mpayer.co.ke) is another payment gateway that has been around for a couple of years. It provides payment services for businesses and organizations through Mpesa, Airtel Money and Cash transfers. In addition, it provides tools for analysing business performance, managing the business activities and customer engangement, useful in client centric busineses like microfinance organisation and educational institutions. Uniquely, it has a very unconventional onboarding process where customers can sign up through an MPESA transaction and activate a wallet immediately. 
 
 It provides a JSON and XML RESTful API that's currently available to customers only, meaning that ther is no test environment. The authentication protocol used is WSSE. Public documentation is not available, neither is any sample integration code. This makes it difficult for one to test. MPAYER has and interesting role structure with one of the users roles being a teller or branch. Tellers can process transcations and have access to transacton API calls, that is making deposits, transfers, withdrawals. Other none tranasction API endpoints are available to other roles. 
@@ -157,7 +159,7 @@ Here's a table that summarizes the functionality. I believe this will help you s
 | Rave | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card |
 | Beyonic | Yes | Yes | Yes | Yes | Yes | Mpesa, Airtel |
 
-The list doesn't end there. There are other pageways that exist that are note quite mainstream payment processers. However they do enable customers to get paid in kenya via various payment channels. These could be payment integrator comanies or niche market gateways. Some notable mentions include:
+The list doesn't end there. There are other gateways that exist that are not quite mainstream payment processers. However they do enable customers to get paid in kenya via various payment channels. These could be payment integrator companies or niche market gateways. Some notable mentions include:
 
 Corporate and enterprise focused providers. 
 1. [Popote Pay](https://popotepayments.co.ke)

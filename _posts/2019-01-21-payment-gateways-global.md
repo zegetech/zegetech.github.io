@@ -4,6 +4,7 @@ author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
 title: Are global payment gateways all that... and more
 blog-image: internationalPGs/online_payment.jpg
 intro: Last year we went out and tested the popular [Kenyan payment gateways](/blog/2018/12/07/payment-gateways-Kenya.html). We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability. To kick off this year, we went global!  Yes, we looked into popular international payment gateways, Visa and Mastercard integration. With developers in mind, we set out to see what these platforms have to offer and how they offered it. Here’s what we found.
+published: false
 ---
 ![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
