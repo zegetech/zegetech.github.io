@@ -1,50 +1,50 @@
 ---
 layout: blog
 title: Product Development - Scoping Session
-author: Tom Nyongesa
+author: Tom Nyongesa, Melvin Atieno
 blog-image: scoping2.jpg
-intro: Any sane person has thoughts each and every day. We have some that conceptualise and are actualized at some point in our lives but others just fly through our minds like a flash and are gone without real implementation. For others, we really got into the execution ship but later on everything came to a stand still and eventually stalled. What could have led to this? Could we have missed something? A great project begins with great planning! Let's walk through an experience I recently had in project/product planning. 
+intro: We always have ideas each and every day. Some are conceptualised and are actualized at some point in our lives but others just fly through our minds like a flash and are gone without real implementation. Others, manage to get into the execution ship but later on everything comes to a stand still and eventually stalls. What could lead to this? Is it missing a proper planning phase? A great project begins with great planning! 
+
 ---
+## Project Scoping
+![Scoping Session](/assets/images/blog/product-development/scoping.png){:class="img-responsive center"}
+A scoping session is an engagement between a client and a team of experts that seeks to "investigate" a clients idea. It's when the client introduces an idea in his mind to the experts, walks them through the idea, explains the end goal and what value it intends to bring to humanity, it's all about serving humanity, right? It helps the experts to be on the same page with the client. 
 
-![Scoping Session](/assets/images/blog/scoping2.jpg){:class="img-responsive center"}
-
-I had just been admitted into an internship program with just a couple of days into it. A project lead shows up and tells us, team of interns, that there's this project in his mind that needs to be worked on from ground up and we need to have a meeting about it. From my experience in projects management before, I knew that we were up for some boring long meetings as usual.
-
-We showed up to a clean whiteboard and a markpen in the Project lead's hands. We got comfortable in our seats, the project lead took the stage and there and then the meeting started. A few minutes into it, I was loving the meeting. It was so much involving, lots of questions on whether I had understood the idea, lots of jottings in our notebooks, lots of engagements, lots of laughter lots of water gulps. It was fun! It wasn't boring as usual. 
-
-It was 2 hours of the interesting meeting. Looking down in my notebook, I had filled like 2 pages of my notebook and the whiteboard wa full of unarranged titles and points. We had just gone through a scoping session!
-
-![Scoping Session](/assets/images/blog/scoping.png){:class="img-responsive center"}
-A scoping session is an engagement between a client and a team of experts. It's when the client introduces an idea in his mind to the experts, walks them through the idea, explain the end goal and what value he intends to bring to humanity, it's all about serving humanity. It helps the experts to be on the same page with the client. 
-
-So after the interesting meeting, we were off to writing a concept note about our client's idea. The whiteboard remained unrubbed, no one would want to rub anything, it would be our point of reference in case we missed one or two things from the meeting. The following 3 days were occupied with lots of research around our client's area of interest and application - blog reads, article reads, youtube sessions, similar existing implementations...literally we touched on anything relevant. 
+There are so many methodologies of carrying out a project scoping exercise. Choosing the best methodology would really depend on your company culture and the nature of the project at hand. Without much consideration into the project scoping methodology to select, the end result of the scoping session should be a document that gives assurance of the full understanding of the project. This document is called a Concept Note.
 
 A concept note is a literal capture of a client's idea, the problem that needs to be solved, description of the solution and outstanding features that are impeccable when compared to existing solutions. It's a document that lays out the description of the idea/product in a less tech-savvy way. However, it involves a little bit of deep analysis of the whole idea.
 
 The standard way of writing the concept note is as follows:
-### Introduction
+#### Introduction
  	- This is the section where your reader is introduced to what is to follow ahead
-### Background
- 	- Here, some history on the trends of the relevant market, has has been done before and how things are being done currently.
-### Problem Statement
+#### Background
+ 	- Here, some history on the trends of the relevant market, what has been done before and how things are being done currently.
+#### Problem Statement
  	- The challenges and the pains of the existing ecosystem.
-### Solution
+#### Solution
  	- The proposed solution to address the above stated pains and challenges
-### Risks
+#### Risks
  	- These are the unexpected things/events that may happen during the product development and could affect the product.
-### Mitigation
+#### Mitigation
  	- These are the proposed solutions on how to control the unexpected events. The how of addressing the risks if they come to pass.
-### Conclusion
+#### Conclusion
  	- Yea, you guessed it right!
 
 
+### Re-scoping
+![Rescoping](/assets/images/blog/product-development/right-way.jpg){:class="img-responsive center"}
+Now after drawing up a concept note. It may come to light that you had it all wrong.
 
-If I am to present the concept note to my mum, who is obviously not tech-savvy, she would get a gist of what the idea is all about. We were to compile whatever points we had jotted in a comprehensible way. 
+You can have another scoping session where the project is put into perspective, again.   It may involve a round table meeting having each and every project team member explaining out their understanding of the project, getting logically positive criticism, asking many questions, answering many questions...just anything that could help the project team understand the idea accurately. The second round could be annoying but it could also be the charm leading to a more accurate Concept Note.
 
-Discovery sprint follows afterwards! 
-![Discovery Sprint](/assets/images/blog/sprint.png){:class="img-responsive center"}
-This is normally a week-long intensive exercise that requires the product development team to put their heads down to work and get working prototypes of the prioritised solution among several solutions in the proposal! 
+In conclusion, the scoping session seeks to answer the following questions:
 
-A sip of hot coffee will do me well at this time. Next week, I will write more on Development Sprint! In the meantime, share this out to your circle of friends. I will be so much grateful, thank you!
+1. Who are the target users?
+2. What problems are the target users experiencing? Past, current and 'future' problems if you can predict.
+3. Is there any available solution. Is it helping out with the problems?
+4. What are some of the risks that could affect the project/product?
+5. What are the mitigation processes?
+
+If you answer the above accurately, the subsequent stages in project management would be easy. 
 
 
