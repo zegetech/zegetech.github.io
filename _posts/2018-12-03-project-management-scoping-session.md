@@ -2,12 +2,14 @@
 layout: blog
 title: Product Development - Scoping Session
 author: Tom Nyongesa, Melvin Atieno
-blog-image: scoping2.jpg
+blog-image: product-development/scoping2.png
 intro: We always have ideas each and every day. Some are conceptualised and are actualized at some point in our lives but others just fly through our minds like a flash and are gone without real implementation. Others, manage to get into the execution ship but later on everything comes to a stand still and eventually stalls. What could lead to this? Is it missing a proper planning phase? A great project begins with great planning! 
 
 ---
 ## Project Scoping
-![Scoping Session](/assets/images/blog/product-development/scoping.png){:class="img-responsive center"}
+![Scoping Session](/assets/images/blog/product-development/scoping2.png){:class="img-responsive center"}
+{{page.intro}}
+
 A scoping session is an engagement between a client and a team of experts that seeks to "investigate" a clients idea. It's when the client introduces an idea in his mind to the experts, walks them through the idea, explains the end goal and what value it intends to bring to humanity, it's all about serving humanity, right? It helps the experts to be on the same page with the client. 
 
 There are so many methodologies of carrying out a project scoping exercise. Choosing the best methodology would really depend on your company culture and the nature of the project at hand. Without much consideration into the project scoping methodology to select, the end result of the scoping session should be a document that gives assurance of the full understanding of the project. This document is called a Concept Note.
