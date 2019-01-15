@@ -73,3 +73,7 @@ sitemap:
 relative_links:
   enabled: true
   collections: true
+
+# Disqus Comments
+disqus:
+    shortname: zegetech
