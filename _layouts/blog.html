@@ -38,6 +38,9 @@ custom_scripts: |
                     <div class="content">
                         {{ page.content }}                                                    
                     </div>
+                    {% if site.disqus.shortname %}
+                        {% include comments.html %}
+                    {% endif %}  
                     <!--//Social media buttons: https://github.com/kni-labs/rrssb (More examples) -->
                     {% capture url %}{{ page.url | absolute_url }}{% endcapture %}
                     <div class="share-container">
@@ -140,8 +143,10 @@ custom_scripts: |
                         <li><a href="#">2013 </a><span class="count">(6)</span></li>
                     </ul>
                 </section> --><!--//widget-->
-            </aside><!--//blog-side-bar-->               
+            </aside><!--//blog-side-bar--> 
+                        
         </div><!--//row-->
     </div><!--//blog-->
+    <!-- add commenting to post -->
 	{% include quickchat.html %}
 	{% include footer.html %}
