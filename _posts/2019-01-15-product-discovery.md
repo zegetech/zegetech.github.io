@@ -5,56 +5,67 @@ author: Ngari Ndung'u
 intro: 
 blog-image:
 ---
-Product discovery:
-- what is it?
-  - a process that helps make sure we are creating useful products - utility
-  - method of understanding customers to build products that solve problems
-  - activities to determine if and why a product should be developed
-  - validate that a market exists - customer will pay for it
-  - validate problem then validate solution
-  - should also apply to existing products
-  - KPIs - how to measure success
-  - [clearbridge](https://clearbridgemobile.com/the-step-by-step-guide-to-product-discovery/)
-  - process will vary between organisations
-    - understand and define your problem - it's all about problem validation
-    - for each problem come up with possible solutions
-    - pick the 'best' solutions and prototype
-    - test how well the prototype works
-  - gather info from actual/potential customers
-- why is it important?
-  - discover and build what is vital to customers
-  - prove/disprove assumptions
-  - don't waste resources
-  - avoid product failure
-  - mitigate risk of building a product nobody needs
-  - address why people will use, who, uniqueness and what you gain from it
-  - team will figure out if/not they can build product
-  - team alignment - shared vision for project
-  - align with business goals
 
-Design sprint:
-[Design Sprint](http://www.gv.com/sprint/)
-- what is it?
-  - timeboxed format for product discovery - developed and popularised by GV
-  > The sprint is a five-day process for answering critical business questions through design, prototyping, and testing ideas with customers.
-  - combines aspects from business strategy, innovation, behaviour science, design thinking
-  - learn without building and launching an actual product or mvp
-  - [protorypr.io](https://blog.prototypr.io/some-thoughts-on-product-discovery-and-design-sprints-and-a-case-study-from-ableton-d71f8df24a0f)
-  - in the context of design thinking?
-  - [the story](https://www.thesprintbook.com/videos/)
+Ever wondered why there are so many products that look good, work but don't work well for you?
+Why the last update to your favorite app was so ugly and unintuitive you almost ditched it?
+Or why you remember that big launch but never come across someone using the product?
+While these can be explained away by a brutal market, poor product development plays a large part.
+Product discovery is a process to ensure that this doesn't happen to you, or at least reduce the chances.
 
-- why use a discovery sprint?
-  - clear data from a realistic prototype - see user reactions
-  - compress months of debate into a single week - focus
-  - cross-functional team - discover competencies and build trust
-  - take big risks
-context: for product owners and project managers
+# Product discovery
 
-- Process
-  - single dedicated week with the team that will be responsible for the project
-  - one team in one room
-  - monday - problem map
-  - tuesday - sketch ideas individually instead of group brainstorm
-  - wednesday - pick solution to go with - decision maker picks solution
-  - thursday - prototype idea - fake it
-  - friday - test - one on one with customers
+Product discovery is a process and set of activities that help make sure that the products we are creating are useful.
+Through the process, we are able to validate our problem and proposed solutions and gauge the potential market.
+Product discovery allows a business to understand its customers, the problem being solved and determine if and why to build a product
+This process is applicable not only for new products but also for feature improvements, launching in new markets, marketing and any other action that has significant impact on the business.
+
+## Process
+
+The product discovery process will differ from organisation to organisation. However, it involves these general steps:
+- Understand and clearly define the problems
+- Come up with possible solutions to the identified problems
+- Pick the best solutions and build prototypes for them
+- Test how well the prototypes work with existing or potential customers
+- Use the data gathered through testing to redefine the problem or refine solutions
+
+One format for carrying out product discovery is the design sprint.
+
+## Why do it?
+At the end of the product discovery process the team will have a deeper understanding of the problem to solve.
+The assumptions made about the product will have been tested and proved or disproved.
+The team will intimately know who their customers are, why they will want to use the product, how the product will be differentiated and what the business can expect to gain from working on the product.
+All these combine to ensure that the business is building a product that has utility, is needed by the market and aligns with the business's goals.
+In turn ensuring that the right resources are allocated and giving the product a good chance for success.
+
+## Design Sprint
+
+The [Design Sprint](http://www.gv.com/sprint/) is a timeboxed format for product discovery developed and popularised by GV(Google Ventures).
+
+> The sprint is a five-day process for answering critical business questions through design, prototyping, and testing ideas with customers.
+
+The design sprint borrows concepts from different disciplines including behaviour science and design thinking.
+It compresses product discovery into a single week allowing a team to learn without building and launching an actual product or MVP.
+The design sprint is carried out by a small cross-functional team consisting of members who will actually be building the product.
+
+### Process
+
+Within one week the team explores the problem and chooses a single high-impact theme to explore.
+They then propose individual solutions and collectively narrow down to just a few for which they build prototypes for.
+The team then tests the prototypes in one-on-one customer interviews noting down the effectiveness of each. 
+The process can be repeated as often as required till the problem is clearly defined or discarded as not viable.
+You can learn more about the process by watching [the story](https://www.thesprintbook.com/videos/) (second video).
+
+Daily breakdown of the design sprint:
+- **Monday** - come up with the problem map. Understand the problems you want to solve and choose one to focus on during the week.
+- **Tuesday** - each team member comes up with solutions to the problem individually.
+- **Wednesday** - each member goes through the proposed solutions individually, and then the team collectively narrows down to the best solutions.
+- **Thursday** - divide up tasks and build realistic prototypes for the chosen solutions.
+- **Friday** - test the prototypes in one-on-one interviews with customers
+
+### Why use the design sprint
+
+In addition to the benefits derived from any product discovery process, the design sprint:
+- Saves time - conversations that could have taken months are completed within a week.
+- Helps build trust - working in a cross-functional team allows each member to discover what each one is good at and builds rapport.
+- Allows the team take big risks - the reduced resource investment means '*crazy*' ideas can be tested with minimal impact to the business.
+
