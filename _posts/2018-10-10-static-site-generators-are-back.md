@@ -173,15 +173,25 @@ On installation, a jekyll site usually looks something like this:
 8. `index.md`- Provided that the file has a front-matter section, it will be transformed by Jekyll. The same will happen for any `.html`, `.markdown`,  `.md`, or `.textile` file in your site’s root directory or directories not listed above.
 
 **Others**
+As you grow and start building more complex sites with jekyll, you will find the need to switch up the directory structure to accomodate all your interesting features. Here are a few directories that are commontly added;
 
-`_layouts`- As the name suggests, this is where you put the layouts/basic description for the placement of the site's content.
+`_layouts`- As the name suggests, this is where you put you custom page layouts. The basic description for the placement of the site's content.
 
 `_includes`- Page snippets which can be included throughout the site. Includes are often used for page sections which are duplicated across the site like a header, footer, navigation bar, forms etc...
 
+`_drafts` - This is where posts that are not ready for publishing are put. The files in this directory need not have a date in the filename. To preview your site with drafts(posts in the draft folder), run `Jekyll serve` or `Jekyll build` with the `--drafts` switch.
+Jekyll provides a number of other different ways to manage the said future posts.
+
+ 1. One would be to include the `published: false` tag in the post's front matter for posts you do not want to show up in the generated site. With this method, to preview your site locally, you can run `Jekyll serve` or `Jekyll build` with the `--unpublished` option.
+
+
+ 2. Another workaround would be to add your posts with future dates. To preview the future posts, in this case, you can run `Jekyll serve` or `Jekyll build` with the `--future` option. Make sure to add `future: false` to
+ config.yml.
 Great now run Jekyll
 ```bash
 bundle exec jekyll serve
 ```
+
 **Resources:**
 
 This is simply an introduction to get you started. Below is a list of resources that will get you more acquainted with Jekyll.
