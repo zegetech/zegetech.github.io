@@ -1,6 +1,7 @@
 ---
 layout: blog
-title: Integrating payments in Kenya, Whats the fuss!  
+title: Integrating payments in Kenya, What's the fuss!  
+categories: developer
 author: Tom Nyongesa, Ngari Ndung'u, Melvin Atieno
 blog-image: localgateways/kenyan-gateways.png
 intro: With the rise in use of mobile payment in Kenya, businesses are scrambling to put their houses in order just to keep up with the fast technological pace and the adaption of online payments by Kenyans. Kenyans at large are really interested in the outcome - an easy payment interface that hides the complex processes of integration. This process is largely a developer's task. And this is a developer's journey in analysing Kenyan online payment gateways and their ease of integration.

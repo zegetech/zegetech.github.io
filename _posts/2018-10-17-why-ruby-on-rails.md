@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Why Ruby on Rails?"
+title: Why Ruby on Rails?
 categories: developer
 author: Ngari Ndung'u
 blog-image: ror/rails-blog.jpg
