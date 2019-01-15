@@ -1,20 +1,44 @@
 ---
 layout: blog
 title: Product Development - Scoping Session
+categories: project-management
 author: Tom Nyongesa, Melvin Atieno
-blog-image: product-development/scoping2.png
-intro: We always have ideas each and every day. Some are conceptualised and are actualized at some point in our lives but others just fly through our minds like a flash and are gone without real implementation. Others, manage to get into the execution ship but later on everything comes to a stand still and eventually stalls. What could lead to this? Is it missing a proper planning phase? A great project begins with great planning! 
+blog-image: product-development/Project-Scope.jpg
+intro: We always have ideas each and every day. Some are conceptualised and are actualized at some point in our lives but others just fly through our minds like a flash and are gone without real implementation. What brings the difference? Is there a methodology of doing things the right way? Like learning how to hold your cup right, by the handle? Doing product development and management the right way? 
 
 ---
-## Project Scoping
+![Scoping Session](/assets/images/blog/product-development/product-lifecycle.png){:class="img-responsive center"}
+Software products have a life cycle. The life cycle has several stages that when followed accurately would result in a product that would be deployed successfully in a real world that's full of unpredicted challenges and factors. The standard software life cycle stages include:
+
+- Scoping
+- Conceptualization
+- Market Research
+- Poduct Discovery
+- Implementation
+- Testing
+- Product launch
+- Maintenance
+
+Yes, you are not alone in thinking that implementation stage is the most important stage. At some point in life, everyone thinks that it's all about implementation. 
+
+In this post you get to understand how each and every stage is important, why it's needed and how doing things the right way which entails following the above stages to the latter will lead to an outstanding product. 
+
+We are currently working on a product, the right way and here's a recap of the planning phase and briefly how we experienced it. 
+
+## Scoping Session
 ![Scoping Session](/assets/images/blog/product-development/scoping2.png){:class="img-responsive center"}
-{{page.intro}}
 
-A scoping session is an engagement between a client and a team of experts that seeks to "investigate" a clients idea. It's when the client introduces an idea in his mind to the experts, walks them through the idea, explains the end goal and what value it intends to bring to humanity, it's all about serving humanity, right? It helps the experts to be on the same page with the client. 
+This was a session that involved a description of what the project was all about. An introduction to the idea and most importantly the plan. It involved an engagement between our client and us with the sole reason of 'investigating' the client's idea. The client introduced the idea, walked us through it, explaining the end goal and what value it would to bring to humanity. We would then discuss with the client and scribble notes for future reference.
 
-There are so many methodologies of carrying out a project scoping exercise. Choosing the best methodology would really depend on your company culture and the nature of the project at hand. Without much consideration into the project scoping methodology to select, the end result of the scoping session should be a document that gives assurance of the full understanding of the project. This document is called a Concept Note.
+There are a couple of methodologies of carrying out a project scoping exercise. Choosing the best methodology would really depend on your company culture and the nature of the project at hand. Without much consideration into the project scoping methodology to select, the end result of the scoping session should be a document that gives assurance of the full understanding of the project. This document is called a Concept Note.
 
-A concept note is a literal capture of a client's idea, the problem that needs to be solved, description of the solution and outstanding features that are impeccable when compared to existing solutions. It's a document that lays out the description of the idea/product in a less tech-savvy way. However, it involves a little bit of deep analysis of the whole idea.
+## Conceptualization
+It turned out that there is more to understanding the product than scribbling of notes. This stage involved coming up with a concept note.
+
+A concept note is a literal capture of a client's idea, the problem that needs to be solved, description of the solution and outstanding features that are impeccable when compared to existing solutions. It's a document that lays out the description of the idea/product in a less tech-savvy way. 
+
+> If you can't explain it in simple terms you don't understand it well enough.
+~ Albert Einstein.
 
 The standard way of writing the concept note is as follows:
 #### Introduction
@@ -33,11 +57,14 @@ The standard way of writing the concept note is as follows:
  	- Yea, you guessed it right!
 
 
+
+[Here's our Concept Note Template](https://docs.google.com/document/d/1AWK6Elae5YoowftnZFJWjps9hKgULlI75UNuJQdVjkM/edit?usp=sharing)
+
 ### Re-scoping
 ![Rescoping](/assets/images/blog/product-development/right-way.jpg){:class="img-responsive center"}
-Now after drawing up a concept note. It may come to light that you had it all wrong.
+Now after drawing up a concept note, It came to light that we had it all wrong.
 
-You can have another scoping session where the project is put into perspective, again.   It may involve a round table meeting having each and every project team member explaining out their understanding of the project, getting logically positive criticism, asking many questions, answering many questions...just anything that could help the project team understand the idea accurately. The second round could be annoying but it could also be the charm leading to a more accurate Concept Note.
+We had another scoping session where the project was put into perspective, again.   It involved deeper but simpler explanations, positive criticism, many questions, note taking and much more. The second round was the real charm that led to a more accurate Concept Note.
 
 In conclusion, the scoping session seeks to answer the following questions:
 
@@ -48,5 +75,7 @@ In conclusion, the scoping session seeks to answer the following questions:
 5. What are the mitigation processes?
 
 If you answer the above accurately, the subsequent stages in project management would be easy. 
+
+
 
 
