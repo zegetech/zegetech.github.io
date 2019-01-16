@@ -49,7 +49,7 @@ The heart of scrum is a sprint. A fixed duration during which a "Done", useable,
 4. *The Sprint Review*.During the Sprint Review, the Scrum Team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achived and adapt the backlog if needed.Time-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
 5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Time-boxed at 3hours for a one-month sprint.
 
-The Sprint Retrospective occurs after the Sprint Review and prior to the next Sprint Planning. This is at most a three-hour meeting for one-month Sprints. 
+
 
 
 ## Kanban.
