@@ -49,6 +49,20 @@ The heart of scrum is a sprint. A fixed duration during which a "Done", useable,
 4. *The Sprint Review*.During the Sprint Review, the Scrum Team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achived and adapt the backlog if needed.Time-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
 5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Time-boxed at 3hours for a one-month sprint.
 
+#### Scrum Artifacts.
+
+Scrum’s representation of the work or value that provide transparency and opportunities for inspection and change recommendation. This will include the product backlog(list of tasks to be completed for the final product), a sprint backlog(list of tasks to be completed for each sprint), an Increment  (the sum of all the Product Backlog items completed during a Sprint).
+
+    ## Advantages.
+
+    1. Time-boxing saves on time and costs.
+    2. Increases team accountability.
+   
+
+    ## Disadvatages.
+
+    1. Requires an experienced and commited team.
+    2. Changes cannot be made mindsprint. Thus less flexible compared to kanban.
 
 
 
@@ -75,6 +89,7 @@ Kanban is based but not limited to the following principles .
    2. It is event driven.
    3. New items can be added whenever capacity is available.
    4. The direct limiting of the amount of work in progress forces teams to focus their energy on completing one piece of the puzzle at a time.
+   5. Relatively flexible as compared to scrum as changes can be requested at any point as the task is progressed through the different sections of the board.
 
    ## Disadvantage.
 
