@@ -16,18 +16,45 @@ Agile software development is an approach underwhich requirements and solutions 
 
 In this post, as indicated in the title, we will focus on the different frameworks that can be applied in Agile development methodology to manage workflow.
 Scrum and Kanban.
+It important to note that these frameworks are not definitive method, technque or process. Rather they are frameworks that provide a base onto which various techniques and processes can be applied.
 
 
 <!-- body -->
 ## Scrum.
-A design in which teams break their work into actions that can be completed within timeboxed iterations called **sprints**, no longer than a month. The team works as a unit to reach a common goal.
+A design in which teams break their work into actions that can be completed within timeboxed iterations called **sprints**, no longer than a month and most commonly two weeks.
+Scrum revolves around three main components.
+1. Scrum Teams and their associated roles.
+2. Events.
+3. Scrum Artifacts.
+4. Scrum rules.
 
+#### Scrum Team
+The scrum team is made up of The Product Owner, The Development Team, and a Scrum Master.
 
-<!-- Scrum is based on the idea that customers will change their mind about what they want or need at any point in the software development cycle and that the problem cannot be fully understood or defined upfront. It instead focuses on how to maximize the teams ability to deliver the minimum viable requirements qutechnologiesickly, to timely respond to emerging requirements and changes, and to adapt to evolving . -->
+**The product owner** as the name suggests, is the owner of the product.The product owner is responsible for describing the intended product and/or outlining expected tasks in the backlog.
+
+**The development** team is just that, the team that develops the product. Their objective is to complete assigned tasks and thus product.
+
+**The Scrum master** is incharge of the product development process as a whole. He/she ensures that everyone in the scrum team understands Scrum theory, practices, rules, and values. The Scrum master also facilitates the scrum [events](Scrum Events)
+
+#### Scrum Events.
+All scrum events are time-boxed, in that once an event begins, the time is fixed. It cannot be shotened or leghthened.
+
+**Sprint**  
+The heart of scrum is a sprint. A fixed duration during which a "Done", useable, and potentially releasable product Increment is created. Sprints have consistent durations throughout a development process. Sprints consist of:
+1. *Sprint Planning* involves highliting the work to be done during the sprint. Time-boxed to a maximum of  8hours for a one month sprint . The topics will focus on ,what can be done, how it will be done and ultimately the end goal.
+2. *Daily Scrums*.  
+   Also referred to as daily stand-ups. Time-boxed at 15 mins and done everyday of the sprint by the development team. During this period the team plans for work to be done in the next 24 hours. It is during this session, the team also tackles any impediments/blockers that might hinder the team from meeting the sprint goal.
+3. *The development work*. This is the actual development work. The time when the development team completes individual tasks to meet the sprint goals.
+4. *The Sprint Review*.During the Sprint Review, the Scrum Team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achived and adapt the backlog if needed.Time-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
+5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Time-boxed at 3hours for a one-month sprint.
+
+The Sprint Retrospective occurs after the Sprint Review and prior to the next Sprint Planning. This is at most a three-hour meeting for one-month Sprints. 
+
 
 ## Kanban.
 
-Kanban is an Agile framework that focuses for workflow management. It focuses on balancing tasks demands with available capacity. Kanban revolves around the idea that problems should be tackled by starting with what one understands and moving on from there.
+Kanban is an Agile framework that focuses focuses on balancing tasks demands with available capacity. Kanban revolves around the idea that problems should be tackled by starting with what one understands and moving on from there.
 Kanban is based but not limited to the following principles .
 
 1. **visualization**  
@@ -47,6 +74,7 @@ Kanban is based but not limited to the following principles .
    1. Timeboxed iterations are optional.
    2. It is event driven.
    3. New items can be added whenever capacity is available.
+   4. The direct limiting of the amount of work in progress forces teams to focus their energy on completing one piece of the puzzle at a time.
 
    ## Disadvantage.
 
