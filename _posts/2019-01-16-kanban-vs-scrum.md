@@ -43,8 +43,7 @@ All scrum events are time-boxed, in that once an event begins, the time is fixed
 **Sprint**  
 The heart of scrum is a sprint. A fixed duration during which a "Done", useable, and potentially releasable product Increment is created. Sprints have consistent durations throughout a development process. Sprints consist of:
 1. *Sprint Planning* involves highliting the work to be done during the sprint. Time-boxed to a maximum of  8hours for a one month sprint . The topics will focus on ,what can be done, how it will be done and ultimately the end goal.
-2. *Daily Scrums*.  
-   Also referred to as daily stand-ups. Time-boxed at 15 mins and done everyday of the sprint by the development team. During this period the team plans for work to be done in the next 24 hours. It is during this session, the team also tackles any impediments/blockers that might hinder the team from meeting the sprint goal.
+2. *Daily Scrums*.  Also referred to as daily stand-ups. Time-boxed at 15 mins and done everyday of the sprint by the development team. During this period the team plans for work to be done in the next 24 hours. It is during this session, the team also tackles any impediments/blockers that might hinder the team from meeting the sprint goal.
 3. *The development work*. This is the actual development work. The time when the development team completes individual tasks to meet the sprint goals.
 4. *The Sprint Review*.During the Sprint Review, the Scrum Team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achived and adapt the backlog if needed.Time-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
 5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Time-boxed at 3hours for a one-month sprint.
@@ -53,16 +52,16 @@ The heart of scrum is a sprint. A fixed duration during which a "Done", useable,
 
 Scrum’s representation of the work or value that provide transparency and opportunities for inspection and change recommendation. This will include the product backlog(list of tasks to be completed for the final product), a sprint backlog(list of tasks to be completed for each sprint), an Increment  (the sum of all the Product Backlog items completed during a Sprint).
 
-    ## Advantages.
+## Advantages.
 
-    1. Time-boxing saves on time and costs.
-    2. Increases team accountability.
-   
+1. Time-boxing saves on time and costs.
+2. Increases team accountability.
 
-    ## Disadvatages.
 
-    1. Requires an experienced and commited team.
-    2. Changes cannot be made mindsprint. Thus less flexible compared to kanban.
+## Disadvatages.
+
+1. Requires an experienced and commited team.
+2. Changes cannot be made mindsprint. Thus less flexible compared to kanban.
 
 
 
@@ -95,7 +94,12 @@ Kanban is based but not limited to the following principles .
 
    1. Since timeboxed iterations are optional, if not implemented, tasks can drag on for too long.
 
+## Tools.
 
-<!-- conclusion -->
-## Importance of workflow management
+There is an obscene number of tools that can be used to make the workflow management with both Scrum and kanban frameworks more efficient. While these tools generally cut across both frameworks there are those that, in my opinion, are more inclined to a specific framework. I will categorize them as such.
+For Scrum there is [Jira](https://www.atlassian.com/software/jira), [Targetprocess](https://www.targetprocess.com/), [Planbox](https://www.planbox.com/), [Pivotal tracker](https://www.pivotaltracker.com/)[Vivify Scrum](https://www.vivifyscrum.com/), and  [clickup](https://clickup.com/), 
+While those that are more inclined to the kanban include [LeanKit](https://leankit.com/), [Asana](https://app.asana.com/), and [Trello](https://trello.com/)
+.
+
+
 
