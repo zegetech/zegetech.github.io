@@ -2,6 +2,7 @@
 layout: blog
 title: The What, How and Why of Product Discovery
 author: Ngari Ndung'u
+category: "Project Management"
 intro: |
   Ever wondered why there are so many products that look good, work but don't work well for you?
   Why the last update to your favorite app was so ugly and unintuitive you almost ditched it?
