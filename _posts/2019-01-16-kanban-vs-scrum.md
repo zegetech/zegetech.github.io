@@ -24,8 +24,7 @@ It important to note that these frameworks are not definitive methods, technique
 <!-- body -->
 # Scrum.
 
-A design in which teams break their work into actions that can be completed within timeboxed iterations called **sprints**, no longer than a month and most commonly two weeks.
-Scrum revolves around three main components.
+A design in which teams break their work into actions that can be completed within timeboxed iterations called **sprints**. Time boxing refers to allocating a fixed maximum amount of time for an activity. It is generally recommended that a sprint is timeboxed to longer than a month.
 
 1. Scrum Teams and their associated roles.
 2. Events.
@@ -49,15 +48,20 @@ All scrum events are time-boxed, in that once an event begins, the time is fixed
 **Sprint**  
 The heart of Scrum is a sprint. A fixed duration during which a "Done", useable, and potentially releasable product Increment is created. Sprints have consistent durations throughout the development process. Sprints are made up of a number of Scrum events:
 
-1. *Sprint Planning*. This involves a meeting in which the Scrum team will highlight the work to be done during the sprint. Sprint planning is time-boxed to a maximum of  8hours for a one month sprint. The topics will focus on, what can be done, how it will be done and ultimately the end goal.
-2. *Daily Scrums*.  Also referred to as daily stand-ups.Daily Scrums are time-boxed at 15 mins and done every day of the sprint by the development team. During this period the team plans for work to be done in the next 24 hours. It is during this session, the team also tackles any impediments/blockers that might hinder the team from meeting the sprint goal.
+1. *Sprint Planning*. This involves a meeting in which the Scrum team will highlight the work to be done during the sprint.  Generally sprint planning is time-boxed to a maximum of  8hours for a one month sprint. The topics will focus on, what can be done, how it will be done and ultimately the end goal.
+2. *Daily Scrums*.  Also referred to as daily stand-ups.Daily Scrums are generally time-boxed at 15 mins and done every day of the sprint by the development team. During this period the team plans for work to be done in the next 24 hours. It is during this session, the team also tackles any impediments/blockers that might hinder the team from meeting the sprint goal.
 3. *The development work*. This is the actual development work. The time when the development team completes individual tasks that are aimed at achieving the sprint goals.
-4. *The Sprint Review*.During the Sprint Review, the Scrum team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achieved and adapt the backlog if needed. Sprint review is tTime-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
-5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Time-boxed at 3hours for a one-month sprint.
+4. *The Sprint Review*.During the Sprint Review, the Scrum team and stakeholders collaborate about what was done in the Sprint. They inspect what has been achieved and adapt the backlog if needed. Sprint review is generally time-boxed at 4hours for a one-month sprint and shorter for shorter sprints.
+5. *Sprint Retrospective*. A time during which the Scrum team inspects itself and creates a plan for improvements to be enacted during the next Sprint. Generally time-boxed at 3hours for a one-month sprint.
 
 ## Scrum Artifacts
 
-Scrum’s representation of the work or value that provide transparency and opportunities for inspection and change recommendation. This will include the product backlog(list of tasks to be completed for the final product), a sprint backlog(list of tasks to be completed for each sprint), an Increment  (the sum of all the Product Backlog items completed during a Sprint).
+Scrum arifacts refers to the  representation of the work or value. They provide key information to the scrum team and the stakeholders to allow transparency and opportunities for inspection and change recommendation.Scrum artifacts include:  
+
+1. The product backlog(list of tasks to be completed for the final product).
+2. Sprint backlog(list of tasks to be completed for each sprint).
+3. Increment  (the sum of all the Product Backlog items completed during a Sprint).
+4. Sprint Burn-Down Chart(The sum of the total items that remain in the backlog).
 
 ## Advantages
 
@@ -104,5 +108,8 @@ Kanban is based but not limited to the following principles.
 There is an obscene number of tools that can be used to make the workflow management with both Scrum and kanban frameworks more efficient. While these tools generally cut across both frameworks there are those that, in my opinion, are more inclined to a specific framework. I will categorize them as such.
 For Scrum there is [Jira](https://www.atlassian.com/software/jira), [Targetprocess](https://www.targetprocess.com/), [Planbox](https://www.planbox.com/), [Pivotal tracker](https://www.pivotaltracker.com/)[Vivify Scrum](https://www.vivifyscrum.com/), and  [clickup](https://clickup.com/), 
 While those that are more inclined to the kanban include [LeanKit](https://leankit.com/), [Asana](https://app.asana.com/), and [Trello](https://trello.com/)
+
+
+Watch out for the next post where we will go into measuring process efficiency, measuring tasks and project velocity.
 
 
