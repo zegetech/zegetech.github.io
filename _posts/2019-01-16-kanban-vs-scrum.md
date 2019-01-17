@@ -110,6 +110,6 @@ For Scrum there is [Jira](https://www.atlassian.com/software/jira), [Targetproce
 While those that are more inclined to the kanban include [LeanKit](https://leankit.com/), [Asana](https://app.asana.com/), and [Trello](https://trello.com/)
 
 
-Watch out for the next post where we will go into measuring process efficiency, measuring tasks and project velocity.
+#### Watch out for the next post where we will go into measuring process efficiency, measuring tasks and project velocity.
 
 
