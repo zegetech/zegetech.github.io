@@ -18,7 +18,14 @@ blog-image: product-discovery/product-discovery-board.jpg
 
 {{page.intro}}
 
-# Product discovery
+We'll aim to answer these questions about product discovery:
+1. [What is product discovery?](#1-product-discovery)
+2. [How is it done?](#2-how-to-carry-out-product-discovery)
+  - [Overview](#overview)
+  - [Product discovery using a design sprint](#design-sprint)
+3. [Why do it?](#3-why-do-product-discovery)
+
+# 1. What is Product discovery?
 
 Product discovery is a process and set of activities that help make sure that the products we are creating are useful.
 Through the process, we are able to validate our problem and proposed solutions and gauge the potential market.
@@ -32,7 +39,9 @@ It allows us to 'see' into the future and gauge if a project might work. While i
 
 ![xkcd: New Products](https://imgs.xkcd.com/comics/new_products.png){:.img-responsive .center}
 
-## Process
+# 2. How to Carry Out Product Discovery
+
+## Overview
 
 The product discovery process will differ from organisation to organisation. However, it involves these general steps:
 - Understand, prioritize and clearly define the problems
@@ -42,6 +51,7 @@ The product discovery process will differ from organisation to organisation. How
 - Use the data gathered through testing to redefine the problem or refine solutions
 
 One format for carrying out product discovery is the design sprint. This is the format we use at Zegetech.
+The concept note generated during the [scoping phase](2018-12-03-project-management-scoping-session.md) forms the main input for the design sprint.
 
 ## Design Sprint
 
@@ -57,8 +67,6 @@ The design sprint is carried out by a small cross-functional team consisting of 
   <iframe width="560" height="315" src="https://www.youtube.com/embed/K2vSQPh6MCE" frameborder="0" allowfullscreen></iframe>
 </p>
 
-### Process
-
 Within one week the team explores the problem and chooses a single high-impact theme to explore.
 They then propose individual solutions and collectively narrow down to just a few for which they build prototypes for.
 The team then tests the prototypes in one-on-one customer interviews noting down the effectiveness of each. 
@@ -72,10 +80,10 @@ Daily breakdown of the design sprint:
 - **Thursday** - divide up tasks and build realistic prototypes for the chosen solutions.
 - **Friday** - test the prototypes in one-on-one interviews with customers
 
-At Zegetech we go into the design sprint with a concept note generated during the scoping phase, which clearly outlines the problem.
-By the end of the week, we will have a System Requirements Specification(SRS) and a storyboard to work on.
+A [Software Requirements Specification(SRS)](https://en.wikipedia.org/wiki/Software_requirements_specification) marks the end of the product discovery phase at Zegetech.
+The SRS is prepared in the next week following the discovery sprint, guided by the prototypes and insights of the previous week.
 
-## Why do it?
+# 3. Why do Product Discovery?
 
 At the end of the product discovery process the team will have a deeper understanding of the problem to solve.
 The assumptions made about the product will have been tested and proved or disproved.
