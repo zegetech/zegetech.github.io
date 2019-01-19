@@ -1,7 +1,7 @@
 ---
 layout: blog
 title:  Containerization with Docker
-categories: developer
+categories: developer, docker
 author: Melvin Atieno
 blog-image: docker/docker_ship.png
 intro: |
