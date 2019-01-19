@@ -1,31 +1,26 @@
 ---
 layout: blog
-title: The What, How and Why of Product Discovery
+title: Product Discovery...show me the money!
 author: Ngari Ndung'u
-category: "Project Management"
+category: Project Management
 intro: |
   Ever wondered why there are so many products that look good, work but don't work well for you?
   Why the last update to your favorite app was so ugly and unintuitive you almost ditched it?
   Or why you remember that big launch but never come across someone using the product?
   While these can be explained away by a brutal market, poor product development plays a large part.
   Product discovery is a process to reduce the chances of this happening to you, and gives your product a better shot at success.
-blog-image: product-discovery/product-discovery-board.jpg
+blog-image: product-discovery/discovery.png
 ---
 ![Board with notes](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
-
-{:.image-attribution}
-<span>Photo by <a href="https://unsplash.com/photos/ETRPjvb0KM0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Patrick Perkins</a> on <a href="/search/photos/brainstorm?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 {{page.intro}}
 
 We'll aim to answer these questions about product discovery:
 1. [What is product discovery?](#1-product-discovery)
-2. [How is it done?](#2-how-to-carry-out-product-discovery)
-  - [Overview](#overview)
-  - [Product discovery using a design sprint](#design-sprint)
+2. [How is it done?](#2-how-to-do-a-product-discovery)
 3. [Why do it?](#3-why-do-product-discovery)
 
-# 1. What is Product discovery?
+## 1. What is Product discovery?
 
 Product discovery is a process and set of activities that help make sure that the products we are creating are useful.
 Through the process, we are able to validate our problem and proposed solutions and gauge the potential market.
@@ -39,9 +34,9 @@ It allows us to 'see' into the future and gauge if a project might work. While i
 
 ![xkcd: New Products](https://imgs.xkcd.com/comics/new_products.png){:.img-responsive .center}
 
-# 2. How to Carry Out Product Discovery
+## 2. How to do a Product Discovery
 
-## Overview
+### Overview
 
 The product discovery process will differ from organisation to organisation. However, it involves these general steps:
 - Understand, prioritize and clearly define the problems
@@ -51,11 +46,11 @@ The product discovery process will differ from organisation to organisation. How
 - Use the data gathered through testing to redefine the problem or refine solutions
 
 One format for carrying out product discovery is the design sprint. This is the format we use at Zegetech.
-The concept note generated during the [scoping phase](2018-12-03-project-management-scoping-session.md) forms the main input for the design sprint.
+The concept note generated during the [scoping phase](2018-12-03-project-management-scoping-session.md) forms the main input to the design sprint.
 
-## Design Sprint
+### Design Sprint
 
-The [Design Sprint](http://www.gv.com/sprint/) is a timeboxed format for product discovery developed and popularised by GV(Google Ventures).
+The [Design Sprint](http://www.gv.com/sprint/) is a timeboxed format for product discovery developed and popularised by GV (Google Ventures).
 
 > The sprint is a five-day process for answering critical business questions through design, prototyping, and testing ideas with customers.
 
@@ -80,10 +75,10 @@ Daily breakdown of the design sprint:
 - **Thursday** - divide up tasks and build realistic prototypes for the chosen solutions.
 - **Friday** - test the prototypes in one-on-one interviews with customers
 
-A [Software Requirements Specification(SRS)](https://en.wikipedia.org/wiki/Software_requirements_specification) marks the end of the product discovery phase at Zegetech.
-The SRS is prepared in the next week following the discovery sprint, guided by the prototypes and insights of the previous week.
+A [Software Requirements Specification (SRS)](https://en.wikipedia.org/wiki/Software_requirements_specification) marks the end of the product discovery phase at Zegetech.
+The SRS is prepared in the week following the discovery sprint, guided by the prototypes and insights of the sprint.
 
-# 3. Why do Product Discovery?
+## 3. Why do Product Discovery?
 
 At the end of the product discovery process the team will have a deeper understanding of the problem to solve.
 The assumptions made about the product will have been tested and proved or disproved.
