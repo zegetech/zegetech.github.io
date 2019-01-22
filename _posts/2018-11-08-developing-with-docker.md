@@ -1,7 +1,7 @@
 ---
 layout: blog 
 title: Docker in your dev box
-categories: developer
+categories: developer, docker
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
 intro: | 

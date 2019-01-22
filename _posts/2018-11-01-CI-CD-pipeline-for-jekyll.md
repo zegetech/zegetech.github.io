@@ -1,7 +1,7 @@
 ---
 layout: blog
 title:  Creating a CI/CD pipeline for Jekyll
-categories: developer
+categories: developer, jekyll
 author: Melvin Atieno
 blog-image: ci-cd/rocketlaunch.jpg
 intro: |
