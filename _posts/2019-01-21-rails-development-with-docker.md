@@ -120,3 +120,49 @@ which tells postgres to trust all local connections. And finally, a first succes
 
 Bringing the container down and then starting it back up however took me back to the 'NoDatabaseError'.
 I needed to find a way to persist database data. A first attempt to use a volume mapped to `/var/lib/postgresql/9.6/main/base` did not work.
+
+### Separate service for postgres
+
+Microservices is the name of the game nowadays right? Why keep hustling to fit postgres into the app box? It was time for a postgres box.
+I updated the docker-compose.yml to add:
+~~~yaml
+  app:
+    ...
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+~~~
+This specifies a new 'db' service based off the official postgres docker image. It also specifies a volume to persist database changes.
+The `depends_on:` entry ensures that the db service is started before the app service.
+After this I updated the `config/database.yml` file to add:
+~~~yml
+  host: db
+  user: postgres
+~~~
+I could alternatively have set up the `DATABASE_URL` environment variable to `postgresql://db/app_development` for the development database.
+How docker sets up networking to enable this is documented [here](https://docs.docker.com/compose/networking/).
+
+I also updated the dockerfile and startup script to remove all postgresql set up steps. Finally time for truth:
+~~~shell
+docker-compose up --build
+~~~
+The database service came up successfully but the rails service failed raising; "A server is already running. Check /app/tmp/pids/server.pid."
+The solution was to update the startup script so that it first removes the *server.pid* before starting the rails server.
+~~~shell
+rm -f tmp/pids/server.pid
+bin/rails s -b 0.0.0.0
+~~~
+Trying to rebuild the image failed with a *PermissionError* for the `tmp/db` path. I figured that this was probably occuring when docker copies the files into the build context. So, we just tell docker to ignore that path:
+~~~text
+# .dockerignore
+tmp/*
+~~~
+And with that I got a successful build. With the services started, all that was left was to create the databases:
+~~~shell
+docker-compose exec app bin/rails db:create
+~~~
+... and stare at the beautiful "Yay! You’re on Rails!" page.
