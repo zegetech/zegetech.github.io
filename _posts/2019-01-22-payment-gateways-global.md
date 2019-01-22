@@ -1,11 +1,10 @@
 ---
 layout: blog
-author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
-categories: developer, payments
 title: Are global payment gateways all that... and more
+categories: developer, payments
+author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
 blog-image: internationalPGs/online_payment.jpg
 intro: Previously we went out and tested the popular [Kenyan payment gateways](/blog/2018/12/07/payment-gateways-Kenya.html). We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability. To kick off this year, we went global!  Yes, we looked into popular international payment gateways, Visa and Mastercard integration. With developers in mind, we set out to see what these platforms have to offer and how they offered it. Here’s what we found.
-published: false
 ---
 ![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
@@ -28,7 +27,7 @@ SDKs are provided for PHP, Ruby, Java, C#, Python, Node, Android and iOS to ease
 Their API, which is not REST based supports both JSON and XML requests, with JSON elements being translated to their XML equivalents.
 One gotcha is that the API has just a [single endpoint(testing)](https://apitest.authorize.net/xml/v1/request.api). 
 The *endpoint*(functionality) is determined by the root of your json/xml body:
-~~~json
+```json
 {
   "createTransactionRequest": {
     "merchantAuthentication": { ... },
@@ -43,7 +42,7 @@ The *endpoint*(functionality) is determined by the root of your json/xml body:
     ...
   }
 }
-~~~
+```
 This makes the json more verbose compared to *normal* REST APIs.
 The API is well documented and can be wholly tested on the [API reference page](https://developer.authorize.net/api/reference/).
 The reference also has sample code that can easily be copied into your application.
