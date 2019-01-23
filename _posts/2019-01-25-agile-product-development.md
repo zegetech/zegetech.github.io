@@ -1,105 +1,62 @@
 ---
 layout: blog
-author: Tom Nyongesa
+author: Kariuki Gathitu
 categories: Project Management
 title: Agile Product Development
 blog-image: agile/agile-process.jpg
-intro: What comes into your mind when you come across the word agile? This is a very common word. Perhaps you wouldn't even blink your eyes before shouting out the answer. Agile software development has been around for over a decade as of this post, has improved over the years, driving people away from the traditional software development process. But what would you say if I tell you that we've moulded this amazing process into a whole new hybrid product development style? Yes, we have. I suppose you love growth and would love learning a new results-proven interesting product development process.
+intro: What comes into your mind when you come across the word agile? I'm sure you'd have an answer at the blink of an eye. Agile software development has been around for over a decade now, driving people away from the traditional software development process that plainly shipped software but not products. But what about product development? At Zegetech, we have devised a framework that answers this question and ensures that we get shipping, fast! Take a journey through the process as we share Zegetech's new results-proven and definitely interesting product development process.
 ---
 
 ![Agile Product Development](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 {{page.intro}}
 
-I want to introduce the new Agile Product Development lifecycle that we've been using over the years here at Zegetech. It's a process that has seen successful launch of low risk products. We've perfected on the process and we feel like it's time to let it known to the community. It's a world of Open Source, right?
+Let's be real... Product development is like riding into battle; not matter how well you prepare, the results can be shocking. However, its an amazing journey that can be managed for success if you have a good, proven process. At Zegetech, we have created a unique process of Agile Product development that has come from years of learning (many project catastrophes and successes). Not to be confused with Agile software developent, it is a process that allows for predictable and managable product development with the aim of keeping continuity of product development across multiple teams, reducing customer risk of exposure as well as maximising the efficacy of costs throughout the project. It is a customer centric process that make sure that whatever the outcome of a project, the likelyhood of the customer winning is higher. And on the downside, it ensures that in the event the project failing, our customers maximize the gains.
 
-This is a bird's-eye view of the 3-4 months process from idea to launch! Please note that the words product and project will be used interchangeably, no need for alarms.
+This is a bird's-eye view of the 3-5 months process from idea to launch! Please note that the words product and project will be used interchangeably, no need for alarms.
 
-Before diving into the phases of development, here is a tabular capture on the whole development process.
+Before diving into these phases, here is an outline of the whole cycle.
 
 |Phase|Inputs|Outputs/Deliverables|Activity|Tasks|
 |---|---|---|---|---|
-|Scoping|Idea|Estimate,concept note, sprint plan|Scoping meeting|Brainstorming, Ideation, Problem Definition|
-|Discovery|Sprint Plan, Concept Note|Software Requirement Specification(SRS), Project Plan, Story Board|Discovery Sprint|Project Plan, Schedule, Budget Scope, Project estimates, problem definition, project resourcing, planning|
-|Design|SRS| Blueprint, Solutions Design, Software Design Description(SDD), Behaviour Driven Development(BDD)|Designing, Scheduling, Resourcing|BMC, VPC, SRS, Product Prototype Brief, Solutions Design, Pitch Desk, Tool Setup,  Mockups, Models|
-|Development|BDD,SDD|Prototype, Product Map|Development, staging, tests|Repo Setup, Staging Environment Setup, Planning, Coding, Tests, Code Review, Documentation|
-|Pilot|Prototype|Minimum Viable Product(MVP), Support Contract, Version 2|Live test, Piloting, Bug fix|MVP, Production, Pilot Review, Discover Product Market Fit, Product roadmap, case study|
+|Scoping|Idea|Estimate, Concept Note|Scoping session|Brainstorming, Ideation, Problem Definition, Research|
+|Discovery|Concept Note|Software Requirement Specification (SRS)|Discovery Sprint|Research, Prototyping, Project planning|
+|Design|SRS|System Architecture, Business Model|Technical Design, Product Design|Business model canvas, Product Prototyping, Product Design, Pitch Deck, Tool Setup, Mockups, Models etc...|
+|Development|System Architecture|Prototype|Development, Staging, tests|Code workflows, Setup Environments, Planning, Coding, Tests, Code Review, Documentation etc...|
+|Pilot|Prototype|Minimum Viable Product, Product roadmap|Piloting|Debugging, Pilot Monitoring and Evaluation, Launch|
 
-## I. Scoping
+## 1. Scoping
 ![Scoping](/assets/images/blog/agile/scoping.jpg){:class="img-responsive center"}<br>
-This is the first stage in our product development lifecycle. This is when the client introduces the idea to the project team for brainstorming and problem definition with the intention of getting everyone on the same page, on what the product is all about. It entails assessment of the product, its features, goals, deliverables, tasks, deadlines, resource requirements, its relevance to the current market and the customer acceptance. It will involve a brainstorming session with each individual in the project team giving their own understanding of the product. At this point, there's no good or bad perspective. Everything is laid bare on the table for discussions. 
+The client introduces the idea to the system architect for brainstorming and problem definition with the intention of getting everyone on the same page; what the product is all about, what the challenge or opportunity in the market is and why we are building the thingamajik. Please note that we try and veer of any solutions oriented discussion because thats not the point if this phase. Understanding is. This is where we get to decide whether we'll pursue a project or not. At Zegetech, we aren't able to pickup every project that comes our way, so we try and focus on project with great impact, spread and with a good degree of challenge (If its sound impossible, we'll probably want to do it). Either way, our client benefit greatly from the research and in depth analysis that is done.
 
-Before the 2-hour brainstorming session, the client is provided with Zegetech's tool called a Rise Guide that's specifically designed and thought out to help the client think through their idea. In the Rise Guide the client will get to answer the WHYs, Hows and WHATs of the idea. With client's response to the Rise Guide, an effective scoping session is assured.
+Before the 2-hour brainstorming session, we have set an NDA in place and the client is provided with Zegetech's tool called a "RISE Guide" that's specifically designed to help the client think through and communicate their idea consisely, tackling the WHYs, HOWs and WHATs of the idea, an idea borrowed from [Simon Sineks Golden circle](https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action?language=en). Sharing is caring right! With client's response to the Rise Guide, an effective scoping session is assured. After the session, the Architect builds out the concept note after more in depth research and understanding. And finally the client and the Architect get to be on the same page regarding the challenge and the next steps as well as cost estimates.
 
-Project team members are then be asked to do a deeper market analysis to clearly identify the need of the product at hand. It will encompass research on possible competitors in the market, customer preferences, customer challenges, possible outstanding features of the product that may make it impeccable compared to other poducts and so on. You can do a questionnaire too,
-
-The findings at this point are then compiled into an easy to understand document called a Concept Note.
-
-A concept note is a literal capture of a client's idea defined during the brainstorming session. Below is the standard format of the concept note.
-
-1. Introduction<br>
- 	- This is the section where your reader is introduced to the whole project idea. Basically, an overview of the idea. 
-2. Background<br>
- 	- Here, some history on the trends of the relevant market, what has been done before and how things are being done currently.
-3. Problem Statement<br>
- 	- The challenges and the pains of the existing ecosystem.
-4. Solution<br>
- 	- The proposed solution to address the above stated pains and challenges
-5. Risks<br>
- 	- These are the unexpected things/events that may happen during the product development and could affect the product.
-6. Mitigation<br>
- 	- These are the proposed solutions on how to control the unexpected events. The how of addressing the risks if they come to pass.
-7. Conclusion<br>
- 	- Yea, you guessed it right!
-
-The concept note should be a simple and easy to understand document.
-
-[Concept Note Template](https://docs.google.com/document/d/1yoeFgy1TfybYGNykZbcOsDca2wnHsj4MDytxcdfQX0o/edit?usp=sharing
-)
-
-When the client fails to conform to the Concept note after the scoping session, a second brainstorming session is required. This will involve a re-evaluation of the idea. However, the decision here purely lies on the outcome of the first session.
-
-The Expected output of this stage is a concept note, product estimates and a product discovery sprint plan.
-
-## II. Product Discovery/Review
+## 2. Product Discovery/Review
 ![Discovery](/assets/images/blog/agile/discovery.jpeg){:class="img-responsive center"}<br>
-The project team then takes up the Scoping Session output and go on a 5-day product discovery sprint. The result of the discovery sprint is the project storyboard, Software Requirement Specification(SRS), project plan, project resourcing and project estimates.
+Using the concept note as the basis, the project team then goes on a 5-day product discovery sprint. The result of the discovery sprint is a Software Requirement Specification (SRS).
 
-This is the stage that allows the project team to dive into the future of the product. It's a phase that digs deeper into the concept note. It helps the team analyse the problems further, understand the goals of the project, ideation of the solutions, selection of the best solution, creation of mockups and prototypes and conducting the user tests of the prototypes created. 
+This stage digs deeper into the concept note. It helps the team analyse the problems further, understand the goals of the project, ideation of the solutions, selection of the best solution, creation of mockups and prototypes and conducting the user tests of the prototypes created. 
 
-A team of experts and possible product users is then assembled for interviews, surveys and prototype tests. 
+A team of experts and possible product users is part of the entire process culminating with testing with real live users. The goal of this phase is to come up with and validate the best solution that will capitalize on the users' pain points. User pain points are great opportunities and the best selling points. It will be worth it to jump deeper into [Zegetech's Product Discovery](2019-01-15-product-discovery.md)
 
-The goal of this phase is to come up with and validating the best solution that will capitalize on the users' pain points.User pain points are great opportunities and the best selling points.
-
-It will be worth it to jump deeper into [Zegetech's Product Discovery](2019-01-15-product-discovery.md)
-
-Expected output of this stage is the project plan, System Requirement Specification and the storyboard.
-
-## III. Design
+## 3. Design
 ![Design](/assets/images/blog/agile/design.png){:class="img-responsive center"}<br>
-This is the visualization stage of the project idea.
 
-The team focuses on brainstorming over the project plan, the storyboard and the SRS gotten earlier on with special attention to the user. Also, this is the time when developers are invited, in case they are external, just to get their input. The designers walk the developers through the story board, conversing about software architecture, and blockers if any. The collaboration bit will make things easier during the next phase. It simplifies, the already 'complex' storyboard for the developer.
+The Architect now gets his hands dirty with the help of engineers, developers, UX specialists to build out the system architecture and the project plan. The architecture document lays out technical details of technology infrastructure, design elements like process maps, mock ups, flow diagrams, storyboards, database models and depending on the tech stack chosen, more elements. Say for example a neural net model for machine learning or social network centric projects. A detailed system architecture is provided at this stage. 
 
-Visual and user experience aspects of the solution are put into perspective, rough sketches of models and mockups drawn by digital visualization tools whether online or offline or simply using pen and paper. The designs are then made visible to the project team and users by pinning them on the walls, whiteboards or digital devices like large TV screens. This allows everyone to ask questions, make comments and talk about constraints. After the thorough analysis of the sketches, the final bluebrint of the product is now developed.
-
-This is all done without a single line of code. 
+Because a product is not just technology, we also do a shallow dive into the business aspect of the product through the [business model canvas](https://strategyzer.com/) which will aid the client in kickstarting the business development side of things. Most client want an arrangement where the technolgy partner handles product development and they run and work on the business, so this item is normally a seed or validation of their business development efforts and is optional. It however help the product and engineering team understand the vision of the product.
 
 ## IV. Development
 ![Development](/assets/images/blog/agile/development.png){:class="img-responsive center"}
 <br>
-Product development begins! 
+Eat, Code, Sleep....Repeat
 
 The project team gets the solution design and prototypes from the design phase, sets the development environment ready and voila! Work begins!
 
-With accuracy and clarity from the previous stages, this phase is actually the easiest. The stage involves great coordination amongst project team members, constant communication with end-users to keep the product in check against user needs and experience, timely testing, code reviews and product documentation. 
+At Zegetech, we like to kick of with a staging deployment right from the start. From the get go, there is something in live(production replica) for the client to see. Keep in mind that initial weeks of development is like laying foundation... theres nothing much to see. Be that as it may, this allows us to work out end-to -nd deployment and incrementally, focusing on the development instead of waiting to the end to tackle dev ops, security and others. Basically, we don't like surprises when launching. With accuracy and clarity from the previous stages, this phase is actually easy-peasy. It involves great coordination amongst project team members, constant communication with end-users to keep the product in check against user needs and experience, timely testing, code reviews and product documentation. 
 
-The goal is working towards version 1 of the product.
-
-The trick here is to go through this phase as fast as possible because the world is always in constant change. You do now want to build a product that was modern  and in demand while you started working on it but outdated when you launch it! 
+At Zegetech, the development phase is 3 months maximum. What this means is that we will select a product feature set that can possibly go to pilot and live in 3 months. Anyhthing longer and we'll have issues as experienced from past projects where budget creep, team morale nose dives and client frustations set in. The product roadmap, which is a working document throughout the pilot phase, will dictate where next the product development will go.
 
 > *"Move fast and break things. Unless you are breaking stuff, you are not moving fast enough."* - Mark Zuckerberg at an interview with Business Insider
-
-However, don't rush through it. Quality!
 
 The most common challenges during this phase include:
 
@@ -110,19 +67,18 @@ The most common challenges during this phase include:
  - lack of motivation
 
 ## V. Product Pilot
-![Pilot](/assets/images/blog/agile/pilot.png){:class="img-responsive center"}<br>
-We now have a pre-launch product. However, it's still not suitable for public use.
+![Pilot](/assets/images/blog/agile/pilot.png){:class="img-responsive center"}
+We now have a pre-launch product or prototype. However, it's still not suitable for public use.
 
-The team now embarks on the first phase of testing the product. This is called Alpha Testing. The team can decide to test the product internally or have the pre-selected target users test the product. This will lead to further refining and fixing of bugs.
+The team now embarks on the first phase of testing the product in the live environment. This is called Alpha Testing. The team deploys to pre-selected target user groups or pilot groups as bugs are caught and annihilated. Here's where we wait in baited breath and hope that our gizmo doesnt explode! unless we built it to explode :-) 
 
-Beta testing follows afterwards. The now refined product is ready for the first public testing. The choice of the beta version target market will have a great influence on the success of the product in the market. A careful analysis needs to be done before hand. 
+Beta testing follows afterwards. The now refined product is ready for a wider set of target user testing. The choice of the beta version target market will have a great influence on the success of the product in the market. A careful analysis needs to be done before hand. 
 
-Beta version reports are then written, fixing of found bugs, market-fit analysis, product performance assessment and customer needs satisfaction evaluation. Once the product is out of glitch and things work perfectly.
+Beta version is evaluated, bugs fixing, market-fit analysis, product performance assessment and customer needs satisfaction evaluation. Once the product is out of glitches and things work satisfactorily, the product is now ready for Version 1.
 
-The product is now ready for version 1.
 
 ### Launch or No Launch?
-
+![Launch](/assets/images/blog/agile/rocket_launch.gif){:class="img-responsive center"}
 This wholly depends on the critical analysis of customer reactions, product performance and market acceptance. 
 
 > <q>A snail can sleep for three years.</q>
