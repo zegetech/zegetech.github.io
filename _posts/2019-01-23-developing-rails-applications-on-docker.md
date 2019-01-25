@@ -104,6 +104,11 @@ We set up two services in our compose file, *app* which will run our rails app a
 We set the app service to bind the rails server port to port 80 on the host and provide volumes to persist app changes and the bundler cache.
 The db service is also provided with a volume so we can keep database changes between reboots.
 We are almost there, but first we need to set up the database configuration in rails.
+At this point the file is owned by root so first:
+~~~ shell
+docker-compose run app chown -R 1000:1000 /app
+~~~
+
 ~~~ yml
 default: &default
   adapter: postgresql
@@ -128,7 +133,7 @@ config/database.yml
 
 Note the entry `host: db` matches the name of our *db* service. Docker automatically sets up networking between the containers and makes exposed ports accessible between them.
 You can refer to the [compose networking page](https://docs.docker.com/compose/networking/) for details.
-We can now run our application with:
+We first run bundler; `docker-compose run app --no-deps bundle` then run our application with:
 ~~~ shell
 docker-compose up
 ~~~
