@@ -6,7 +6,7 @@ sh "bundle exec jekyll build"
   options = {
       :empty_alt_ignore => true,:allow_hash_href => true,
       :extension => ".html", :disable_external => true,
-      :parallel => { :in_processes => 5},
+      :parallel => { :in_processes => 3},
       :url_ignore => ["/blog.html"],
     
   }
