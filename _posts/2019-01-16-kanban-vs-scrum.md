@@ -40,9 +40,9 @@ The scrum team is made up of The Product Owner, The Development Team, and a Scru
 
 **The development team** is just that, the team that develops the product. The programmers. Their objective is to complete requested tasks, achieve the sprint goals and ultimately the product goal.
 
-**The Scrum master** is in charge of the product development process as a whole. He/she ensures that everyone in the scrum team understands Scrum theory, practices, rules, and values. The Scrum master also facilitates the scrum [events](Scrum Events)
+**The Scrum master** is in charge of the product development process as a whole. He/she ensures that everyone in the scrum team understands Scrum theory, practices, rules, and values. The Scrum master also facilitates the scrum events
 
-## Scrum Events.
+## Scrum Events
 
 All scrum events are time-boxed, in that once an event begins, the time is fixed. It cannot be shortened or lengthened.
 
