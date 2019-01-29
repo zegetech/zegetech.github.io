@@ -12,8 +12,6 @@ branches:
   only:
     - release
     - master
-    - fix-site-testing
-   
 
 install:
   - gem install bundler
