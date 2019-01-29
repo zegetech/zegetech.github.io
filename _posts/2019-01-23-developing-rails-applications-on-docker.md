@@ -23,34 +23,47 @@ I would suggest you have a look at the following posts, if this is the first tim
 - [Developing with Docker](2018-11-08-developing-with-docker.md)
 
 Lets start by defining what our end goal is. We want:
-- A docker image with an up-to-date and ready to use rails development environment
-- Access to our database of choice(postgres)
+- A docker image with an up-to-date and ready to use rails development environment,
+- Access to our database of choice(postgres), and
 - A means to easily run the setup
 
 ## Building the Rails Image
 {: linenumbers=normal}
 ~~~ Dockerfile
 FROM ruby:latest
-RUN gem install rails --version '~> 5.2' --no-document
 RUN apt-get update \
       && apt-get install -y --no-install-recommends nodejs \
       && rm -rf /var/lib/apt/lists/*
-WORKDIR /app
+RUN adduser deploy --gecos '' --disabled-password
+USER deploy
+RUN gem install rails --version '~> 5.2' --no-document
+RUN mkdir /home/deploy/app
+WORKDIR /home/deploy/app
 EXPOSE 3000
-CMD ["/bin/bash", "entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 ~~~
 
 {:.image-attribution}
 Dockerfile
 
 Let's break down a bit of this; first, we are basing our image on whatever is the latest version of the ruby image, ruby:2.6 as of this writing.
-We then install rails globally and install nodejs to provide the required javascript runtime for rails.
+We then install *nodejs* to provide the required javascript runtime for rails.
+We set up a normal user `deploy` and then set him as the active user inside the container.
+You can read up on why running as a normal user is recommended in [this medium post](https://medium.com/@mode/processes-in-containers-  should-not-run-as-root-2feae3f0df3b).
+We then create our app directory to ensure it has the proper permissions and set it as the working directory.
+
 We finish off by providing a script to be run when the container is started:
 ~~~ shell
 #!/bin/bash
 # clear pid before starting server
 rm -f tmp/pids/server.pid
-bin/rails s -b 0.0.0.0
+# check if Gemfile has changed and bundle
+if [[ -e "Gemfile" ]]; then
+  bundle check || bundle install
+fi
+# execute passed in commands
+exec "$@"
 ~~~
 
 {:.image-attribution}
@@ -58,27 +71,19 @@ entrypoint.sh
 
 This script first deletes the `server.pid` file, where a running rails server saves its process id.
 Rails interprets the presence of this file to mean that the server is already running and won't start if it exists.
-The script then starts the rails server allowing it to accept connections from outside the container; `-b 0.0.0.0`.
+We check if there is a Gemfile and if it has changes and install accordingly.
+Finally, the script executes whatever other commands were passed in when starting the container.
 
 With these in place, we can build the image with:
 ~~~ shell
 docker build -t rails .
 ~~~
 
-## Creating the App
-Our configuration expects that there will be a rails app mounted inside the /app directory in the container. So first, we start a new rails application:
-~~~ shell
-docker run -it --rm --mount type=bind,src="$(pwd)",target=/app rails rails new . -d postgresql -B
-~~~
-This will initialize a new rails app and save changes within the current directory.
-We skip running `bundle install` for now. This is usually a long running process and we will want to persist the files it downloads.
-
-We can now start to think about setting up the postgres server. Again, we will use a docker image for this.
 However, we will create a compose file to make configuring and starting the project easier.
 
 ## Bringing Everything Together
 ~~~ yml
-version: "3"
+version: "3.2"
 services:
   app:
     build: .
@@ -86,15 +91,19 @@ services:
     ports:
       - "80:3000"
     volumes:
-      - ./:/app
-      - ./tmp/bundle:/usr/local/bundle
+      - ./:/home/deploy/app
+      - bundlercache:/usr/local/bundle
     depends_on:
       - db
   
   db:
     image: postgres:11
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgresdata:/var/lib/postgresql/data
+
+volumes:
+  bundlercache:
+  postgresdata:
 ~~~
 
 {:.image-attribution}
@@ -102,20 +111,35 @@ docker-compose.yml
 
 We set up two services in our compose file, *app* which will run our rails app and *db* which will provide the postgres instance.
 We set the app service to bind the rails server port to port 80 on the host and provide volumes to persist app changes and the bundler cache.
-The db service is also provided with a volume so we can keep database changes between reboots.
-We are almost there, but first we need to set up the database configuration in rails.
-At this point the file is owned by root so first:
-~~~ shell
-docker-compose run app chown -R 1000:1000 /app
+~~~ yml
+  - ./:/home/deploy/app # mounts the current directory(our app) into the container
+  - bundlercache:/usr/local/bundle # attaches a docker managed volume and pre-populates it with the contents of /usr/local/bundle
 ~~~
+The db service is also provided with a volume so we can keep database changes between reboots.
 
+Note that the volumes as set up are really meant for a development environment. They use the default `local` driver, hence are not shareable between containers.
+In production the volumes would need to be configured with a driver that supports multi-container access. More on volumes [here](https://docs.docker.com/storage/volumes/).
+
+## Creating the App
+At this point we have everything set-up. We first build our image:
+~~~ shell
+docker-compose build
+~~~
+This will pull the ruby image and build our rails image.
+Our configuration expects that there will be a rails app mounted inside the `/app` directory in the container. So first, we start a new rails application:
+~~~ shell
+docker-compose run --no-deps app rails new . -d postgresql
+~~~
+This will initialize a new rails app and save changes within the current directory.
+It will also create the volumes defined in our compose file, ensuring that the gems installed are persisted.
+The `--no-deps` flag tells compose not to start dependent services, in this case the db service.
+We are almost there, but first we need to set up the database configuration in rails.
 ~~~ yml
 default: &default
   adapter: postgresql
   encoding: unicode
   host: db
   username: postgres
-  password:
   pool: 5
 
 development:
@@ -133,56 +157,51 @@ config/database.yml
 
 Note the entry `host: db` matches the name of our *db* service. Docker automatically sets up networking between the containers and makes exposed ports accessible between them.
 You can refer to the [compose networking page](https://docs.docker.com/compose/networking/) for details.
-We first run bundler; `docker-compose run app --no-deps bundle` then run our application with:
+We can now create our databases with:
+~~~
+docker-compose run app bundle exec rails db:create
+~~~
+The command will first start the *db* service, pulling the image if necessary, then start and run the command in the *app* service.
+And finally start the rails server with:
 ~~~ shell
 docker-compose up
 ~~~
-This command will first attempt to start our *db* service, due to the `depends_on` entry in the *app* service.
-It will pull the image from docker hub if it isn't available locally then start it. It will then start the *app* service.
-Now the only thing missing is our databases. Lets create them:
-~~~
-docker-compose exec app bin/rails db:create
-~~~
-And that's that... almost. We can navigate to `localhost` and get the rails welcome page.
+And that's that. We can navigate to http://localhost and get the rails welcome page.
 ![Rails welcome](/assets/images/blog/rails-docker/rails_welcome.png){:class="img-responsive center"}
-There is still however, the little matter of file permissions to address.
 
-## Potential Pain Points
-
-### File Permissions
-With our current setup, all files generated by the `rails new` command are owned by root.
-Meaning that only the root user can edit them. We can gain ownership of the files by running:
+## Test run
+As beautiful as the rails welcome page is, it doesn't tell us if our environment behaves as we need it to.
+Let's do some quick scaffolding to test. An un-imaginative *user* scaffold will do nicely.
+~~~ shell
+docker-compose exec app bundle exec rails g scaffold user username first_name last_name phone:integer
 ~~~
-docker-compose exec app chown -R 1000:1000 /app
+Then run the migrations:
+~~~ shell
+docker-compose exec app bundle exec rails db:migrate
 ~~~
-But that only solves it for already created files. We would need to re-run this command each time we use rails generators.
-We fix this by editing the Dockerfile to add the USER instruction:
-~~~ dockerfile
-# initial content remains the same
-USER 1000:1000
-CMD ["bin/bash", "entrypoint.sh"]
+And edit our routes to point to our list of users:
+~~~ ruby
+Rails.application.routes.draw do
+  resources :users
+  root "users#index"
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
 ~~~
-After rebuilding the image, any files created by rails will have the proper ownership.
-Alternatively, we could use the `-u` flag with docker-compose to set the user per command.
-~~~
-docker-compose exec -u 1000:1000 app bin/rails g model user name phone:integer
-~~~
-The 1000:1000 should correspond to the uid and gid of the user running on the host. Run `id` on your terminal to get these values.
-
-After running the image a first time, rebuilding the image may fail due to file permissions on the `tmp/db` folder.
-We simply add a `.dockerignore` file with this path to tell docker to leave the folder out of its build context.
-~~~
-tmp/*
-~~~
-
-{:.image-attribution}
-.dockerignore
+Reload the page and voila:
+![User index](/assets/images/blog/rails-docker/user_index.png){:.img-responsive .center}
+You can add a few users to populate the page.
+![Sample users](/assets/images/blog/rails-docker/user_list.png){:.img-responsive .center}
+Finally, lets shutdown our server and see if it comes back up with what we expect.
+Hit `Ctrl-C` to bring down the services and wait for them to exit. Restart with a `docker-compose up`.
+If everything went well you should be greeted with the list of users you created. And ..., breathe!
 
 ### Avoid If You Can
 1. Building a custom image - this is all well and good for the learning experience or when there isn't a ready image on dockerhub.
   Otherwise, it's a pain not worth having.
 2. Installing postgres in the rails container - two reasons why; using a separate database image means you can re-use it in a new app, and second, making postgres work in the app container is a major hustle.
   You'll need to set up the postgres user, set up authentication and find a way to make sure the db service is started when you run your app.
+3. Bind mounts for 3rd-party application data - use docker managed volumes for data you don't need to interact with directly.
+  Docker sets up the volumes so that the container has the proper access rights, helping avoid a world of pain in managing file permissions.
 
 And that's that... finally. We have our environment set up and can finally bring that app to life!
 Whatever you choose to build, *ganbatte*.
