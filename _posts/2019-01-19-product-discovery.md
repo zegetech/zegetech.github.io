@@ -16,9 +16,11 @@ blog-image: product-discovery/discovery.png
 {{page.intro}}
 
 We'll aim to answer these questions about product discovery:
-1. [What is product discovery?](#1-product-discovery)
-2. [How is it done?](#2-how-to-do-a-product-discovery)
-3. [Why do it?](#3-why-do-product-discovery)
+- [1. What is Product discovery?](#1-what-is-product-discovery)
+- [2. How to do a Product Discovery](#2-how-to-do-a-product-discovery)
+  - [Overview](#overview)
+  - [Design Sprint](#design-sprint)
+- [3. Why do Product Discovery?](#3-why-do-product-discovery)
 
 ## 1. What is Product discovery?
 
@@ -27,8 +29,7 @@ Through the process, we are able to validate our problem and proposed solutions 
 Product discovery allows a business to understand its customers, the problem being solved and determine if and why to build a product
 This process is applicable not only for new products but also for feature improvements, launching in new markets, marketing and any other action that has significant impact on the business.
 
-Product discovery is the second stage in the product development process at Zegetech that includes; [Scoping](2018-12-03-project-management-scoping-session.md
-), Discovery, Design, Development and Pilot.
+Product discovery is the second stage in the product development process at Zegetech that includes; [Scoping](2018-12-03-project-management-scoping-session.md), Discovery, Design, Development and Pilot.
 The importance of the discovery phase was realized after a lot of projects with some successes and many failures.
 It allows us to 'see' into the future and gauge if a project might work. While it doesn't guarantee that what we build will be a success, it protects us from building terrible products.
 

@@ -12,11 +12,11 @@ intro: We always have ideas each and every day. We reach out to our friends, col
 {{page.intro}}
 It is analogical to viewing the something through glasses or rather a microscope for biologists. It's meant to make things clear, bring the understanding to people, help others see what the client sees and connect with the project.
 
-Scoping is a stage in Zegetech's perfected and proven way of developing products. We call it [Agile Product Development](2019-01-16-agile-poduct-development.md). It entails the following main five stages:
+Scoping is a stage in Zegetech's perfected and proven way of developing products. We call it [Agile Product Development](2019-01-25-agile-product-development.md). It entails the following main five stages:
 
 1. Scoping: This is when the client introduces the idea to the project team for brainstorming and problem definition with the intention of getting everyone on the same page on what the project idea is all about. Expected output is a concept note, project estimates and a product discovery sprint plan. 
 
-2. Discovery/Review: The project team then takes up the Scoping Session output, concept note, and go on a 5-day [product discovery sprint](2019-01-15-product-discovery.md). The result of the discovery sprint is the project storyboard, Software Requirement Specification(SRS), project plan, project resourcing and project estimates.
+2. Discovery/Review: The project team then takes up the Scoping Session output, concept note, and go on a 5-day [product discovery sprint](2019-01-19-product-discovery.md). The result of the discovery sprint is the project storyboard, Software Requirement Specification(SRS), project plan, project resourcing and project estimates.
 
 3. Design: This is the stage that entails prototyping, designing of the project solution, modelling, pitching, preparation and setup of project tools without a single line of code.
 
