@@ -8,10 +8,7 @@ sh "bundle exec jekyll build"
       :extension => ".html", :disable_external => true,
       :parallel => { :in_processes => 5},
       :url_ignore => ["/blog.html"],
-      :typhoteus => {
-        :ssl_verifypeer => false,
-        :ssl_verifyhost => 0
-      }
+    
   }
 HTMLProofer.check_directory("./_site", options).run
 end
