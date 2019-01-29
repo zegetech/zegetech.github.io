@@ -42,3 +42,6 @@ Project uses [jekyll-relative-links](https://github.com/benbalter/jekyll-relativ
 ~~~md
 [link to some awesome post](2019-01-01-some-awesome-post.md)
 ~~~
+
+## Testing
+1. In the project's directory run `rake test`.
