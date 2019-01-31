@@ -27,8 +27,17 @@ Lets start by defining what our end goal is. We want:
 - Access to our database of choice(postgres), and
 - A means to easily run the setup
 
+## Pre-requisites
+This post assumes that you are running a current version of *docker* and *docker-compose*.
+The configurations are tested to work with **docker version 18.09.1** and **docker-compose version 1.22.0**.
+You can check your versions with:
+~~~ shell
+docker -v 
+docker-compose -v 
+~~~
+And refer to the [installation docs](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce) if you need to upgrade.
+
 ## Building the Rails Image
-{: linenumbers=normal}
 ~~~ Dockerfile
 FROM ruby:latest
 RUN apt-get update \
@@ -39,8 +48,9 @@ USER deploy
 RUN gem install rails --version '~> 5.2' --no-document
 RUN mkdir /home/deploy/app
 WORKDIR /home/deploy/app
+COPY --chown=deploy . ./
+RUN bundle init || bundle install
 EXPOSE 3000
-ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
 ~~~
 
@@ -50,35 +60,14 @@ Dockerfile
 Let's break down a bit of this; first, we are basing our image on whatever is the latest version of the ruby image, ruby:2.6 as of this writing.
 We then install *nodejs* to provide the required javascript runtime for rails.
 We set up a normal user `deploy` and then set him as the active user inside the container.
-You can read up on why running as a normal user is recommended in [this medium post](https://medium.com/@mode/processes-in-containers-  should-not-run-as-root-2feae3f0df3b).
-We then create our app directory to ensure it has the proper permissions and set it as the working directory.
+You can read up on why running as a normal user is recommended in [this medium post](https://medium.com/@mode/processes-in-containers-should-not-run-as-root-2feae3f0df3b).
+We then create our app directory to ensure it has the proper permissions, set it as the working directory and copy our app contents into the image.
+The line `RUN bundle init || bundle install` will create a new Gemfile if starting a new project or install gems for an existing project.
 
-We finish off by providing a script to be run when the container is started:
-~~~ shell
-#!/bin/bash
-# clear pid before starting server
-rm -f tmp/pids/server.pid
-# check if Gemfile has changed and bundle
-if [[ -e "Gemfile" ]]; then
-  bundle check || bundle install
-fi
-# execute passed in commands
-exec "$@"
-~~~
-
-{:.image-attribution}
-entrypoint.sh
-
-This script first deletes the `server.pid` file, where a running rails server saves its process id.
-Rails interprets the presence of this file to mean that the server is already running and won't start if it exists.
-We check if there is a Gemfile and if it has changes and install accordingly.
-Finally, the script executes whatever other commands were passed in when starting the container.
-
-With these in place, we can build the image with:
+With this in place, we can build the image with:
 ~~~ shell
 docker build -t rails .
 ~~~
-
 However, we will create a compose file to make configuring and starting the project easier.
 
 ## Bringing Everything Together
@@ -115,10 +104,12 @@ We set the app service to bind the rails server port to port 80 on the host and 
   - ./:/home/deploy/app # mounts the current directory(our app) into the container
   - bundlercache:/usr/local/bundle # attaches a docker managed volume and pre-populates it with the contents of /usr/local/bundle
 ~~~
+The `./:/home/deploy/app` mount is important for development as it allows us to synchronize file changes between the host and running container.
+Without it, we would need to make edits, stop the running container, rebuild the image and then re-run the container to see our changes.
 The db service is also provided with a volume so we can keep database changes between reboots.
 
-Note that the volumes as set up are really meant for a development environment. They use the default `local` driver, hence are not shareable between containers.
-In production the volumes would need to be configured with a driver that supports multi-container access. More on volumes [here](https://docs.docker.com/storage/volumes/).
+Note that the volumes as set up are really meant for a development environment. They use the default `local` driver, hence are not shareable between containers running on different hosts.
+In production the volumes would need to be configured with a driver that supports multi-machine access. More on volumes [here](https://docs.docker.com/storage/volumes/).
 
 ## Creating the App
 At this point we have everything set-up. We first build our image:
@@ -126,12 +117,13 @@ At this point we have everything set-up. We first build our image:
 docker-compose build
 ~~~
 This will pull the ruby image and build our rails image.
-Our configuration expects that there will be a rails app mounted inside the `/app` directory in the container. So first, we start a new rails application:
+Our configuration expects that there will be a rails app mounted inside the `~/app` directory in the container. So first, we start a new rails application:
 ~~~ shell
 docker-compose run --no-deps app rails new . -d postgresql
 ~~~
 This will initialize a new rails app and save changes within the current directory.
 It will also create the volumes defined in our compose file, ensuring that the gems installed are persisted.
+Again, like the *app* mount, the *bundlercache* volume is meant to ease the development process.
 The `--no-deps` flag tells compose not to start dependent services, in this case the db service.
 We are almost there, but first we need to set up the database configuration in rails.
 ~~~ yml
@@ -162,9 +154,18 @@ We can now create our databases with:
 docker-compose run app bundle exec rails db:create
 ~~~
 The command will first start the *db* service, pulling the image if necessary, then start and run the command in the *app* service.
+
+One final configuration before we're ready to run. Since we will be using a bind mount in development, one of the files that is persisted is `tmp/pids/server.pid`.
+Rails interprets the presence of this file to mean that the server is already running and won't start if it exists.
+We can get around this by configuring `puma` to store its PID file in a location outside our project root.
+Append this line to the end of `config/puma.rb`:
+~~~
+pidfile '/tmp/pids/server.pid'
+~~~
+
 And finally start the rails server with:
 ~~~ shell
-docker-compose up
+docker-compose up --build
 ~~~
 And that's that. We can navigate to http://localhost and get the rails welcome page.
 ![Rails welcome](/assets/images/blog/rails-docker/rails_welcome.png){:class="img-responsive center"}
