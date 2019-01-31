@@ -42,3 +42,11 @@ Project uses [jekyll-relative-links](https://github.com/benbalter/jekyll-relativ
 ~~~md
 [link to some awesome post](2019-01-01-some-awesome-post.md)
 ~~~
+
+## Tests
+
+Project uses HTMLproofer to test site output.
+To run the test, in project directory, run:
+~~~shell
+      `rake test` 
+~~~
