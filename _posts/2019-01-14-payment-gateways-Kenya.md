@@ -113,13 +113,26 @@ It was still possible to test some collection endpoints using the documented tes
 ![Direct Pay](/assets/images/blog/localgateways/dpo.png){:class="img-responsive center img-standard"}
 [DirectPay](https://www.directpay.online/) formerly known as 3G direct has services spanning across more than 10 countries namely Botswana, Kenya, Namibia, Zambia, Ghana, Mauritius, South Africa, Ethiopia, Malawi, Nigeria, Tanzania, Zanzibar, Zimbabwe, Rwanda and Uganda. We managed to create an account with DPO's platform but never proceeded to testing because of lack of documentation. We couldn't get a word from them. 
 
-### 13 Mpayer
+### 13. Mpayer
 ![Mpayer](/assets/images/blog/localgateways/mpayer.png){:class="img-responsive center img-standard"}
 
 [Mpayer](http://mpayer.co.ke) is another payment gateway that has been around for a couple of years. It provides payment services for businesses and organizations through Mpesa, Airtel Money and Cash transfers. In addition, it provides tools for analysing business performance, managing the business activities and customer engangement, useful in client centric busineses like microfinance organisation and educational institutions. Uniquely, it has a very unconventional onboarding process where customers can sign up through an MPESA transaction and activate a wallet immediately. 
 
 It provides a JSON and XML RESTful API that's currently available to customers only, meaning that ther is no test environment. The authentication protocol used is WSSE. Public documentation is not available, neither is any sample integration code. This makes it difficult for one to test. MPAYER has and interesting role structure with one of the users roles being a teller or branch. Tellers can process transcations and have access to transacton API calls, that is making deposits, transfers, withdrawals. Other none tranasction API endpoints are available to other roles. 
 
+### 14. Mula
+
+![Mula](/assets/images/blog/cellulant-brave/mula1.png){:class="img-responsive center img-standard"}
+
+[Mula](https://shops.mula.africa/site/) is a payment gateway that was recently developed by Cellulant targetting both ordinary users and online merchants. It supports a range of payment methods from mobile payments like Mpesa, Airtel Money to Cards and Banks across 33 African countries. So, if you are an online merchant and/or fintech developer looking into integrating a checkout gateway that supports a wide range of payment methods in Africa, stop searching!
+
+Ordinary users can interact with Mula to pay for bills and buy airtime via USSD code \*369#, mobile app and Website.
+
+Getting started with Mula checkout gateway integration simply requires one to create an account with Mula, get access to client_id and client_secret that will be used to generate oauth2 token for authorizing your requests. They provide an easy to follow documentation with code samples for both the server side integration in PHP and client side in Javascript. Mula also provides a test bed that simulates a customer's activity on a checkout page, this feature can be quite useful especially if you just want to quickly test out their gateway. 
+
+Mula onboarding requires you to send your integration to the Mula support team for review before making that first production transaction.
+
+[Mula Postman collection](https://documenter.getpostman.com/view/1238477/RztivWYY)
 
 ## Conclusion
 On a scale of 1-5, here are the findings based on the following features:
@@ -143,6 +156,7 @@ On a scale of 1-5, here are the findings based on the following features:
 | Rave | 4 | 4 | 4 | 4 | 4 | **4** |
 | Beyonic | 4 | 4 | 3 | 4 | 3 | **3** |
 | Direct Pay | - | - | - | - | - | - |
+| Cellulant - Mula | 4 | 4 | 4 | 2 | 4 | **4** |
 
 Here's a table that summarizes the functionality. I believe this will help you save some time:
 
@@ -159,6 +173,7 @@ Here's a table that summarizes the functionality. I believe this will help you s
 | iPay | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card, Equitel, Airtel Money, kenswitch |
 | Rave | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card |
 | Beyonic | Yes | Yes | Yes | Yes | Yes | Mpesa, Airtel |
+| Cellulant - Mula | Yes | No | Yes | Yes | Yes | Mpesa, Airtel, Card Payment, Banks, MTN, Tigo |
 
 The list doesn't end there. There are other gateways that exist that are not quite mainstream payment processers. However they do enable customers to get paid in kenya via various payment channels. These could be payment integrator companies or niche market gateways. Some notable mentions include:
 
