@@ -120,6 +120,9 @@ It was still possible to test some collection endpoints using the documented tes
 
 It provides a JSON and XML RESTful API that's currently available to customers only, meaning that ther is no test environment. The authentication protocol used is WSSE. Public documentation is not available, neither is any sample integration code. This makes it difficult for one to test. MPAYER has and interesting role structure with one of the users roles being a teller or branch. Tellers can process transcations and have access to transacton API calls, that is making deposits, transfers, withdrawals. Other none tranasction API endpoints are available to other roles. 
 
+### 14. Cellulant - Mula
+
+Hop to [Cellulant Mula's review]() and read on why it's getting its own post.
 
 ## Conclusion
 On a scale of 1-5, here are the findings based on the following features:
@@ -143,6 +146,7 @@ On a scale of 1-5, here are the findings based on the following features:
 | Rave | 4 | 4 | 4 | 4 | 4 | **4** |
 | Beyonic | 4 | 4 | 3 | 4 | 3 | **3** |
 | Direct Pay | - | - | - | - | - | - |
+| Cellulant - Mula | 4 | 4 | 4 | 2 | 4 | **4** |
 
 Here's a table that summarizes the functionality. I believe this will help you save some time:
 
@@ -159,6 +163,7 @@ Here's a table that summarizes the functionality. I believe this will help you s
 | iPay | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card, Equitel, Airtel Money, kenswitch |
 | Rave | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card |
 | Beyonic | Yes | Yes | Yes | Yes | Yes | Mpesa, Airtel |
+| Cellulant - Mula | Yes | No | Yes | Yes | Yes | Mpesa, Airtel, Card Payment, Banks, MTN, Tigo |
 
 The list doesn't end there. There are other gateways that exist that are not quite mainstream payment processers. However they do enable customers to get paid in kenya via various payment channels. These could be payment integrator companies or niche market gateways. Some notable mentions include:
 
