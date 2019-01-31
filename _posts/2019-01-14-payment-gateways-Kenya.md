@@ -122,7 +122,7 @@ It provides a JSON and XML RESTful API that's currently available to customers o
 
 ### 14. Cellulant - Mula
 
-Hop to [Cellulant Mula's review]() and read on why it's getting its own post.
+Hop to [Cellulant Mula's review]() and read on why it's getting a separate post.
 
 ## Conclusion
 On a scale of 1-5, here are the findings based on the following features:
