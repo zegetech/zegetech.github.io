@@ -3,12 +3,7 @@ layout: blog
 title: Product Discovery...show me the money!
 author: Ngari Ndung'u
 category: Project Management
-intro: |
-  Ever wondered why there are so many products that look good, work but don't work well for you?
-  Why the last update to your favorite app was so ugly and unintuitive you almost ditched it?
-  Or why you remember that big launch but never come across someone using the product?
-  While these can be explained away by a brutal market, poor product development plays a large part.
-  Product discovery is a process to reduce the chances of this happening to you, and gives your product a better shot at success.
+intro: Ever wondered why there are so many products that look good, work but don't work well for you? Why the last update to your favorite app was so ugly and unintuitive you almost ditched it? Or why you remember that big launch but never come across someone using the product? While these can be explained away by a brutal market, poor product development plays a large part. Product discovery is a process to reduce the chances of this happening to you, and gives your product a better shot at success.
 blog-image: product-discovery/discovery.png
 ---
 ![Board with notes](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
@@ -16,7 +11,7 @@ blog-image: product-discovery/discovery.png
 {{page.intro}}
 
 We'll aim to answer these questions about product discovery:
-1. [What is product discovery?](#1-product-discovery)
+1. [What is product discovery?](#1-what-is-product-discovery)
 2. [How is it done?](#2-how-to-do-a-product-discovery)
 3. [Why do it?](#3-why-do-product-discovery)
 
@@ -27,8 +22,7 @@ Through the process, we are able to validate our problem and proposed solutions 
 Product discovery allows a business to understand its customers, the problem being solved and determine if and why to build a product
 This process is applicable not only for new products but also for feature improvements, launching in new markets, marketing and any other action that has significant impact on the business.
 
-Product discovery is the second stage in the product development process at Zegetech that includes; [Scoping](2018-12-03-project-management-scoping-session.md
-), Discovery, Design, Development and Pilot.
+Product discovery is the second stage in the product development process at Zegetech that includes; [Scoping](2019-02-07-scoping.md), Discovery, Design, Development and Pilot.
 The importance of the discovery phase was realized after a lot of projects with some successes and many failures.
 It allows us to 'see' into the future and gauge if a project might work. While it doesn't guarantee that what we build will be a success, it protects us from building terrible products.
 
@@ -46,7 +40,7 @@ The product discovery process will differ from organisation to organisation. How
 - Use the data gathered through testing to redefine the problem or refine solutions
 
 One format for carrying out product discovery is the design sprint. This is the format we use at Zegetech.
-The concept note generated during the [scoping phase](2018-12-03-project-management-scoping-session.md) forms the main input to the design sprint.
+The concept note generated during the [scoping phase](2019-02-07-scoping.md) forms the main input to the design sprint.
 
 ### Design Sprint
 

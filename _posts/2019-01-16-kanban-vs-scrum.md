@@ -110,4 +110,4 @@ Kanban is based but not limited to the following principles.
 
 There are a number of tools that can be used to make the workflow management with both Scrum and Kanban frameworks more efficient. While these tools generally cut across both frameworks there are those that, in my opinion, are more inclined to a specific framework. I will categorize them as such.
 For Scrum there is [Jira](https://www.atlassian.com/software/jira), [Targetprocess](https://www.targetprocess.com/), [Planbox](https://www.planbox.com/), [Pivotal tracker](https://www.pivotaltracker.com/), [Vivify Scrum](https://www.vivifyscrum.com/), and  [clickup](https://clickup.com/).  
-Those that are more inclined to the kanban include [LeanKit](https://leankit.com/), [Asana](https://asana.com/?utm_source=app.asana.com&utm_campaign=app.asana.com#close), and [Trello](https://trello.com/)
+Those that are more inclined to the kanban include [LeanKit](https://leankit.com/), [Asana](https://asana.com/), and [Trello](https://trello.com/)

@@ -181,7 +181,6 @@ Corporate and enterprise focused providers.
 1. [Popote Pay](https://popotepayments.co.ke)
 2. [Dibon](https://dibon.co.ke)
 3. [Craft Silicon](https://www.craftsilicon.com/)
-4. [Cellulant](https://www.cellulant.com/)
 
 Niche Market Gateways
 1. [Mookh](https://mookh.com/)
