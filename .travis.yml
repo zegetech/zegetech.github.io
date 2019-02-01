@@ -19,9 +19,9 @@ install:
   - bundle check || bundle install
 
 script:
-  - echo "Building and Testing"
-  - bundle exec jekyll build
+  - echo "Testing and Building"
   - bundle exec rake test
+  - bundle exec jekyll build
 
 deploy:
   skip_cleanup: true
