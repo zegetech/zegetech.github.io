@@ -4,7 +4,7 @@ title: Rails on Docker
 date: 2019-02-10 12:53 +0300
 categories: developer
 published: false
-author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa
+author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa, Kariuki Gathitu
 blog-image: rails-docker/railsondocker.png
 intro: Rails and Docker are important components in the development processes at Zegetech. Rails is our chosen platform for most of what we build, and docker provides pain-free environment management both for development and in production. We have previously covered these two technologies separately, and this post covers the sweet spot at their intersection. We will take you through the process of configuring a rails development environment on docker, and configure a postgres database for it.
 ---
@@ -30,13 +30,13 @@ We want to build an app and have chosen Ruby on Rails as our framework. But beca
 
 ## The Rails Docker image
 In order to start developing, we need a docker container with the rails environment. We'll build an image for that. Docker keeps track of your image as you make edits in the docker cache. In order to track, we need the main files that manage the rails application as well as the main docker files. First thing you need according to [docker compose](https://docs.docker.com/compose/rails/#define-the-project) are the following files
-1. `Dockerfile` using whatever is the latest version of ruby on alpine. We use alpine because we want the smallest footprint possible for out app. And you change to another distro like ubuntu, then make sure you use the appropriate package manager e.g. apt-get instead of apk
+1. `Dockerfile` using whatever is the latest version of ruby on alpine. We use alpine because we want the smallest footprint possible for out app. If you change to another distro like ubuntu, then make sure you use the appropriate package manager e.g. apt-get instead of apk
 2. `Gemfile` with rails declaration
 3. `Gemfile.lock` that will be blank
-4. `docker-compose` for running docker commands easier
-5. `.dockerignore` file to exclude certain files in the build. This helps keep image smaller
+4. `docker-compose` to make running docker commands easier
+5. `.dockerignore` file to exclude certain files from the build. This helps keep the image small.
 
-These four files need to reside in a folder where our app will be. Details of what it does are included in the comments alongside the commands.
+These four files need to reside in the folder where our app will be. Details of what the commands do are included in the comments alongside the commands.
 
 ```docker
 # Dockerfile
@@ -63,7 +63,7 @@ RUN apk update && \
     mkdir -p /usr/src/app
 
 # Create system user to run as non-root. 
-RUN addgroup -S admin && adduser -S -g admin deploy
+RUN addgroup -S admin -g 1000 && adduser -S -g '' -u 1000 -G admin deploy
 
 # Set the Rails Environment Variables for production
 ENV RAILS_ROOT /home/deploy/app
@@ -83,12 +83,12 @@ WORKDIR $RAILS_ROOT
 # the RubyGems. This is a separate step so the dependencies
 # will be cached unless changes to one of those two files
 # are made.
-COPY --chown=deploy:admin app/Gemfile app/Gemfile.lock ./
+COPY --chown=deploy:admin Gemfile Gemfile.lock ./
 RUN gem install bundler
 RUN bundle install --jobs 20 --retry 5
 
 # Copy the main application.
-COPY --chown=deploy:admin ./app ./
+COPY --chown=deploy:admin . ./
 
 # Expose the applications port to the host machine
 EXPOSE 3000
@@ -121,7 +121,7 @@ services:
     links:
       - postgres
     volumes:
-      - ./app:/home/deploy/app
+      - .:/home/deploy/app
 
   postgres:
     image: postgres:9.6.2-alpine
@@ -135,7 +135,7 @@ services:
 volumes:
   data:
 ```
-Mapping volumes in the app service, `./app:/home/deploy/app` only happens in the docker-compose file. This is so that the developer can have realtime interaction with the app in the container when developing. Otherwise, you'd need to restart the container everytime you made changes. This however does not extend to the initial files we had, mainly the `Gemfile`. Any Change to the `Gemfile` or `Dockerfile` will require a rebuild of the container. We have also used a different service for the database. Postgres will reside in its own container. We are also binding the container port 3000 to our host machines (your laptop) port 80.
+Mapping volumes in the app service, `.:/home/deploy/app` only happens when running with docker-compose. This is so that the developer can have realtime interaction with the app in the container when developing. Otherwise, you'd need to restart the container everytime you made changes. This however does not extend to the initial files we had, mainly the `Gemfile`. Any Change to the `Gemfile` or `Dockerfile` will require a rebuild of the container. We have also used a different service for the database. Postgres will reside in its own container. We are also binding the container port 3000 to our host machines (your laptop) port 80.
 
 ```bash
 # .dockerignore
@@ -147,14 +147,13 @@ tmp/*
 storage/*
 **/README.md
 
-tmp/*
 secrets/*
 **/docker-compose.yml
 **/Dockerfile
 ```
 
 ## Rails App
-### 1. Generate Rails New app
+### 1. Generate New Rails app
 Now that we have our configuration done, all that is left is to generate the rails app using docker compose
 
 ```
@@ -166,7 +165,7 @@ docker-compose run --no-deps app rails new . --force --database=postgresql --api
 #then rebuild image due to new Gemfile
 docker-compose build
 ```
-This generates a new rails boilerplate in the current directory. Because our volumes are mapped, anything happening in the container is reflected to the host machine, so we will have our directory now with a brand new rails application. The `--no-deps` flag tells compose not to start dependent services, in this case the db service.
+This generates a new rails boilerplate in the current directory. Because our volumes are mapped, anything happening in the container is reflected on the host machine, so our directory will now have a brand new rails application. The `--no-deps` flag tells compose not to start dependent services, in this case the *postgres* service.
 
 ### 2. Connect the database
 We have the postgres DB in its own container with the official image from docker hub. We need to point our app to this database instance. 
@@ -189,14 +188,15 @@ Now start the app daemonized
 ```bash
 docker-compose up -d
 ```
-App will start in development mode because the docker-compose.yml file overrides the env `RAILS_ENV`. In another window, initialize the DB. The database file are persisted in the `data:` docker volume created otherwise you would need to run `docker-compose run web rake db:create` whenever restarting your app to recreate the database.
+The app will start in development mode because the docker-compose.yml file overrides the env `RAILS_ENV`. In another window, initialize the DB.
+```
+docker-compose exec app rails db:create
+```
+The database file are persisted in the `data:` docker volume. Without it you would need to run `docker-compose run web rake db:create` whenever restarting your app to recreate the database.
 
-```
-docker-compose run app rails db:create
-```
-Your app should be available at [localhost:3000](http://localhost:3000). 
+Your app should be available at [localhost](http://localhost). 
 ![Rails welcome](/assets/images/blog/rails-docker/rails_welcome.png){:class="img-responsive center"}
-To stop application run `docker-compose down`
+To stop the application run `docker-compose down`.
 If all went well, then we need to "save" our app in git. Stop the app and check it into git
 ```bash
 docker-compose down
@@ -207,12 +207,15 @@ So now we have our app boilerplate ready with persistence on a separate postgres
 
 ### 3. Code
 As beautiful as the rails welcome page is, it doesn't tell us if our environment behaves as we need it to. Let's do some quick scaffolding to test.
+First bring the app back up with `docker-compose up`, then:
 ```shell
 docker-compose exec app bundle exec rails g scaffold user username first_name last_name phone:integer
-```Then run the migrations:
+```
+Then run the migrations:
 ```shell
 docker-compose exec app bundle exec rails db:migrate
-```And edit our routes to point to our list of users:
+```
+And edit our routes to point to our list of users:
 ```ruby
 Rails.application.routes.draw do
   resources :users
