@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Rails on Docker
-date: 2019-02-10 12:53 +0300
+date: 2019-02-14 12:53 +0300
 categories: developer
 published: false
 author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa, Kariuki Gathitu
@@ -189,8 +189,10 @@ Now start the app daemonized
 docker-compose up -d
 ```
 The app will start in development mode because the docker-compose.yml file overrides the env `RAILS_ENV`. In another window, initialize the DB.
-```
+```bash
 docker-compose exec app rails db:create
+# or if the container was not yet started
+docker-compose run app rails db:create
 ```
 The database file are persisted in the `data:` docker volume. Without it you would need to run `docker-compose run web rake db:create` whenever restarting your app to recreate the database.
 
