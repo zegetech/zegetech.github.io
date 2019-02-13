@@ -12,6 +12,7 @@ branches:
   only:
     - release
     - master
+    - fix-disqus-sharing
    
 
 install:
