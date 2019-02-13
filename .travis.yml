@@ -21,7 +21,7 @@ install:
 script:
   - echo "Testing and Building"
   - bundle exec rake test
-  - bundle exec jekyll build
+  - JEKYLL_ENV=production bundle exec jekyll build
 
 deploy:
   skip_cleanup: true
