@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Rails on Docker
-date: 2019-02-14 12:53 +0300
+date: 2019-02-14 08:00 +0300
 categories: developer
 author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa, Kariuki Gathitu
 blog-image: rails-docker/railsondocker.png
