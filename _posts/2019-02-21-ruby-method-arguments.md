@@ -5,12 +5,16 @@ date: 2019-02-21 10:29 +0300
 categories: developer
 published: false
 author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa
-blog-image: 
+blog-image: ruby-arguments/ruby_arguments.png
 intro: | 
   Ruby is a very flexible language giving you a myriad of ways to implement logic in your programs.
   Some of this flexibility is evident in how you pass arguments to your ruby methods/functions.
   This is a run-down of the available options.
 ---
+![Ruby arguments](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
+
+{:.image-attribution}
+Not this kind of argument. Image from [xkcd](https://xkcd.com/1432/)
 
 {{page.intro}}
 
@@ -23,7 +27,11 @@ Default values can be provided for positional arguments, for example, `def some_
 Argument values can be accessed the same as for positional arguments.
 Default values can also be provided, `def some_method(one: 1, two: 2, three: 3)`, making passing arguments optional to the caller.
 Keyword arguments have the advantage of allowing the arguments to be passed *out-of-order*; `some_method(two: 5, one: 3)`.
-If the arguments are appropriately named, keyword arguments make it obvious what a method expects to be passed in.
+
+You have the option of choosing between positional and named arguments depending on your application needs.
+Keyword arguments are great for when you want to make it obvious what data your methods accept.
+They are also useful for when you provide default values for your methods, but want to give the caller the option to override any of them.
+Positional arguments are useful for when you want to keep your code concise, and especially for internal methods whose inputs are obvious.
 
 ## Variable length parameters
 Ruby has support for methods that accept any number of arguments, either positional or keyword.
@@ -43,7 +51,18 @@ def table(**args)
 end
 ```
 
+## Combining Argument Types
+Feel that your method could benefit from a mixture of argument types? No problem.
+You can use the various argument types together as long as you pay attention to how you order them.
+The correct order is as in; `def some_method(one, two=2, *extra, three: 3, **nextra)`.
+That is, positional arguments in the order *required*, *optional*, *variable* followed by keyword arguments.
+Called as `some_method(1,2,3,4,four: 4)` the values of the parameters would be; one=1, two=2, extra=[3,4], three=3 and nextra={four: 4}.
+
 ## Breakdown
+![The sake of argument](/assets/images/blog/ruby-arguments/the_sake_of_argument.png)
+
+{:.image-attribution}
+Not this kind of argument. Image from [xkcd](https://xkcd.com/1432/)
 ``` ruby
 class ArgumentsDemo
   def method_with_no_arguments
