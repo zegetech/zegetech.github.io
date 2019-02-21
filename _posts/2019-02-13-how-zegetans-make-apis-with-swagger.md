@@ -2,11 +2,11 @@
 layout: blog
 title: How Zegetans Make APIs with Swagger
 date: 2019-02-13 13:35 +0300
-categories: 
+categories: developer
 published: false
 author: Tom Nyongesa, Melvin Atieno, Ngari Ndung'u
 blog-image: swagger/swagger.jpg
-intro: We recently covered [API deep dive](2018-12-08-api-dive.md), where we got into the whats of APIs, how to build effective, efficient and usable APIs and also looked into the various tools one can use in the API lifecycle.In this piece, we would like to focus on Swagger, a tool that has been adopted greatly by developers across the globe. 
+intro: We recently covered [API deep dive](/blog/2018/12/08/api-dive.html), where we got into the whats of APIs, how to build effective, efficient and usable APIs and also looked into the various tools one can use in the API lifecycle.In this piece, we would like to focus on Swagger, a tool that has been adopted greatly by developers across the globe. 
 ---
 
 ![Swagger](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
@@ -47,7 +47,7 @@ An OpenAPI document, allows you to describe the following features for your enti
 
 
 ## Getting Started with Swagger toolchain
-[Swaggerhub](app.swaggerhub.com) is an online collaborative platform that enables API developers team up to design, define, test, document and produce APIs. It contains tools that are most needed by API developers and applicable in almost all cases. Swaggerhub's toolchain consists of the following major functionalities:
+[Swaggerhub](https://app.swaggerhub.com) is an online collaborative platform that enables API developers team up to design, define, test, document and produce APIs. It contains tools that are most needed by API developers and applicable in almost all cases. Swaggerhub's toolchain consists of the following major functionalities:
 
 - API Definition
 - API Validation
