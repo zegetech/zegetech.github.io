@@ -99,25 +99,25 @@ This is where you describe the individual endpoints where the clients would be s
 Example:
 
 ```yaml
-	paths:
-	  /blog-resource/:
-	    get:
-	      summary: Endpoint summary
-	        requestBody:
-	          GET request body
-	        responses:
-	          '201':
-              description: Created
-              content:
-                Response body
-                example:
-                  data:
-                    - type: example type
-                      id: 1
-                      attributes:
-                        title: first blog
-                        text: some text
-                        author_id: "1"
+paths:
+  /blog-resource/:
+    get:
+      summary: Endpoint summary
+        requestBody:
+          GET request body
+        responses:
+          '201':
+            description: Created
+            content:
+              Response body
+              example:
+                data:
+                  - type: example type
+                    id: 1
+                    attributes:
+                      title: first blog
+                      text: some text
+                      author_id: "1"
 ```
 
 ### _IV. Components (optional)_
@@ -165,7 +165,7 @@ servers:
     url: /yourserverurl.ext/
 
 paths: # Path info goes here
-	/users:
+  /users:
     post:
       summary: Creates a user.
       requestBody:
@@ -183,11 +183,11 @@ paths: # Path info goes here
         '201':
           description: Created
           content:
-          	application/vnd.api+json:
-          		schema:
-          		  oneOf:
-          		    - $ref: '#/components/schemas/BlogItems'
-          		    - $ref: '#/components/schemas/404List'
+          application/vnd.api+json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/BlogItems'
+                - $ref: '#/components/schemas/404List'
                 example:
                   data:
                     - type: blogs
