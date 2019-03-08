@@ -12,7 +12,10 @@ intro: Sometimes I just want to share my projects in development to my boss, wor
 
 {{page.intro}}
 
-Here are the most commonly used local tunneling tools among developers:
+Here is a pictorial representation of how it works.
+![start](/assets/images/blog/localhost-tunneling/local-tunnel.png){:.img-responsive .center}
+
+Some of the most commonly used localhost tunneling tools among developers include:
 
 ## [Ngrok](https://ngrok.com/)
 
@@ -37,7 +40,7 @@ This will open another bash window with the url forwarding info. Click on the li
 
 80 is the port through which your local server is using to serve requests. You'll be provided with a url that will link your local serve to the public internet. Simple, mmmh?
 
-Ngrok also provides other advanced features like password protection. Check them out on their website.
+Ngrok also provides other advanced features like password protection and creation of custom sub-domains that are reserved for premium users. Check them out on their website.
 
 ## [Localtunnel](https://localtunnel.me/)
 Another exciting easy to use local tunneling tool. 
@@ -100,8 +103,3 @@ Other local tunneling tools include:
 The whole tunnelling thing is really simple and easy to get started with. So, if you are working on something and you would like others to see what you building, pick a tool and fire it up!
 
 ![start](/assets/images/blog/localhost-tunneling/ignite.webp){:.img-responsive .center}
-
-PS:
-If you don't like using third party tools and in this case localhost tunneling tools, then be on the watch out for an upcoming post on how to setup your own tunnel to your google cloud server or AWS server via SSH.
-
-Cheers!
