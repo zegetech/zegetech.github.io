@@ -10,7 +10,7 @@ intro: Software applications and products have a number of variations in terms o
 ---
 
 
-### prerequisites
+# prerequisites
 
 A basic understanding of Ruby and Rails.
 [Why ruby rails](_posts/2018-10-17-why-ruby-on-rails.md).
@@ -24,7 +24,7 @@ It is okay to fire up your application to test a new feature once you are done w
 2. Confidence.
 3. Documentation for code.
 
-# RAILS
+## RAILS
 
 Here at zegetech Ruby on Rails is our stack of choice. We will therefore go through testing a rails Application.
 While writing tests it is important to have the following questions in mind;
@@ -70,6 +70,8 @@ By default, every Rails application has three environments: development, test, a
 Each environment's configuration can be modified similarly. In this case, we can modify our test environment by changing the options found in config/environments/test.rb.
 A dedicated test database allows you to set up and interact with test data in isolation.
 
+## TOOLS
+
 Before diving into testing there are choices you will have to make for your rails application.
 
 1. Test framework
@@ -82,22 +84,44 @@ The framework of choice determines the tests formats:
 
 2. Test data
 For good tests, you'll need to give some thought to setting up test data. Data that can be loaded and re-used through out the tests.
+
  1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default.
  2. [Factory-bot](https://github.com/thoughtbot/factory_bot). Flexible
  3. [fabrication](https://github.com/paulelliott/fabrication) not as popular as the two above.
 
-3. Extras.
-   1. Guard
-   2. Faker
-
+4. Extras.
+   1. [Guard](https://github.com/guard/guard). Automates various tasks by running custom rules whenever file or directories are modified.
+   2. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database  with more than one or two records during development.
+   3. [Rubocop](https://github.com/rubocop-hq/rubocop). A linting tool.
+   
 ## Characteristics of an effective Test Suite.
 
 1. Fast.
+The faster the tests are, the more often they can be run. Ideally, tests should be ran after every change in the codebase. Tests give feedback on what part on what code to needs to be refactored. Faster tests mean more time to code.
 2. Complete.
+Tests cover all public code paths in an application. Any ommission in publicly accessible code should result into failing tests.
 3. Reliable
+Tests should not wrongly fail or pass. If  tests fail intermittently or return false
+positives then confidence in your test and relatably code decreases.
 4. Isolated
+Tests should run in isolation. They should be able to set themselves up, and clean up after themselves.
+When working on a portion of code, you don’t want to have to waste time running the entire
+suite just to see output from a single test. Tests that don’t clean up after themselves may leave data or global state which can lead to failures in other tests when
+run as an entire suite.  
 5. Maintainable.
-6. Expressive
+It should be easy to add new tests and/or edit existing tests. If it is difficult the the test suite will not grow as the app grows. The test suites, therefore suite become ineffective.
+
+6. Expressive.
+Tests are a powerful form of documentation  and should always be up to
+date. They should be easy enough to read and understand.
+
+## HOW.
+
+The app?
+
+Setup. For our example we will use `minitest`, as a test framework, `Factory-bot` for test data schema, `Faker`,to generate test-data, `rubocop` because we are all about clean readable code and finaly guard for both debugging and running tests automatically.
+
+The testing process we will use is `TDD`, it time-saving and will improve flow thus good for this app.
 
 
 
