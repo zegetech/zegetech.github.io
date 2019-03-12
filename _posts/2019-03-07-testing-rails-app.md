@@ -117,9 +117,16 @@ date. They should be easy enough to read and understand.
 
 ## HOW.
 
-The app?
+The app?CRUD? BLOG?
 
 Setup. For our example we will use `minitest`, as a test framework, `Factory-bot` for test data schema, `Faker`,to generate test-data, `rubocop` because we are all about clean readable code and finaly guard for both debugging and running tests automatically.
+
+- Generate app
+- setup database
+- setup factory-bot.
+- setup faker
+- setup rubocop
+
 
 The testing process we will use is `TDD`, it time-saving and will improve flow thus good for this app.
 
