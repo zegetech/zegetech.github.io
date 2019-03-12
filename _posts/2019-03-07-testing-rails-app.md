@@ -11,34 +11,44 @@ intro: Software applications and products have a number of variations in terms o
 
 {{page.intro}}
 
+### prerequisites
+A basic understanding of Ruby and Rails.
+[Why ruby rails](_posts/2018-10-17-why-ruby-on-rails.md).
 
 It is okay to fire up your application to test a new feature once you are done writing code for it. It however, gets cumbersome and undependable when dealing bigger applications. The main reason being regression. A return to a less developed state when new feature breaks old functionality. A common and highly recommended solution is **Automted tests**. Writing programs to test programs.
 
-### Why write automated tests
+### WHY WRITE AUTOMATED TESTS
 
 1. Time saving
 2. Confidence.
 3. Documentation for code.
-What to test(rails specific)?
-Can you have too many tests? Better questions to ask are:
 
-Are you testing the right things?
-Are you adding unnecessary tests while leaving important parts of your code untested?
-Are you keeping your test code clean?
+### RAILS TEST
 
-The primary focus of this activity is to verify that the business logic of the application is working as expected.
+Here at zegetech Ruby on Rails is our stack of choice. We will therefore go through testing a rails Application.
+While writing tests it is important to have the following questions in mind;
 
-Testing support  was woven into the Rails fabric from the beginning. A test directory  is created by default during app generation and respective files for newly generated parts  during development.
+1. Are you testing the right things?
+2. Are you adding unnecessary tests while leaving important parts of your code untested?
+3. Are you keeping your test code clean?
+
+Testing support  was woven into the Rails fabric from the beginning. A test directory  along with the respective files are  created by default during app generation.
+
+![test directory](/assets/images/blog/testing-rails/test-directory.png){:class="img-responsive center"}
 
 The helpers, mailers, and models directories are meant to hold tests for view helpers, mailers, and models, respectively. The controllers directory is meant to hold tests for controllers, routes, and views. The integration directory is meant to hold tests for interactions between controllers.
 
+### Are we testing the right things?
+
+To answer this question we need to know what to test.
 1. Controllers( only test controller logic).
    1. HTTP status codes
    2. Response body.
-   3. was the web request successful?
+   3. Requests
    4. Redirects
-   5. Successfull authentication(if any)
-2. Models?
+   5. Authentications
+2. Models.
+   1. validations.
 3. System
 4. Intergration
 
