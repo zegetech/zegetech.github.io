@@ -6,7 +6,7 @@ categories: developer
 published: false
 author: 
 blog-image: 
-intro: Software applications and products have a number of variations in terms of features they support as well as processes they implement. Application Testing ensures that a particular program or application functions properly. That is why during app development you may find yourself firing up your app to test its features(exploratory testing). This, in essence, goes to show that testing is a crucial part of any software development process. While there is a lot of dogmatism around the recommended testing methodologies(TDD, BDD), I believe tests are all about confidence and as a rule of thumb, the test methodology of choice should give you the most amount of confidence with the least effort. Confidence in your software's ability to deliver as per expectation. Because as developers we are failures if we write code that doesn't work.
+intro: Software applications and products have a number of variations in terms of features they support as well as processes they implement. Application Testing ensures that a particular program or application functions properly. That is why during app development you may find yourself firing up your app to test its features(exploratory testing).As developers our work is to write code that works, we are considered failures if we write code that doesn't.
 ---
 ![Cover Image](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 
@@ -18,11 +18,12 @@ A basic understanding of Ruby and Rails.
 
 {{page.intro}}
 
+This, in essence, goes to show that testing is a crucial part of any software development process. While there is a lot of dogmatism around the recommended testing methodologies(TDD, BDD), I believe tests are all about confidence and as a rule of thumb, the test methodology of choice should give you the most amount of confidence with the least effort. Confidence in your software's ability to deliver as per expectation.
 
-It is okay to fire up your application to test a new feature once you are done writing code for it. It, however, gets cumbersome and undependable when dealing with bigger applications. The main reason being a regression. A return to a less developed state when new feature breaks old functionality. A common and highly recommended solution is **Automated tests**. Writing programs to test programs. This might sound incredulous but here's a list of reasons why it's done;
+It is okay to fire up your application to test a new feature once you are done writing code for it. It, however,gets cumbersome and undependable when dealing with bigger applications. The main reason being a regression. A return to a less developed state when new feature breaks old functionality. A common and highly recommended solution is **Automated tests**. Writing programs to test programs. This might sound redundant at first but here's a list of reasons why it's important;
 
 1. It saves on time.
-2. Confidence.
+2. Builds confidence.
 3. Documentation for the code.
 
 ## RAILS
@@ -97,41 +98,43 @@ For good tests, you'll need to give some thought to setting up test data. Data t
    
 ## Characteristics of an effective Test Suite.
 
-1. Fast.
+1. **Fast.**
 The faster the tests are, the more often they can be run. Ideally, tests should be run after every change in the codebase. Tests give feedback on what part on what code to needs to be refactored. Faster tests mean more time to code.
-2. Complete.
+2. **Complete.**
 Tests cover all public code paths in an application. Any omission in publicly accessible code should result in failing tests.
-3. Reliable
+3. **Reliable.**
 Tests should not wrongly fail or pass. If tests fail intermittently or return false
 positives then confidence in your test and relatably code decreases.
-4. Isolated
+4. **Isolated.**
 Tests should run in isolation. They should be able to set themselves up and clean up after themselves.
 When working on a portion of code, you don’t want to have to waste time running the entire
 suite just to see the output from a single test. Tests that don’t clean up after themselves may leave data in a global state which can lead to failures in other tests when
 running as an entire suite.  
-5. Maintainable.
+5. **Maintainable.**
 It should be easy to add new tests and/or edit existing tests. If it is difficult then the test suite will not grow as the app grows. The test suites, therefore suite become ineffective.
 
-6. Expressive.
+6. **Expressive.**
 Tests are a powerful form of documentation and should always be up to
 date. They should be easy enough to read and understand.
 
 ## HOW
 
 This part of this post assumes that you have a working knowledge of rails and in a docker environment.
-If you don't head over to [Rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)before proceeding with the rest of the post.
+If you don't, head over to [Developing Rails on Docker](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)before proceeding with the rest of the post.
 
 We will go through a simple testing environment example we will use `minitest`, as a test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code and finally `guard` for both debugging and running tests automatically.
 
 If you followed our [tutorial](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
-, you should have an app in place. 
-What we want to do next is generate a scaffold. In your terminal run:
+, you should have an app in place.  
+What we want to do next is generate a scaffold. In your terminal run:  
     `docker-compose exec app bundle exec rails g scaffold recipe name:string ingredients:text method:text`
-Run migrations
-    `docker-compose exec app bundle exec rails db:migrate`
-Rails default test framework is minitest so it is, setup.
 
-Next, we will setup factory_bot. `factory_bot_rails` provides Rails integration for factory_bot. To your gemfile's test and development group add `factory_bot_rails` like so:
+Run migrations:  
+    `docker-compose exec app bundle exec rails db:migrate`
+
+Rails default test framework is minitest so it is, setup.  
+Next, we will setup factory_bot. [**factory_bot_rails**](https://github.com/thoughtbot/factory_bot_rails) provides Rails integration for factory_bot.  
+To your gemfile's test and development group add `factory_bot_rails` like so:
 ```ruby
   group :development, :test do
     # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -165,7 +168,7 @@ Define factories
       end
     end
 ```
-Using factories
+how the facories will be used.
 ```ruby
     # Returns a Recipe instance that's not saved
     recipe = build(:recipe)
@@ -230,7 +233,7 @@ Next we add rubocop
     gem 'gem rubocop-rails_config'
  end
 ```
- Now before we fully setup guard and rubocop we will need to install the gems. Re-build app
+ Now before we fully setup guard and rubocop we will need to install the gems. We will now Re-build app
  ```bash
     docker-compose down #if the app was still running
  ```
@@ -241,10 +244,10 @@ Next we add rubocop
  ```bash
     docker-compose exec app bundle exec guard init minitest
  ```
-A `Guardfile` will be generated in the root of your directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented line then comment out the Rails4 section. The final guardfile:
+A `Guardfile` will be generated in the root of your directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails4 section. The final guardfile:
 ```ruby
     guard :minitest do
-   #comment code a
+   #commented code 
   # Rails 4
   watch(%r{^app/(.+)\.rb$})                               { |m| "test/#{m[1]}_test.rb" }
   watch(%r{^app/controllers/application_controller\.rb$}) { 'test/controllers' }
@@ -261,8 +264,10 @@ fire it up
 ```bash
      docker-compose exec app bundle exec guard #while container is running
 ```
->Hello failing tests
-and a rubocop file 
+>Hello failing tests :(
+
+Rubocop:  
+Generate file 
 ```bash
     docker-compose exec app rails generate rubocop_rails_config:install
 ```
@@ -270,16 +275,15 @@ Fire it up
 ```bash
     docker-compose exec app rubocop
 ```
->> 23 files inspected, 80 offenses detected
+>23 files inspected, 80 offenses detected
 
 Auto-correct offenses?
 ```bash
     docker-compose exec app rubocop -a
 ```
->> 23 files inspected, 80 offenses detected, 80 offenses corrected
+>23 files inspected, 80 offenses detected, 80 offenses corrected
 
-
-Look out for the next part of this post where we get down to the how of writing tests.
+Look out for the next part of this post where we get down to writing tests.
 
 
 
