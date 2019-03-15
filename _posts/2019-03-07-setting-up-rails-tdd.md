@@ -15,6 +15,14 @@ intro: We can all agree that, while the definition of clean code is relative, co
 At Zegetech, rails and docker are an important part of how we make things happen. The resulting setup will, therefore, be for a rails application running on docker.
 If you don't have a basic understanding of either rails, docker or ruby, you might want to [check them out](_posts/2019-02-14-rails-on-docker.md)
 
+Testing support was woven into the Rails fabric from the beginning. A test directory along with the respective files are created by default during app generation.
+
+The helpers, mailers, and models directories are meant to hold tests for view helpers, mailers, and models, respectively. The controller's directory is meant to hold tests for controllers, routes, and views. The integration directory is meant to hold tests for interactions between controllers.
+
+By default, every Rails application has three environments: development, test, and production.
+Each environment's configuration can be modified similarly. In this case, we can modify our test environment by changing the options found in config/environments/test.rb.
+A dedicated test database allows you to set up and interact with test data in isolation.
+
 
 # CHOICES
 
