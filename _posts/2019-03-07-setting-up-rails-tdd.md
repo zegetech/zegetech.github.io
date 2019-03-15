@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Setting Up Rails TDD
-date: 2019-03-07 20:01 +0300
+date: 2019-03-15 20:01 +0300
 categories: developer
 published: false
 author: Melvin Atieno
