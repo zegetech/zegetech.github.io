@@ -51,12 +51,11 @@ To answer these  questions we need to know,
 
 **and what not to test....**
 
-1. Internal states.
-2. Routes
-3. views.
-4. Integration(Don't test what you don't own).
-5. System.
-6. Controllers(Don't test private methods)
+1. Internal states. An example for this, in my opinion, would be tests for sessions, cookies setter and getter methods. Tests for these would be equivalent testing rails features. Basically don't test rails features. If ofcourse there is own logic or computation involved then we can tests can be written
+2. . Routes:Tests for routes are included in the integration tests and controller tests. Having tests for routes would be redundant. 
+3. views. Like routes these, I felt are tested in either controller or integration tests.
+4. Integration(Don't test what you don't own).tests should expect third-party dependencies to do their job, but not substitute to their own test suite. An example for this would be having a test to see whether faker actually generates fake data. 
+5. Controllers(Don't test private methods)Testing private methods directly would be redundant because they are tested through testing public controller actions
 
 
 
