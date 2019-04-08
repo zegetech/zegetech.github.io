@@ -32,30 +32,57 @@ Like everything else that matters, tests are all about choices. Here are the imp
 
 The framework of choice determines the format of the tests. Here's a list of popular one for rails:
 
- 1. [minitest](https://guides.rubyonrails.org/testing.html#rails-meets-minitest). Rails default testing framework
- 2. [rspec](http://rspec.info/)
- 3. [Cucumber](https://github.com/cucumber/cucumber-rails)
- 4. [Test-unit](https://github.com/test-unit/test-unit-rails)
+1. [minitest](https://guides.rubyonrails.org/testing.html#rails-meets-minitest). Rails default testing framework
+2. [rspec](http://rspec.info/)
+3. [Cucumber](https://github.com/cucumber/cucumber-rails)
+4. [Test-unit](https://github.com/test-unit/test-unit-rails)
    
 ## Test data
 
-For good tests, you'll need to give some thought to setting up test data. Test data refers to data that can be loaded and re-used throughout the tests.
+For good tests, you'll need to give some thought to setting up test data. Test data refers to data that can be loaded and re-used throughout the tests, so there won't be a  need to manually enter data every time you implement unit tests
 
- 1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default.
- 2. [Factory-bot](https://github.com/thoughtbot/factory_bot). Flexible
- 3. [fabrication](https://github.com/paulelliott/fabrication) not as popular as the two above.
+1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default.
+2. [Factory-bot](https://github.com/thoughtbot/factory_bot). Flexible
+3. [fabrication](https://github.com/paulelliott/fabrication) not as popular as the two above.
+4. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
 
-## Extras.
+## Codng Styles
 
-These are tools that in our opinion make the testing process seamless.
+Style is important for in writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language, and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
+1. [Rubocop](https://github.com/rubocop-hq/rubocop).
+2. [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
 
-   1. [Guard](https://github.com/guard/guard). Automates various tasks by running custom rules whenever file or directories are modified.
-   2. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
-   3. [Rubocop](https://github.com/rubocop-hq/rubocop). A linting tool.
+## Debugging
+
+Code is bound to have bugs. The process of debugging is made easy with the right tools.
+
+1. [Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) Extends the functionality of the Pry and Byebug gems. With pry-byebug you’re able to implement step-by-step code debugging by setting breakpoints. Pry-byebug allows you to set console (IRB or Rails console) break points so you can check how a piece of code is executed at a certain point.
+
+
+## Authentication and Authorization
+
+There are programmers who prefer writing their own authentication and authorization code, but then there are those who prefer to use ready made tools that offer the same functionality.
+
+1. [Devise](https://github.com/plataformatec/devise) A modular gem that offers a wide range of funtions out of the box, from authentication, authorization to password resseting. It flexible and allows developers to only use what they want.
+2. [devise-jwt](https://github.com/waiting-for-dev/devise-jwt) A devise extension for token based authentication in rails applications.
+3. [Rolify](https://github.com/RolifyCommunity/rolify) A Roles library without any authorization enforcement supporting scope on resource object.
+
+## Security
+
+1. [Brakeman](https://github.com/presidentbeef/brakeman) A static analysis tool which checks Ruby on Rails applications for security vulnerabilities.
+2. [Bundler-audit](https://github.com/rubysec/bundler-audit)  A tool that checks for vulnerable versions of gems in Gemfile.lock and insecure gem sources (http://).
+
+
+## Automation
+
+1. [Guard](https://github.com/guard/guard). Automates various tasks by running custom rules whenever file or directories are modified. It's used to help avoid mundane, repetitive actions and commands such as "relaunching" tools after changing source files or configurations. In the case of TDD, it will automatically run related tests when related files are edited.
+   
+2. [ Capistrano](https://github.com/capistrano/capistrano) A framework for building automated deployment scripts. Can handle a number of tasks including copying files, migrating databases, and compiling assets. 
 
 # SET UP
 
-For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code and finally `guard` for both debugging and running tests automatically.
+For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code, `devise` for authentication and authorization, `pry-beybug` to help us debug, both `Breakman` and `Bundler-audit` for security and finally `guard` to automatically run our tests.
+
 
 If you went through [rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
 , you should be able to quickly set up a rails app on docker. Meaning you have;
