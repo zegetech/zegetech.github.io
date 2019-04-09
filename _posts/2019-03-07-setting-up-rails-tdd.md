@@ -81,7 +81,7 @@ There are programmers who prefer writing their own authentication and authorizat
 
 # SET UP
 
-For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code, `devise` for authentication and authorization, `pry-beybug` to help us debug, both `Breakman` and `Bundler-audit` for security and finally `guard` to automatically run our tests.
+For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` to help us debug, both `Brakeman` and `Bundler-audit` for security and finally `guard` to automatically run our tests.
 
 
 If you went through [rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
@@ -123,6 +123,9 @@ gem "turbolinks", "~> 5"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder", "~> 2.5"
 
+gem 'pry-byebug'
+gem 'pry-rails'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
@@ -161,77 +164,34 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 With the updated gemfile we will need to install the new gems
 ```bash
-$ docker-compose build
+$ docker-compose down && docker-compose build
+```
+Run the application
+```
+$ docker-compose up -d
 ```
 
-With the above in place, What we want to do next is generate a scaffold for the application. In your terminal run:  
+What we want to do next is generate a scaffold for the application. In your terminal run:  
 ```bash
-$ docker-compose exec app bundle exec rails g scaffold recipe namestring ingredients:text method:text
+$ docker-compose exec app bundle exec rails g scaffold recipe namestring ingredients:text process:text
 ```
+  NB if you come accross the following error FATAL: Listen error: unable to monitor directories for changes.
+  Head over [here](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for a quick fix.
 
 Run migrations:  
 ```bash  
 $ docker-compose exec app bundle exec rails db:migrate
 ```
 
+Now lets configure the set gems.
+
 Rails default test framework is minitest so it is, setup.
 
 
-Next, we will setup **factory_bot**.   
-[**factory_bot_rails**](https://github.com/thoughtbot/factory_bot_rails) provides Rails integration for factory_bot.  
+**1. factory_bot**.   
+[**factory_bot_rails**](https://github.com/thoughtbot/factory_bot_rails) provides Rails integration for factory_bot.
+You will notice a factory directory in the test directory after generating the scaffolds. This is because we added the `factory_bot_rails` gem in the gemfile. Otherwise we have manually created the directory and added the necessary files. Next we will configure out test suite to include factory_bot methods.
 
-To your gemfile's test and development group add `factory_bot_rails` like so:
-```ruby
-#Gemfile
-  group :development, :test do
-    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    gem 'factory_bot_rails'
- end
-```
-By default, factory_bot_rails will automatically load factories defined in the following locations, relative to the root of the Rails project:
-
-    factories.rb
-    test/factories.rb
-    spec/factories.rb
-    factories/*.rb
-    test/factories/*.rb
-    spec/factories/*.rb
-
-create a factories directory
-```bash
-$ mkdir test/factories
-```
-```bash
-$ touch factories/recipe.rb
-```
-Define factories
-```ruby
-#test/factories/recipe.rb
-    FactoryBot.define do
-      factory :recipe do
-        name { 'Tea'}
-        ingredients {'water, tea_leaves, sugar, milk'}
-        method { 'Mix and serve hot'}
-      end
-    end
-```
-how the facories will be used.
-```ruby
-    # Returns a Recipe instance that's not saved
-    recipe = build(:recipe)
-
-    # Returns a saved Recipe instance
-    recipe = create(:recipe)
-
-    # Returns a hash of attributes that can be used to build a Recipe instance
-    attrs = attributes_for(:recipe)
-
-    # Returns an object with all defined attributes stubbed out
-    stub = build_stubbed(:recipe)
-```
-
-configure factory bot
 Edit the the `test/test_helper.rb` :
 ```ruby
 #test/test_helper.rb
@@ -246,55 +206,27 @@ Edit the the `test/test_helper.rb` :
      # Add more helper methods to be used by all tests here...
     end
 ```
-Next, we will set up `faker`. Edit the gemfile's test and development group by adding faker.
-```ruby
-    #Gemfile
-    group :development, :test do
-    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    gem 'factory_bot_rails'
-    gem 'faker
-    end
-```
 
-Next guard
-Add Guard to a Gemfile:
-```ruby
-  #Gemfile
-  group :development, :test do
-    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    gem 'factory_bot_rails'
-    gem 'faker'
-    gem 'guard'
-    gem 'guard-minitest'
-  end
+By default, factory_bot_rails will automatically load factories defined in the following locations, relative to the root of the Rails project:
+
+    factories.rb
+    test/factories.rb
+    spec/factories.rb
+    factories/*.rb
+    test/factories/*.rb
+    spec/factories/*.rb
+
+More information on how to customize and use the factories can be found in detail [here](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite).
+
+
+**2. guard**
+
+Generate an empty guard file.
+
+```bash
+$ docker-compose exec app bundle exec guard init
 ```
-Next we add rubocop
-```ruby
-#Gemfile
-  group :development, :test do
-    # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-    gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-    gem 'factory_bot_rails'
-    gem 'faker'
-    gem 'guard'
-    gem 'guard-minitest'
-    gem 'gem rubocop-rails_config'
- end
-```
- Now before we fully setup guard and rubocop, we will need to install the gems. We will now Re-build app
- ```bash
-   $ docker-compose down #if the app was still running
- ```
- ```bash
-    $ docker-compose build app
- ```
- After a successful build, all we will need to do now is generate an empty guardfile.
- ```bash
-   $ docker-compose exec app bundle exec guard init minitest
- ```
-A `Guardfile` will be generated in the root of your directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails4 section. The final guardfile:
+A `Guardfile` will be generated in the root of your directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails 4 section. This is because the directory structure for rails 5 is similar to that of rails 4. The final guardfile:
 ```ruby
     guard :minitest do
    #commented code 
@@ -309,29 +241,55 @@ A `Guardfile` will be generated in the root of your directory. We will now edit 
   #commented code 
 end
 ```
-
 fire it up
 ```bash
     $ docker-compose exec app bundle exec guard #while the container is running
 ```
->Hello failing tests :(
 
-Rubocop:  
-Generate file 
+
+As is the way of TDD, **>Hello failing tests :(** , you will need to write methods to get the tests to pass and so on...
+More information on the configuration customization of guard can be found [here](https://github.com/guard/guard)
+
+**3 rubocop**
+
 ```bash
-   $ docker-compose exec app rails generate rubocop_rails_config:install
+$ docker-compose exec app rails generate rubocop_rails_config:install
 ```
+
 Fire it up
 ```bash
    $ docker-compose exec app rubocop
 ```
->23 files inspected, 80 offenses detected
+>23 files inspected, 90 offenses detected!! oh my!!!
 
 Auto-correct offenses?
 ```bash
    $ docker-compose exec app rubocop -a
 ```
->23 files inspected, 80 offenses detected, 80 offenses corrected
+>23 files inspected, 90 offenses detected, 90 offenses corrected
+
+Because rubocop can be a bit noisy, You can checkout the [official configuration options](https://github.com/rails/rails/blob/master/.rubocop.yml) to quite some things down to your liking.
+
+**4. Brakeman**
+As earlier stated brakeman is a tool that checks Ruby on Rails applications for security vulnerabilities. Unlike most web security scanners, brakeman checks for security vulnerabilities in the source code and one needs not have the whole application running before getting results. In line with TDD, one can check for vulnerabilities as they continue to build up their applications.
+
+Running breakman is pretty straight foward.
+
+```bash
+$ docker-compose exec app brakeman
+```
+> And No warnings found. We are safe,,, for now.
+
+**5. pry-byebug**
+
+If you haven't noticed, in our Gemfile `pry-beybug` has been included globaly, this is because pry might prove an asset to debug the application even during production. You will also notice a the gem `pry-rails` right below it. Pry-rails is basically an intitalizer saving us the trouble of having to require pry in every directory we want to use it.
+
+Because we already installed the gems we can now invoke `pry` at any point of our code and see the breakpoints.
+And this can be done in the guard console.
+
+Add `binding.pry` in any test method then run guard to see the magic.
+
+**6. bundler-audit**
 
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
 Look out for the next part of this post where we get down to writing tests and getting them to pass.
