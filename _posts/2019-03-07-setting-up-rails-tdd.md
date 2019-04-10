@@ -13,7 +13,7 @@ intro: We can all agree that while the definition of clean code is relative, cod
 {{page.intro}}
 
 At Zegetech, rails and docker are an important part of how we make things happen. The resulting setup will, therefore, be for a rails application running on docker.
-If you don't have a basic understanding of either rails, docker or ruby, you might want to [check them out](_posts/2019-02-14-rails-on-docker.md)
+If you don't have a basic understanding of either rails, docker or ruby, you might want to [check them out](2019-02-14-rails-on-docker.md)
 
 Testing support was woven into the Rails fabric from the beginning. A test directory along with the respective files are created by default during app generation.
 
