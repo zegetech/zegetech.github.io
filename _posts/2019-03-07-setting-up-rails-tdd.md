@@ -5,10 +5,10 @@ date: 2019-03-15 20:01 +0300
 categories: developer
 published: false
 author: Melvin Atieno
-blog-image: 
-intro: We can all agree that, while the definition of clean code is relative, code readability and debuggability are universal considerations when determining whether code can be in fact considered clean. These factors also apply to tests. We should all strive to write readable tests that make it easy to debug code. The process of writing clean tests, while easy, can be a nerve-racking experience for a number of people. The major factor for these varying experiences is the setup. The foundation on which your tests and ultimately code is built on will determine the experience you will have reading and writing them. This post will take you through a basic yet powerful setup to get you happily writing tests.
+blog-image: testing-rails/TDD-feature4.png
+intro: We can all agree that while the definition of clean code is relative, code readability and debuggability are universal considerations when determining whether code can be in fact considered good. These factors also apply to tests. We should all strive to write readable tests that make it easy to debug code. The process of writing clean tests can be nerve-racking. I believe the choice of tools and initial project setup have a huge effect or the experience. The foundation on which your tests and ultimately code is built on will determine the experience you will have reading and writing them. This post will take you through a basic yet powerful setup to get you happily writing tests.
 ---
-![Testing](#){:.img-responsive .center}
+![Testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 
 {{page.intro}}
 
@@ -32,23 +32,20 @@ Like everything else that matters, tests are all about choices. Here are the imp
 
 The framework of choice determines the format of the tests. Here's a list of popular one for rails:
 
-1. [minitest](https://guides.rubyonrails.org/testing.html#rails-meets-minitest). Rails default testing framework
-2. [rspec](http://rspec.info/)
-3. [Cucumber](https://github.com/cucumber/cucumber-rails)
-4. [Test-unit](https://github.com/test-unit/test-unit-rails)
+1. [minitest](https://guides.rubyonrails.org/testing.html#rails-meets-minitest). Rails default testing framework. It is fast, clean and lets developers choose between Ruby test syntax and a Rspec-style DSL. Extra features such as test reporting and coverage are available through [extensions](https://github.com/seattlerb/minitest#known-extensions)
+2. [rspec](http://rspec.info/)A DSL for writing tests. While most of the features offered by Rspec can be achieved with minitest through extensions, it might be a hassle when the number of extensions needed to get you up and running are too many. In such situations Rspec.
    
 ## Test data
 
-For good tests, you'll need to give some thought to setting up test data. Test data refers to data that can be loaded and re-used throughout the tests, so there won't be a  need to manually enter data every time you implement unit tests
+For good tests, you'll need to give some thought to setting up test data. Test data refers to data that can be loaded and re-used throughout the tests, so there won't be a  need to manually enter data every time you run tests
 
-1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default.
-2. [Factory-bot](https://github.com/thoughtbot/factory_bot). Flexible
-3. [fabrication](https://github.com/paulelliott/fabrication) not as popular as the two above.
-4. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
+1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default. They are not fine. Fixtures are not clear making it hard to read code and can get very tedious when more complex records are being maintained.
+2. [Factory-bot](https://github.com/thoughtbot/factory_bot). The better replacement. Factories allow for the definition of simple data schemas in one place and have a range of methods for manipulating the schema.
+3. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
 
-## Codng Styles
+## Coding Styles
 
-Style is important for in writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language, and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
+Style is important for writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
 1. [Rubocop](https://github.com/rubocop-hq/rubocop).
 2. [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
 
@@ -56,16 +53,8 @@ Style is important for in writing quality code. In order to write quality code, 
 
 Code is bound to have bugs. The process of debugging is made easy with the right tools.
 
-1. [Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) Extends the functionality of the Pry and Byebug gems. With pry-byebug you’re able to implement step-by-step code debugging by setting breakpoints. Pry-byebug allows you to set console (IRB or Rails console) break points so you can check how a piece of code is executed at a certain point.
+1. [Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) Extends the functionality of the Pry and Byebug gems. With pry-byebug, you’re able to implement step-by-step code debugging by setting breakpoints. Pry-byebug allows you to set console (IRB or Rails console) breakpoints so you can check how a piece of code is executed at a certain point.
 
-
-## Authentication and Authorization
-
-There are programmers who prefer writing their own authentication and authorization code, but then there are those who prefer to use ready made tools that offer the same functionality.
-
-1. [Devise](https://github.com/plataformatec/devise) A modular gem that offers a wide range of funtions out of the box, from authentication, authorization to password resseting. It flexible and allows developers to only use what they want.
-2. [devise-jwt](https://github.com/waiting-for-dev/devise-jwt) A devise extension for token based authentication in rails applications.
-3. [Rolify](https://github.com/RolifyCommunity/rolify) A Roles library without any authorization enforcement supporting scope on resource object.
 
 ## Security
 
@@ -87,7 +76,7 @@ For our set up, we will use `minitest`, as the test framework, `Factory-bot` for
 If you went through [rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
 , you should be able to quickly set up a rails app on docker. Meaning you have;
 
-1. Generated a New Rails app.(Named app, if you chose a different name be ure to make the same changes for the commands i.e replacing app* with your app_name*)
+1. Generated a New Rails app.(Named app, if you chose a different name be sure to make the same changes for the commands i.e replacing app* with your app_name*)
 2. Connected it to the database.
 
 We will now update the gemfile to contain the gems that will be used for this setup. The gemfile will be as follows;
@@ -175,7 +164,7 @@ What we want to do next is generate a scaffold for the application. In your term
 ```bash
 $ docker-compose exec app bundle exec rails g scaffold recipe namestring ingredients:text process:text
 ```
-  NB if you come accross the following error FATAL: Listen error: unable to monitor directories for changes.
+  NB if you come across the following error FATAL: Listen to error: unable to monitor directories for changes.
   Head over [here](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) for a quick fix.
 
 Run migrations:  
@@ -183,14 +172,14 @@ Run migrations:
 $ docker-compose exec app bundle exec rails db:migrate
 ```
 
-Now lets configure the set gems.
+Now let us configure the set gems.
 
 Rails default test framework is minitest so it is, setup.
 
 
-**1. factory_bot**.   
+**1. Factory_bot**.   
 [**factory_bot_rails**](https://github.com/thoughtbot/factory_bot_rails) provides Rails integration for factory_bot.
-You will notice a factory directory in the test directory after generating the scaffolds. This is because we added the `factory_bot_rails` gem in the gemfile. Otherwise we have manually created the directory and added the necessary files. Next we will configure out test suite to include factory_bot methods.
+You will notice a factory directory in the test directory after generating the scaffolds. This is because we added the `factory_bot_rails` gem in the gemfile. Otherwise, we would have manually created the directory and added the respective files. Next, we will configure our test suite to include factory_bot methods.
 
 Edit the the `test/test_helper.rb` :
 ```ruby
@@ -219,14 +208,14 @@ By default, factory_bot_rails will automatically load factories defined in the f
 More information on how to customize and use the factories can be found in detail [here](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md#configure-your-test-suite).
 
 
-**2. guard**
+**2. Guard**
 
 Generate an empty guard file.
 
 ```bash
 $ docker-compose exec app bundle exec guard init
 ```
-A `Guardfile` will be generated in the root of your directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails 4 section. This is because the directory structure for rails 5 is similar to that of rails 4. The final guardfile:
+A `Guardfile` will be generated in your app's root directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails 4 section. This is because the directory structure for rails 5 is similar to that of rails 4. The final guardfile:
 ```ruby
     guard :minitest do
    #commented code 
@@ -247,10 +236,14 @@ fire it up
 ```
 
 
-As is the way of TDD, **>Hello failing tests :(** , you will need to write methods to get the tests to pass and so on...
+As is the way of TDD:
+>Hello failing tests :(** 
+You will need to write methods to get the tests to pass and so on...
 More information on the configuration customization of guard can be found [here](https://github.com/guard/guard)
 
-**3 rubocop**
+**3. Rubocop**
+
+Generate the file.
 
 ```bash
 $ docker-compose exec app rails generate rubocop_rails_config:install
@@ -268,33 +261,31 @@ Auto-correct offenses?
 ```
 >23 files inspected, 90 offenses detected, 90 offenses corrected
 
-Because rubocop can be a bit noisy, You can checkout the [official configuration options](https://github.com/rails/rails/blob/master/.rubocop.yml) to quite some things down to your liking.
+Because rubocop can be a bit noisy, You can check out the [official configuration options](https://github.com/rails/rails/blob/master/.rubocop.yml) to quiet it down to your liking.
 
-**4. Brakeman**
-As earlier stated brakeman is a tool that checks Ruby on Rails applications for security vulnerabilities. Unlike most web security scanners, brakeman checks for security vulnerabilities in the source code and one needs not have the whole application running before getting results. In line with TDD, one can check for vulnerabilities as they continue to build up their applications.
+**4. Brakeman**  
+As earlier stated brakeman is a tool that checks Ruby on Rails applications for security vulnerabilities. Unlike most web security scanners, brakeman checks for security vulnerabilities in the source code and one needs not to have the whole application running before getting results. In line with TDD, one can check for vulnerabilities as they continue to build up their applications.
 
-Running breakman is pretty straight foward.
+Running breakman is pretty straight forward.
 
 ```bash
 $ docker-compose exec app brakeman
 ```
-> And No warnings found. We are safe,,, for now.
+> And No warnings found. We are safe, for now.
 
 **5. pry-byebug**
 
-If you haven't noticed, in our Gemfile `pry-beybug` has been included globaly, this is because pry might prove an asset to debug the application even during production. You will also notice a the gem `pry-rails` right below it. Pry-rails is basically an intitalizer saving us the trouble of having to require pry in every directory we want to use it.
+If you haven't noticed, in our Gemfile `pry-beybug` has been included globally, this is because pry might prove an asset when debugging the application during production. You will also notice the gem `pry-rails` right below it. Pry-rails is basically an initializer saving us the trouble of having to require pry in every file where we need to use it.
 
 Because we already installed the gems we can now invoke `pry` at any point of our code and see the breakpoints.
 And this can be done in the guard console.
 
-Add `binding.pry` in any test method then run guard to see the magic.
+>Add `binding.pry` in any test method then run guard to see the magic.
 
 **6. bundler-audit**
 
+Run bundler-audit to check for vulnerable versions of gems and insecure gem sources. Does not require a network connection
+```bash
+$ docker-compose exec app bundle audit
+```
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
-Look out for the next part of this post where we get down to writing tests and getting them to pass.
-
-
-
-
-
