@@ -50,6 +50,9 @@ This refers the the fraction of tested code in an application.
 ## Test Atomicity
 1. [Database cleaner](https://github.com/DatabaseCleaner/database_cleaner). The database cleaner contains strategies to cleanup the database after every test-suite
 
+## Time Travel
+1. [timecop](https://github.com/travisjeffery/timecop) For time-dependeant tests. It provides "time travel", "time freezing", and "time acceleration" capabilities.
+
 ## Coding Styles
 
 Style is important for writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
@@ -61,6 +64,7 @@ Style is important for writing quality code. In order to write quality code, it 
 Code is bound to have bugs. The process of debugging is made easy with the right tools.
 
 1. [Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) Extends the functionality of the Pry and Byebug gems. With pry-byebug, you’re able to implement step-by-step code debugging by setting breakpoints. Pry-byebug allows you to set console (IRB or Rails console) breakpoints so you can check how a piece of code is executed at a certain point.
+2. [letter_opener](https://github.com/ryanb/letter_opener). A gem that lets you preview emails sent from your application through a browser before/instead of sending them. You will not have to send an catual email to see the output and make changes.
 
 
 ## Security
@@ -134,6 +138,7 @@ group :development, :test do
   gem "faker"
   gem "guard"
   gem "guard-minitest"
+  gem "letter_opener"
   gem "rubocop-rails_config"
 end
 
@@ -432,6 +437,21 @@ class ActiveSupport::TestCase
 end
 
 ```
+**9. Letter Opener**
 
+To configure letter opener we will first set the delivery method in `config/environments/development.rb`
+
+```ruby
+Rails.application.configure do
+  # Settings specified here will take precedence over those in config/application.rb.
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = true
+  # In the development environment your application's code is reloaded on
+  # every request. This slows down response time but is perfect for development
+  # since you don't have to restart the web server when you make code changes.
+  #...everything else remains
+end
+```
+Now any email will pop up in your browser instead of being sent. The messages are stored in tmp/letter_opener.
 
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
