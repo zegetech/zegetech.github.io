@@ -11,8 +11,8 @@ intro: Application programs have a number of variations in terms of features the
 ![Testing Rails](#){:.img-responsive .center}
 In order to follow through this post make sure you have gone through;
 
-- [Why ruby rails](_posts/2018-10-17-why-ruby-on-rails.md).
-- [rails on docker](_posts/2019-02-14-rails-on-docker.md)
+- [Why ruby rails](/2018-10-17-why-ruby-on-rails.md).
+- [rails on docker](/2019-02-14-rails-on-docker.md)
 
 {{page.intro}}
 
@@ -37,17 +37,36 @@ To answer these  questions we need to know,
 
 **what to test...**
 
-1. Controllers( only test controller logic).
+This greatly depends on the kind of application you are building. You cannot, for example ,have tests for views if you creating an API only app. 
+It is also important to note that the terms  used to refer to the tests may vary depending on the context in question.
+
+| General  | Minitests | Rspec |
+|------------------|-----------|-------|
+|Integration tests |Integration tests  | N/A
+|------------------|-------------------|
+| End to end      | System tests | Feature specs
+|-----------------|--------------|-----------------
+|controller tests | Functional tests | Request Spec (and, previously, Controller Spec)
+
+
+1. Intergration
+Integration tests are used to test how various parts of your application interact. They are generally used to test important workflows within your application.
+2. system tests/End to end tests/ Feature specs
+Feature specs are high-level tests meant to exercise slices of functionality
+through an application. The flow of an application, whether it is  performing as designed from start to finish. The purpose of carrying out end-to-end tests is to identify system dependencies and to ensure that the right information is passed between various system components and systems.In rails this means that the tests cover the whole MVC stack.
+3. Controller tests/Functional
+In Rails, testing the various actions of a controller is a form of writing functional tests. Remember your controllers handle the incoming web requests to your application and eventually respond with a rendered view. When writing functional tests, you are testing how your actions handle the requests and the expected result or response. These are generally:
    1. HTTP status codes
    2. Response body.
    3. Requests
    4. Redirects
    5. Authentications
-2. Models.
+For every controller action
+1. . Models.
    1. validations.
    2. Association.
-3. System
-4. Intergration
+   3. Custom methods
+
 
 **and what not to test....**
 
