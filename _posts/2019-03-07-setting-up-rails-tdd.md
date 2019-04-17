@@ -43,6 +43,12 @@ For good tests, you'll need to give some thought to setting up test data. Test d
 2. [Factory-bot](https://github.com/thoughtbot/factory_bot). The better replacement. Factories allow for the definition of simple data schemas in one place and have a range of methods for manipulating the schema.
 3. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
 
+## Test coverage
+This refers the the fraction of tested code in an application.  
+1. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
+
+
+
 ## Coding Styles
 
 Style is important for writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
@@ -70,7 +76,7 @@ Code is bound to have bugs. The process of debugging is made easy with the right
 
 # SET UP
 
-For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` to help us debug, both `Brakeman` and `Bundler-audit` for security and finally `guard` to automatically run our tests.
+For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` to help us debug, both `Brakeman` and `Bundler-audit` for security and finally `guard` to automatically run our tests, `simplecov` for code coverage.
 
 
 If you went through [rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
@@ -122,6 +128,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem 'simplecov'
   gem "factory_bot_rails"
   gem "faker"
   gem "guard"
@@ -142,6 +149,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 2.15"
+  gem "database_cleaner"
   gem "selenium-webdriver"
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem "chromedriver-helper"
@@ -288,4 +296,39 @@ Run bundler-audit to check for vulnerable versions of gems and insecure gem sour
 ```bash
 $ docker-compose exec app bundle audit
 ```
+
+**7. simplecov**
+
+We will load simplecov by requiring it in `test/test_helper.rb`.
+Head off to `test/test_helper.rb` and at the very top add `require "simplecov"`
+
+```ruby
+#test/test_helper.rb
+require "simplecov"
+```
+
+We then launch it. In `test/test_helper.rb`
+```ruby
+#test/test_helper.rb
+require "simplecov"
+SimpleCov.start
+```
+Save the file and run the app.
+```bash
+$ docker-compose up -d
+```
+Run the tests, through guard.
+
+```bash
+$ docker-compose exec app bundle exec guard
+```
+The coverage file is generated in the coverage directory in your root directory. Run the `coverage/index.html` file in your favourite browser to see the coverage. This can be done in the terminal using the command below if you are using chrome.
+```bash
+$ cd coverage && google-chrome index.html
+```
+...
+![coverage](/assets/images/blog/testing-rails/coverage.png){:.img-responsive}
+
+
+
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
