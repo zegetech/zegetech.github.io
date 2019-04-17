@@ -47,7 +47,8 @@ For good tests, you'll need to give some thought to setting up test data. Test d
 This refers the the fraction of tested code in an application.  
 1. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
 
-
+## Test Atomicity
+1. [Database cleaner](https://github.com/DatabaseCleaner/database_cleaner). The database cleaner contains strategies to cleanup the database after every test-suite
 
 ## Coding Styles
 
@@ -329,6 +330,108 @@ $ cd coverage && google-chrome index.html
 ...
 ![coverage](/assets/images/blog/testing-rails/coverage.png){:.img-responsive}
 
+**8. Database Cleaner**
+
+To configure the database cleaner we will need to load it.
+In the `test/test_helper.rb` require the database cleaner module.
+
+```ruby
+#test_helper.rb
+#...everything else reamins
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
+require "faker"
+require "database_cleaner"
+
+#.. everything else remains
+```
+
+Select the strategy we will use, we will use the recommended transaction strategy.
+
+```ruby
+#test_helper
+#..everything else remains
+
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
+require "faker"
+require "database_cleaner"
+DatabaseCleaner.strategy = :transaction
+
+#...everything else remains
+```
+We will need to start database_cleaner transaction with every testcase setup and call the database cleaner with every teardown.
+Now because we can't have multiple setup/teardown methods in minitest, we'd essentially have to call the database_cleaner start and clean method in everysetup, a workaround for this would be the `minitest-around` gem, which adds support for multiple setup/teardown methods. For this particular project, however, we will not use the extra gem. Instead we will use inheritance.
+
+In the `test/test_helper.rb`
+```ruby
+#test_helper
+#.. everything else reamins
+
+module AroundEachTest
+  def before_setup
+    super
+    DatabaseCleaner.start
+  end
+
+  def after_teardown
+    super
+    DatabaseCleaner.clean
+  end
+end
+
+#...everything else remains
+```
+
+Then include the module in the helper class
+
+```ruby
+#test_helper.rb
+
+class ActiveSupport::TestCase
+  #setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  include FactoryBot::Syntax::Methods
+  include AroundEachTest
+
+  #......
+
+end
+```
+The final test helper file
+
+```ruby
+# frozen_string_literal: true
+require "simplecov"
+SimpleCov.start
+
+ENV["RAILS_ENV"] ||= "test"
+require_relative "../config/environment"
+require "rails/test_help"
+require "faker"
+require "database_cleaner"
+DatabaseCleaner.strategy = :transaction
+
+module AroundEachTest
+  def before_setup
+   super
+   DatabaseCleaner.start
+  end
+  def after_teardown
+   super
+   DatabaseCleaner.clean
+  end
+end
+
+class ActiveSupport::TestCase
+  # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+  include FactoryBot::Syntax::Methods
+  # Add more helper methods to be used by all tests here...
+  include AroundEachTest
+end
+
+```
 
 
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
