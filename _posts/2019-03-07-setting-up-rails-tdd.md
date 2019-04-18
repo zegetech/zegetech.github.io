@@ -90,10 +90,13 @@ Code is bound to have bugs. The process of debugging is made easy with the right
    
 2. [ Capistrano](https://github.com/capistrano/capistrano) A framework for building automated deployment scripts. Can handle a number of tasks including copying files, migrating databases, and compiling assets. 
 
+## Performance.
+
+1. [Bullet](https://github.com/flyerhzm/bullet) Notifies you of database queries that can potentially be improved through eager loading, when you're using eager loading that isn't necessary and when you should use counter cache.
+2. 
 # SET UP
 
-For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker`, to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` to help us debug, both `Brakeman` and `Bundler-audit` for security and finally `guard` to automatically run our tests, `simplecov` for code coverage.
-
+For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker` to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` and `letter_opener` to help us debug, both `Brakeman` and `Bundler-audit` for security, `guard` to automatically run our tests, `simplecov` for code coverage, `database_cleaner` for to clean the database after every test suite is run, `webmock` and `vcr` to speed up the external services dependant tests and finally `bullet` for optimization.
 
 If you went through [rails on docker post](https://zegetech.com/blog/2019/02/14/rails-on-docker.html)
 , you should be able to quickly set up a rails app on docker. Meaning you have;
@@ -144,6 +147,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "bullet"
   gem 'simplecov'
   gem "factory_bot_rails"
   gem "faker"
@@ -176,12 +180,14 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-```
+```  
+
 
 With the updated gemfile we will need to install the new gems
 ```bash
 $ docker-compose down && docker-compose build
 ```
+
 Run the application
 ```
 $ docker-compose up -d
@@ -264,8 +270,10 @@ fire it up
 
 
 As is the way of TDD:
->Hello failing tests :(** 
-You will need to write methods to get the tests to pass and so on...
+
+>Hello failing tests :(  
+
+You will need to write methods to get the tests to pass and so on...As is stipulated in the TDD-nstitution.
 More information on the configuration customization of guard can be found [here](https://github.com/guard/guard)
 
 **3. Rubocop**
@@ -280,7 +288,7 @@ Fire it up
 ```bash
    $ docker-compose exec app rubocop
 ```
->23 files inspected, 90 offenses detected!! oh my!!!
+>23 files inspected, 90 offenses detected!! 
 
 Auto-correct offenses?
 ```bash
@@ -311,13 +319,16 @@ And this can be done in the guard console.
 
 **6. bundler-audit**
 
-Run bundler-audit to check for vulnerable versions of gems and insecure gem sources. Does not require a network connection
+With the gem already installed, bundler-audit is ready to go.
+Run bundler-audit to check for vulnerable versions of gems and insecure gem sources. 
+And the best part? It does not require a network connection
 ```bash
 $ docker-compose exec app bundle audit
-```
+``` 
+
+
 
 **7. simplecov**
-
 We will load simplecov by requiring it in `test/test_helper.rb`.
 Head off to `test/test_helper.rb` and at the very top add `require "simplecov"`
 
@@ -365,7 +376,7 @@ require "database_cleaner"
 #.. everything else remains
 ```
 
-Select the strategy we will use, we will use the recommended transaction strategy.
+Select the strategy to use, In this case we will use the recommended transaction strategy.
 
 ```ruby
 #test_helper
@@ -380,8 +391,8 @@ DatabaseCleaner.strategy = :transaction
 
 #...everything else remains
 ```
-We will need to start database_cleaner transaction with every testcase setup and call the database cleaner with every teardown.
-Now because we can't have multiple setup/teardown methods in minitest, we'd essentially have to call the database_cleaner start and clean method in everysetup, a workaround for this would be the `minitest-around` gem, which adds support for multiple setup/teardown methods. For this particular project, however, we will not use the extra gem. Instead we will use inheritance.
+We will need to start the database_cleaner transaction with every test case setup and call the database cleaner with every teardown.
+Now because we can't have multiple setup/teardown methods in minitest, we will essentially have to call the database_cleaner start and clean method in every setup and teardown method, respectively. A workaround for this would be the `minitest-around` gem, which adds support for multiple setup/teardown methods. For this particular project, however, we will not use the extra gem. Instead we will use inheritance.
 
 In the `test/test_helper.rb`
 ```ruby
@@ -541,7 +552,27 @@ Run the tests
 ```bash
 $ docker-compose exec app bundle exec guard
 ```
-The request will be recoded. You should be able to see the record in `test/vcr_cassettes/synopsis.yml` file.
+The request will be recorded. You should be able to see the record in `test/vcr_cassettes/synopsis.yml` file.
 More details on how to use vcr can be found [here](https://github.com/vcr/vcr)
 
+**12.Bullet**
+
+We will need to add the following bullet configurations to:
+1. Enable it
+2. Enable JavaScript popup alerts in the browser
+3. Enable bullet to log in app's logs, i.e `log/bullet.log`.
+4. Enable bullet log warnings in browser's console.log
+
+In `config/environments/test.rb` add the following code.
+
+```ruby
+    config.after_initialize do
+      Bullet.enable = true
+      Bullet.alert = true
+      Bullet.bullet_logger = true
+      Bullet.console = true
+    end
+
+```
+Head over to the [repo](https://github.com/flyerhzm/bullet#demo) for a full demo.
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
