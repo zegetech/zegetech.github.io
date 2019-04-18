@@ -503,7 +503,7 @@ Configure the directory where vcr will record the request and also configure vcr
 
 # vcr configuration
 VCR.configure do |config|
-  config.cassette_library_dir = "./vcr_cassettes"
+  config.cassette_library_dir = "test/vcr_cassettes"
   config.hook_into :webmock # or :fakeweb
 end
 
