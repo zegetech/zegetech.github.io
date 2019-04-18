@@ -44,20 +44,31 @@ For good tests, you'll need to give some thought to setting up test data. Test d
 3. [Faker](https://github.com/stympy/faker). Generates real-looking test data, and populates the test database with more than one or two records during development.
 
 ## Test coverage
-This refers the the fraction of tested code in an application.  
-1. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
+
+This refers the the fraction of tested code in an application.
+
+2. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
 
 ## Test Atomicity
+
 1. [Database cleaner](https://github.com/DatabaseCleaner/database_cleaner). The database cleaner contains strategies to cleanup the database after every test-suite
 
 ## Time Travel
-1. [timecop](https://github.com/travisjeffery/timecop) For time-dependeant tests. It provides "time travel", "time freezing", and "time acceleration" capabilities.
+
+2. [timecop](https://github.com/travisjeffery/timecop) For time-dependeant tests. It provides "time travel", "time freezing", and "time acceleration" capabilities.
+
+## Testing external services.
+
+1. [webmock](https://github.com/bblimke/webmock)Library for stubbing and setting expectations on HTTP requests in Ruby.
+2. [vcr](https://github.com/vcr/vcr)
+
+
 
 ## Coding Styles
 
 Style is important for writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
-1. [Rubocop](https://github.com/rubocop-hq/rubocop).
-2. [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
+2. [Rubocop](https://github.com/rubocop-hq/rubocop).
+3. [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
 
 ## Debugging
 
@@ -140,6 +151,8 @@ group :development, :test do
   gem "guard-minitest"
   gem "letter_opener"
   gem "rubocop-rails_config"
+  gem "timecop"
+  gem "webmock"
 end
 
 group :development do
@@ -453,5 +466,21 @@ Rails.application.configure do
 end
 ```
 Now any email will pop up in your browser instead of being sent. The messages are stored in tmp/letter_opener.
+
+**10. webmock**
+
+To setup webmock, we simply require it in the `test/test_helper.rb` file.
+
+```ruby
+#...rest of the code remains code remains
+  ENV["RAILS_ENV"] ||= "test"
+  require_relative "../config/environment"
+  require "rails/test_help"
+  require "faker"
+  require "database_cleaner"
+  require "webmock/minitest"
+#...rest of the code remains
+```
+For details on how to use webmock can be found [here](https://github.com/bblimke/webmock#examples)
 
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
