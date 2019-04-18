@@ -59,8 +59,8 @@ This refers the the fraction of tested code in an application.
 
 ## Testing external services.
 
-1. [webmock](https://github.com/bblimke/webmock)Library for stubbing and setting expectations on HTTP requests in Ruby.
-2. [vcr](https://github.com/vcr/vcr)
+1. [webmock](https://github.com/bblimke/webmock). Library for stubbing and setting expectations on HTTP requests in Ruby.
+2. [vcr](https://github.com/vcr/vcr). A gem that allows you to record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
 
 
 
@@ -482,5 +482,66 @@ To setup webmock, we simply require it in the `test/test_helper.rb` file.
 #...rest of the code remains
 ```
 For details on how to use webmock can be found [here](https://github.com/bblimke/webmock#examples)
+
+**11. vcr**
+
+We will setup vcr to use webmock.
+To do this we will first need to require it in the `test/test_helper.rb` file.
+
+```ruby
+#test_helper.rb
+
+
+# ..existing code unchanged
+  require "vcr"
+# ...existing code remains
+```
+Configure the directory where vcr will record the request and also configure vcr to hook into webmock. In the `test/test_helper.rb` add the following configuration.
+
+```ruby
+#test_helper.rb
+
+# vcr configuration
+VCR.configure do |config|
+  config.cassette_library_dir = "./vcr_cassettes"
+  config.hook_into :webmock # or :fakeweb
+end
+
+```
+
+create the directory
+```bash
+$ mkdir test/vcr_cassettes
+```
+And that's it.
+
+We can now test it by adding a sample test in our test/test_helper.rb file.
+
+```ruby
+# test_helper.rb
+
+
+  class ActiveSupport::TestCase
+    # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+    include FactoryBot::Syntax::Methods
+    # Add more helper methods to be used by all tests here...
+    include AroundEachTest
+
+    def test_example_dot_com
+      VCR.use_cassette("synopsis") do
+        response = Net::HTTP.get_response(URI('http://www.iana.org/domains/reserved'))
+        assert_match /Example domains/, response.body
+      end
+    end
+  end
+
+```
+
+Run the tests
+```bash
+$ docker-compose exec app bundle exec guard
+```
+The request will be recoded. You should be able to see the record in `test/vcr_cassettes/synopsis.yml` file.
+More details on how to use vcr can be found [here](https://github.com/vcr/vcr)
 
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
