@@ -8,7 +8,14 @@ author:
 blog-image: 
 intro: 
 ---
-Database modelling, the process through where the database requirements of a software are defined and anylyzed
+Database modeling, the process through which the data requirements of a software/project are defined and anylysed with the aim of coming up with an actual database.
+Three different types of data models, models containing elements of data and how they relate to one another, may come as a result of the data modeling process.
+
+1. Conceptual data model. A high level description of the project's/software's infomational needs.It specifically describes the entities about which information will be collected and their relationship to one another. Translates into a logical data model.
+2. Logical data model. Based off of a conceptual data model. Since logical models anticipate implementation on a specific computing system, it describes the internal details of physical storage. The details include entities(tables), attributes(rows/columns), relationships(keys). Logical data models are not technology independent. 
+3. Physical data model. A database schema. A complete physical data model will include all the database artifacts required to create relationships between tables or to achieve performance goals, such as indexes, constraint definitions, linking tables, partitioned tables or clusters.
+
+
 Also referred to as an ER- diagram.
 A graphical represantation of interelated things of interest in a specific domain.
 In software engineering it refers to the things(entities) a software needs to remember to fully perfom a business processes.
