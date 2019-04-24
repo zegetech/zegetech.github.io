@@ -6,7 +6,7 @@ categories: developer
 published: false
 author: Melvin Atieno
 blog-image: testing-rails/TDD-feature4.png
-intro: We can all agree that while the definition of clean code is relative, code readability and debuggability are universal considerations when determining whether code can be in fact considered good. These factors also apply to tests. We should all strive to write readable tests that make it easy to debug code. The process of writing clean tests can be nerve-racking. I believe the choice of tools and initial project setup have a huge effect or the experience. The foundation on which your tests and ultimately code is built on will determine the experience you will have reading and writing them. This post will take you through a basic yet powerful setup to get you happily writing tests.
+intro: The process of writing tests can be nerve-racking especially if you have to write them as you write code(TDD). I, however, bring with me the good news. There are tools that can greatly improve your test writing experience. These tools form a foundation on which your tests and ultimately code is built on, improving the experience you will have writing, reading, refactoring and debugging them. This post will take you through a basic yet powerful setup, that incorporates an interesting set of tools, to get you up and running the TDD way.
 ---
 ![Testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 
@@ -37,7 +37,7 @@ The framework of choice determines the format of the tests. Here's a list of pop
    
 ## Test data
 
-For good tests, you'll need to give some thought to setting up test data. Test data refers to data that can be loaded and re-used throughout the tests, so there won't be a  need to manually enter data every time you run tests
+For good tests, you'll need to give some thought on setting up test data. Test data refers to data that can be loaded and re-used throughout tests eliminating the need to manually enter data every time you run them.
 
 1. [Fixtures](https://api.rubyonrails.org/v5.2.2/classes/ActiveRecord/FixtureSet.html). Rails default. They are not fine. Fixtures are not clear making it hard to read code and can get very tedious when more complex records are being maintained.
 2. [Factory-bot](https://github.com/thoughtbot/factory_bot). The better replacement. Factories allow for the definition of simple data schemas in one place and have a range of methods for manipulating the schema.
@@ -47,7 +47,7 @@ For good tests, you'll need to give some thought to setting up test data. Test d
 
 This refers the the fraction of tested code in an application.
 
-2. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
+1. [simplecov](https://github.com/colszowka/simplecov).It uses Ruby's built-in Coverage library to gather code coverage data
 
 ## Test Atomicity
 
@@ -55,7 +55,7 @@ This refers the the fraction of tested code in an application.
 
 ## Time Travel
 
-2. [timecop](https://github.com/travisjeffery/timecop) For time-dependeant tests. It provides "time travel", "time freezing", and "time acceleration" capabilities.
+1. [timecop](https://github.com/travisjeffery/timecop) For time-dependeant tests. It provides "time travel", "time freezing", and "time acceleration" capabilities.
 
 ## Testing external services.
 
@@ -67,8 +67,9 @@ This refers the the fraction of tested code in an application.
 ## Coding Styles
 
 Style is important for writing quality code. In order to write quality code, it is recommended that the best practices found in [The Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide) are followed. Well-written Ruby reads like a natural language and can be understood even by non-developers. Moreover, well-written code is easy to maintain, modify, and scale. Here are some gems that we recommend to enable the process.
-2. [Rubocop](https://github.com/rubocop-hq/rubocop).
-3. [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
+
+1. [Rubocop](https://github.com/rubocop-hq/rubocop).
+2. . [rails_best_practices](https://github.com/flyerhzm/rails_best_practices)
 
 ## Debugging
 
@@ -87,13 +88,12 @@ Code is bound to have bugs. The process of debugging is made easy with the right
 ## Automation
 
 1. [Guard](https://github.com/guard/guard). Automates various tasks by running custom rules whenever file or directories are modified. It's used to help avoid mundane, repetitive actions and commands such as "relaunching" tools after changing source files or configurations. In the case of TDD, it will automatically run related tests when related files are edited.
-   
 2. [ Capistrano](https://github.com/capistrano/capistrano) A framework for building automated deployment scripts. Can handle a number of tasks including copying files, migrating databases, and compiling assets. 
 
 ## Performance.
 
 1. [Bullet](https://github.com/flyerhzm/bullet) Notifies you of database queries that can potentially be improved through eager loading, when you're using eager loading that isn't necessary and when you should use counter cache.
-2. 
+
 # SET UP
 
 For our set up, we will use `minitest`, as the test framework, `Factory-bot` for test data schema, `Faker` to generate test-data, `rubocop` because we are all about clean readable code,`pry-beybug` and `letter_opener` to help us debug, both `Brakeman` and `Bundler-audit` for security, `guard` to automatically run our tests, `simplecov` for code coverage, `database_cleaner` for to clean the database after every test suite is run, `webmock` and `vcr` to speed up the external services dependant tests and finally `bullet` for optimization.
@@ -205,9 +205,9 @@ Run migrations:
 $ docker-compose exec app bundle exec rails db:migrate
 ```
 
-Now let us configure the set gems.
+Now let us configure the gem sets.
 
-Rails default test framework is minitest so it is, setup.
+Rails default test framework is minitest so it is, good to go.
 
 
 **1. Factory_bot**.   
@@ -352,7 +352,14 @@ Run the tests, through guard.
 ```bash
 $ docker-compose exec app bundle exec guard
 ```
-The coverage file is generated in the coverage directory in your root directory. Run the `coverage/index.html` file in your favourite browser to see the coverage. This can be done in the terminal using the command below if you are using chrome.
+The coverage file is generated in the coverage directory.  
+You will need to omit the coverage directory from version control. In your `.gitignore` file add the following;
+```.gitignore
+#.gitignore
+
+/coverage/*
+```
+Run the `coverage/index.html` file in your favourite browser to see the coverage. This can be done in the terminal using the command below if you are using chrome.
 ```bash
 $ cd coverage && google-chrome index.html
 ```
@@ -391,8 +398,8 @@ DatabaseCleaner.strategy = :transaction
 
 #...everything else remains
 ```
-We will need to start the database_cleaner transaction with every test case setup and call the database cleaner with every teardown.
-Now because we can't have multiple setup/teardown methods in minitest, we will essentially have to call the database_cleaner start and clean method in every setup and teardown method, respectively. A workaround for this would be the `minitest-around` gem, which adds support for multiple setup/teardown methods. For this particular project, however, we will not use the extra gem. Instead we will use inheritance.
+We will need to start a database_cleaner transaction with every test setup and end it with every teardown.
+Because we can't have multiple setup/teardown methods with minitest, we essentially have to call the database_cleaner's start and clean method in every setup and teardown method, respectively. This is okay but it would be breaking the  DRY(Don't Repeat Yourself) rule. A workaround for this would be the `minitest-around` gem, which adds support for multiple setup/teardown methods. For this particular project, however, we will not use the extra gem. Instead we will use inheritance.
 
 In the `test/test_helper.rb`
 ```ruby
@@ -575,4 +582,5 @@ In `config/environments/test.rb` add the following code.
 
 ```
 Head over to the [repo](https://github.com/flyerhzm/bullet#demo) for a full demo.
+
 The final setup can be found on [github](https://github.com/Melvin1Atieno/recipe-testing-rails-example-app/tree/master).  
