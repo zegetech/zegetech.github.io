@@ -4,14 +4,16 @@ title: database modeling and ERDs
 date: 2019-04-23 12:26 +0300
 categories: Developer
 published: false
-author: 
+author: Melvin Atieno
 blog-image: ERD/blog-image2.jpg
-intro: 
+intro: Data is perhaps the most important part of any software system. It is therefore necessary to include it's defininition  and analysis process early in the software development cycle. This process of defining and analysing a system's data requirements, determining what is needed and how it will be organized, is referred to as database modeling. The process includes coming up with a visual representation for the data using either an ERD(Entity Relationship Diagram) or a UML(Unified Modeling Language).
 ---
 
 ![database modeling](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
+
 {{page.intro}}
-Database modeling is the process through which the data requirements of a software/project are defined and anylysed with the aim of coming up with an actual database model.
+
+
 Three different levels of data model abstraction can be achieved in the data modeling process, namely: 
 
 1. **Conceptual data model.** A high level description of the project's/software's infomational needs.It specifically describes the entities about which information will be collected and their relationship to one another. Translates into a logical data model.  
@@ -37,7 +39,7 @@ There are a number of symbols and are notations used when coming up with an ER d
 3. [IDEF1X style](https://en.wikipedia.org/wiki/IDEF1X)
 4. [Barker style](https://en.wikipedia.org/wiki/Barker%27s_notation)
 
-The most popular one of these symbols and notation styles is the **Crow's Foot/Martin information Engineering style**
+The most popular and recommended of these symbols and notation styles is the **Crow's Foot/Martin information Engineering style**
 
 ### Crow's Foot/Martin information Engineering style.
 
