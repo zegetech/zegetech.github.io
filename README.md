@@ -48,5 +48,5 @@ Project uses [jekyll-relative-links](https://github.com/benbalter/jekyll-relativ
 Project uses HTMLproofer to test site output.
 To run the test, in project directory, run:
 ~~~shell
-      `rake test` 
+      `docker-compose run site rake test`  
 ~~~
