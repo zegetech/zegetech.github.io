@@ -1,11 +1,11 @@
 ---
 layout: blog
 title: Kenya Payments Integration Survey
-date: 2019-02-28 10:36 +0300
+date: 2019-03-21 10:36 +0300
 categories: developer 
-published: false
+published: true
 author: Kariuki Gathitu, Ngari Ndung'u
-blog-image: integrations-survey/payments.png
+blog-image: integrations-survey/kenyamoney.jpg
 intro: | 
   The [Stack overflow developer survey results](https://insights.stackoverflow.com/survey/2019) came out recently  to tell an interesting story.
   Ever wonder what the kenyan story looks like? We recently ran a survey within the developer community in Kenya, with the aim of understanding the state of the payment integrations ecosystem.
@@ -19,7 +19,7 @@ Photo by Ibrahim Rifath on Unsplash
 
 > Jumia's IPO on the NYSE was inspirational. However, what came to many as a disappointment was the claim to Africa that never was, or so it seemed.
 When asked why no tech talent resided in Africa, Jumia CEO Sacha Poignonnec said plainly... there is not enough talent in Africa!!
-Shocking, isn't it, that amid all the tech talent and amazing developers in Kenya and around the continent, an "African tech company" cannot find african developers. 
+Shocking, isn't it, that amid all the tech talent and amazing developers in Kenya and around the continent, an "African tech company" cannot find african developers. - Kariuki Gathitu, CEO Zegetech
 
 {{page.intro}}
 
@@ -51,7 +51,7 @@ A majority of the projects were B2C facing projects targeting mainly local custo
 ![distribution of clients](/assets/images/blog/integrations-survey/client_distribution.png){: .img-responsive .center}
 
 Over 58% of integrations were direct integrations to MPESA while 35% were integrations via third party services.
-It also seems that there is a need for payment aggregators to be more inclusive as over 70% of respondents had needed to integrate with more that one payment gateway for their projects in order to have multiple payment options.
+It also seems that there is a need for payment aggregators to be more inclusive as over 70% of respondents had needed to integrate with more than one payment gateway for their projects in order to have multiple payment options.
 These choices included MPESA, Card (VIsa and Mastercard), Equitel, Pesalink, Airtel and Direct to Bank. Of these, MPESA, Card and Equitel were the most popular respectively. 
 
 ![Mpesa](/assets/images/blog/integrations-survey/mpesa_daraja.png){:class="img-responsive center"}
@@ -72,3 +72,4 @@ Consequently the top 3 factors that affected the choice of payment gateway for d
 Conversely the 3 main put-offs for developers were Bad APIs, Lacking sample code and non existent tech support and difficulty in getting a payment account
 ![integration challenges](/assets/images/blog/integrations-survey/integration_challenges.png){: .img-responsive .center}
 
+In conclusion, there is an obvious feeling of progress in the payments field in Knenya that is having a ripple effect across the East African region. However, there may still be much more that needs to be done to get to a place where integration with API's especially MPESA is easier, faster and friendlier. We are looking forward to the growth of the ecosystem and doing our part to push it forward.

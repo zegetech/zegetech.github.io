@@ -42,6 +42,7 @@ Project uses [jekyll-relative-links](https://github.com/benbalter/jekyll-relativ
 ~~~md
 [link to some awesome post](2019-01-01-some-awesome-post.md)
 ~~~
+This however does not work well in the intro section, so for the intro section, use normal relative links to the generated files.
 
 ## Tests
 

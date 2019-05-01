@@ -1,11 +1,11 @@
 ---
 layout: blog
 title: Setting Up Rails TDD
-date: 2019-03-15 20:01 +0300
+date: 2019-03-28 20:01 +0300
 categories: developer
-published: false
+published: true
 author: Melvin Atieno
-blog-image: testing-rails/TDD-feature4.png
+blog-image: testing-rails/tdd.jpg
 intro: The process of writing tests can be nerve-racking especially if you have to write them as you write code(TDD). I, however, bring with me the good news. There are tools that can greatly improve your test writing experience. These tools form a foundation on which your tests and ultimately code is built on, improving the experience you will have writing, reading, refactoring and debugging them. This post will take you through a basic yet powerful setup, that incorporates an interesting set of tools, to get you up and running the TDD way.
 ---
 ![Testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
@@ -189,7 +189,7 @@ $ docker-compose down && docker-compose build
 ```
 
 Run the application
-```
+```bash
 $ docker-compose up -d
 ```
 
@@ -271,7 +271,7 @@ fire it up
 
 As is the way of TDD:
 
->Hello failing tests :(  
+> Hello failing tests :(  
 
 You will need to write methods to get the tests to pass and so on...As is stipulated in the TDD-nstitution.
 More information on the configuration customization of guard can be found [here](https://github.com/guard/guard)
