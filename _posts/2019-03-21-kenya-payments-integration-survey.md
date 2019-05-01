@@ -61,7 +61,9 @@ Surprisingly, many of those that were successful had to build their own internal
 This is a peculiar situation where multiple developers and tech companies are independently investing significant resources in building tech to solve the same exact challenges.
 Developers will 2 times out of 3 choose a custom integration with Mpesa over using a payment gateway.
 Wonder how much of that is just because developers love 'building from scratch'.
-![mode of integration of mpesa]({{site.blog_images_root | append: "integrations-survey/mpesa_integration.png"}}){: .img-responsive .center}
+
+![mode of integration of mpesa](/assets/images/blog/integrations-survey/mpesa_integration.png){:class="img-responsive center"}
+
 Seems like an opportunity for a payment gateway to license software or a gateway PaaS provider to leverage.
 More so because the time to integration varied greatly from a few days to multiple weeks. 
 
@@ -72,4 +74,4 @@ Consequently the top 3 factors that affected the choice of payment gateway for d
 Conversely the 3 main put-offs for developers were Bad APIs, Lacking sample code and non existent tech support and difficulty in getting a payment account
 ![integration challenges](/assets/images/blog/integrations-survey/integration_challenges.png){: .img-responsive .center}
 
-In conclusion, there is an obvious feeling of progress in the payments field in Knenya that is having a ripple effect across the East African region. However, there may still be much more that needs to be done to get to a place where integration with API's especially MPESA is easier, faster and friendlier. We are looking forward to the growth of the ecosystem and doing our part to push it forward.
+In conclusion, there is an obvious feeling of progress in the payments field in Kenya that is having a ripple effect across the East African region. However, there may still be much more that needs to be done to get to a place where integration with API's especially MPESA is easier, faster and friendlier. We are looking forward to the growth of the ecosystem and doing our part to push it forward.
