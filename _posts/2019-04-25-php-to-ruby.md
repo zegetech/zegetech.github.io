@@ -18,7 +18,7 @@ All programming languages comply to the Turing Completeness phenomenon. So, tech
 
 Well, the focus of this piece isn't really confined to PHP developers moving to ruby but rather the switching between any language. I'm just putting the piece into context from what I have gone through in my transition.
 
-PHP has been around for decades and it poses an easier roadmap for new developers to get into the world of web development because of its huge and well developed ecosystem. It's normally the first web programming languages programming newbies are introduced to.
+PHP has been around for decades and it poses an easier roadmap for new developers to get into the world of web development because of its huge and well developed ecosystem. It's normally the first web programming language programming newbies are introduced to.
 
 My primary development language has been PHP with Laravel being my main framework of development until I got lucky and got introduced to [Ruby](https://www.ruby-lang.org/) by our CEO Kariuku Gathitu 3 months ago. Lucky because of the sweetness and joy that Ruby brought into my development life - it is literally structured in a way that makes developers feel happy, few lines of code, lots of gems etc. I believe its creator, [Yukihiro Matsumoto](https://en.wikipedia.org/wiki/Yukihiro_Matsumoto) created it to make developers happy.
 
@@ -28,9 +28,92 @@ But before the sweetness came the struggle of understanding how Ruby is structur
 
 ![phptoruby](/assets/images/blog/php-ruby/phptoruby.png){:.img-responsive .center}
 
-From what I went through I believe that it would be easier for the newbies in programming to dive into ruby than for intermediate programmers switching to ruby. The challenge for the intermediate programmers is that they always write the new language code with their old language style which isn't always compatible. It would be more difficult moving from Java to Ruby that say Java to C#. 
+From what I went through I believe that it would be easier for the newbies in programming to dive into ruby than for intermediate programmers switching to ruby. The challenge for the intermediate programmers is that they always write the new language code with their old language style which isn't always compatible. It would be more difficult moving from Java to Ruby than say Java to C#. 
 
-But hey, don't be scared, I just said ruby brought much joy to my development life, it can too to yours if you are switching.
+But hey, don't be scared, I just said ruby brought much joy to my development life and the 2 languages are kind of similar in some ways. 
+
+### Here are the ways in which the 2 languages are similar:
+- They are both interpreted languages
+- They are both Object Oriented languages with classes, variables and methods having the 3 access control methods - private, protected and public; abstraction, inheritance and other OOP featues working the same way
+- They are both dynamically typed languages, so no declaring variable types like in java. You simply declare a variable For example:
+
+```
+age = 10 #ruby
+$age = 10 #PHP
+```
+- Both have `true` and `false`
+- Arrays and hashes work in the same way
+
+### Differences?
+Definitely, yes! The easily notable differences between the 2 languages include:
+- ruby files use `.rb` while PHP use `.php`
+- Everything in Ruby is an object including strings, numbers, hashes, arrays. That's why when converting between 2 data types
+
+```
+age.to_s # in ruby
+strval($age) # in PHP or 
+(string)$age 
+```
+
+```
+age.length # in ruby
+strlen($age) # in PHP
+```
+- parentheses are not necessary in method calls unless arguments are required, unlike in PHP where you need to include parentheses in method calls. For example:
+
+```
+get_age #method call in ruby
+get_age() #method call in PHP
+```
+- ruby doesn't have statement terminators like `semicolon(;)` in PHP. Starting a statement on a new line depicts end of statement
+- `dot(.)` operator is used for concatenation in ruby unlike PHP which uses `plus(+)` 
+- ruby uses `do and end` pair keyword to show code blocks, PHP uses `braces {}` to show code blocks
+- in ruby [duck typing](https://en.wikipedia.org/wiki/Duck_typing) is the way to go while in PHP either type hinting - ***defining type of arguments to pass in a method call*** or duck typing can be used but with care on the kinds of exceptions that may be raised.
+
+```
+# duck typing in ruby
+
+def get_age(person)
+    return person.age
+end
+
+# type hinting in PHP
+
+function get_age(PersonObj $person){
+    return $person->age()
+}
+
+```
+- debugging in PHP can get a developer in deep pain. If using Xdebug things can get really tough especially when setting it up. If not using Xdebug, var_dump() is an option but this entails numerous browser refreshing which is just a nuisance. Debugging in ruby is simplified. Ruby has got several gems specifically for code debugging. Such gems include Pry that are very simple to use. You simply bundle install the gem, include it in the development and test group and use it by calling `binding.pry` on a file you want to debug.
+- shorter lines of code in basic programming statements like for loops. 
+
+```
+# php
+for ($num = 1; $num <= 10; $num ++) { 
+    echo "$num \n"; 
+}
+# ruby
+(0..10).each do |i| puts "#{i}" end
+```
+- exception handling in PHP uses the `try/catch` block while ruby uses `begin/rescue` blocks
+
+```
+# in PHP
+try{
+    do_something();
+}catch(Exception $e){
+    echo "exception handled"+$e
+}
+
+# in ruby
+begin
+    do_something
+rescue SomeException
+    puts "exception handled"
+end
+```
+
+- and so much other differences. 
 
 ## Why Ruby
 
@@ -73,7 +156,7 @@ With so many startups preferring Ruby as their primary programming languages, I 
 | Popularity| More popular(large developer community) | Less popular |
 | Jobs Posting| 21% | 3% |
 | Ease of development| Takes time | Saves time |
-
+| Famous Web Framework| Laravel, others: codeignite | Ruby on Rails, others: Sinatra |
 
 ## Takeaway
 
@@ -87,5 +170,5 @@ Try to switch to Ruby today!
 
 [Why Ruby on Rails](2018-10-17-why-ruby-on-rails.md)<br>
 [Deploy Rails](2018-11-20-deploy-rails.md)<br>
-[Ruby Method Arguments](2019-02-28-ruby-method-arguments.md)
+[Ruby Method Arguments](2019-02-28-ruby-method-arguments.md)<br>
 [Getting started with Ruby on Rails](https://guides.rubyonrails.org/getting_started.html)
