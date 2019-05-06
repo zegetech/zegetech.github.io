@@ -13,12 +13,17 @@ intro: Data is perhaps the most important part of any software system. A databas
 
 {{page.intro}}
 
-There are two main data modelling techniques used by developers:
+There are two main data modelling techniques used by developers for the data modelling process:
 
 1. Entity Relationship Modelling(ERM) which results into Entity Relationship Diagrams(ERDs).
 2. Unified Modelling Language(UML) which results into Class diagrams/ UML diagrams.
 
-**ERD**
+While there are no major difference between the two, it's worth noting that;
+>ER diagrams represent the abstract representation of the data model, while class diagrams represent the static structure and behavior of the proposed system. Class diagrams are more likely to map in to real-world objects, while ER diagrams most often map in to the tables in the database. there are plenty of occasions where an entity of an ER diagram maps to multiple classes of the corresponding class diagram or a single class of a class diagram mapping to multiple entities of the corresponding ER diagram. But, this depends entirely on the design choices of the software developers.[ref](https://www.differencebetween.com/difference-between-er-diagram-and-vs-class-diagram/)
+
+This particular post however, as the heading suggests, will focus more on ERDs.
+
+## Entity Relationship diagram 
 
 An ERD(Entity Relationship diagram) is a graphical representation of interrelated things of interest in a specific domain.  
 In software engineering, it refers to the things(entities) software needs to remember to fully perform business processes.  
@@ -32,7 +37,6 @@ There are four basic components of an ER diagram:
 3. **Relationship**: The relationship between the entities.
 4. **Cardinality**: possible number of occurrence in one entity which is associated with the number of occurrences in another.
    
-Three different levels of data model abstraction can be achieved in the data modelling process, namely: 
 There are a number of symbols and notations used to represent these components when coming up with an ER diagram.
 
 1. [Bachman](https://en.wikipedia.org/wiki/Data_structure_diagram#Bachman_diagram).
@@ -46,9 +50,15 @@ The most popular and recommended of these symbols and notation styles is the **C
 
 ![crow's Foot notation](/assets/images/blog/ERD/Crows-Foot-notation-symbols.png){:.img-responsive .center}
 
-5. **Conceptual data model.** A high-level description of the project's/software's information needs. It specifically describes the entities about which information will be collected and their relationship to one another. Translates into a logical data model.  
-6. **Logical data model.** Based off of a conceptual data model. Since logical data models anticipate implementation on a specific computing system, it describes the internal details of physical storage(relational or non-relational). The details include entities(tables), attributes(rows/columns), relationships(keys). Logical data models are technology independent.  
-7. **Physical data model.** A database schema. A complete physical data model will include all the database artefacts required to create relationships between tables or to achieve performance goals, such as indexes, constraint definitions, linking tables, partitioned tables or clusters.
+Types of data base models.
+
+ERD diagrams are now used to achieve three levels of abstraction during the  database modelling process;
+
+1. **Conceptual data model.** A high-level description of the project's/software's information needs. It specifically describes the entities about which information will be collected and their relationship to one another. This level hardly contains any details available for the physical database structure Translates into a logical data model.  
+For example;
+![Conceptual data model](/assets/images/blog/ERD/cdm.png){:.img-responsive .center}
+1. **Logical data model.** Based off of a conceptual data model. Since logical data models anticipate implementation on a specific computing system, it describes the internal details of physical storage(relational or non-relational). The details include entities(tables), attributes(rows/columns), relationships(keys). Logical data models are technology independent.  
+2. **Physical data model.** A database schema. A complete physical data model will include all the database artefacts required to create relationships between tables or to achieve performance goals, such as indexes, constraint definitions, linking tables, partitioned tables or clusters.
 
 
 
