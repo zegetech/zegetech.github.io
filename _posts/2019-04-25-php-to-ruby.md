@@ -12,7 +12,7 @@ intro: Learning anything new has always been an uphill task for normal guys, I d
 ![phptoruby](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
 {{page.intro}}
 
-All programming languages comply to the Turing Completeness phenomenon. So, technically anything done in language A could be done in language Z.
+All programming languages comply to the [Turing Completeness phenomenon](http://wiki.c2.com/?TuringComplete). So, technically anything done in language A could be done in language Z.
 
 ## My experience
 
@@ -28,7 +28,7 @@ But before the sweetness came the struggle of understanding how Ruby is structur
 
 ![phptoruby](/assets/images/blog/php-ruby/phptoruby.png){:.img-responsive .center}
 
-From what I went through I believe that it would be easier for the newbies in programming to dive into ruby than for intermediate programmers switching to ruby. The challenge for the intermediate programmers is that they always write the new language code with their old language style which isn't always compatible. It would be more difficult moving from Java to Ruby than say Java to C#. 
+From what I went through I believe that it would be easier for the newbies in programming to dive into ruby than for intermediate programmers switching to ruby. The challenge for the intermediate programmers is that they always write the new language code with their old language style which isn't always compatible. They are so used to a single language that shifting to another language becomes an uphill task especially if the said languages are so different in their style of doing things. Perhaps the trick would be to unlearn the programming style of say the verbose way of doing it in PHP and learn the new robust programming style like Ruby's.     
 
 But hey, don't be scared, I just said ruby brought much joy to my development life and the 2 languages are kind of similar in some ways. 
 
@@ -47,7 +47,12 @@ $age = 10 #PHP
 ### Differences?
 Definitely, yes! The easily notable differences between the 2 languages include:
 - ruby files use `.rb` while PHP use `.php`
-- Everything in Ruby is an object including strings, numbers, hashes, arrays. That's why when converting between 2 data types
+- commenting
+```
+# this is a comment in ruby 
+// this is a comment in php
+```
+- Everything in Ruby is an object including strings, numbers, hashes, arrays. That's why when converting between 2 data types, oftenly called as type casting, here's what happens:
 
 ```
 age.to_s # in ruby
@@ -66,8 +71,19 @@ get_age #method call in ruby
 get_age() #method call in PHP
 ```
 - ruby doesn't have statement terminators like `semicolon(;)` in PHP. Starting a statement on a new line depicts end of statement
-- `dot(.)` operator is used for concatenation in ruby unlike PHP which uses `plus(+)` 
-- ruby uses `do and end` pair keyword to show code blocks, PHP uses `braces {}` to show code blocks
+- `dot(.)` operator is used for concatenation in PHP unlike ruby which uses `plus`. For example:
+
+```
+# PHP
+$age=10
+echo "I am ".$age." years old" 
+
+# ruby
+age=10
+puts "I am "+age.to_s+" years old" # note the explicit type conversion in ruby. Unlike in # PHP which does an implicit type conversion 
+```
+- ruby uses `do and end` pair keyword as well as `braces {}` to show code blocks, PHP uses `braces {}` only to show code blocks
+
 - in ruby [duck typing](https://en.wikipedia.org/wiki/Duck_typing) is the way to go while in PHP either type hinting - ***defining type of arguments to pass in a method call*** or duck typing can be used but with care on the kinds of exceptions that may be raised.
 
 ```
@@ -84,7 +100,7 @@ function get_age(PersonObj $person){
 }
 
 ```
-- debugging in PHP can get a developer in deep pain. If using Xdebug things can get really tough especially when setting it up. If not using Xdebug, var_dump() is an option but this entails numerous browser refreshing which is just a nuisance. Debugging in ruby is simplified. Ruby has got several gems specifically for code debugging. Such gems include Pry that are very simple to use. You simply bundle install the gem, include it in the development and test group and use it by calling `binding.pry` on a file you want to debug.
+- debugging in PHP can get a developer in deep pain. If using Xdebug things can get really tough especially when setting it up. If not using Xdebug, var_dump() is an option but this entails numerous browser refreshing which is just a nuisance. Debugging in ruby is simplified. Ruby has got several gems specifically for code debugging. Such gems include byebug that are very simple to use. You simply bundle install the gem, include it in the development and test group and use it by calling `binding.pry` on a file you want to debug.
 - shorter lines of code in basic programming statements like for loops. 
 
 ```
@@ -112,8 +128,21 @@ rescue SomeException
     puts "exception handled"
 end
 ```
+- in PHP, composer is used to manage application libraries while ruby uses bundler that manages the ruby gems, tracking versions compatibility of the gems and updates the gems upon availability of newer versions.
+- function declaration in PHP is done using `function` keyword enclosing the function body in braces while ruby uses `def` keyword as follow:
 
-- and so much other differences. 
+```
+# in PHP
+function get_age(){
+    echo $age
+}
+
+# in Ruby
+def get_age
+    puts age
+end
+```
+- and so much other differences in things like arrays, hashes(called associative arrays in PHP), control statements, OOP features, namespacing
 
 ## Why Ruby
 
@@ -128,7 +157,7 @@ Another plus is that gem installation is quite simple. All you need to do is typ
 
 `gem install gem-name`
 
-or simply include it into a Gemfile if using RoR and run `bundle install` in your command line.
+or simply include it into a Gemfile if using RoR and use bundler by running `bundle install` in your command line.
 
 #### Community
 With the ever growing Ruby community and ruby boasts of a large developer community. We now have Ruby communities in almost every part of the world. One close to my locality is [Nairuby](http://nairuby.org/). The repos on Github are also on the rise, SO also on the rise. The good thing with the Ruby community is that most it has developers who have a good grasp of the language, so expect help from people having a deeper understanding of the language
@@ -146,7 +175,23 @@ end
 #### Security
 Ruby also provides tools that help ensure the security of your application. With tools like Brakeman and Rubocop, static code analysis is enabled. This helps ensure that a developer writes code that is tamper-proof and prevent hacker activities in production.
 #### Built for the future
-With so many startups preferring Ruby as their primary programming languages, I would say Ruby was built for the future. Statistics also show that most developers are interested in learning Ruby, online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead. Everyone is moving to Ruby, why don't you? 
+With so many startups preferring Ruby as their primary programming languages, I would say Ruby was built for the future. Statistics also show that most developers are interested in learning Ruby, online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead. 
+
+Notable companies in the global and local markets using Ruby and RoR include:
+
+##### Global Companies
+[Github](https://github.com/)<br>
+[Airbnb](http://airbnb.com/)<br>
+[Fiverr](https://www.fiverr.com/)<br>
+[Bloomberg](https://www.bloomberg.com/)<br>
+[Crunchbase](https://www.crunchbase.com/)
+
+##### Local Companies
+[Andela](https://andela.com/)<br>
+[Fuzu](https://www.fuzu.com/)<br>
+[Mfarm](http://mfarm.co.ke/)
+
+Everyone is moving to Ruby, why don't you? 
 ## PHP vs Ruby
 
 || PHP | Ruby |
