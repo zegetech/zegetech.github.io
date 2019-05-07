@@ -62,8 +62,10 @@ For example;
 For example;
 ![Logical data model](/assets/images/blog/ERD/ldm.png){:.img-responsive .center}
 
-2. **Physical data model.** A database schema. A complete physical data model will include all the database artefacts required to create relationships between tables or to achieve performance goals, such as indexes, constraint definitions, linking tables, partitioned tables or clusters.
+1. **Physical data model.** It describes the specific implementation of the data model. A complete physical data model will include all the database artefacts required to create relationships between tables or to achieve performance goals, such as indexes, constraint definitions, linking tables, partitioned tables or clusters.
 
+For example;
+![Physical data model](/assets/images/blog/ERD/pdm.png){:.img-responsive .center}
 
 
 
