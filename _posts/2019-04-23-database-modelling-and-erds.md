@@ -1,28 +1,28 @@
 ---
 layout: blog
-title: database modelling and ERDs
+title: Database modelling and ERDs
 date: 2019-04-23 12:26 +0300
 categories: Developer
 published: false
 author: Melvin Atieno
 blog-image: ERD/blog-image2.jpg
-intro: Data is perhaps the most important part of any software system. A database can be defined as a system in which data is stored in an organized format to allow analysis, easy-access, manipulation and, if necessary, augmentation. In order to come up with a database system that meets all the database needs of a system/software developers go through a process commonly referred to as database modelling. This process involves  defining and analysing a system’s data requirements, determining what information is needed and how it will be organized/accessed and ultimately coming up with a visual represention of the intended database for development.
+intro: Data is perhaps the most important part of any software system. Data is stored in as database. A database can be defined as a system in which data is stored in an organized format to allow analysis, easy-access, manipulation and, if necessary, augmentation. In order to come up with a database system that meets all the database needs of a system, software developers take on  a process commonly referred to as database modelling. This process involves defining and analysing a system’s data requirements, determining what information is needed and how it will be organized/accessed and ultimately coming up with a visual representation of the intended database for development.
 ---
 
 ![database modelling](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
 
 {{page.intro}}
 
-There are two main data modelling techniques used in the data modelling process are:
+There are two main data modelling techniques used in the data modelling process. They are:
 
 1. Entity Relationship Modelling(ERM) which results into Entity Relationship Diagrams(ERDs).
 2. Unified Modelling Language(UML) which results into Class diagrams/ UML diagrams.
 
-While there are no earth shattering differences between the two, it's worth noting that;
->ER diagrams represent the abstract representation of the data model, while class diagrams represent the static structure and behavior of the proposed system. Class diagrams are more likely to map in to real-world objects, while ER diagrams most often map in to the tables in the database. there are plenty of occasions where an entity of an ER diagram maps to multiple classes of the corresponding class diagram or a single class of a class diagram mapping to multiple entities of the corresponding ER diagram. But, this depends entirely on the design choices of the developers.
+While there are no earth-shattering differences between the two, it's worth noting that;
+>ER diagrams represent the abstract representation of the data model, while class diagrams represent the static structure and behaviour of the proposed system. Class diagrams are more likely to map real-world objects, while ER diagrams most often map into the tables in the database. there are plenty of occasions where an entity of an ER diagram maps to multiple classes of the corresponding class diagram or a single class of a class diagram mapping to multiple entities of the corresponding ER diagram. But, this depends entirely on the design choices of the developers.
 [source](https://www.differencebetween.com/difference-between-er-diagram-and-vs-class-diagram/)
 
-This particular post however, as the heading suggests, will focus more on ERDs.
+This particular post, however, as the heading suggests, will focus more on ERDs.
 
 ## Entity Relationship diagram 
 
@@ -51,14 +51,14 @@ The most popular and recommended of these symbols and notation styles is the **C
 
 ![crow's Foot notation](/assets/images/blog/ERD/Crows-Foot-notation-symbols.png){:.img-responsive .center}
 
-## Types of data base models.
+## Types of data models.
 
-ERD diagrams are now used to achieve upto three levels of abstraction during the database modelling process;
+ERD diagrams are used to come up with visual representation fo the data modelling process. Upto three levels of abstraction can be achieved in the process;
 
 1. **Conceptual data model.** A high-level description of the project's/software's information needs. It specifically describes the entities about which information will be collected and their relationship to one another. This level hardly contains any details available for the physical database structure Translates into a logical data model.  
 For example;
 ![Conceptual data model](/assets/images/blog/ERD/cdm.png){:.img-responsive .center}
-1. **Logical data model.** The logical data model is based off of a conceptual data model. Since logical data models anticipate implementation on a specific computing system, it describes the internal details of physical storage(relational or non-relational). It defines how the system should be implemented regardless of the DBMS(Database management system). Logical data models are technology independent. 
+1. **Logical data model.** The logical data model is based on a conceptual data model. Since logical data models anticipate implementation on a specific computing system, it describes the internal details of physical storage(relational or non-relational). It defines how the system should be implemented regardless of the DBMS(Database management system). Logical data models are technology independent. 
 For example;
 ![Logical data model](/assets/images/blog/ERD/ldm.png){:.img-responsive .center}
 
@@ -66,6 +66,9 @@ For example;
 
 For example;
 ![Physical data model](/assets/images/blog/ERD/pdm.png){:.img-responsive .center}
+
+Associations are also indicated in the process. Here is an example of a physical model showing a has many through association.
+![Physical data model](/assets/images/blog/ERD/pdm(association).png){:.img-responsive .center}
 
 
 
