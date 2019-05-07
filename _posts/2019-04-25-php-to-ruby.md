@@ -184,7 +184,7 @@ Notable companies in the global and local markets using Ruby and RoR include:
 [Airbnb](http://airbnb.com/)<br>
 [Fiverr](https://www.fiverr.com/)<br>
 [Bloomberg](https://www.bloomberg.com/)<br>
-[Crunchbase](https://www.crunchbase.com/)
+[Crunchbase](https://www.crunchbase.com/){:data-proofer-ignore=''}
 
 ##### Local Companies
 [Andela](https://andela.com/)<br>
