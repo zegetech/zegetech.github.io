@@ -80,5 +80,5 @@ Here are some tools that can be used for database modelling:
 4. [QuickDBD](https://www.quickdatabasediagrams.com/)
 5. [SQLDBM](https://sqldbm.com/Home/)
 6. [MySQL Workbench](https://www.mysql.com/products/workbench/) (very popular)
-7. [StarUml](staruml.io/)
+7. [StarUml](http://staruml.io/)
 8. [SQLEditor](https://www.malcolmhardie.com/sqleditor/) (Mac only)
