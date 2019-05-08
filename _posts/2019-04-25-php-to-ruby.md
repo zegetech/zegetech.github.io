@@ -174,11 +174,11 @@ Ruby also provides tools that help ensure the security of your application. With
 ### Built for the future
 With so many startups preferring Ruby as their primary programming languages, I would say Ruby was built for the future. This was fueled by the MVC philisopy pioneered by Ruby on Rails and is now being adoptied by other languages in the form of Laravel, Meteor etc. Statistics also show that most developers are interested in learning Ruby, online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead. 
 
-if you don't believe me, here is a google trends comparison between [Rails and Laravel in the US](https://trends.google.com/trends/explore?geo=US&q=%2Fm%2F0505cl,laravel), which is a trend setting market in technology. 
+if you don't believe me, here is a google trends comparison between [Rails and Laravel in the US](https://trends.google.com/trends/explore?geo=US&q=%2Fm%2F0505cl,laravel){:data-proofer-ignore=''}, which is a trend setting market in technology. 
 
 ![Larvel vs Rails](/assets/images/blog/php-ruby/laravelvrails-us.png){:.img-responsive .center}
 
-The [Kenyan trend results](https://trends.google.com/trends/explore?geo=KE&q=%2Fm%2F060kv,%2Fm%2F06ff5) are quite worrisome and it seems developers are still stuck in legacy and haven't been enlightened enough to make the move. Better get ready for the future!
+The [Kenyan trend results](https://trends.google.com/trends/explore?geo=KE&q=%2Fm%2F060kv,%2Fm%2F06ff5){:data-proofer-ignore=''} are quite worrisome and it seems developers are still stuck in legacy and haven't been enlightened enough to make the move. Better get ready for the future!
 
 ![Larvel vs Rails](/assets/images/blog/php-ruby/laravelvrails-ke.png){:.img-responsive .center}
 
