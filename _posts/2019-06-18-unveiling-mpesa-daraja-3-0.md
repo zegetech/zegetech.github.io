@@ -5,18 +5,23 @@ date: 2019-06-18 13:08 +0300
 categories: 
 published: false
 author: Tom Nyongesa
-blog-image: 
+blog-image: daraja-2/daraja.png
 intro: This never happened, Mpesa haven't launched a new API. What if they did? What would it mean? What would it be like? Same reliability of G2 SOAP API, accessibility of Daraja, simplicity of Stripe API and Security of Visa API?  
 ---
+![daraja](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}<br>
 {{page.intro}}
 
-Well, my thoughts? It would have been the perfect product the community never got. Perfect here sounds strong but it doesn't necessarily discredit [Daraja](https://developer.safaricom.co.ke/apis) as imperfect. Most of us in the Fintech space have integrated the Daraja REST API with a handful of us integrating the legacy G2 SOAPAPI. 
+Well, my thoughts? It would have been the perfect product the community never got. Perfect here sounds strong but it doesn't necessarily discredit [Daraja](https://developer.safaricom.co.ke/apis) as imperfect. Most of us in the Fintech space have integrated the Daraja REST API with a handful of us integrating the legacy G2 SOAP API. 
 
-Daraja has been in existence for a while now and working relatively well. However, the general feeling of the Kenyan tech community specifically on MPESA integration clearly shows that the community in the Fintech space has just been 'surviving'. Our recent release of the Kenyan Payment Integration survey solidifies my arguement. Going through the survey exposes the fact that the current Daraja API has got a relatively poor documentation, lacks sample integration codes, not so reliable test bed, poor security implementation and many other reasons among them a complex onboarding process. Here's the link to the [survey findings](2019-03-21-payments-kenya.md).
+The legacy G2 SOAP API is the reliable MPESA API. However, it has attracted less interest among the developers perhaps because of its clumsy nature, the WSDL format and the fact that it wasn't really public. Going public led to the development of Daraja, an improved REST based version. 
+
+![daraja](/assets/images/blog/daraja-2/daraja.jpg){: .img-responsive .center}
+
+Daraja has been in existence for a while now and working relatively well. However, the general feeling of the Kenyan tech community specifically on MPESA integration clearly shows that the community in the Fintech space is just 'surviving'. Our recent release of the Kenyan Payment Integration survey solidifies my arguement. Going through the survey exposes the fact that the current Daraja API has got a relatively poor documentation, lacks sample integration codes, not so reliable test bed, poor security implementation and many other reasons among them a complex onboarding process. Here's the link to the [survey findings](2019-03-21-payments-kenya.md).
 
 Part of findings of the survey tells us that the integration or rather testing of the Daraja API isn't a walk in the park either:
 
-![ease of integration](/assets/images/blog/daraja-3/ease_of_integration.png){: .img-responsive .center}
+![ease of integration](/assets/images/blog/daraja-2/ease_of_integration.png){: .img-responsive .center}
 
 Can it be better? Is it even possible to improve on it? Can we make it simpler?Yes, a strong **YES**. But simple isn't simple enough unless we put it into context and define what simple really looks like. 
 
@@ -54,14 +59,38 @@ Everyone likes testing out a product before putting it into commercial use. Test
 
 ## Proposed Daraja 2.0
 
-After thinking through Daraja 2.0 optimal implementation and the issues mentioned above, we've consolidated our thoughts into a beautiful, better, clearer, cleaner, more secure Daraja 2.0 proposal in terms of its API specification. If you think that you've experienced issues with the current [Daraja API](https://developer.safaricom.co.ke/apis) and would like to experience a better solution to MPESA integration feel free to checkout the following Daraja 2.0 implementation. So far, it proposes a better implementation of the B2C and C2B APIs - other APIs like C2B express checkout commonly know as STK Push, B2B transfers, Account Balance query, Transaction reversal and more.
+After thinking through Daraja 2.0 optimal implementation and the issues mentioned above, we've consolidated our thoughts into a beautiful, better, clearer, cleaner, more secure Daraja 2.0 proposal. 
 
-You'll only need a Postman client to try it out. [Download](https://www.getpostman.com/downloads/) one if you don't have it installed.
+### Proposed Structure...
+- uses JSONAPI format. Treats everything as a resource.
+- uses JWT for authentication. The JWT token embeds static developer data like MPESA account credentials and developer endpoints. 
+- secures developer endpoints
+- uses conventional naming styles
+- uses globally accepted data formats like time formats which are always in UTC format.
+- keeps the API simple. Developer only needs to focus on the business goals. 
+
+To make this proposal practical, the following assumptions were made:
+
+- developer endpoints for receiving payment notification do not change with every call and will already have been pre-registered
+- JWT token will embed/co-relate static information of MPESA credentials and developer endpoints that the developer would have provided through a different registration process
+- developer already has MPESA account for relevant endpoints i.e C2B or B2C paybills
+
+For those who would like to have a deeper understanding and look at the proposed Daraja 2.0, it's only prudent that I share the backend design of it, its API definitions and the Postman collections. 
+
+*Please note that we only have a proposal for the B2C and C2B APIs. Be on the look out for proposals of other APIs like C2B express checkout commonly know as STK Push, B2B transfers, Account Balance query, Transaction reversal and more.*
+
+![ERD](/assets/images/blog/daraja-2/ERD_v4.png){: .img-responsive .center}
+
+*You can also contribute to this design by editting its StarUML file found [here](/assets/images/blog/daraja-2/uniapi.mdj)*
 
 [Daraja 2.0 API Specification](https://app.swaggerhub.com/apis/zegetech/mpesaUniAPI/1.0)<br>
 [Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/47afa78d656679d9f5d5)
 
-Please click on the Postman collection link and run the collection on the Postman client. Please note that the responses aren't real MPESA responses but simply mock responses for demonstration purposes.
+If you think that you've experienced issues with the current [Daraja API](https://developer.safaricom.co.ke/apis) and would like to experience a better solution to MPESA integration feel free to try out the proposed solution and design. 
+
+You'll only need a Postman client to try it out. [Download](https://www.getpostman.com/downloads/) one if you don't have it installed.
+
+Please click on the Postman collection link and run the collection on the Postman client. Also, note that the responses aren't real MPESA responses but mock responses for demonstration purposes.
 
 ### A quick recap of the collection...
 
@@ -152,10 +181,10 @@ Here is a sample request of the legacy G2 implementation of the API which is SOA
 ```
 My feedback: 
 
-- uses less attractive old age XML. Who does that nowadays??
+- uses less attractive old age XML. Where is it used at this age nowadays??
 - looks clumsy
 
-Daraja implementation of the same B2C request which is REST based:
+The REST based Daraja implementation of the same B2C request:
 
 ```
 curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-Type: application/json" -d "{
@@ -179,7 +208,7 @@ My feedback:
 - puts too much security weight on developer(process of generating the Security Credential)
 - confusing naming of keys. One can't easily diffrenciate Party A, from Party B and Initiator Name. In fact the description on the docs confuses newbies further
 
-Proposed Daraja 2.0 implementation of the same:
+Proposed Daraja 2.0 implementation of the B2C API :
 
 ```
 curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-Type: application/vnd.api+json" --header "Accept: application/vnd.api+json" -d "
