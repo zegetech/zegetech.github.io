@@ -1,20 +1,22 @@
 ---
 layout: blog
-title: Common ground
+title: How we collaborate
 date: 2019-06-19 10:37 +0300
 categories: 
 published: false
 author: Melvin Atieno
-blog-image: code-style/team.jpg
+blog-image: collaboration/collab2.jpg
 intro: The need for collaboration is inevitable and its value is evidenced by the existance of numerous amaizing products developed by teams that successfully and objectively worked together towards a specific goal. Collaboration tools have  evolved over the years making the collaboration easier and almost seamless. These tools have now made it possible to not only work as a team, but do it from anywhere at anytime. We at **Zegetech** have our very own selection, of tools, for the different phases of our development process.
 ---
-![Team work](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
+![Team](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
 
 {{page.intro}}
 
-## [Project Management](2019-01-25-agile-product-development.md).
+## Project Management
 
-We employ various project management tools to ensure that everyone is in sync. We all know what has been done, what needs to be done and who's doing whatever is currently being done. Currently our favorite tools happens to be [asana](https://asana.com/uses/project-management)
+We employ various project management tools to ensure that everyone is in sync. We all know what has been done, what needs to be done and who's doing whatever is currently being done. Currently our favorite tools happens to be [asana](https://asana.com/uses/project-management).
+
+[More options here](2019-01-25-agile-product-development.md)
 
 ## Design
 
@@ -33,7 +35,7 @@ Normally, for most devs, the process would be to either ..
 3. Get help or move to the next galaxy for help from someone else.
 4. Finally move back to own dimension
 
-or...
+**or...**
 
 1. Have the kind helping developer download/acquire the code somehow.
 2. Set up their environments to run the code.
@@ -41,7 +43,7 @@ or...
 4. Ping/text/email/call/whisper the mistake to you.
 5. Clean up their machine because well they think your code is too young.
 
-or...
+**or...**
 
 1. Simply share screen, which is a good idea if you know who's right is the right right.
 
@@ -96,6 +98,9 @@ Finally the testing. We collaboratevely write tests and have them automated for 
 
 - [Travis](https://travis-ci.org/)
 - [Circleci](https://circleci.com/)
+  
 And a personal fave for the APIs
 
 - [Postman team](https://learning.getpostman.com/docs/postman/team_library/setting_up_team_library/).
+
+[We have collaboration](/assets/images/blog/collaboration/collab.jpg){:class="img-responsive center"}
