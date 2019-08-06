@@ -61,7 +61,7 @@ Security implementation should hugely depend on the API creators with little inp
 
 ### Tests
 
-Everyone likes testing out a product before putting it into commercial use. Testing helps in assuring the users about the reliability of the product, its ease of use and get a feeling of the commercial side of it. Tests drive high acceptance, rapid and instant feedback, clearer scope and a higher Return on Input(ROI).
+Everyone likes testing out a product before putting it into commercial use. Testing helps in assuring the users about the reliability of the product, its ease of use and get a feeling of the commercial side of it. Tests drive high acceptance, rapid and instant feedback, clearer scope and a higher Return on Investment(ROI).
 
 ## Proposed Daraja 2.0
 
@@ -146,7 +146,7 @@ Here is a sample request and response of the legacy G2 implementation of the API
                     <ReferenceData>
                         <ReferenceItem>
                             <Key>QueueTimeoutURL</Key>
-                            <Value>https://10.8.0.10:8310/mpesatransaction/queue_timeout</Value>
+                            <Value>https://10.8.9.11:8310/mpesatransaction/queue_timeout</Value>
                         </ReferenceItem>
                     </ReferenceData>
                     <Timestamp>2019-03-18T17:22:09.651011Z</Timestamp>
@@ -157,12 +157,12 @@ Here is a sample request and response of the legacy G2 implementation of the API
                         <ThirdPartyID>345612</ThirdPartyID>
                         <Password>Password0</Password>
                         <CheckSum>CheckSum0</CheckSum>
-                        <ResultURL>https://10.8.0.10:8310/mpesatransaction/result</ResultURL>
+                        <ResultURL>https://10.8.9.11:8310/mpesatransaction/result</ResultURL>
                     </Caller>
                     <Initiator>
                         <IdentifierType>11</IdentifierType>
                         <Identifier>SOMEInitiator</Identifier>
-                        <SecurityCredential>sdscjGPSOfYT6xMEHEIdOVIT7RCQi1jy//dsdsdsdnMwvPeDhxeQlNngr8Qgh/FNlrj23p/+MKBhBGuerJnkICbctCWQ10qU355CWRreTpA==</SecurityCredential>
+                        <SecurityCredential>sdscjGPSOfYT6xMEHIT7RCQi1jy//dsdsdsdnMwvPeDhxeQlNngr8Qgh/FNlrj23sasasp/+MKBhBGuerJnkICbctCWQ10qU355CWRreTpA==</SecurityCredential>
                         <ShortCode>123456</ShortCode>
                     </Initiator>
                     <PrimaryParty>
@@ -200,7 +200,7 @@ Here is a sample request and response of the legacy G2 implementation of the API
             <?xml version="1.0" encoding="UTF-8"?>
             <response xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/response">
                 <ResponseCode>0</ResponseCode>
-                <ConversationID>AG_20190417_000049de14ae88580c48</ConversationID>
+                <ConversationID>AG_20190417_000049hjde14ae88580c48</ConversationID>
                 <ResponseDesc>Accept the service request successfully.</ResponseDesc>
                 <OriginatorConversationID>uuid8893834399</OriginatorConversationID>
                 <ServiceStatus>0</ServiceStatus>
@@ -226,8 +226,8 @@ The REST based Daraja implementation of the same B2C request:
 ```
 curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-Type: application/json" -d "{
     "InitiatorName":"SOMEInitiator",
-    "SecurityCredential":" ",
-    "CommandID":"sdscjGPSOfYT6xMEHEIdOVIT7RCQi1jy//dsdsdsdnMwvPeDhxeQlNngr8Qgh/FNlrj23p/+MKBhBGuerJnkICbctCWQ10qU355CWRreTpA==",
+    "SecurityCredential":"sdscjGPSOfYT6xMEHEIsaDEsasAdOVIT7RCQi1jy//dsdsdsdnMwvPeDhxeQlNngr8Qgh/FNlrj/+MKBhBGuerJnkICbctCWQ10qU355CWRreTpA==",
+    "CommandID":"BusinessPayment",
     "Amount":"1000",
     "PartyA":"123456",
     "PartyB":"254722000000",
@@ -275,6 +275,7 @@ curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-T
         "type" : "pay_outs",
         "id" : 1,
         "attributes" : {
+            "category": "BusinessPayment"
             "amount": 1000,
             "recipient_no": "25472264885",
             "posted_at": "2019-03-18T17:22:09.651011Z"
@@ -291,7 +292,7 @@ curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-T
     "type": "pay_outs",
     "id": 1,
     "attributes": {
-      "msg_id": "AG_20190417_000049de14ae0c48" // Broker message id
+      "msg_id": "AG_20190417_000049de14ae0c48"
     }
   }
 }
