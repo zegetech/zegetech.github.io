@@ -275,13 +275,13 @@ curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-T
         "type" : "pay_outs",
         "id" : 1,
         "attributes" : {
-            "category": "BusinessPayment"
+            "category": "BusinessPayment",
             "amount": 1000,
             "recipient_no": "25472264885",
             "posted_at": "2019-03-18T17:22:09.651011Z"
         }
     }
-}"
+}
 ```
 
 #### Response 
