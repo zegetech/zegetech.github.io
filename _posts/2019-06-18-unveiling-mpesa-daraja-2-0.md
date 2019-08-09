@@ -85,7 +85,7 @@ For those who would like to have a deeper understanding and look at the proposed
 
 *Please note that we only have a proposal for the B2C and C2B APIs. Be on the look out for proposals of other APIs like C2B express checkout commonly know as STK Push, B2B transfers, Account Balance query, Transaction reversal and more.*
 
-![ERD](/assets/images/blog/daraja-2/ERD_v4.png){: .img-responsive .center}
+![ERD](/assets/images/blog/daraja-2/uniapi.png){: .img-responsive .center}
 
 *You can also contribute to this design by editting its StarUML file found [here](/assets/images/blog/daraja-2/uniapi.mdj)*
 
@@ -265,6 +265,7 @@ My feedback:
 - contains too much information that would otherwise be dropped
 - puts too much security weight on developer(process of generating the Security Credential)
 - confusing naming of keys. One can't easily differentiate Party A, from Party B and Initiator Name. In fact the description on the docs confuses newbies further.
+- use of CamelCase naming style which reduces readability.
 
 Proposed Daraja 2.0 implementation of the B2C API :
 
@@ -277,6 +278,8 @@ curl -X POST --header "Authorization: Bearer <Access-Token>" --header "Content-T
         "attributes" : {
             "category": "BusinessPayment",
             "amount": 1000,
+            "recipient_id": "", # optional
+            "recipient_id_type":"", # optional
             "recipient_no": "25472264885",
             "posted_at": "2019-03-18T17:22:09.651011Z"
         }
@@ -305,6 +308,7 @@ My feedback:
 - self descriptive
 - good naming conventions
 - lightweight
+- good use of snake_case naming style which is a widespread convention in json. This greatly improves readability as opposed to CamelCase.
 
 Winner: **Daraja 2.0**
 
