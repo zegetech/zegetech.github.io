@@ -150,4 +150,4 @@ There are both client and server-side implementations, and chances are, your fav
 ## So...
 We've been transitioning to JSON:API, and I can't claim that it was an easy sell.
 There were times when we question the suitability of the specification, mostly when we're feeling lazy or shackled by old structure thinking. 
-Overall we are sticking with it because we feel that it gives us consistency, a clean structure and provides room to extend our APIs in the future. In a sense, we are bringing order and efficiency to our API development process, not fogetting our mantra as zegetech... **Be Kind to Future Self**
+Overall we are sticking with it because we feel that it gives us consistency, a clean structure and provides room to extend our APIs in the future. In our quest to find a solution to ground as through the [challenges of API development](2018-12-08-api-dive.md), we evaluated a number of options and JSON:API won. In a sense, we are bringing order and efficiency to our API development process, not fogetting our mantra as zegetech... **Be Kind to Future Self**
