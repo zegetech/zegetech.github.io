@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Unveiling MPESA Daraja 2.0
-date: 2019-06-18 13:08 +0300
+date: 2019-06-30 13:08 +0300
 categories: 
 published: false
 author: Tom Nyongesa
@@ -47,7 +47,7 @@ The design of any API, not only financial APIs, greatly affects the above issues
 
 It's also evident from the Payments survey that more than 90% of the developers interviewed prefer using REST APIS. This simply dictates that Daraja 2.0 should be in REST. At this age and times, REST and standardization can never be in the same paragraph without mentioning JSONAPI. 
 
-JSONAPI is a widely spread format or API specification that specifies how a client should request for a resource and conversely how a server should respond with resources. The beauty of JSONAPI is that it excels at readability, flexibility and discoverability and greatly improves on efficiency by minimizing the number of requests and responses sent between the clients and the server. Daraja 2.0 should definitely be written according to the JSONAPI format, here's more on [why we think JSONAPI is great](2019-06-18-why-use-json-api-format.md).
+JSONAPI is a widely spread format or API specification that specifies how a client should request for a resource and conversely how a server should respond with resources. The beauty of JSONAPI is that it excels at readability, flexibility and discoverability and greatly improves on efficiency by minimizing the number of requests and responses sent between the clients and the server. Daraja 2.0 should definitely be written according to the JSONAPI format, here's more on [why we think JSONAPI is great](2019-08-22-json-api-format.md).
 
 With a good design and use of latest community accepted API design tools, we could address documentation, sample codes and standardization issues experienced. Here are some of the top [API design tools](https://openapi.tools/).
 
