@@ -28,6 +28,7 @@ Can it be better? Is it even possible to improve on it? Can we make it simpler? 
 ## The Pain of integrating APIs
 
 Looking back at the [Payment survey](2019-03-21-payments-kenya.md) and [Payment gateways in Kenya](2019-01-14-payment-gateways-Kenya.md), the main challenges experienced by the community while integrating Payments can be summarized to the following main points:
+
 1. Lack of Documentation and sample code
 2. Lack of testing platforms(widely known as sandboxes)
 3. Lack of standardization
@@ -38,7 +39,7 @@ Looking back at the [Payment survey](2019-03-21-payments-kenya.md) and [Payment 
 
 Simplicity simply means addressing these issues and other unlisted issues experienced while integrating the current Daraja APIs.
 
-Let's now jump straight into addressing them, think through them and try to determine whether we can design a beautiful Daraja API that's easy to use, standardized, secure, easy to connect to, consitent in terms of data formats and naming and one with self descriptive requests and responses.
+Let's now jump straight into addressing them, think through them and try to determine whether we can design a beautiful Daraja API that's easy to use, standardized, secure, easy to connect to, consistent in terms of data formats and naming and one with self descriptive requests and responses.
 
 ### Design
 
@@ -148,7 +149,7 @@ If you think that you've experienced issues with the current [Daraja API](https:
 
 You'll only need a Postman client to try it out. [Download](https://www.getpostman.com/downloads/) one if you don't have it installed.
 
-Please click on the Postman collection link above and run the collection on the Postman client. Also, note that the responses aren't real MPESA responses but mock responses for demonstration purposes.
+Please click on the Postman collection link above and run the collection on the Postman client. Also, note that the responses aren't real MPESA responses but mock responses for demonstration purposes. master
 
 ### A quick recap of the collection...
 
