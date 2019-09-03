@@ -142,8 +142,8 @@ For those who would like to have a deeper understanding and look at the proposed
 *You can also contribute to this design by editting its StarUML file found [here](/assets/images/blog/daraja-2/uniapi.mdj)*
 
 [Daraja 2.0 API Specification](https://app.swaggerhub.com/apis/zegetech/mpesaUniAPI/1.0)<br>
-[Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/936f2f012b39d74c13db)<br>
-[Daraja 2.0 Postman Documentation](https://documenter.getpostman.com/view/1238477/SVfQS9ix)
+[Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/821e0ae9b63f9ac1dacf)<br>
+[Daraja 2.0 Postman Documentation](https://documenter.getpostman.com/view/1238477/SVfTPnaQ)
 
 If you think that you've experienced issues with the current [Daraja API](https://developer.safaricom.co.ke/apis) and would like to experience a better solution to MPESA integration feel free to try out the proposed solution and design. 
 
