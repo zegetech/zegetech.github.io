@@ -55,11 +55,13 @@ Lastly, an API in 2019 would need to be synchorous between request and final res
 
 ### Security
 
-Security is another major concern of the community. Even though the current Daraja implementation has proved to be secure, it partly puts the security weight on developers which shouldn't be the case.
+Security is another major concern of the community. Even though the current G2 SOAP implementation has proved to be secure, it partly puts the security weight on developers which shouldn't be the case. Unfortunately daraja doesn't have a clear security mechanism.
 
-With Daraja, you have to combine certain required variables, encrypt the result and including it in the request body, Not fogetting there is already an OAUTH implermentation as well. Conventionally, security credentials should be included in the headers and not having many mini credentials as it is Daraja - _[see example below](#mpesa_daraja)_
+Additionally, with both, you have to combine certain required variables, encrypt the result and including it in the request body, Not fogetting there is already an OAUTH implermentation in Daraja as well. Conventionally, security credentials should be included in the headers and not having many mini credentials as it is Daraja - _[see example below](#mpesa_daraja)_
 
-Another security complexity arises when integrating callback APIs like C2B API. Developers are required to secure their callback endpoints by only trusting SSL certificates from Mpesa broker - meaning any communication without the broker SSL certificate would fail. Although this works well, it's not conventional. It adds security implementation complexity and difficulty to developer apps. Alternatively, request based security is easier, more common and just as secure. A good balance of security and ease of implementation should be found for an API that targets a public developer base.
+Another security complexity arises when integrating callback APIs like C2B API. For G2 SOAP, developers are required to secure their callback endpoints by only trusting SSL certificates from Mpesa broker - meaning any communication without the broker SSL certificate would fail. This in addition to a VPN connection. Although this works well, it's not conventional. It adds security implementation complexity and difficulty to developer apps. 
+
+For Daraja, callback have more or less no standard security. Daraja can't push transaction to secured developer endpoints. It does not support any authorization mechanism like JWT, Digest Auth, Bearer Token or OAUTH, most of which require headers in the payload. As a work around, the developer can use Auth models than can embed security on the URL such as Token Auth or Basic auth. And ofcourse the last, most famous line of defense...Security by Obscurity! Either way, a good balance of security, standardization and ease of implementation should be found for an API that targets a public developer base.
 
 ### Tests
 
