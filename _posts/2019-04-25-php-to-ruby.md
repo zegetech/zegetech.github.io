@@ -159,7 +159,7 @@ bundle install
 ```
 
 ### Community
-There is an ever growing [Ruby community](https://www.ruby-lang.org/en/community/conferences/) with ruby boasting of large developer communities [existing in almost every part of the world](https://rubyconferences.org/). One close to my locality is [Nairuby](http://nairuby.org/). The repos on Github are also on the rise. The good thing with the Ruby community in Kenya is that those who choose it, understand it better that their counterparts in other languages because they are pioneers, so expect support from people having a deeper understanding of the language
+There is an ever growing [Ruby community](https://www.ruby-lang.org/en/community/conferences/) with ruby boasting of large developer communities [existing in almost every part of the world](https://rubyconferences.org/). One close to my locality is [Nairuby](http://nairuby.org/). The repos on Github are also on the rise. The good thing with the Ruby community in Kenya is that those who choose it, understand it better than their counterparts in other languages because they are pioneers, so expect support from people having a deeper understanding of the language
 
 ### Test automation
 Ruby is widely known for its TDD approach in development. It heavily focuses on testing and makes the process simple. It boasts of simple to use test automation tools like Minitest and RSpec that allow developers to write automated tests easily. Here's an example in Minitest:
@@ -172,6 +172,7 @@ end
 Ruby also provides tools that help ensure the security of your application. With tools like Brakeman and Rubocop, static code analysis is enabled. This helps ensure that a developer writes code that is tamper-proof and prevent hacker activities in production.
 
 ### Built for the future
+
 With many startups globally preferring Ruby as their primary programming languages, I would say Ruby was built for the future. This trend has been fueled by the MVC philosophy pioneered by Ruby on Rails and is now being adopted by other languages in the form of Laravel, Meteor etc. Statistics also show that most developers are interested in learning Ruby. Online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead. 
 
 if you don't believe me, here is a google trends comparison between [Rails and Laravel in the US](https://trends.google.com/trends/explore?geo=US&q=%2Fm%2F0505cl,laravel){:data-proofer-ignore=''}, which is a trendsetting market in technology. 
@@ -193,8 +194,15 @@ Notable companies in the global and local markets using Ruby and RoR include:
 [Crunchbase](https://www.crunchbase.com/){:data-proofer-ignore=''}
 
 #### Local Companies
+[Zegetech](https://zegetech.com/)<br>
 [Andela](https://andela.com/)<br>
 [Fuzu](https://www.fuzu.com/)<br>
+[Kopokopo](https://kopokopo.co.ke/)<br>
+[Finplus](https://finplusgroup.com/)<br>
+[Ongair](https://ongair.im/)<br>
+[Sokowatch](https://sokowatch.com/)<br>
+[Tezza](https://www.tezzasolutions.com/)<br>
+[Lipa Later](https://lipalater.com/)
 
 Everyone is moving to Ruby, why don't you? 
 
