@@ -16,12 +16,12 @@
 title: Ruby on Rails, Angular and mobile development team | Zegetech
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  Zegetech is an Agile team with excellent track record &amp; 
-  great communication skills. We love Ruby on Rails, 
+  Zegetech is an Agile team with excellent track record &amp;
+  great communication skills. We love Ruby on Rails,
   Angular and mobile development! Ping us!
-keywords: > 
-  ruby rails angular zege technologies agile sprint 
-  MPESA safaricom fintech software developer nairobi 
+keywords: >
+  ruby rails angular zege technologies agile sprint
+  MPESA safaricom fintech software developer nairobi
   freelancer kenya mobile developer android ios
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://zegetech.com" # the base hostname & protocol for your site, e.g. http://example.com
@@ -90,5 +90,9 @@ jekyll_compose:
     categories:
     published: false
     author:
-    blog-image: 
-    intro: 
+    blog-image:
+    intro:
+
+ # Algoria Jekyll configurations
+ algolia:
+     vars: ["title", "excerpt", "date", "url", "categories", "tags"]
