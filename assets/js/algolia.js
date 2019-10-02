@@ -1,9 +1,9 @@
 
 // Instanciating InstantSearch.js with Algolia credentials
 const search = instantsearch({
-  appId: 'TN8603H0T3',
+  appId: '',
   indexName: 'zegetech.com',
-  apiKey: '81daa33178cad0ab2dbe734196b5dccb'
+  apiKey: ''
 });
 
 // Adding searchbar and results widgets
