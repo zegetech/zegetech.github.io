@@ -95,4 +95,5 @@ jekyll_compose:
 
 algolia:
   application_id: TN8603H0T3
-  index_name: zegetech.com 
+  index_name: zegetech.com
+  search_only_api_key: 81daa33178cad0ab2dbe734196b5dccb
