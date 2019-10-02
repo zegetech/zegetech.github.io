@@ -1,9 +1,9 @@
 
 // Instanciating InstantSearch.js with Algolia credentials
 const search = instantsearch({
-  appId: '',
+  appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
-  apiKey: ''
+  apiKey: '81daa33178cad0ab2dbe734196b5dccb'
 });
 
 // Adding searchbar and results widgets
@@ -16,22 +16,21 @@ search.addWidget(
 );
 // Add hits only when typing
 const searchBar=document.getElementById('search-searchbar')
-searchBar.addEventListener('keyup',function(){
+//searchBar.addEventListener('keyup',function(){
   // add only when there's a value
-  console.log(searchBar);
-  if (searchBar.value !="") {
+
     search.addWidget(
       instantsearch.widgets.hits({
         container: '#search-hits',
         templates:{
           empty: "Oops, No results found",
-          item: '<a href="{{url}}"> {{{_highlightResult.title.value}}}</a>'
+          item: '<li><a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{intro}}</li>'
         }
       })
     );
-  }
 
-});
+
+//});
 
 
 

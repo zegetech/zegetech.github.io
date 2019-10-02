@@ -10,11 +10,27 @@ promo_intro: Find out what we are up to, what's new and what trending as we shar
 <section id="blog-list" class="blog-list section">
 
     <div class="container">
-      <div id="search-searchbar"></div>
+      <!-- <div id="search-searchbar"></div> -->
 
         <!-- This loops through the paginated posts -->
-        <div class="" id="search-hits">
+        <!-- <div class="" id="search-hits">
 
+        </div> -->
+        <div class="dropdown col-md-8">
+          <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <input  id="search-searchbar" placeholder="search" type="text" name="" value="">
+
+          </div>
+          <ul id="search-hits" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+
+              <!-- <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Separated link</a></li> -->
+
+
+          </ul>
         </div>
         <div class="post-list">
           {% for post in paginator.posts %}
