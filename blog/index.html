@@ -21,17 +21,17 @@ promo_intro: Find out what we are up to, what's new and what trending as we shar
             <input  id="search-searchbar" placeholder="search" type="text" name="" value="">
 
           </div>
-          <ul id="search-hits" class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <ul  class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li id="search-hits"></li>
 
-              <!-- <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li> -->
-
-
+              <li id="pagination-container"></li>
+              <li id="powered_by"></li>
           </ul>
+
+
         </div>
+
         <div class="post-list">
           {% for post in paginator.posts %}
           <article class="item">
