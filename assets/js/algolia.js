@@ -11,7 +11,7 @@ search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-searchbar',
     placeholder: 'Search into posts...',
-    poweredBy: true, // This is required if you're on the free Community plan
+    poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
     searchAsYouType: true,
     autofucus: true,
@@ -24,16 +24,11 @@ search.addWidget(
       hitsPerPage: 8,
       distinct: true,
       clickAnalytics: true,
-      //enablePersonalization: true,
+      //enablePersonalization: true,  //not supported in community plan
    })
 );
-// Add hits only when typing
-const searchBar=document.getElementById('search-searchbar')
-//searchBar.addEventListener('keyup',function(){
-  // add only when there's a value
-
-
-    search.addWidget(
+ //Search Hits
+   search.addWidget(
       instantsearch.widgets.hits({
         container: '#search-hits',
         templates:{
@@ -44,30 +39,15 @@ const searchBar=document.getElementById('search-searchbar')
       })
     );
 
+// add pagination
     search.addWidget(
       instantsearch.widgets.pagination({
         container: '#pagination-container',
         maxPages: 20,
-        hitsPerPage: 5,
-        // default is to scroll to 'body', here we disable this behavior
         scrollTo: false,
         showFirstLast: false,
       })
     );
-
-    // // Add powered by widget
-    // search.addWidget(
-    //   instantsearch.widgets.poweredBy({
-    //     container: '#powered_by',
-    //     theme: 'dark'
-    //   })
-    // );
-
-
-//});
-
-
-
 
 // Starting the search
 search.start();
