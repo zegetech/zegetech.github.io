@@ -14,8 +14,18 @@ search.addWidget(
     poweredBy: true, // This is required if you're on the free Community plan
     showReset: true,
     searchAsYouType: true,
-    autofucus: true
+    autofucus: true,
+
   })
+);
+
+search.addWidget(
+  instantsearch.widgets.configure({
+      hitsPerPage: 8,
+      distinct: true,
+      clickAnalytics: true,
+      //enablePersonalization: true,
+   })
 );
 // Add hits only when typing
 const searchBar=document.getElementById('search-searchbar')
@@ -25,8 +35,6 @@ const searchBar=document.getElementById('search-searchbar')
 
     search.addWidget(
       instantsearch.widgets.hits({
-        paginationLimitedTo: 3,
-        hitsPerPage: 5,
         container: '#search-hits',
         templates:{
           empty: "Oops, No results found",
@@ -39,11 +47,11 @@ const searchBar=document.getElementById('search-searchbar')
     search.addWidget(
       instantsearch.widgets.pagination({
         container: '#pagination-container',
-        maxPages: 10,
+        maxPages: 20,
+        hitsPerPage: 5,
         // default is to scroll to 'body', here we disable this behavior
         scrollTo: false,
         showFirstLast: false,
-        poweredBy: true
       })
     );
 
