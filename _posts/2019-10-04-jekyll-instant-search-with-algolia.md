@@ -74,5 +74,126 @@ algolia:
     - _layouts/default.html
 ```
 
-## Frontend
+# Frontend
 Building frontend that allow user to do the actual search is not part of the `jekyll-algolia` plugin. The best solution is to use [instantSearch.js](https://community.algolia.com/instantsearch.js/v2/getting-started.html) library which makes it easy to design perfect search experience using prepackaged widgets.
+
+## Implementing instant search
+Instanct search is ment to be used with algolia so API credentials to an algolia index is needed
+
+### Install `instantSearch.js`
+You can install `instantSearch.js` through `CDN` or a dependancies management system(`YARN/NPM`)
+
+Form CDN
+```
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css">
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
+
+```
+From NPM
+```
+// `npm install instantsearch.js --save` OR
+// `yarn add instantsearch.js`
+
+const instantsearch = require('instantsearch.js');
+```
+
+### Initialization
+To initialize instant search you will need an algolia account with non-empty index. Provide app credentials then call `start` method.
+```
+const search = instantsearch({
+  appId: 'your_app_id',
+  apiKey: 'your_api_key',
+  indexName: 'index_name',
+  routing: true
+});
+
+search.start();
+```
+Congrats! you are now connected with Algolia.
+
+### Display results
+The important of search is to display results, To display results [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results passed.With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets]()
+```
+<div id="hits">
+  <!-- Hits widget will appear here -->
+</div>
+```
+Once you set a container for the hits, add the hits widget in instantSearch instance.
+```
+<script>
+  const search = instantsearch(options);
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits'
+    })
+  );
+
+  search.start();
+</script>
+
+```
+You can now be able to see the results without styling. In order to customize the view we need a special option for hits called `template`, the option accepts a [mustache](https://mustache.github.io/mustache.5.html) template string or a function returning a string.
+```
+<div id="hits">
+  <!-- Hits widget will appear here -->
+</div>
+
+<script>
+  const search = instantsearch(options);
+
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits',
+      templates: {
+        empty: 'No results',
+        item: '<em>Hit {{objectID}}</em>: {{{_highlightResult.name.value}}}'
+      }
+    })
+  );
+
+  search.start();
+</script>
+```
+The above example used `_highlightResult` that contains attributes highlighted based on the current query. This aspect of search gives user feedback on the matching parts of the results.
+
+### Add search Box
+Now that we have added results, we can start quering our index, to achieve this we need a searchbox widget.
+```
+<div id="search-box">
+  <!-- SearchBox widget will appear here -->
+</div>
+
+<div id="hits">
+  <!-- Hits widget will appear here -->
+</div>
+
+<script>
+  const search = instantsearch(options);
+
+  // initialize SearchBox
+  search.addWidget(
+    instantsearch.widgets.searchBox({
+      container: '#search-box',
+      placeholder: 'Search for products'
+    })
+  );
+
+  // initialize hits widget
+  search.addWidget(
+    instantsearch.widgets.hits({
+      container: '#hits'
+    })
+  );
+
+  search.start();
+</script>
+```
+The search is now active. The good thing Algolia computes the matching part. For more configurate results configure [attributeToRetrieve](https://www.algolia.com/doc/rest-api/search/#param-attributesToRetrieve) and [attributeToHighlight](https://www.algolia.com/doc/rest-api/search/#param-attributesToHighlight) of your index.
+
+In this blog we have seen:
+- how to index our site with `jekyll-algolia`
+- how to define the widgets containers
+- how to display the results from Algolia
+- how to results
+- how to display searchbox to query results
