@@ -21,7 +21,7 @@ search.addWidget(
 
 search.addWidget(
   instantsearch.widgets.configure({
-      hitsPerPage: 8,
+      hitsPerPage: 4,
       distinct: true,
       clickAnalytics: true,
       //enablePersonalization: true,  //not supported in community plan
@@ -34,7 +34,7 @@ search.addWidget(
         templates:{
           empty: "Oops, No results found",
         // item: '<li><a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{slug}}</li>'
-         item: '<a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{slug}}</a>'
+         item: '<a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{intro}}</a>'
         }
       })
     );
