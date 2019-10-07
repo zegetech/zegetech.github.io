@@ -4,9 +4,9 @@ title: Jekyll Instant Search with Algolia
 date: 2019-10-02 14:09 +0300
 categories:
 published: true
-author: Gathuku Ndungu
+author: Gathuku Ndung'u
 blog-image: algolia-search/algolia.png
-intro: Algolia is the one of the most reliable platform for building search into your business. Zegetech search is built on algolia(Have a look it)
+intro: Algolia is the one of the most reliable platform for building search into your business, powering billions of queries for thousands of company every year and delivering results within 100ms. Zegetech search is built on algolia(Have a look and interact with it).
 ---
 
 ![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png)
