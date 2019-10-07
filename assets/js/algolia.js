@@ -49,5 +49,12 @@ search.addWidget(
       })
     );
 
+ //poweredBy widget
+    // search.addWidget(
+    //   instantsearch.widgets.poweredBy({
+    //     container: '#powered_by',
+    //     theme: 'dark'
+    //   })
+    // );
 // Starting the search
 search.start();
