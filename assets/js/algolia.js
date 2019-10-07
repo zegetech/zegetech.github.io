@@ -56,5 +56,12 @@ search.addWidget(
     //     theme: 'dark'
     //   })
     // );
+
+ // Stats widget
+  search.addWidget(
+    instantsearch.widgets.stats({
+        container: '#stats',
+      })
+  );
 // Starting the search
 search.start();
