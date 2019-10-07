@@ -6,12 +6,26 @@ categories:
 published: true
 author: Gathuku Ndung'u
 blog-image: algolia-search/algolia.png
-intro: Algolia is the one of the most reliable platform for building search into your business, powering billions of queries for thousands of company every year and delivering results within 100ms. Zegetech search is built on algolia(Have a look and interact with it).
+intro: Static site Genarator(SSG) such as Jekyll, Gatsby,Gridsome and Hugo provide a very good tool to build static websites.They make it easy to build and deploy sites with Zero or extremely low costs. One of the biggest problem with static sites, however, is that they do not support search out of the box.
 ---
 
 ![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png)
 
 {{page.intro}}
+
+Adding search functionality in Jekyll site or whichever SSG generator you are using is no difficult. Lets explore some tools that we can use.
+
+1. [Lunr.js](https://lunrjs.com/) is a blazing fast simple full text search engine for client side applications. It's desined to be small, yet full featured, enabling you to provide a great search experience without the need for external, server side, search services
+
+2. [Google Custom Search Engine](https://developers.google.com/custom-search) enables you to create a search engine for your website, or blog. It allows configuration of search results with images. You can fine-tune the ranking, add your own promotions and customize the look and feel of the search results.
+
+3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a light weight search library build on javascript. It entirely operates in client side and no server side required.
+
+4. [Algolia](https://www.algolia.com/) is one of the most reliable platform for building search into your business, powering billions of queries for thousands of company every year and delivering results within 100ms. Zegetech search is built on algolia(Have a look and interact with it).
+
+>Lunr is instant but heavy. Google Custom Search Engine is light but not instant(yet). Simple Jekyll Search is light as well as instant but not customizable.
+>> Algolia is Great!
+
 
 ### Why Algolia?
 Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% gurantee. The goal of [JAMstack](https://www.gathuku.tech/what-s-ja-mstack) is to eliminate server dependancies why add one when you can use [algolia free community plan](https://www.algolia.com/)
