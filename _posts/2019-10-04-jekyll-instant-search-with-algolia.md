@@ -14,7 +14,7 @@ intro: Algolia is the one of the most reliable platform for building search into
 {{page.intro}}
 
 ### Why Algolia?
-Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is destributed around 6 regions in the world with around 47 datacentres proving 99.99% gurantee. The goal of [JAMstack](https://www.gathuku.tech/what-s-ja-mstack) is to eliminate server dependancies why add one when you can use [algolia free community plan](https://www.algolia.com/)
+Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% gurantee. The goal of [JAMstack](https://www.gathuku.tech/what-s-ja-mstack) is to eliminate server dependancies why add one when you can use [algolia free community plan](https://www.algolia.com/)
 
 ### How algolia works
 Algolia provides a REST API to query and update your search indices. All input and output is provided in JSON, making it extremely easy to use in frontend Javascript.
@@ -195,5 +195,4 @@ In this blog we have seen:
 - how to index our site with `jekyll-algolia`
 - how to define the widgets containers
 - how to display the results from Algolia
-- how to results
 - how to display searchbox to query results
