@@ -76,6 +76,15 @@ ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 Below is a sample output
 <!-- ![](/assets/images/blog/algolia-search/sample-output.png) -->
 ```bash
+Configuration file: /home/gathuku/Dev/Jekyll/zegetech.github.io/_config.yml
+Processing site...                                                               
+       Jekyll Feed: Generating feed for posts
+Rendering to HTML (100%) |===============================================================================================================================================|
+Extracting records (100%) |==============================================================================================================================================|
+Settings are already up to date.                                                 
+Getting list of existing records                                                 
+Content is already up to date.                                                   
+✔ Indexing complete  
 
 ```
 
