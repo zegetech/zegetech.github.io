@@ -21,7 +21,7 @@ script:
   - echo "Testing and Building"
   - bundle exec rake test
   - bundle exec jekyll build
-  - if [ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "release"]; then  bundle exec jekyll algolia ;fi
+  #- if [ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "release"]; then  bundle exec jekyll algolia ;fi
 
 deploy:
   skip_cleanup: true
@@ -30,3 +30,6 @@ deploy:
     secure: $FIREBASE_TOKEN
   on:
     branch: release
+
+after_deploy:
+  - ALGOLIA_API_KEY=$ALGOLIA_API_KEY bundle exec jekyll algolia
