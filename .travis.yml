@@ -21,7 +21,7 @@ script:
   - echo "Testing and Building"
   - bundle exec rake test
   - bundle exec jekyll build
-  - if[[ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "release"]]; then  bundle exec jekyll algolia ;fi
+  - if [ $TRAVIS_EVENT_TYPE == "push" && $TRAVIS_BRANCH == "release"]; then  bundle exec jekyll algolia ;fi
 
 deploy:
   skip_cleanup: true
