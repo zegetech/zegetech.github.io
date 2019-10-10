@@ -59,7 +59,7 @@ $(document).ready(function() {
 
 });
 
-document.getElementById('theDropdown').addEventListener('click',function(){
-  event.stopPropagation();
-
-});
+// document.getElementById('theDropdown').addEventListener('click',function(){
+//   event.stopPropagation();
+//
+// });

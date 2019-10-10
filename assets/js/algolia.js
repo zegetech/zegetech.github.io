@@ -1,5 +1,6 @@
 
 // Instanciating InstantSearch.js with Algolia credentials
+
 const search = instantsearch({
   appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
@@ -34,20 +35,51 @@ search.addWidget(
         templates:{
           empty: "Oops, No results found",
         // item: '<li><a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{slug}}</li>'
-         item: '<a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{intro}}</a>'
+         //item: '<a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{intro}}</a>'
+
+         item: data =>`
+         <article class="item">
+             <div class="row">
+                 <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0"><a href="${ data.url }">${data.title}</a></h3>
+                 <div class="clearfix"></div>
+                 <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
+                     <ul class="meta-list list-unstyled">
+                         <li class="post-time post_date date updated">
+                             <span class="date">${moment(data.date).format('Do')}</span>
+                             <span class="month">${(new Date(data.date *1000).getMonth())}</span>
+                         </li>
+                         <li class="post-author"><a href="#">${data.author}</a></li>
+
+                     </ul><!--//meta-list-->
+                 </div><!--//meta-list-->
+                 <div class="content-wrapper col-md-10 col-sm-9 col-xs-12">
+                     <figure class="figure">
+
+                         <a href="${data.url}"><img class="img-responsive" src="/assets/images/blog/${data['blog-image']}" alt=""></a>
+                     </figure>
+                     <div class="content">
+                         <div class="desc">
+                             <p>${ data.intro }</p>
+                             <a class="read-more" href="${ data.url }">Read more <i class="fa fa-long-arrow-right"></i></a>
+                         </div><!--//desc-->
+                     </div><!--//content-->
+                 </div><!--//content-wrapper-->
+             </div><!--//row-->
+         </article><!--//item-->
+         `
         }
       })
     );
 
 // add pagination
-    search.addWidget(
-      instantsearch.widgets.pagination({
-        container: '#pagination-container',
-        maxPages: 20,
-        scrollTo: false,
-        showFirstLast: false,
-      })
-    );
+    // search.addWidget(
+    //   instantsearch.widgets.pagination({
+    //     container: '#pagination-container',
+    //     maxPages: 20,
+    //     scrollTo: false,
+    //     showFirstLast: false,
+    //   })
+    // );
 
  //poweredBy widget
     // search.addWidget(
@@ -58,10 +90,10 @@ search.addWidget(
     // );
 
  // Stats widget
-  search.addWidget(
-    instantsearch.widgets.stats({
-        container: '#stats',
-      })
-  );
+  // search.addWidget(
+  //   instantsearch.widgets.stats({
+  //       container: '#stats',
+  //     })
+  // );
 // Starting the search
 search.start();
