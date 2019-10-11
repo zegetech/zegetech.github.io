@@ -11,7 +11,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-searchbar',
-    placeholder: 'Search into posts...',
+    placeholder: 'Search ...',
     poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
     searchAsYouType: false,
