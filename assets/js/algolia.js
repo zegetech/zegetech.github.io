@@ -66,7 +66,7 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
                      </figure>
                      <div class="content">
                          <div class="desc">
-                             <p>${ data.intro }</p>
+                             <p>${ (new showdown.Converter()).makeHtml(data.intro) }</p>
                              <a class="read-more" href="${ data.url }">Read more <i class="fa fa-long-arrow-right"></i></a>
                          </div><!--//desc-->
                      </div><!--//content-->
