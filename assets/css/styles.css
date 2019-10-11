@@ -2563,7 +2563,7 @@ code.highlighter-rouge{
 
 /* Search hits stylling */
 .ais-hits--item{
-  padding: 5% 5% 0;
+  padding: 2% 5% 0;
 
 }
 
@@ -2572,7 +2572,7 @@ code.highlighter-rouge{
 }
 
 #category-widget{
-  padding-top:5%;
+  padding-top:2%;
 
 }
 

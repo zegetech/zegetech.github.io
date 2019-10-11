@@ -14,7 +14,7 @@ search.addWidget(
     placeholder: 'Search into posts...',
     poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
-    searchAsYouType: true,
+    searchAsYouType: false,
     autofucus: true,
 
   })
