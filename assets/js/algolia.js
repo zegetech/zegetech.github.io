@@ -28,6 +28,9 @@ search.addWidget(
       //enablePersonalization: true,  //not supported in community plan
    })
 );
+
+const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
  //Search Hits
    search.addWidget(
       instantsearch.widgets.hits({
@@ -45,8 +48,8 @@ search.addWidget(
                  <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
                      <ul class="meta-list list-unstyled">
                          <li class="post-time post_date date updated">
-                             <span class="date">${moment(data.date).format('Do')}</span>
-                             <span class="month">${(new Date(data.date *1000).getMonth())}</span>
+                             <span class="date">${(new Date(data.date *1000).getDay())+1}</span>
+                             <span class="month">${months[(new Date(data.date *1000).getMonth())]}</span>
                          </li>
                          <li class="post-author"><a href="#">${data.author}</a></li>
 
