@@ -43,7 +43,11 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
          item: data =>`
          <article class="item">
              <div class="row">
-                 <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0"><a href="${ data.url }">${data.title}</a></h3>
+                 <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                 <a href="${ data.url }">${
+                      //instantsearch.highlight({attributeName:"title",hit:data})
+                     data.title
+                 }</a></h3>
                  <div class="clearfix"></div>
                  <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
                      <ul class="meta-list list-unstyled">
@@ -74,15 +78,22 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
       })
     );
 
+// add refinement
+search.addWidget(
+  instantsearch.widgets.refinementList({
+    container: '#brand',
+    attributeName: 'categories',
+  })
+);
 // add pagination
-    // search.addWidget(
-    //   instantsearch.widgets.pagination({
-    //     container: '#pagination-container',
-    //     maxPages: 20,
-    //     scrollTo: false,
-    //     showFirstLast: false,
-    //   })
-    // );
+    search.addWidget(
+      instantsearch.widgets.pagination({
+        container: '#pagination-container',
+        maxPages: 20,
+        scrollTo: false,
+        showFirstLast: false,
+      })
+    );
 
  //poweredBy widget
     // search.addWidget(

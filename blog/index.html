@@ -11,62 +11,26 @@ promo_intro: Find out what we are up to, what's new and what trending as we shar
 
     <div class="container">
       <div id="search-searchbar"></div>
+        <div class="row">
+          <div class="col-md-3" id="category-widget">
+            <h6>CATEGORY</h6>
+           <div class="filter-widgets" id="brand">
 
-        <!-- <div id="theMainDropdown" class="dropdown col-md-8">
-          <div class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            <input  id="search-searchbar" type="text" name="" value="">
+           </div>
 
           </div>
-          <ul id="theDropdown" class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li class="stats text-primary" id="stats"></li>
-              <li id="search-hits"></li>
+          <div class="col-md-9">
+            <div class="post-list" id="search-hits">
 
-              <li role="separator" class="divider"></li>
-              <li id="pagination-container"></li>
-              <li id="powered_by"></li>
-          </ul>
-
-
-        </div> -->
-
-        <div class="post-list" id="search-hits">
+            </div>
+          </div>
 
         </div>
 
-        <!-- <div class="post-list">
-          {% for post in paginator.posts %}
-          <article class="item">
-              <div class="row">
-                  <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                  <div class="clearfix"></div>
-                  <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
-                      <ul class="meta-list list-unstyled">
-                          <li class="post-time post_date date updated">
-                              <span class="date">{{ post.date  | date: "%-d"}}</span>
-                              <span class="month">{{ post.date  | date: "%b"}}</span>
-                          </li>
-                          <li class="post-author"><a href="#">{{ post.author }}</a></li>
 
-                      </ul>
-                  </div>
-                  <div class="content-wrapper col-md-10 col-sm-9 col-xs-12">
-                      <figure class="figure">
-                          <a href="{{ post.url }}"><img class="img-responsive" src="/assets/images/blog/{{ post.blog-image }}" alt=""></a>
-                      </figure>
-                      <div class="content">
-                          <div class="desc">
-                              <p>{{ post.intro | markdownify }}</p>
-                              <a class="read-more" href="{{ post.url }}">Read more <i class="fa fa-long-arrow-right"></i></a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </article>
-          {% endfor %}
-        </div> -->
 
-        <div class="pagination-container text-center">
-                <ul class="pagination">
+        <div class="pagination-container text-center" id="pagination-container">
+                <!-- <ul class="pagination">
                 {% if paginator.previous_page %}
                     <li><a href="{{ paginator.previous_page_path }}">«</a></li>
                 {% else %}
