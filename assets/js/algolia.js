@@ -16,7 +16,7 @@ search.addWidget(
     placeholder: 'Search  ...',
     poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
-    searchAsYouType: false,
+    searchAsYouType: true,
     autofucus: true,
 
   })
