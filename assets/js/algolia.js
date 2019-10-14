@@ -1,17 +1,19 @@
 
 // Instanciating InstantSearch.js with Algolia credentials
-
+const searchClient = algoliasearch(
+  'TN8603H0T3',
+  '81daa33178cad0ab2dbe734196b5dccb'
+);
 const search = instantsearch({
-  appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
-  apiKey: '81daa33178cad0ab2dbe734196b5dccb'
+  searchClient
 });
 
 // Adding searchbar and results widgets
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-searchbar',
-    placeholder: 'Search ...',
+    placeholder: 'Search  ...',
     poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
     searchAsYouType: false,
@@ -45,8 +47,8 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
              <div class="row">
                  <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
                  <a href="${ data.url }">${
-                      //instantsearch.highlight({attributeName:"title",hit:data})
-                     data.title
+                      instantsearch.highlight({attribute:"title",hit:data})
+                    // data.title
                  }</a></h3>
                  <div class="clearfix"></div>
                  <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
@@ -55,7 +57,7 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
                              <span class="date">${(new Date(data.date *1000).getDay())+1}</span>
                              <span class="month">${months[(new Date(data.date *1000).getMonth())]}</span>
                          </li>
-                         <li class="post-author"><a href="#">${data.author}</a></li>
+                         <li class="post-author"><a  href="#">${data.author}</a></li>
 
                      </ul><!--//meta-list-->
                  </div><!--//meta-list-->
@@ -82,7 +84,7 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
 search.addWidget(
   instantsearch.widgets.refinementList({
     container: '#brand',
-    attributeName: 'categories',
+    attribute: 'categories',
   })
 );
 // add pagination
@@ -96,13 +98,20 @@ search.addWidget(
     );
 
  //poweredBy widget
-    // search.addWidget(
-    //   instantsearch.widgets.poweredBy({
-    //     container: '#powered_by',
-    //     theme: 'dark'
-    //   })
-    // );
+    search.addWidget(
+      instantsearch.widgets.poweredBy({
+        container: '#powered_by',
+        theme: 'light'
+      })
+    );
 
+   //slidder
+   // search.addWidget(
+   //   instantsearch.widgets.rangeSlider({
+   //     container: '#range_slidder',
+   //     attribute: 'date'
+   //   })
+   // );
  // Stats widget
   // search.addWidget(
   //   instantsearch.widgets.stats({

@@ -2576,7 +2576,7 @@ code.highlighter-rouge{
 
 }
 
-.ais-refinement-list--checkbox {
+.ais-RefinementList-checkbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2587,4 +2587,8 @@ code.highlighter-rouge{
     margin: 0 1rem 0 0;
     position: relative;
     width: 1rem;
+}
+
+label{
+  font-weight: normal !important;
 }
