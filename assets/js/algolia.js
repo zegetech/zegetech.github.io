@@ -53,8 +53,8 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
           </a>
           <div class="text-default">
           <br>
-          ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150)) +"... read more"}
-
+          ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150))}
+           <a href="${data.url}">...read more</a>
           </div>
 
          </div>
@@ -66,13 +66,23 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
       })
     );
 
-// add refinement
-search.addWidget(
-  instantsearch.widgets.refinementList({
-    container: '#category',
-    attributeName: 'categories',
-  })
-);
+// add refinement for blogs  only in pathname start with blogs
+
+const pagename=window.location.pathname
+if(pagename.startsWith("/blog/")){
+  search.addWidget(
+    instantsearch.widgets.refinementList({
+      container: '#category',
+      attributeName: 'categories',
+      operator:'and',
+      limit:10,
+      showMore:true,
+      searchable:true,
+      sortBy:['name:asc']
+    })
+  );
+}
+
 // add pagination
     search.addWidget(
       instantsearch.widgets.pagination({

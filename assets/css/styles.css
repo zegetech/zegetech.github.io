@@ -2357,6 +2357,7 @@ body.no-header-wrapper {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     width: 100%;
+    min-width: 350px !important;
     padding: 0;
   }
   .header .main-nav .nav .dropdown-menu:before {
