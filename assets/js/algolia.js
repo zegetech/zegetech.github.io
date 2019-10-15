@@ -53,7 +53,7 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
           </a>
           <div class="text-default">
           <br>
-          ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150))+" ..."}
+          ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150))}
            <a href="${data.url}">...read more</a>
           </div>
 
