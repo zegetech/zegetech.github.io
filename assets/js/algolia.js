@@ -1,12 +1,13 @@
 
 // Instanciating InstantSearch.js with Algolia credentials
-const searchClient = algoliasearch(
-  'TN8603H0T3',
-  '81daa33178cad0ab2dbe734196b5dccb'
-);
+// const searchClient = algoliasearch(
+//   'TN8603H0T3',
+//   '81daa33178cad0ab2dbe734196b5dccb'
+// );
 const search = instantsearch({
+  appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
-  searchClient
+  apiKey: '81daa33178cad0ab2dbe734196b5dccb'
 });
 
 // Adding searchbar and results widgets
@@ -40,41 +41,26 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
         templates:{
           empty: "Oops, No results found",
         // item: '<li><a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{slug}}</li>'
-         //item: '<a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{intro}}</a>'
-
          item: data =>`
-         <article class="item">
-             <div class="row">
-                 <h3 class="post-title col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                 <a href="${ data.url }">${
-                      instantsearch.highlight({attribute:"title",hit:data})
-                    // data.title
-                 }</a></h3>
-                 <div class="clearfix"></div>
-                 <div class="meta col-md-2 col-sm-3 col-xs-12 text-right">
-                     <ul class="meta-list list-unstyled">
-                         <li class="post-time post_date date updated">
-                             <span class="date">${(new Date(data.date *1000).getDay())+1}</span>
-                             <span class="month">${months[(new Date(data.date *1000).getMonth())]}</span>
-                         </li>
-                         <li class="post-author"><a  href="#">${data.author}</a></li>
+         <div class="row">
+         <div class="col-md-3">
+         <a href="${data.url}"><img class="img-responsive" src="/assets/images/blog/${data['blog-image']}" alt=""></a>
 
-                     </ul><!--//meta-list-->
-                 </div><!--//meta-list-->
-                 <div class="content-wrapper col-md-10 col-sm-9 col-xs-12">
-                     <figure class="figure">
+         </div>
+         <div class="col-md-9">
+         <a class="" href="${data.url}">
+         <b>${data.title}</b>
+          </a>
+          <div class="text-default">
+          <br>
+          ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150)) +"... read more"}
 
-                         <a href="${data.url}"><img class="img-responsive" src="/assets/images/blog/${data['blog-image']}" alt=""></a>
-                     </figure>
-                     <div class="content">
-                         <div class="desc">
-                             <p>${ (new showdown.Converter()).makeHtml(data.intro) }</p>
-                             <a class="read-more" href="${ data.url }">Read more <i class="fa fa-long-arrow-right"></i></a>
-                         </div><!--//desc-->
-                     </div><!--//content-->
-                 </div><!--//content-wrapper-->
-             </div><!--//row-->
-         </article><!--//item-->
+          </div>
+
+         </div>
+
+         </div>
+
          `
         }
       })
@@ -83,8 +69,8 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
 // add refinement
 search.addWidget(
   instantsearch.widgets.refinementList({
-    container: '#brand',
-    attribute: 'categories',
+    container: '#category',
+    attributeName: 'categories',
   })
 );
 // add pagination
@@ -98,20 +84,14 @@ search.addWidget(
     );
 
  //poweredBy widget
-    search.addWidget(
-      instantsearch.widgets.poweredBy({
-        container: '#powered_by',
-        theme: 'light'
-      })
-    );
+    // search.addWidget(
+    //   instantsearch.widgets.poweredBy({
+    //     container: '#powered_by',
+    //     theme: 'light'
+    //   })
+    // );
 
-   //slidder
-   // search.addWidget(
-   //   instantsearch.widgets.rangeSlider({
-   //     container: '#range_slidder',
-   //     attribute: 'date'
-   //   })
-   // );
+
  // Stats widget
   // search.addWidget(
   //   instantsearch.widgets.stats({

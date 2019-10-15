@@ -15,7 +15,25 @@
       </div><!--//navbar-header-->
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li id="search-searchbar" class="nav-item active"></li>
+          <!-- Search Box with dropdown-->
+          <li class="nav-item active">
+            <div id="theMainDropdown" class="dropdown col-md-8">
+                <div  class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <input id="search-searchbar" type="text" name="" value="">
+
+                </div>
+                <ul id="theDropdown" class="dropdown-menu" aria-labelledby="dropdownMenu1" style="80px">
+                    <li class="stats text-primary" id="stats"></li>
+                    <li id="search-hits"></li>
+
+                    <li role="separator" class="divider"></li>
+                    <li id="pagination-container"></li>
+
+                </ul>
+            </div>
+          </li>
+          <!-- end search box -->
+
           <li class="{% if page.title == "Home" %} active {% endif %} nav-item"><a href="/">Home</a></li>
           <li class="{% if page.title == "Work" %} active {% endif %} nav-item"><a href="/work.html">Work</a></li>
           <li class="{% if page.title == "About" %} active {% endif %} nav-item"><a href="/team.html">Team</a></li>

@@ -2592,3 +2592,22 @@ code.highlighter-rouge{
 label{
   font-weight: normal !important;
 }
+
+.dropdown-menu{
+  right:auto !important;
+  left:auto;
+  min-width: 600px !important;
+  background-color: #FFF !important;
+
+
+}
+.dropdown-menu:before{
+  position: fixed !important;
+}
+.main-nav .nav .dropdown-menu a {
+  color: inherit !important;
+  border-bottom: none !important;
+}
+.category-sidebar{
+  padding-top: 5px;
+}
