@@ -7,7 +7,8 @@
 const search = instantsearch({
   appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
-  apiKey: '81daa33178cad0ab2dbe734196b5dccb'
+  apiKey: '81daa33178cad0ab2dbe734196b5dccb',
+  //attributesForFaceting:['categories','url']
 });
 
 // Adding searchbar and results widgets
@@ -28,6 +29,9 @@ search.addWidget(
       hitsPerPage: 4,
       distinct: true,
       clickAnalytics: true,
+      attributesToRetrieve:['categories','intro','title','url','blog-image'],
+    //  attributesForFaceting:['categories']
+    //  filters:'NOT content.developer'
       //enablePersonalization: true,  //not supported in community plan
    })
 );
@@ -74,11 +78,18 @@ if(pagename.startsWith("/blog/")){
     instantsearch.widgets.refinementList({
       container: '#category',
       attributeName: 'categories',
-      operator:'and',
+      operator:'or',
       limit:10,
       showMore:true,
       searchable:true,
-      sortBy:['name:asc']
+      sortBy:['name:asc'],
+      templates: {
+         item: data=>`
+           <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}">
+             <span>${data.label}</span>
+           </a>
+         `,
+       },
     })
   );
 }
@@ -103,10 +114,10 @@ if(pagename.startsWith("/blog/")){
 
 
  // Stats widget
-  // search.addWidget(
-  //   instantsearch.widgets.stats({
-  //       container: '#stats',
-  //     })
-  // );
+  search.addWidget(
+    instantsearch.widgets.stats({
+        container: '#stats',
+      })
+  );
 // Starting the search
 search.start();

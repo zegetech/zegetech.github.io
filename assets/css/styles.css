@@ -2600,8 +2600,11 @@ label{
   min-width: 600px !important;
   background-color: #FFF !important;
 
-
-
+}
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
 }
 .dropdown-menu:before{
   position: fixed !important;
@@ -2613,4 +2616,7 @@ label{
 }
 .category-sidebar{
   padding-top: 5px;
+}
+.ais-refinement-list--count{
+  display: none !important;
 }
