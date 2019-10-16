@@ -85,8 +85,10 @@ if(pagename.startsWith("/blog/")){
       sortBy:['name:asc'],
       templates: {
          item: data=>`
-           <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}">
-             <span>${data.label}</span>
+           <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}" disabled>
+             <span>${
+                !data.label.endsWith(",")? data.label:"" 
+                }</span>
            </a>
          `,
        },
