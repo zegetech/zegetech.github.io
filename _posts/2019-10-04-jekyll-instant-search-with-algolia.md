@@ -69,7 +69,7 @@ Once you add the application_id and index_name run below command to index your s
 ```shell
 ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 ```
-> Note: that ALGOLIA_API_KEY should be set to your admin API key. This key has write access to your index so will be able to push new data. This is also why you have to set it on the command line and not in the `_config.yml` file.
+> Note: that ALGOLIA_API_KEY should be set to your admin API key. This key has write access to your index so will be able to push new data. This is also why you have to set it on the command line and not in the `_config.yml` file or anywhere in our code.
 >
 >>You want to keep this key secret and not commit it to your versioning system.
 
@@ -137,6 +137,9 @@ const search = instantsearch({
 
 search.start();
 ```
+>The `apiKey` should be the `Search-Only API Key`. This key doesn't have any write access, you should not worry about committing it in your version control.
+>> You can always regenerate this key in your Algolia dashboard.
+
 Congrats! you are now connected with Algolia.
 
 ### Display results
