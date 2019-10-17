@@ -68,7 +68,30 @@ $('.dropdown').on('hide.bs.dropdown', function() {
   $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
 });
 
+//prevent dropdown close on click
 document.getElementById('theDropdown').addEventListener('click',function(){
   event.stopPropagation();
 
 });
+
+//drop on several types
+
+document.getElementById('search-searchbar').addEventListener('click',function(){
+   const inputValue=document.getElementById('search-searchbar').value
+   console.log(inputValue);
+   if (inputValue.length <= 2) {
+     event.stopPropagation();
+  }else{
+      $('.dropdown-menu').show();
+  }
+});
+
+document.getElementById('search-searchbar').addEventListener('keyup',function(){
+  const inputValue=document.getElementById('search-searchbar').value
+  if (inputValue.length <= 2) {
+    $('.dropdown-menu').hide();
+ }else{
+
+    $('.dropdown-menu').show();
+ }
+})

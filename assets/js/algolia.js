@@ -29,7 +29,7 @@ search.addWidget(
       hitsPerPage: 4,
       distinct: true,
       clickAnalytics: true,
-      attributesToRetrieve:['categories','intro','title','url','blog-image'],
+  //    attributesToRetrieve:['categories','intro','title','url','blog-image'],
     //  attributesForFaceting:['categories']
     //  filters:'NOT content.developer'
       //enablePersonalization: true,  //not supported in community plan
@@ -87,7 +87,7 @@ if(pagename.startsWith("/blog/")){
          item: data=>`
            <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}" disabled>
              <span>${
-                !data.label.endsWith(",")? data.label:"" 
+                !data.label.endsWith(",")? data.label:""
                 }</span>
            </a>
          `,
