@@ -72,29 +72,29 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
 
 // add refinement for blogs  only in pathname start with blogs
 
-const pagename=window.location.pathname
-if(pagename.startsWith("/blog/")){
-  search.addWidget(
-    instantsearch.widgets.refinementList({
-      container: '#category',
-      attributeName: 'categories',
-      operator:'or',
-      limit:10,
-      showMore:true,
-      searchable:true,
-      sortBy:['name:asc'],
-      templates: {
-         item: data=>`
-           <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}" disabled>
-             <span>${
-                !data.label.endsWith(",")? data.label:""
-                }</span>
-           </a>
-         `,
-       },
-    })
-  );
-}
+// const pagename=window.location.pathname
+// if(pagename.startsWith("/blog/")){
+//   search.addWidget(
+//     instantsearch.widgets.refinementList({
+//       container: '#category',
+//       attributeName: 'categories',
+//       operator:'or',
+//       limit:10,
+//       showMore:true,
+//       searchable:true,
+//       sortBy:['name:asc'],
+//       templates: {
+//          item: data=>`
+//            <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}" disabled>
+//              <span>${
+//                 !data.label.endsWith(",")? data.label:""
+//                 }</span>
+//            </a>
+//          `,
+//        },
+//     })
+//   );
+// }
 
 // add pagination
     search.addWidget(

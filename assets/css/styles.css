@@ -2620,3 +2620,8 @@ label{
 .ais-refinement-list--count{
   display: none !important;
 }
+#dropdownMenu1{
+  /* padding: 0 !important;  */
+  height: 50px;
+  width:200px;
+}
