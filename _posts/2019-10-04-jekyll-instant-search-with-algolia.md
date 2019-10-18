@@ -9,7 +9,7 @@ blog-image: algolia-search/algolia.png
 intro: Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) provide a very good tool to build static websites.They make it easy to build and deploy sites with Zero or extremely low costs. One of the biggest problem with static sites, however, is that they do not support search out of the box.
 ---
 
-![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png)
+![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png){:.img-responsive .center}
 
 {{page.intro}}
 
