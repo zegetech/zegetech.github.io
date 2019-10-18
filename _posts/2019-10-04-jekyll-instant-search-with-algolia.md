@@ -2,7 +2,7 @@
 layout: blog
 title: Jekyll Instant Search with Algolia
 date: 2019-10-02 14:09 +0300
-categories:
+categories: Instant Search
 published: true
 author: Gathuku Ndung'u
 blog-image: algolia-search/algolia.png
