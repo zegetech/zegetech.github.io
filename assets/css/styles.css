@@ -2356,7 +2356,7 @@ body.no-header-wrapper {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    width: 100%;
+    /* width: 100%; */
     min-width: 350px !important;
     padding: 0;
   }
