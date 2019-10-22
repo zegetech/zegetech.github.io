@@ -2357,8 +2357,9 @@ body.no-header-wrapper {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     /* width: 100%; */
-    min-width: 350px !important;
-    padding: 0;
+    min-width: 90% !important;
+    padding-bottom: 90px;
+    position:inherit;
   }
   .header .main-nav .nav .dropdown-menu:before {
     display: none;
@@ -2624,4 +2625,16 @@ label{
   /* padding: 0 !important;  */
   height: 50px;
   width:200px;
+}
+.ais-pagination{
+  margin-left:2px;
+  margin-right: 2px;
+}
+.ais-search-box--input{
+  padding: opx 10px 0px 10px !important;
+  margin-top:2px !important;
+  margin-bottom: 2px !important;
+}
+.nav-item.active{
+  margin: opx !important;
 }

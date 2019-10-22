@@ -70,7 +70,7 @@ $('.dropdown').on('hide.bs.dropdown', function() {
 
 //prevent dropdown close on click
 document.getElementById('theDropdown').addEventListener('click',function(){
-  event.stopPropagation();
+  event.preventDefault();
 
 });
 
@@ -78,9 +78,10 @@ document.getElementById('theDropdown').addEventListener('click',function(){
 
 document.getElementById('search-searchbar').addEventListener('click',function(){
    const inputValue=document.getElementById('search-searchbar').value
-   console.log(inputValue);
+  // console.log(inputValue);
    if (inputValue.length <= 2) {
-     event.stopPropagation();
+    event.stopPropagation();
+
   }else{
       $('.dropdown-menu').show();
   }
