@@ -79,8 +79,8 @@ Below is a sample output
 Configuration file: /path_to_jekyll_site/_config.yml
 Processing site...                                                               
        Jekyll Feed: Generating feed for posts
-Rendering to HTML (100%) |===============================================================================================================================================|
-Extracting records (100%) |==============================================================================================================================================|
+Rendering to HTML (100%) |===================================================|
+Extracting records (100%) |===================================================|
 Settings are already up to date.                                                 
 Getting list of existing records                                                 
 Content is already up to date.                                                   
