@@ -3,9 +3,8 @@ const search = instantsearch({
   appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
   apiKey: '81daa33178cad0ab2dbe734196b5dccb',
-  //attributesForFaceting:['categories','url']
-});
 
+});
 // Adding searchbar and results widgets
 search.addWidget(
   instantsearch.widgets.searchBox({
@@ -15,24 +14,16 @@ search.addWidget(
     showReset: true,
     searchAsYouType: true,
     autofucus: true,
-
   })
 );
-
+//configure
 search.addWidget(
   instantsearch.widgets.configure({
       hitsPerPage: 4,
       distinct: true,
       clickAnalytics: true,
-  //    attributesToRetrieve:['categories','intro','title','url','blog-image'],
-    //  attributesForFaceting:['categories']
-    //  filters:'NOT content.developer'
-      //enablePersonalization: true,  //not supported in community plan
    })
 );
-
-const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
-
  //Search Hits
    search.addWidget(
       instantsearch.widgets.hits({
@@ -73,32 +64,6 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
       })
     );
 
-// add refinement for blogs  only in pathname start with blogs
-
-// const pagename=window.location.pathname
-// if(pagename.startsWith("/blog/")){
-//   search.addWidget(
-//     instantsearch.widgets.refinementList({
-//       container: '#category',
-//       attributeName: 'categories',
-//       operator:'or',
-//       limit:10,
-//       showMore:true,
-//       searchable:true,
-//       sortBy:['name:asc'],
-//       templates: {
-//          item: data=>`
-//            <a href="${data.url}" style="{{#isRefined}}font-weight: bold{{/isRefined}}" disabled>
-//              <span>${
-//                 !data.label.endsWith(",")? data.label:""
-//                 }</span>
-//            </a>
-//          `,
-//        },
-//     })
-//   );
-// }
-
 // add pagination
     search.addWidget(
       instantsearch.widgets.pagination({
@@ -108,15 +73,6 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
         showFirstLast: false,
       })
     );
-
- //poweredBy widget
-    // search.addWidget(
-    //   instantsearch.widgets.poweredBy({
-    //     container: '#powered_by',
-    //     theme: 'light'
-    //   })
-    // );
-
 
  // Stats widget
   search.addWidget(
