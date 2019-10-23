@@ -1,12 +1,12 @@
 ---
 layout: blog
-title: Jekyll Instant Search with Algolia
+title: Search a Static Site
 date: 2019-10-02 14:09 +0300
 categories: Developer
 published: true
 author: Gathuku Ndung'u
 blog-image: algolia-search/algolia.png
-intro: Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) provide a very good tool to build static websites.They make it easy to build and deploy sites with Zero or extremely low costs. One of the biggest problem with static sites, however, is that they do not support search out of the box.
+intro: We built [our](https://zegetech.com) website on Jekyll. Jekyll great for developers and we love it. The blog post we release have become a big source of refernce for many in the team. As the posts grow, finding then meant scrolling through the pages to get the posts. We needed search. Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) are a very good tool to build static websites. They make it easy to build and deploy sites with Zero or extremely low costs. However, search is one of the features not supported out of the box.
 ---
 
 ![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png){:.img-responsive .center}
@@ -19,23 +19,22 @@ Adding search functionality in Jekyll site or whichever SSG generator you are us
 
 2. [Google Custom Search Engine](https://developers.google.com/custom-search) enables you to create a search engine for your website, or blog. It allows the configuration of search results with images. You can fine-tune the ranking, add your promotions and customize the look and feel of the search results.
 
-3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a lightweight search library build on javascript. It entirely operates on the client-side and no server-side required.
+3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a lightweight search library built on javascript. It entirely operates on the client-side and no server-side required.
 
-4. [Algolia](https://www.algolia.com/) is a reliable platforms for building search into your business, powering billions of queries for thousands of companies every year and delivering results within 100ms. Zegetech search is built on algolia(Have a look and interact with it).
+4. [Algolia](https://www.algolia.com/) is a reliable SAAS platforms for building search into your website. It is billed to power billions of queries for thousands of companies every year and delivering results within 100ms. Impressive! 
 
->Lunr is instant but heavy. Google Custom Search Engine is light but not instant(yet). Simple Jekyll Search is light as well as instant but not customizable.
->> Algolia is Great!
+>Given all the options, we decided to try out Algolia for out blog search because it seems to be optimised to support large websites.
 
 
 ### Why Algolia?
-Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% guarantee. The goal of [JAMstack](https://www.gathuku.tech/what-s-ja-mstack) is to eliminate server dependencies why add one when you can use [algolia free community plan](https://www.algolia.com/)
+Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% guarantee. The goal of JAMstack is to eliminate server dependencies why add one when you can use [algolia free community plan](https://www.algolia.com/)
 
 ### How algolia works
 Algolia provides a REST API to query and update your search indices. All input and output is provided in JSON, making it extremely easy to use in frontend Javascript.
 To create, update, and maintain an Algolia search index, you’ll need to generate a valid JSON array of all of the content in your Jekyll site.
 
 ## Implementing Algolia in Jekyll
-To implement algolia search in Jekyll we will use [jekyll-algolia](https://github.com/algolia/jekyll-algolia), a Jekyll plugin maintained by Algolia team, which will help us generating a JSON array and connecting with Algolia search  
+To implement algolia search in Jekyll we will use [jekyll-algolia](https://github.com/algolia/jekyll-algolia), a Jekyll plugin maintained by Algolia team, which will help us generate a JSON array and connect with Algolia search  
 
 Lets get started:-
 ### Installation
@@ -54,7 +53,7 @@ end
 Then run, `bundle install` to update dependencies
 
 ### Configuration
-You will need to provide algolia credentials to index your site.Open a free [community plan](https://www.algolia.com/users/sign_in). Once signed in you can get the API keys. Once you have your credentials, you should define your `application_id` and `index_name` inside your `_config.yml` file like this:
+You will need to provide algolia credentials to index your site. Open a free [community plan](https://www.algolia.com/users/sign_in). Once signed in you can get the API keys. Once you have your credentials, you should define your `application_id` and `index_name` inside your `_config.yml` file like this:
 
 ```yml
 # _config.yml
@@ -66,6 +65,7 @@ algolia:
 ```
 ### Usage
 Once you add the application_id and index_name run below command to index your site.
+
 ```shell
 ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 ```
@@ -74,9 +74,9 @@ ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 >>You want to keep this key secret and not commit it to your versioning system.
 
 Below is a sample output
-<!-- ![](/assets/images/blog/algolia-search/sample-output.png) -->
+
 ```bash
-Configuration file: /home/gathuku/Dev/Jekyll/zegetech.github.io/_config.yml
+Configuration file: /path_to_jekyll_site/_config.yml
 Processing site...                                                               
        Jekyll Feed: Generating feed for posts
 Rendering to HTML (100%) |===============================================================================================================================================|
@@ -88,7 +88,7 @@ Content is already up to date.
 
 ```
 
-You might algolia want to exclude indexing of certain pages in your site. To achieve this define pages to exclude in `_config.yml` file.
+You might want to exclude indexing of certain pages in your site. To achieve this, define pages to exclude in `_config.yml` file.
 
 ```yml
 algolia:
@@ -106,27 +106,34 @@ algolia:
 Building frontend that allows user to do the actual search is not part of the `jekyll-algolia` plugin. The best solution is to use [instantSearch.js](https://github.com/algolia/instantsearch.js/) library which makes it easy to design perfect search experience using prepackaged widgets.
 
 ## Implementing instant search
-Instant search is meant to be used with algolia so API credentials to an algolia index is needed
+Instant search is meant to be used with algolia, so the API credentials to an algolia index is needed
 
 ### Install `instantSearch.js`
 You can install `instantSearch.js` through `CDN` or a dependencies management system(`YARN/NPM`)
 
 Form CDN
+
 ```html
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4/dist/instantsearch.min.css">
 <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.4"></script>
 
 ```
 From NPM
-```javascript
-// `npm install instantsearch.js --save` OR
-// `yarn add instantsearch.js`
 
+```bash
+npm install instantsearch.js --save 
+# OR
+yarn add instantsearch.js
+```
+Then 
+
+```javascript
 const instantsearch = require('instantsearch.js');
 ```
 
 ### Initialization
 To initialize instant search you will need an algolia account with a non-empty index. Provide app credentials then call the `start` method.
+
 ```javascript
 const search = instantsearch({
   appId: 'your_app_id',
@@ -137,13 +144,14 @@ const search = instantsearch({
 
 search.start();
 ```
->The `apiKey` should be the `Search-Only API Key`. This key doesn't have any write access, you should not worry about committing it in your version control.
+>The `apiKey` should be the `Search-Only API Key`. This key doesn't have any write access, you should not worry about committing it in your version control. It gives public search access to a public website.
 >> You can always regenerate this key in your Algolia dashboard.
 
 Congrats! you are now connected with Algolia.
 
 ### Display results
-The importance of search is to display results, To display results [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets]()
+The importance of search is to display results, To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets]()
+
 ```html
 <div id="hits">
   <!-- Hits widget will appear here -->
@@ -224,8 +232,4 @@ Now that we have added results, we can start querying our index, to achieve this
 
 The search is now active. The good thing Algolia computes the matching part. For more configurate results configure [attributeToRetrieve](https://www.algolia.com/doc/rest-api/search/#param-attributesToRetrieve) and [attributeToHighlight](https://www.algolia.com/doc/rest-api/search/#param-attributesToHighlight) of your index.
 
-In this blog we have seen:
-- how to index our site with `jekyll-algolia`
-- how to define the widgets containers
-- how to display the results from Algolia
-- how to display `searchbox` to query results
+We now can search our website and find those post that we want, quickly and easily. Bravo!!
