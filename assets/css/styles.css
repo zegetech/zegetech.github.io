@@ -2629,12 +2629,34 @@ label{
 .ais-pagination{
   margin-left:2px;
   margin-right: 2px;
+  display: block;
 }
 .ais-search-box--input{
   padding: opx 10px 0px 10px !important;
-  margin-top:2px !important;
-  margin-bottom: 2px !important;
+  /* margin-top:2px !important;
+  margin-bottom: 2px !important; */
+}
+.ais-search-box{
+  height: unset !important;
+  margin:5px 5px;
 }
 .nav-item.active{
   margin: opx !important;
+}
+.thumb-image-xs{
+  height:45px;
+  width:45px;
+}
+.hits-xs{
+  color: #65758e !important;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  margin-bottom: 15px;
+  margin-left:2px;
+  margin-right: 2px;
+}
+.hits-md{
+  color: #65758e !important;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
 }

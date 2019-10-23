@@ -70,7 +70,7 @@ $('.dropdown').on('hide.bs.dropdown', function() {
 
 //prevent dropdown close on click
 document.getElementById('theDropdown').addEventListener('click',function(){
-  event.preventDefault();
+  event.stopPropagation();
 
 });
 

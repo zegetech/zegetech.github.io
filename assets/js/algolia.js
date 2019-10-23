@@ -1,9 +1,4 @@
 
-// Instanciating InstantSearch.js with Algolia credentials
-// const searchClient = algoliasearch(
-//   'TN8603H0T3',
-//   '81daa33178cad0ab2dbe734196b5dccb'
-// );
 const search = instantsearch({
   appId: 'TN8603H0T3',
   indexName: 'zegetech.com',
@@ -46,12 +41,11 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
           empty: "Oops, No results found",
         // item: '<li><a href="{{url}}"><b>{{{_highlightResult.title.value}}}</b> </a><br> {{slug}}</li>'
          item: data =>`
-         <div class="row">
-         <div class="col-md-3">
+         <div class="row hits-md hidden-xs">
+         <div class="col-md-3 col-sm-3">
          <a href="${data.url}"><img class="img-responsive" src="/assets/images/blog/${data['blog-image']}" alt=""></a>
-
          </div>
-         <div class="col-md-9">
+         <div class="col-md-9 col-sm-9">
          <a class="" href="${data.url}">
          <b>${data.title}</b>
           </a>
@@ -60,11 +54,20 @@ const months=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV',
           ${(new showdown.Converter()).makeHtml(data.intro.substring(0,150))}
            <a href="${data.url}">...read more</a>
           </div>
-
+         </div>
          </div>
 
+         <div class="row hits-xs visible-xs">
+            <div class="col-xs-3 ">
+            <a href="${data.url}"><img class="thumb-image-xs img-responsive" src="/assets/images/blog/${data['blog-image']}" alt=""></a>
+            </div>
+            <div class="col-xs-9">
+            <a class="" href="${data.url}">
+            ${data.title}
+             </a>
+             <p>${ moment(data.date * 1000).format("LL")}</p>
+            </div>
          </div>
-
          `
         }
       })
