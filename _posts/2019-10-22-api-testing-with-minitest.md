@@ -25,16 +25,14 @@ Unluckily, this may not even have anything to do with how you are testing the AP
 
 This is why I've come to put my development trust in TDD - quality assurance within a limited timespan. 
 
-### Let's speed up the Process with Ruby TDD and act like PROs
+### Let's speed up the Process with Ruby TDD and test like PROs
 
 You can certainly speed the whole process using your language of development the only doubt being the availability of the TDD tools we'll be using in Ruby. 
-
-Please read [why I moved from PHP to Ruby](https://zegetech.com/blog/2019/04/25/php-to-ruby.html). You could be inspired too.
 
 We'll need: 
 
 - an API to test
-- and the following gems: [Faraday](https://github.com/lostisland/faraday), [VCR](https://github.com/vcr/vcr) and [minitest](https://github.com/seattlerb/minitest) 
+- and the following gems/ruby tools: [Faraday](https://github.com/lostisland/faraday), [VCR](https://github.com/vcr/vcr) and [minitest](https://github.com/seattlerb/minitest) 
 - other gems like guard, pry-byebug, rubocop, openssl, faker etc.
 
 #### Faraday
@@ -62,6 +60,8 @@ To avoid the many dependency issues that could arise, we'll be using [docker](ht
 
 [Extras on docker](https://zegetech.com/blog/2018/11/08/developing-with-docker.html)
 
+Let's now write our first automated test to our [Daraja 2.0 Payout API](https://documenter.getpostman.com/view/1238477/SVtbNjVn?version=latest#98db6910-637a-40df-8f87-848d905f45a6). 
+
 1. Create a Gemfile and paste in the following:
 
 ```
@@ -88,38 +88,60 @@ gem 'guard-bundler'
 FROM ruby:2.6.4
 RUN mkdir /app
 WORKDIR /app
-COPY Gemfile /app/
+COPY . /app/
 RUN bundle install -j4 --retry 5
-
 COPY . /app
 ```
 
-This will pull a ruby image from the Docker repository, create a directory, switch to your working directory, copy Gemfile to your working directory, install all the listed gems in the Gemfile and copy all the generated files to the working directory.
+This will pull a ruby image from the Docker repository, create a directory, switch to your working directory, copy all files to your working directory, install all the listed gems in the Gemfile.
 
-3. Create a docker-compose.yml file and paste in the following:
+3. In our api_test.rb, paste the following code snippet:
 
 ```
-version: '3.3'
-services:
-  api-test:
-    build: .
-    command: tail -f /dev/null
-    volumes:
-      - './:/app'
+require 'minitest/autorun'
+require 'json'
+require 'faraday'
+
+class ApiTest < Minitest::Test
+  def test_success_response
+    body = {
+      "data": {
+      "type": "payouts",
+        "id": 1,
+          "attributes": {
+              "category": "BusinessPayment",
+              "amount": 10000,
+              "recipient_no": "072264885",
+              "recipient_type": "msisdn",
+              "posted_at": "2019-03-18T17:22:09.651011Z",
+              "recipient_id_type":"national_id",
+              "recipient_id_number": "12345567",
+              "reference": "12345678"
+          }
+      }
+  }
+    response = Faraday.post("https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts", body.to_json)
+    assert_equal 200, response.status, "Should return a success response with status 200"
+  end
+end
 ```
 
 4. From your current directory, open your terminal and type in:
 
 ```
-docker-compose up
+docker build . -t api-test:latest
 ```
 
-This will build and get the api-testing container up with all our api testing project dependencies.
+This will build up your docker image. 
 
-Let's now write our first automated test to our [Daraja 2.0 Payout API](https://documenter.getpostman.com/view/1238477/SVtbNjVn?version=latest#98db6910-637a-40df-8f87-848d905f45a6). 
+Then, do a `docker run api-test ruby api_test.rb` to run your first automated test.
 
-In our test_helper.rb, paste the following code snippet:
+You should be met an assertion as depicted in the api_test.rb above.
 
-```
+Simple!
 
-```
+
+
+
+
+
