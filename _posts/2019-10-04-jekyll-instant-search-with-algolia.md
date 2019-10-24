@@ -233,3 +233,17 @@ Now that we have added results, we can start querying our index, to achieve this
 The search is now active. The good thing Algolia computes the matching part. For more configurate results configure [attributeToRetrieve](https://www.algolia.com/doc/rest-api/search/#param-attributesToRetrieve) and [attributeToHighlight](https://www.algolia.com/doc/rest-api/search/#param-attributesToHighlight) of your index.
 
 We now can search our website and find those post that we want, quickly and easily. Bravo!!
+
+###  Limitations
+
+Algolia community plan provides 50K operations and 10k records per month. To know more about how algolia counts records and operations check their official [blog](https://www.algolia.com/doc/faq/accounts-billing/how-algolia-count-records-and-operation/). Apart from that below some of the limitations compared to an enterprise plan, they can be classified in terms of features and support. Check algolia [pricing page](https://www.algolia.com/pricing/) to see difference of various plans.
+
+ | Features                                        | Support           |
+ |-------------------------------                  |-------------------|
+ | Advanced analytics                              | Email support     |
+ | Advanced APIs(Analytics,Insights and monitoring)| Extension support |
+ | Pesonalization                                  | Coding guidance   |
+ | Query Rules (Merchandizing & Intent detection)  | Live chat for implementation support|
+ | Service level agreement (SLA)                   | Phone alerting    |
+ | Additional Team members                         | Dedicated point of contact |
+ | Granular Team Permissions                       | Desicated implementation engineer|
