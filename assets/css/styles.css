@@ -2313,6 +2313,12 @@ body.no-header-wrapper {
 }
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+  /* style the dropdown */
+  #theDropdown{
+    min-width: 90% !important;
+    position: inherit;
+    padding-bottom: 90px;
+  }
   .config-wrapper {
     display: none;
   }
@@ -2356,10 +2362,7 @@ body.no-header-wrapper {
     -moz-background-clip: padding;
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
-    /* width: 100%; */
-    min-width: 90% !important;
-    padding-bottom: 90px;
-    position:inherit;
+    width: 100%;
   }
   .header .main-nav .nav .dropdown-menu:before {
     display: none;
@@ -2595,10 +2598,10 @@ label{
   font-weight: normal !important;
 }
 
-.dropdown-menu{
+#theDropdown{
   right:auto !important;
   left:auto;
-  min-width: 600px !important;
+  min-width: 600px;
   background-color: #FFF !important;
 
 }
