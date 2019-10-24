@@ -69,9 +69,13 @@ $('.dropdown').on('hide.bs.dropdown', function() {
 });
 
 //prevent dropdown close on click
-document.getElementById('theDropdown').addEventListener('click',function(){
+document.getElementById('search-dropdown-contents').addEventListener('click',function(){
   event.stopPropagation();
 
+});
+ // close search dropdown on X button click
+document.getElementByClassName('btn-close-dropdown').addEventListener('click',function(){
+   $('.dropdown-menu').hide();
 });
 
 //drop on several types

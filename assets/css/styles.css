@@ -2574,7 +2574,7 @@ code.highlighter-rouge{
 }
 
 .stats{
-  padding: 5% 5% 0;
+  padding: 0 5% ;
 }
 
 #category-widget{
@@ -2663,4 +2663,13 @@ label{
   color: #65758e !important;
   border-bottom: 1px solid #eee;
   margin-bottom: 30px;
+}
+.close-dropdown-btn{
+  font-size: 20px;
+  color: #1786c3;
+  text-align: left;
+  margin-left: 10px;
+}
+.btn-close-dropdown{
+  border:unset;
 }
