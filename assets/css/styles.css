@@ -1357,7 +1357,7 @@ body.no-header-wrapper {
 }
 /* ======= Blog Home ======= */
 .blog-list {
-  padding: 80px 0px 80px 0px;
+  padding: 80px 0;
 }
 .blog-list .container {
   max-width: 860px;
@@ -2363,6 +2363,7 @@ body.no-header-wrapper {
     -webkit-background-clip: padding-box;
     background-clip: padding-box;
     width: 100%;
+    padding: 0;
   }
   .header .main-nav .nav .dropdown-menu:before {
     display: none;
