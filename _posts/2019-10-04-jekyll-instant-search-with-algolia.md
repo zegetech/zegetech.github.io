@@ -21,7 +21,7 @@ Adding search functionality in Jekyll site or whichever SSG generator you are us
 
 3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a lightweight search library built on javascript. It entirely operates on the client-side and no server-side required.
 
-4. [Algolia](https://www.algolia.com/) is a reliable SAAS platforms for building search into your website. It is billed to power billions of queries for thousands of companies every year and delivering results within 100ms. Impressive! 
+4. [Algolia](https://www.algolia.com/) is a reliable SAAS platforms for building search into your website. It is billed to power billions of queries for thousands of companies every year and delivering results within 100ms. Impressive!
 
 >Given all the options, we decided to try out Algolia for out blog search because it seems to be optimised to support large websites.
 
@@ -121,11 +121,11 @@ Form CDN
 From NPM
 
 ```bash
-npm install instantsearch.js --save 
+npm install instantsearch.js --save
 # OR
 yarn add instantsearch.js
 ```
-Then 
+Then
 
 ```javascript
 const instantsearch = require('instantsearch.js');
@@ -198,7 +198,7 @@ You can now be able to see the results without styling. To customize the view we
 The above example used `_highlightResult` that contains attributes highlighted based on the current query. This aspect of the search gives user feedback on the matching parts of the results.
 
 ### Add search Box
-Now that we have added results, we can start querying our index, to achieve this we need a `searchbox` widget.
+Now that we have added results, we can start querying our index, to achieve this we need a [searchBox](https://www.algolia.com/doc/api-reference/widgets/search-box/js/) widget.
 ```html
 <div id="search-box">
   <!-- SearchBox widget will appear here -->
