@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: API Testing with Minitest
+title: API Testing with Minitest, Like a PRO!
 date: 2019-10-22 13:35 +0300
 categories: 
 published: true
@@ -136,12 +136,89 @@ This will build up your docker image.
 
 Then, do a `docker run api-test ruby api_test.rb` to run your first automated test.
 
-You should be met an assertion as depicted in the api_test.rb above.
+You should be met with an assertion as depicted in the api_test.rb above.
 
-Simple!
+Like a Pro!
 
+### Let's make things sweeter and faster: add VCR, Guard, and Pry-byebug
 
+We will now use docker-compose for visual interaction.
 
+Into our docker-compose.yml file paste the following:
 
+```
+version: '3.3'
+services:
+  api-test:
+    build: .
+    command: tail -f /dev/null
+    volumes:
+      - './:/app'
+```
 
+Then, update our api_test.rb to:
+
+```
+require 'minitest/autorun'
+require 'vcr'
+require 'pry-byebug'
+require 'minitest-vcr'
+require 'json'
+require 'faraday'
+# require_relative 'test_helper.rb'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :webmock
+end
+class ApiTest < Minitest::Test
+  def test_success_response
+    body = {
+      "data": {
+      "type": "payouts",
+        "id": 1,
+          "attributes": {
+              "category": "BusinessPayment",
+          "amount": 10000,
+          "recipient_no": "072264885",
+          "recipient_type": "msisdn",
+              "posted_at": "2019-03-18T17:22:09.651011Z",
+          "recipient_id_type":"national_id",
+          "recipient_id_number": "12345567",
+          "reference": "12345678"
+          }
+      }
+  }
+  VCR.use_cassette("success_test") do 
+    response = Faraday.post("https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts", body.to_json)
+    assert_equal 200, response.status, "Should return a success response with status 200"
+  end
+  end
+end
+```
+
+Here, we are introducing VCR implementation to run our tests once and record the HTTP test requests to `fixtures/vcr_cassettes` directory. We then tell VCR to record the HTTP request into success_test.yml file. [More]("https://github.com/vcr/vcr") on VCR.
+
+Then, do a `docker-compose exec -it <your-container-name or id> bash`
+
+Inside your container run, `ruby api_test.rb`, to run the test. If you take a peek in your folder structure you'll notice that `fixtures/vcr_cassettes/success_test.yml` will have been created. Running your test again will replay the recorded test suite in the .yml file. Did you notice how fast the test runs?
+
+VCR makes the tests fast, deterministic, accurate.
+
+However, VCR isn't so good in other cases because: 
+
+- the cassettes could get out of sync with the real service, meaning there could be additional maintenance overhead
+- it’s not ‘really’ stubbing because you’ll need to make that first call to the live application
+
+With this in mind, you can choose to disable VCR to suite your test scenarios.
+
+#### Using Guard and pry-byebug for debugging
+
+Let's now add some debugging and file modification event handling capability to our testing.
+
+In your docker container, run `bundle exec guard init` to initialize and create a Guardfile that will watch our file modification events. 
+
+[More on Guard](https://github.com/guard/guard)
+
+Then, fire `bundle exec guard` inside your container.
 
