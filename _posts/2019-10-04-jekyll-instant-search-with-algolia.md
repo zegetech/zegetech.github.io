@@ -150,7 +150,7 @@ search.start();
 Congrats! you are now connected with Algolia.
 
 ### Display results
-The importance of search is to display results, To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets)
+The importance of search is to display results, To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets/js/)
 
 ```html
 <div id="hits">
