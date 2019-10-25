@@ -2314,6 +2314,9 @@ body.no-header-wrapper {
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
   /* style the dropdown */
+  .btn-close-dropdown{
+    right: 10% !important;
+  }
   #search-results-dropdown{
     min-width: 90% !important;
     position: inherit;
@@ -2635,12 +2638,16 @@ code.highlighter-rouge{
   border-bottom: 1px solid #eee;
   margin-bottom: 30px;
 }
-.close-dropdown-btn{
+.close-dropdown-li{
   font-size: 20px;
   color: #1786c3;
-  text-align: left;
+  text-align: right;
   margin-left: 10px;
+  justify-content: flex-end;
 }
+
 .btn-close-dropdown{
   border:unset;
+  position: fixed;
+  right: 22%;
 }
