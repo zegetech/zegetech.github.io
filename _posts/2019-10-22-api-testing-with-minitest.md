@@ -5,13 +5,13 @@ date: 2019-10-22 13:35 +0300
 categories: 
 published: true
 author: Tom Nyongesa
-blog-image: api-testing/9396_0.jpg
+blog-image: api-testing/API_TESTING.jpg
 intro: Who said that Data is the 21st century gold? Well, if so then APIs are the new oil. With the ever micro-growing of the globe, apps are increasingly interacting and integrating with each other with APIs backboning the interactions. From Facebook, Google, [Tyk](https://tyk.io/) to [Qwwik](https://qwwik.com/), the need for external parties/third parties cannot be ignored. It's a scratch your back I scratch yours. But how do we validate that whoever scratches our backs is doing it right and gently? We need to test!
 ---
 ![api-testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}<br>
 {{page.intro}}
 
-We can easily test APIs with the help of Postman client, thanks to those gurus - running an API request on Postman would make anyone feel like themselves(a computer guru). To get this feeling simply install Postman on your machine and test out our newly [unveiled Daraja 2.0 APIs](https://www.getpostman.com/collections/bd902a95eb356c2d4308).
+We can easily test APIs with the help of Postman client, thanks to those gurus - running an API request on Postman would make anyone feel like an API integration guru. To get this feeling simply install Postman on your machine and test out our newly [unveiled Daraja 2.0 APIs](https://www.getpostman.com/collections/bd902a95eb356c2d4308).
 
 [1 min Testing time]
 
@@ -201,24 +201,21 @@ Here, we are introducing VCR implementation to run our tests once and record the
 
 Then, do a `docker-compose exec -it <your-container-name or id> bash`
 
-Inside your container run, `ruby api_test.rb`, to run the test. If you take a peek in your folder structure you'll notice that `fixtures/vcr_cassettes/success_test.yml` will have been created. Running your test again will replay the recorded test suite in the .yml file. Did you notice how fast the test runs?
+Inside your container run, `ruby api_test.rb`, to run the test. If you take a peek in your folder structure you'll notice that `fixtures/vcr_cassettes/success_test.yml` will have been created. Running your test again will replay the recorded test suite in the .yml file. Note thie time it takes to make run the test for the first time against the time it takes for the subsequent tests. Do you notice how fast the test runs for the repeat tests?
 
-VCR makes the tests fast, deterministic, accurate.
+VCR makes the tests fast, deterministic, accurate because you wouldn't have the need to connect to the external API service whose connection could be slower.
 
 However, VCR isn't so good in other cases because: 
 
 - the cassettes could get out of sync with the real service, meaning there could be additional maintenance overhead
 - it’s not ‘really’ stubbing because you’ll need to make that first call to the live application
 
-With this in mind, you can choose to disable VCR to suite your test scenarios.
+With this in mind, you can choose to disable VCR to suit your test scenarios.
 
-#### Using Guard and pry-byebug for debugging
+### To conclude,
 
-Let's now add some debugging and file modification event handling capability to our testing.
+And if this is interesting to you, you could try looking into [guard-rake](https://github.com/rubyist/guard-rake), [pry-byebug](https://github.com/deivid-rodriguez/pry-byebug), [rubocop](https://github.com/rubocop-hq/rubocop), [faker](https://github.com/faker-ruby/faker) and fixtures to make the whole process blissful.
 
-In your docker container, run `bundle exec guard init` to initialize and create a Guardfile that will watch our file modification events. 
+You are now an API testing guru!
 
-[More on Guard](https://github.com/guard/guard)
-
-Then, fire `bundle exec guard` inside your container.
-
+Bye!
