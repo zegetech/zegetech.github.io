@@ -2638,7 +2638,13 @@ code.highlighter-rouge{
   border-bottom: 1px solid #eee;
   margin-bottom: 30px;
 }
+
+.sticky-close{
+  float: right;
+}
 .close-dropdown-li{
+  position: fixed;
+  margin: 10px -0px -0px -50px;
   font-size: 20px;
   color: #1786c3;
   text-align: right;
@@ -2646,7 +2652,8 @@ code.highlighter-rouge{
   justify-content: flex-end;
 }
 .btn-close-dropdown{
-  border:unset;
+  /* border:unset; */
   position: fixed;
   right: 26%;
+  z-index: inherit;
 }
