@@ -234,14 +234,19 @@ Intergration tests live in the `test/integration/` directory. They are automatic
 ```
 
 # Views 
+Views are the `V` in the `MVC`. The views are responsible for displaying content to the user.
 
-**What?**
+## What to test?
 1. Rendered pages for requests and responses.
 2. Displayed content.
 3. Routing(redirected to the right page)
 
-**How?**  
-Currently, Rails encourages testing views via integration or system tests.
+## How? 
+Currently, Rails encourages testing views via [integration](### integration test) or system tests.
+Since we already covered integration tests in controllers section, this section will be  on system tests.
+
+### system tests  
+System tests allow you to test user interactions with your application, running tests in either a real or a headless browser. System tests use Capybara under the hood. example:
 
 ```ruby
 test "creating an article" do
@@ -255,6 +260,29 @@ test "creating an article" do
  click_on "Create Article"
  
  assert_text "Creating an Article"
+end
+```
+
+For views, tests should also cover different screen sizes. 
+In this example a file called mobile_system_test_case.rb is created in the /test directory with the following configuration.
+
+```ruby
+require "test_helper"
+ 
+class MobileSystemTestCase < ActionDispatch::SystemTestCase
+  driven_by :selenium, using: :chrome, screen_size: [375, 667]
+end
+```
+```ruby
+
+require "mobile_system_test_case"
+ 
+class PostsTest < MobileSystemTestCase
+ 
+  test "visiting the index" do
+    visit posts_url
+    assert_selector "h1", text: "Posts"
+  end
 end
 ```
 
