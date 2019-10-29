@@ -1,9 +1,9 @@
 ---
 layout: blog
-title: rails-app-testing
+title: Testing in Rails
 date: 2019-03-15 13:51 +0300
 categories: Developer, Testing
-published: true
+published: false
 author: Melvin Atieno
 blog-image: testing/tests.jpg 
 intro: The basic idea behind Artificial Intelligence, is to have computers write their programs. No, we are not there yet. Computers are perfect and until we get them to write their perfect programs the world is stuck with us, the not so perfect humans, writing programs. Computers do exactly what they are told, which isn't always what the programmer expects/intended for it to do. To determine this relatively annoying difference between the current state and the desired state of programs and keep it at a minimum we write tests. Tests are an assurance that programs or applications function as expected. In this blog, we will go through writing tests for a standard rails application. 
