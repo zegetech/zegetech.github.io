@@ -242,7 +242,7 @@ Views are the `V` in the `MVC`. The views are responsible for displaying content
 3. Routing(redirected to the right page)
 
 ## How? 
-Currently, Rails encourages testing views via [integration](### integration test) or system tests.
+Currently, Rails encourages testing views via integration or system tests.
 Since we already covered integration tests in controllers section, this section will be  on system tests.
 
 ### system tests  
