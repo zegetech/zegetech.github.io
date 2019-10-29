@@ -28,20 +28,20 @@ Make sure that incoming data is valid before performing business logic on it. He
 ```ruby
 class UserTest < ActiveSupport::TestCase
  test 'valid-user' do
- user = User.new(name: 'John', email: 'john@example.com')
- assert user.valid?
+  user = User.new(name: 'John', email: 'john@example.com')
+  assert user.valid?
  end
 
  test 'invalid without name' do
- user = User.new(email: 'john@example.com')
- refute user.valid?, 'user is valid without a name'
- assert_not_nil user.errors[:name], 'no validation error for name present'
+  user = User.new(email: 'john@example.com')
+  refute user.valid?, 'user is valid without a name'
+  assert_not_nil user.errors[:name], 'no validation error for name present'
  end
 
  test 'invalid without email' do
- user = User.new(name: 'John')
- refute user.valid?
- assert_not_nil user.errors[:email]
+  user = User.new(name: 'John')
+  refute user.valid?
+  assert_not_nil user.errors[:email]
  end
 end
 ```
@@ -240,7 +240,7 @@ Intergration tests live in the `test/integration/` directory. They are automatic
 2. Displayed content.
 3. Routing(redirected to the right page)
 
-**How?**
+**How?**  
 Currently, Rails encourages testing views via integration or system tests.
 
 ```ruby
