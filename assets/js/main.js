@@ -77,3 +77,46 @@ images=document.getElementById("content").getElementsByTagName("IMG");
 for (var i = 0; i < images.length; i++) {
   images[i].className ="img-responsive center";
 }
+
+$('.dropdown').on('show.bs.dropdown', function() {
+  $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+});
+
+// Add slideUp animation to Bootstrap dropdown when collapsing.
+$('.dropdown').on('hide.bs.dropdown', function() {
+  $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+});
+
+//prevent dropdown close on click
+document.getElementById('search-dropdown-contents').addEventListener('click',function(){
+  event.stopPropagation();
+
+});
+ // close search dropdown on X button click
+document.getElementByClassName('btn-close-dropdown').addEventListener('click',function(){
+   $('.dropdown-menu').hide();
+});
+
+//drop on several types
+
+document.getElementById('search-searchbar').addEventListener('click',function(){
+   const inputValue=document.getElementById('search-searchbar').value
+  // console.log(inputValue);
+   if (inputValue.length <= 2) {
+    event.stopPropagation();
+
+  }else{
+      $('.dropdown-menu').show();
+  }
+});
+
+document.getElementById('search-searchbar').addEventListener('keyup',function(){
+  const inputValue=document.getElementById('search-searchbar').value
+  if (inputValue.length <= 2) {
+    $('.dropdown-menu').hide();
+ }else{
+
+    $('.dropdown-menu').show();
+ }
+})
+
