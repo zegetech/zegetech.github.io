@@ -266,7 +266,7 @@ body.no-header-wrapper {
   width: 100%;
   z-index: 40;
   padding: 15px inherit;
-  background: rgba(36, 46, 60, 0.9); 
+  background: rgba(36, 46, 60, 0.9);
   -webkit-transition: padding 0.6s ease-in-out;
   -moz-transition: padding 0.6s ease-in-out;
   -ms-transition: padding 0.6s ease-in-out;
@@ -2313,6 +2313,15 @@ body.no-header-wrapper {
 }
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
+  /* style the dropdown */
+  .btn-close-dropdown{
+    right: 10% !important;
+  }
+  #search-results-dropdown{
+    min-width: 90% !important;
+    position: inherit;
+    padding-bottom: 90px;
+  }
   .config-wrapper {
     display: none;
   }
@@ -2561,3 +2570,90 @@ code.highlighter-rouge{
 }
 
 
+/* Search hits stylling */
+.ais-hits--item{
+  padding: 2% 5% 0;
+
+}
+
+.stats{
+  padding: 0 5% ;
+}
+
+#search-results-dropdown{
+  right:auto;
+  left:auto;
+  min-width: 600px;
+  background-color: #FFF ;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 500px;
+    overflow-x: hidden;
+}
+
+#search-results-dropdown:before{
+  position: fixed;
+}
+
+#search-results-dropdown a {
+  color: inherit ;
+  border-bottom: none ;
+  padding: 0 ;
+}
+
+#search-dropdown{
+  height: 50px;
+  width:200px;
+}
+.ais-pagination{
+  margin-left:2px;
+  margin-right: 2px;
+  display: block;
+}
+.ais-search-box--input{
+  padding: opx 10px 0px 10px !important;
+
+}
+.ais-search-box{
+  height: unset !important;
+  margin:5px 5px;
+}
+
+.thumb-image-xs{
+  height:45px;
+  width:45px;
+}
+.hits-xs{
+  color: #65758e;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  margin-bottom: 15px;
+  margin-left:2px;
+  margin-right: 2px;
+}
+.hits-md{
+  color: #65758e;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+}
+
+.sticky-close{
+  float: right;
+}
+.close-dropdown-li{
+  position: fixed;
+  margin: 10px -0px -0px -50px;
+  font-size: 20px;
+  color: #1786c3;
+  text-align: right;
+  margin-left: 10px;
+  justify-content: flex-end;
+}
+.btn-close-dropdown{
+  /* border:unset; */
+  position: fixed;
+  right: 26%;
+  z-index: inherit;
+}

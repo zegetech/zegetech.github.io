@@ -1,5 +1,5 @@
-<header id="header" class="header navbar-fixed-top">  
-  <div class="container">       
+<header id="header" class="header navbar-fixed-top">
+  <div class="container">
     <h1 class="logo">
       <img src="/assets/images/logos/favicon.png" height="35px" alt="Zegetech Logo" title="Zegetech logo" />
       <a href="/"><span class="highlight">ZEGE</span>TECH</a>
@@ -15,9 +15,31 @@
       </div><!--//navbar-header-->
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          <!-- Search Box with dropdown-->
+          <li class="nav-item active">
+            <div class="dropdown col-md-8">
+                <div  class="dropdown-toggle" type="button" id="search-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  <input id="search-searchbar" type="text" name="" value="">
+                </div>
+                <ul id="search-results-dropdown" class="dropdown-menu scrollable-menu" aria-labelledby="search-dropdown" style="80px">
+                    <div class="sticky-close">
+                      <li class="close-dropdown-li"><button class="btn btn-default btn-close-dropdown" type="button" name="button">&#10005;</button></li>
+                    </div>
+                    <div class="search-dropdown-contents">
+                      <li class="stats text-primary" id="stats"></li>
+                      <li id="search-hits"></li>
+                      <li role="separator" class="divider"></li>
+                      <li id="pagination-container"></li>
+                    </div>
+
+                </ul>
+            </div>
+          </li>
+          <!-- end search box -->
+
           <li class="{% if page.title == "Home" %} active {% endif %} nav-item"><a href="/">Home</a></li>
-          <li class="{% if page.title == "Work" %} active {% endif %} nav-item"><a href="/work.html">Work</a></li>                       
-          <li class="{% if page.title == "About" %} active {% endif %} nav-item"><a href="/team.html">Team</a></li>                                              
+          <li class="{% if page.title == "Work" %} active {% endif %} nav-item"><a href="/work.html">Work</a></li>
+          <li class="{% if page.title == "About" %} active {% endif %} nav-item"><a href="/team.html">Team</a></li>
           <li class="{% if page.title == "Blog" %} active {% endif %} nav-item"><a href="/blog/">Blog</a></li>
           <li class="{% if page.title == "Contact" %} active {% endif %} nav-item"><a href="/contact.html">Contact</a></li>
           <!-- <li class="nav-item"><a href="/estimate.html">Blog</a></li> -->
@@ -26,4 +48,4 @@
       </div><!--//navabr-collapse-->
     </nav><!--//main-nav-->
   </div><!--//container-->
-</header><!--//header-->  
+</header><!--//header-->
