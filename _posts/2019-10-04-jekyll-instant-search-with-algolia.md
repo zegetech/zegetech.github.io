@@ -5,11 +5,11 @@ date: 2019-10-02 14:09 +0300
 categories: Developer
 published: true
 author: Gathuku Ndung'u
-blog-image: algolia-search/algolia.png
+blog-image: algolia-search/image-search.jpg
 intro: We built [our](https://zegetech.com) website on Jekyll. Jekyll great for developers and we love it. The blog post we release have become a big source of refernce for many in the team. As the posts grow, finding then meant scrolling through the pages to get the posts. We needed search. Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) are a very good tool to build static websites. They make it easy to build and deploy sites with Zero or extremely low costs. However, search is one of the features not supported out of the box.
 ---
 
-![jekyll_instant_image](/assets/images/blog/algolia-search/algolia.png){:.img-responsive .center}
+![jekyll_instant_image](/assets/images/blog/algolia-search/image-search.jpg){:.img-responsive .center}
 
 {{page.intro}}
 
