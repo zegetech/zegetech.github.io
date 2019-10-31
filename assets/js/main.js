@@ -72,7 +72,7 @@ for (var i = 0; i < tables.length; i++) {
 
 }
 
-images=document.getElementById("content").getElementsByTagName("IMG");
+images=document.getElementsByClassName("content")[0].getElementsByTagName("IMG");
 
 for (var i = 0; i < images.length; i++) {
   images[i].className ="img-responsive center";
