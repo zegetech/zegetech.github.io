@@ -93,3 +93,23 @@ jekyll_compose:
     blog-image:
     intro:
     keywords:
+
+algolia:
+  application_id: TN8603H0T3
+  index_name: zegetech.com
+  search_only_api_key: 81daa33178cad0ab2dbe734196b5dccb
+  files_to_exclude:
+    - index.html
+    - index.md
+    - _layouts/blog.html
+    - _layouts/default.html
+    - _layouts/home.html
+    - _layouts/project.html
+    - _layouts/typeform.html
+    - _pages/contact.md
+    - _pages/estimate.md
+    - _pages/partner.md
+    - _pages/talent.md
+    - _pages/team.md
+    - _pages/work.md
+
