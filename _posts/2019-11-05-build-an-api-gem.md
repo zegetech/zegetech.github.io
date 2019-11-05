@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: build an api gem
+title: Build an API gem
 date: 2019-11-05 17:15 +0300
 categories: developer
 published: false
@@ -52,13 +52,21 @@ COPY --chown=deploy:admin . /mygem
 ```
 
 `FROM ruby:rc-alpine3.10` -  Specificities a [ruby image](https://hub.docker.com/_/ruby?tab=tags) based on alpine Linux, we use alpine Linux because it's light, you could use other distro like ubuntu, Check more on official image.
+
 `RUN apk update && apk upgrade` - update and upgrade the image.
+
 `RUN addgroup -S admin -g 1000 && adduser -S -g '' -u 1000 -G admin deploy` - create a new user `deploy` in-group admin to avoid running the container as root.
+
 `RUN mkdir -p /mygem` - make `mygem` directory with any parent `-p` directory
+
 `RUN chown deploy /mygem` - Our `deploy` user owns the directory
+
 `USER deploy` - Set user `deploy` as the current user
+
 `WORKDIR /mygem` - sets a working directory, any other command afer this will run in the directory.
+
 `RUN gem install bundler` - install bundler
+
 `COPY --chown=deploy:admin . /mygem` - copies everything to the working directory
 
 ```bash
@@ -74,7 +82,7 @@ Create a service app that builds the current directory and mounts volumes.
 
 ## Boostrapping gem
 We will use our docker-compose service to bootstrap the gem using bundler. Bundler creates all the files needed to start building a gem.
-The command will generate a gem with a specified name
+The command below will generate a gem with a specified name
 ```bash
 docker-composer run app bundle gem [name]
 ```
@@ -120,7 +128,7 @@ Gem 'mygem' was successfully created. For more information on making a RubyGem v
 Congrats! You now have your gem ready to implement functionalities.
 
 ## Implement Functionality
-The good thing about ruby gem is we can also use other gem by including them in `Gemfile`. In this section our gem will implement [jsonip](https://jsonip.org/) API. To get along with TDD we will require some other gems.
+The good thing about ruby gem is we can also use other gem by including them in `Gemfile`. In this section our gem will implement [jsonip](https://jsonip.org) API. To get along with TDD we will require some other gems.
 - [webmock](https://github.com/bblimke/webmock) - A gem for stubbing and setting expectation for HTTP requests.
 - [VCR](https://github.com/vcr/vcr) - A gem that record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
 - [Faraday](https://github.com/lostisland/faraday) - A simple and flexible HTTP client gem.
@@ -140,7 +148,7 @@ Then build your container  to install the gems and copy files to the container
 docker build -t mpesa_gem . && docker run -it mpesa_gem
 ```
 
- We will implement a 'jsonip' method in `lib/mygem.rb`, the method will return an IP based on [jsonip]() API. We will start by writing our test the make those tests pass.
+ We will implement a `jsonip` method in `lib/mygem.rb`, the method will return an IP based on [jsonip](https://jsonip.org) API. We will start by writing our test the make those tests pass.
 
 ```ruby
 # test/mygem_test.rb
@@ -222,13 +230,13 @@ In `irb` require the gem ie `require "mygem"` then call `Mygem.jsonip` method wh
 Congratulations!, you now have a working gem. What left is to publish it in [rubygems.org](https://rubygems.org/)
 
 ## Publishing Gem
-Now you can share `mygem` with the rest of the Ruby community. Publishing your gem out to RubyGems.org only takes one command, provided that you have an account on the site. To set up your computer with your RubyGems account:
+Now you can share `mygem` with the rest of the Ruby community. Publishing your gem out to [RubyGems.org](https://rubygems.org/) only takes one command, provided that you have an account on the site. To set up your computer with your RubyGems account:
 ```
-curl -u gathuku  https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials > chmod ~/.gem/credentials
+curl -u ruby_gem_username  https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials > chmod ~/.gem/credentials
 ```
-The above command will get ruby gem API key and stores it in  `~/.gem/credentials` then change directory permissions to `0600`.
+The above command will get [rubyGems.org](https://rubygems.org/) API key and stores it in  `~/.gem/credentials` and change directory permissions to `0600`.
 
-Now you can public your gem with command
+Now you can publish your gem with command. The command will take spec version push to version control with the tag. Then push to specified gem server ie rubygems.org
 ```
 docker-compose run app rake release
 ```
