@@ -369,3 +369,15 @@ insert_final_newline = true
 [*.{sh,markdown}]
 indent_size = 4
 ```
+
+### Ruby Linter
+Linter provides an interface to Ruby's builtin syntax analysis. It will be used with files that have the Ruby syntax. Many IDE usually have linter packages for almost every packge. Just install in your IDE and everything will be well.
+
+###  12-Factor compliance
+ Dependancies
+
+ All gem dependancies should be isolated . They should be declared in `Gemfile`
+
+ Backing services
+
+ Our gem depends on API as the backing services. APIs are accessed using access_token, ensure all your token are store in environment variables and not committed to versioning system. Apis resouces eg urls,keys should be  in `config` and be easily to change using a configure block. Access different API environment should not result into change in codebase
