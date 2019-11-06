@@ -237,7 +237,6 @@ def self.create_post
  }
 Faraday.post(url,body.to_json,headers)
 
-#JSON.parse(res.body)
 end
 ```
 
@@ -286,7 +285,7 @@ To get retrive the assigned variable.
 ```ruby
 Mygem.configuration.access_token
 ```
-Example 
+Example
 ```bash
 2.6.3 :001 > require 'mygem'
  => true
@@ -325,7 +324,7 @@ Congratulations!, you now have a working gem. What left is to publish it in [rub
 
 ## Publishing Gem
 Now you can share `mygem` with the rest of the Ruby community. Publishing your gem out to [RubyGems.org](https://rubygems.org/) only takes one command, provided that you have an account on the site. To set up your computer with your RubyGems account:
-```
+```bash
 curl -u ruby_gem_username  https://rubygems.org/api/v1/api_key.yaml > ~/.gem/credentials > chmod ~/.gem/credentials
 ```
 The above command will get [rubyGems.org](https://rubygems.org/) API key and stores it in  `~/.gem/credentials` and change directory permissions to `0600`.
@@ -334,4 +333,39 @@ Now you can publish your gem with command. The command will take spec version pu
 ```
 docker-compose run app rake release
 ```
->> Ensure you have included the gem server in your gemspecs and also the version.
+> Ensure you have included the gem server in your gemspecs and also the version.
+
+## Debugging and Automation  
+### CI/CD with Travis
+We will use [travis](https://travis-ci.org/) CI/CD to run tests when a commit is made in the repository including pull requests from other contributors. The travis `yaml` syntax below can be used to get started with testing. Refer to travis [documentation](https://docs.travis-ci.com/user/languages/ruby/) for more functionalities.
+
+```yml
+language: ruby
+cache: bundler
+rvm:
+  - 2.6.3
+before_install: gem install bundler -v 2.0.2
+
+script:
+  - bundle exec rake test
+
+```
+
+### EditorConfig
+EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles . EditorConfig files are easily readable and they work nicely with version control systems.
+
+```
+#.editorconfig
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{sh,markdown}]
+indent_size = 4
+```
