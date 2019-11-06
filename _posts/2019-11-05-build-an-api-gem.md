@@ -17,8 +17,10 @@ intro: Ruby Gem allows us to package our code to use later or share it with othe
 2. Bootstrapping your gem
 3. Implementing functionalities
 4. Test coverage(Webmock and VCR)
-5. Building your gem
-6. Publishing your gem
+5. Configurable block
+6. Building your gem
+7. Publishing your gem
+8. CI/CD with travis
 
 
 ## Setting Docker container
@@ -202,7 +204,99 @@ class MygemTest < Minitest::Test
 
 end
 ```
-Great!, now we have implemented a method that returns an IP and tested it, let's see how we can package this gem.
+Great!, now we have implemented a method that returns an IP and tested it.
+
+### Implement a POST method
+Lets see how we can implement a `POST` method in our functionalities. we will use [JSONplaceholder](https://jsonplaceholder.typicode.com/) a fake online REST API for testing and prototyping. You can use JSONplaceholder with any project that requires JSON date.
+As usual we will start with writing tests.
+```ruby
+def test_it_create_post
+  stub_request(:post, "https://jsonplaceholder.typicode.com/posts").
+  with(
+    body: '{"title":"Build and api gem","body":"some body","userId":1}',
+    headers: {
+    'Content-Type'=>'application/json; charset=UTF-8'
+    }).
+  to_return(status: 200, body: '{"title"=>"Build and api gem", "body"=>"some body", "userId"=>1, "id"=>101} ', headers: {})
+
+  assert_equal 200, Mygem.create_post.status
+end
+```
+Then we implement a `create_post` method in `Mygem` class. For more complex API request we can use [Faraday]() which we had installed. Faraday is simple and flexible and helps building request easily.
+```ruby
+def self.create_post
+
+ url="https://jsonplaceholder.typicode.com/posts"
+ body={
+  title: 'Build and api gem',
+  body: 'some body',
+  userId: 1
+ }
+ headers={
+   "Content-Type":"application/json; charset=UTF-8"
+ }
+Faraday.post(url,body.to_json,headers)
+
+#JSON.parse(res.body)
+end
+```
+
+##  Configurable Block
+Sometimes a gem may contains dynamic variables. Mostly API contain access keys. In a gem we need a Configurable block for providing those variables access to our gem.
+```ruby
+require "mygem/version"
+require 'net/http'
+require 'uri'
+require "json"
+require "faraday"
+
+module Mygem
+
+  class Error < StandardError; end
+  # Your code goes here...
+  class << self
+  attr_accessor :configuration
+    def configure
+    self.configuration ||= Configuration.new
+    yield(configuration)
+    end
+
+  def reset
+    self.configuration = Configuration.new
+  end
+
+  end
+
+end
+
+class Configuration
+  attr_accessor :access_token
+
+  def initialize
+    @access_token = nil
+  end
+end
+
+```
+We have implemented a class `Configuration` which holds our configurable variables with read and write access ie `attr_accessor :access_token`. In our `Mygem` module we create a `configuration` which stores an instance of `Configuration` class. Now you can assign `access_token` with below example.
+```ruby
+Mygem.configure { |config| config.access_token="jejekeuiueiw"}
+```
+To get retrive the assigned variable.
+```ruby
+Mygem.configuration.access_token
+```
+Example 
+```bash
+2.6.3 :001 > require 'mygem'
+ => true
+2.6.3 :002 > Mygem.configure { |config| config.access_token="jejekeuiueiw"}
+ => "jejekeuiueiw"
+2.6.3 :003 > Mygem.configuration.access_token
+ => "jejekeuiueiw"
+2.6.3 :004 >
+
+```
 
 ## Building the Gem
 To build the gem update gemspec in `mygem.gemspec` then we can build a gem out of it with the below command.
