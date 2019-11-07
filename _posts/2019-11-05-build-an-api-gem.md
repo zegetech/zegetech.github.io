@@ -286,7 +286,8 @@ To get retrive the assigned variable.
 Mygem.configuration.access_token
 ```
 Example
-```bash
+
+```ruby
 2.6.3 :001 > require 'mygem'
  => true
 2.6.3 :002 > Mygem.configure { |config| config.access_token="jejekeuiueiw"}
@@ -294,8 +295,11 @@ Example
 2.6.3 :003 > Mygem.configuration.access_token
  => "jejekeuiueiw"
 2.6.3 :004 >
-
 ```
+
+## Testing data(Fixtures)
+Since this is not a rails app when cannot be able to use fixtures which by default comes with rails. But don't worry there are many fixtures replacements out there.
+We can use [factory_bot ](https://github.com/thoughtbot/factory_bot) a fixtures replacement with a straightforward definition syntax, support for multiple build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for multiple factories for the same class (user, admin_user, and so on), including factory inheritance. Read on how to get [started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) with factory_bot.
 
 ## Building the Gem
 To build the gem update gemspec in `mygem.gemspec` then we can build a gem out of it with the below command.
