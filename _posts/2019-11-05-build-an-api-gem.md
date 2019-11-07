@@ -20,7 +20,7 @@ intro: Ruby Gem allows us to package our code to use later or share it with othe
 5. Configurable block
 6. Building your gem
 7. Publishing your gem
-8. CI/CD with travis
+8. CI/CD with Travis
 
 
 ## Setting Docker container
@@ -65,7 +65,7 @@ COPY --chown=deploy:admin . /mygem
 
 `USER deploy` - Set user `deploy` as the current user
 
-`WORKDIR /mygem` - sets a working directory, any other command afer this will run in the directory.
+`WORKDIR /mygem` - sets a working directory, any other command after this will run in the directory.
 
 `RUN gem install bundler` - install bundler
 
@@ -147,7 +147,7 @@ gem 'webmock'
 
 Then build your container  to install the gems and copy files to the container
 ```
-docker build -t mpesa_gem . && docker run -it mpesa_gem
+docker build -t mygem . && docker run -it mygem
 ```
 
  We will implement a `jsonip` method in `lib/mygem.rb`, the method will return an IP based on [jsonip](https://jsonip.org) API. We will start by writing our test the make those tests pass.
@@ -207,8 +207,8 @@ end
 Great!, now we have implemented a method that returns an IP and tested it.
 
 ### Implement a POST method
-Lets see how we can implement a `POST` method in our functionalities. we will use [JSONplaceholder](https://jsonplaceholder.typicode.com/) a fake online REST API for testing and prototyping. You can use JSONplaceholder with any project that requires JSON date.
-As usual we will start with writing tests.
+Let's see how we can implement a `POST` method in our functionalities. we will use [JSONplaceholder](https://jsonplaceholder.typicode.com/) a fake online REST API for testing and prototyping. You can use JSONplaceholder with any project that requires a JSON data.
+As usual, we will start with writing tests.
 ```ruby
 def test_it_create_post
   stub_request(:post, "https://jsonplaceholder.typicode.com/posts").
@@ -222,7 +222,7 @@ def test_it_create_post
   assert_equal 200, Mygem.create_post.status
 end
 ```
-Then we implement a `create_post` method in `Mygem` class. For more complex API request we can use [Faraday]() which we had installed. Faraday is simple and flexible and helps building request easily.
+Then we implement a `create_post` method in `Mygem` class. For more complex API requests we can use [Faraday]() which we had installed. Faraday is simple and flexible and helps building requests easily.
 ```ruby
 def self.create_post
 
@@ -241,7 +241,7 @@ end
 ```
 
 ##  Configurable Block
-Sometimes a gem may contains dynamic variables. Mostly API contain access keys. In a gem we need a Configurable block for providing those variables access to our gem.
+Sometimes a gem may contain dynamic variables. Mostly API uses access keys to authenticate resources. In a gem, we need a Configurable block for providing those variables access to our gem.
 ```ruby
 require "mygem/version"
 require 'net/http'
@@ -277,11 +277,11 @@ class Configuration
 end
 
 ```
-We have implemented a class `Configuration` which holds our configurable variables with read and write access ie `attr_accessor :access_token`. In our `Mygem` module we create a `configuration` which stores an instance of `Configuration` class. Now you can assign `access_token` with below example.
+We have implemented a class `Configuration` which holds our configurable variables with read and write access ie `attr_accessor :access_token`. In our `Mygem` module, we create a `configuration` which stores an instance of `Configuration` class. Now you can assign `access_token` with the below example.
 ```ruby
 Mygem.configure { |config| config.access_token="jejekeuiueiw"}
 ```
-To get retrive the assigned variable.
+To retrieve the assigned variable.
 ```ruby
 Mygem.configuration.access_token
 ```
@@ -298,7 +298,7 @@ Example
 ```
 
 ## Testing data(Fixtures)
-Since this is not a rails app when cannot be able to use fixtures which by default comes with rails. But don't worry there are many fixtures replacements out there.
+Since this is not a rails app we cannot be able to use fixtures which by default comes with rails. But don't worry there are many fixtures replacements out there.
 We can use [factory_bot ](https://github.com/thoughtbot/factory_bot) a fixtures replacement with a straightforward definition syntax, support for multiple build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for multiple factories for the same class (user, admin_user, and so on), including factory inheritance. Read on how to get [started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) with factory_bot.
 
 ## Building the Gem
@@ -341,7 +341,7 @@ docker-compose run app rake release
 
 ## Debugging and Automation  
 ### CI/CD with Travis
-We will use [travis](https://travis-ci.org/) CI/CD to run tests when a commit is made in the repository including pull requests from other contributors. The travis `yaml` syntax below can be used to get started with testing. Refer to travis [documentation](https://docs.travis-ci.com/user/languages/ruby/) for more functionalities.
+We will use [travis](https://travis-ci.org/) CI/CD to run tests when a commit is made in the repository including pull requests from other contributors. The Travis `yaml` syntax below can be used to get started with testing. Refer to Travis [documentation](https://docs.travis-ci.com/user/languages/ruby/) for more functionalities.
 
 ```yml
 language: ruby
@@ -356,7 +356,7 @@ script:
 ```
 
 ### EditorConfig
-EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles . EditorConfig files are easily readable and they work nicely with version control systems.
+EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems.
 
 ```
 #.editorconfig
@@ -375,13 +375,13 @@ indent_size = 4
 ```
 
 ### Ruby Linter
-Linter provides an interface to Ruby's builtin syntax analysis. It will be used with files that have the Ruby syntax. Many IDE usually have linter packages for almost every packge. Just install in your IDE and everything will be well.
+Linter provides an interface to Ruby's builtin syntax analysis. It will be used with files that have the Ruby syntax. Many IDE usually have linter packages for almost every package. Just install in your IDE and everything will be well.
 
 ###  12-Factor compliance
  Dependancies
 
- All gem dependancies should be isolated . They should be declared in `Gemfile`
+ All gem dependencies should be isolated. They should be declared in `Gemfile`
 
  Backing services
 
- Our gem depends on API as the backing services. APIs are accessed using access_token, ensure all your token are store in environment variables and not committed to versioning system. Apis resouces eg urls,keys should be  in `config` and be easily to change using a configure block. Access different API environment should not result into change in codebase
+ Our gem depends on API as the backing services. APIs are accessed using access_token, ensure all your token are stored in environment variables and not committed to the versioning system. Apis resources eg URLs, keys should be in `config` and be easy to change using a configure block. Access different API environment should not result in change in the codebase
