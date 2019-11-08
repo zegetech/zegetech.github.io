@@ -4,15 +4,12 @@ title: Amazing Bash aliases
 date: 2019-11-08 11:24 +0300
 categories:
 published: false
-author: alias/bash_alias.jpg
+author:
 blog-image:
 intro: Writing the same long command can be the most annoying thing when working in the terminal. Especially to those of us used to touches and GUIs(Graphical user interfaces). Its true most of us don't like terminal. While it hardly a solution to most of our complaints we can simplify some of them.
 ---
 
-![bash_alias](/assets/images/blog/alias/bash_alias.jpg){:.img-responsive .center}
-
 {{page.intro}}
-
 
 ## Introduction
 Let's look at some commands below
@@ -72,10 +69,7 @@ alias ls='ls --color=auto'
  source ~/.bashrc
  ```
 ## Unsetting alias
-If you want to get rid of any alias use `unalias` command
-```sh
-unalias ll
-```
+
 
 ## Alias Examples
 1. Update your system
@@ -107,6 +101,3 @@ unalias ll
   2.  Similar named aliases cannot co-exist.
   3. Aliases cannot be (un)set in subshells or non-interactive environments.
   4. Aliases take time since shell has to interpret them all before showing you prompt.
-
-### Conclusion
-Hopefully this guide has given you some inspiration for creating your own aliases and bash functions. Extensive use of these can help make your time in the shell more enjoyable and less complex.
