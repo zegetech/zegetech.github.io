@@ -6,21 +6,21 @@ categories:
 published: false
 author:
 blog-image:
-intro: Writing the same long command can be the most annoying thing when working in terminal. Especially to those of us used to touches and GUIs(Graphical user interfaces). Its true most of us dont really like terminal.While it hardly a solution to most of our complaints we can simplify some of them.
+intro: Writing the same long command can be the most annoying thing when working in the terminal. Especially to those of us used to touches and GUIs(Graphical user interfaces). Its true most of us don't like terminal. While it hardly a solution to most of our complaints we can simplify some of them.
 ---
 
 {{page.intro}}
 
 ## Introduction
-Lets look at same commands below
+Let's look at some commands below
 ```
 docker-compose up
 sudo apt-get update
 npm install --save axious
 ```
-Every developer, Sysadmin and DevOps Enginner interact with these command in their day to day work. Its tiresomer to write these command every time we need them. Is there a simple way?.
+Every Developer, Sysadmin and DevOps Engineer interact with these commands in their day to day work. It's tiresome to write these commands every time we need them. Is there a simple way?.
 
-What if i tell you can use
+What if I tell you can use
 ```
 nis axious
 ```
@@ -28,13 +28,13 @@ Instead of
 ```
 npm install --save axious
 ```
-Yes its possible, meet bash Alias
+Yes it's possible, meet bash Alias
 
 ## What is Bash Alias?
 A Bash alias is a method of supplementing or overriding Bash commands with new ones. Bash aliases make it easy for users to customize their experience in a [POSIX](https://en.wikipedia.org/wiki/POSIX) terminal.
 
 ## How to implement Aliases
- By default most distributions ships with some common aliases  by default. To check the default alises in your system head to your terminal and type `alias` then press `enter`. For example below is a list of default aliases in `ubuntu 18`.
+ By default most distributions ships with some common aliases by default. To check the default aliases in your system head to your terminal and type `alias` then press `enter`. For example below is a list of default aliases in `ubuntu 18`.
  ```sh
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -48,7 +48,7 @@ alias ls='ls --color=auto'
  ```sh
  alias alias_name='command_to_run'
  ```
- And thats how simply we implement aliases.
+ And that's how simply we implement aliases.
 
  ## Where to write aliases
  Aliases are often defined in` $HOME/.bashrc` .
@@ -63,11 +63,13 @@ alias ls='ls --color=auto'
  fi
  ```
 
- ## Persisting alias
- After writing your alias in `~/.bash_aliases` you can make them persisten in your entire system by loading then in `~/.bashrc` with below command.
+## Persisting alias
+ After writing your alias in `~/.bash_aliases` you can make them persistent in your entire system by loading then in `~/.bashrc` with below command.
  ```sh
  source ~/.bashrc
  ```
+## Unsetting alias
+
 
 ## Alias Examples
 1. Update your system
@@ -75,7 +77,7 @@ alias ls='ls --color=auto'
  ```sh
  alias update='sudo apt-get update && sudo apt-get upgrade'
  ```
- Now if you want to update you system/server just type `update` and `enter` and everything works.
+ Now if you want to update your system/server just type `update` and `enter` and everything works.
 
 2. NPM install packages
 
@@ -85,8 +87,17 @@ alias ls='ls --color=auto'
 
  When for example you want to install `axious` only use `nis axious`.
 
-3. Get your ip
+3. Get your IP
 
   ```sh
   alias myip="curl http://ipecho.net/plain; echo"
+
   ```
+> You could alias `sudo` command to `please` for better experience in your system.
+>>Eg `please shutdown`
+
+### Limitations of Aliases
+  1. Aliases can only be used with simple text replacements, no arguments/parameters.
+  2.  Similar named aliases cannot co-exist.
+  3. Aliases cannot be (un)set in subshells or non-interactive environments.
+  4. Aliases take time since shell has to interpret them all before showing you prompt.
