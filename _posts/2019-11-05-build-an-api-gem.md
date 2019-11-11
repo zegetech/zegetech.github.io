@@ -130,9 +130,8 @@ Gem 'mygem' was successfully created. For more information on making a RubyGem v
 Congrats! You now have your gem ready to implement functionalities.
 
 ## Implement Functionality
-The good thing about ruby gem is we can also use other gem by including them in `Gemfile`. In this section our gem will implement [jsonip](https://jsonip.org) API. To get along with TDD we will require some other gems.
+The good thing about ruby gem is we can also use other gem by including them in `Gemfile`. In this section our gem will implement [Daraja 2.0 Mock](https://app.swaggerhub.com/apis-docs/zegetech/mpesaUniAPI/1.0) API. To get along with TDD we will require some other gems.
 - [webmock](https://github.com/bblimke/webmock) - A gem for stubbing and setting expectation for HTTP requests.
-- [VCR](https://github.com/vcr/vcr) - A gem that record your test suite's HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.
 - [Faraday](https://github.com/lostisland/faraday) - A simple and flexible HTTP client gem.
 - [JSON](https://rubygems.org/gems/json/versions/1.8.3) - A gem for parsing API JSON responses.
 
@@ -141,7 +140,6 @@ Include all the gems in your `Gemfile`
 # Gemfile
 gem 'faraday'
 gem 'json', '~> 1.8', '>= 1.8.3'
-gem 'vcr'
 gem 'webmock'
 ```
 
@@ -150,98 +148,137 @@ Then build your container  to install the gems and copy files to the container
 docker build -t mygem . && docker run -it mygem
 ```
 
- We will implement a `jsonip` method in `lib/mygem.rb`, the method will return an IP based on [jsonip](https://jsonip.org) API. We will start by writing our test the make those tests pass.
+### Register URLs
+
+ We will implement a `resiter_urls` method in `lib/mygem.rb`, the method will accept `responsetype` parameter. Response type can be `Completed` or `Cancelled`.
+
+ ```ruby
+ def self.register_urls(response_type)
+  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
+  headers={
+    "accept"=>"application/vnd.api+json",
+    "Content-Type"=>"application/vnd.api+json"
+  }
+  body={
+    data:{
+      type:"urls",
+      id:1,
+      attributes:{
+        confirmation_url: Configuration.new.confirmation_url,
+        validation_url: Configuration.new.validation_url,
+        short_code: Configuration.new.short_code,
+        response_type: response_type
+      }
+    }
+  }
+
+  Faraday.post(url,body.to_json,headers)
+end
+ ```
+
+### Payouts
+The endpoint allows business to send money to constomers. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`,`amount`,`recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
 
 ```ruby
-# test/mygem_test.rb
-require "test_helper"
-
-class MygemTest < Minitest::Test
-
-  def test_it_return_ip
-    assert_equal "154.70.39.153", Mygem.jsonip
-  end
+def self.payouts(category,amount,recipient_no,reference)
+  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts"
+  headers={
+    "accept"=>"application/vnd.api+json",
+    "Content-Type"=>"application/vnd.api+json"
+  }
+  body={
+    data:{
+      type:"payouts",
+      id:1,
+      attributes: {
+        category: category,
+        amount: amount,
+        recipient_no: recipient_no,
+        recipient_type: "msisdn",
+        posted_at: Time.now,
+        recipient_id_type: "national_id",
+        recipient_id_number: "12345567",
+        reference: reference
+      }
+    }
+  }
+  Faraday.post(url,body.to_json,headers)
 end
-
 ```
 
-The test compares a given IP `154.0.39.153`, with the IP returned by our method. To make the test pass implement `Mygem.jsonip` method.
+## Testing
 
+Now, this can get a little bit complicated since the API response is dynamic. To solve this you we need `webmock` for stabbing our responses. To use webmock `require "webmock/minitest"` in `test_helper.rb`.With the below code we are mimicking the API response with our desired response. This is great because we don't need an internet connection to run our test thus improves test running speed.
+
+### Testing register_urls
 ```ruby
-# lib/mygem.rb
-require "mygem/version"
-require 'net/http'
-require 'uri'
-require "json"
+def test_it_registers_ulrls
+    url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
+    headers={
+      "accept"=>"application/vnd.api+json",
+      "Content-Type"=>"application/vnd.api+json"
+    }
+    body={
+      data:{
+        type:"urls",
+        id:1,
+        attributes:{
+          confirmation_url: "https://example.com/confirmation",
+          validation_url: "https://example.com/validation",
+          short_code: "600234",
+          response_type: "Completed"
+        }
+      }
+    }
+    stub_request(:post,url).
+    with(
+      body:body.to_json,
+      headers: headers
+    ).
+    to_return(status: 200, body:"", headers: {})
 
-module Mygem
-  class Error < StandardError; end
-  # Your code goes here...
-
-  def self.jsonip
-    uri = URI("https://jsonip.org/")
-    response= Net::HTTP.get(uri)
-   JSON.parse(response)["ip"]
+    assert_equal 200, Mygem.register_urls("Completed").status
   end
-
-end
-
 ```
-Now, this can get a little bit complicated since the API response is dynamic. To solve this you we need `webmock` for stabbing our responses. To use webmock `require "webmock/minitest"` in `test_helper.rb`.With the below code we are mimicking the API response with our desired response. This is great because we don't need an internet connection to run our test thus improves test running speed. Also, read on how to test request using [VCR]
+
+### Testing payouts
 ```ruby
-# test/mygem_test.rb
-require "test_helper"
+def  test_payouts
+  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts"
+  headers={
+    "accept"=>"application/vnd.api+json",
+    "Content-Type"=>"application/vnd.api+json"
+  }
+  body={
+    data:{
+      type:"payouts",
+      id:1,
+      attributes: {
+        category: "BusinessPayment",
+        amount: 1000,
+        recipient_no: "25472264885",
+        recipient_type: "msisdn",
+        posted_at: Time.now,
+        recipient_id_type: "national_id",
+        recipient_id_number: "12345567",
+        reference: "142345654"
+      }
+    }
+  }
 
-class MygemTest < Minitest::Test
-
-  def test_it_return_ip
-    stub_request(:get, "https://jsonip.org/").
-
-    to_return(status: 200, body:'{"ip":"154.70.39.153","about":"/about"}', headers: {})
-
-    assert_equal "154.70.39.153", Mygem.jsonip
-  end
-
+  stub_request(:post,url).
+  with(body: body.to_json, headers: headers).
+  to_return(status: 200, body:"", headers:{})
+  assert_equal 200, Mygem.payouts("BusinessPayment",1000,"25472264885","142345654").status
 end
 ```
+
 Great!, now we have implemented a method that returns an IP and tested it.
 
-### Implement a POST method
-Let's see how we can implement a `POST` method in our functionalities. we will use [JSONplaceholder](https://jsonplaceholder.typicode.com/) a fake online REST API for testing and prototyping. You can use JSONplaceholder with any project that requires a JSON data.
-As usual, we will start with writing tests.
-```ruby
-def test_it_create_post
-  stub_request(:post, "https://jsonplaceholder.typicode.com/posts").
-  with(
-    body: '{"title":"Build and api gem","body":"some body","userId":1}',
-    headers: {
-    'Content-Type'=>'application/json; charset=UTF-8'
-    }).
-  to_return(status: 200, body: '{"title"=>"Build and api gem", "body"=>"some body", "userId"=>1, "id"=>101} ', headers: {})
 
-  assert_equal 200, Mygem.create_post.status
-end
-```
-Then we implement a `create_post` method in `Mygem` class. For more complex API requests we can use [Faraday]() which we had installed. Faraday is simple and flexible and helps building requests easily.
-```ruby
-def self.create_post
-
- url="https://jsonplaceholder.typicode.com/posts"
- body={
-  title: 'Build and api gem',
-  body: 'some body',
-  userId: 1
- }
- headers={
-   "Content-Type":"application/json; charset=UTF-8"
- }
-Faraday.post(url,body.to_json,headers)
-
-end
-```
 
 ##  Configurable Block
-Sometimes a gem may contain dynamic variables. Mostly API uses access keys to authenticate resources. In a gem, we need a Configurable block for providing those variables access to our gem.
+In the examples above we have used `confirmation_url:Configuration.new.confirmation_url` . This will fetch `confirmation_url` from our configuration. Having a configure block help in assing variables used by a gem. The example below demostrate how you can implement it.
 ```ruby
 require "mygem/version"
 require 'net/http'
@@ -277,23 +314,28 @@ class Configuration
 end
 
 ```
-We have implemented a class `Configuration` which holds our configurable variables with read and write access ie `attr_accessor :access_token`. In our `Mygem` module, we create a `configuration` which stores an instance of `Configuration` class. Now you can assign `access_token` with the below example.
+We have implemented a class `Configuration` which holds our configurable variables with read and write access ie `attr_accessor :access_token`. In our `Mygem` module, we create a `configuration` which stores an instance of `Configuration` class. Now you can assign `variables` with the below example.
+
 ```ruby
-Mygem.configure { |config| config.access_token="jejekeuiueiw"}
+Mygem.configure do |config|
+   config.confirmation_url="https://example.com/validation"
+   config.confirmation_url="https://example.com/confirmation"
+   config.short_code = "600234"
+end
 ```
 To retrieve the assigned variable.
 ```ruby
-Mygem.configuration.access_token
+Mygem.configuration.short_code
 ```
 Example
 
 ```ruby
 2.6.3 :001 > require 'mygem'
  => true
-2.6.3 :002 > Mygem.configure { |config| config.access_token="jejekeuiueiw"}
- => "jejekeuiueiw"
+2.6.3 :002 > Mygem.configure { |config| config.short_code="600234"}
+ => "600234"
 2.6.3 :003 > Mygem.configuration.access_token
- => "jejekeuiueiw"
+ => "600234"
 2.6.3 :004 >
 ```
 
