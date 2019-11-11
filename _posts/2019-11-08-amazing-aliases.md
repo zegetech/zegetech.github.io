@@ -102,6 +102,22 @@ unalias ll
 > You could alias `sudo` command to `please` for better experience in your system.
 >>Eg `please shutdown`
 
+### Amazing aliases
+We have compiled a list of commonly used aliases which you can install and get started easily.Check the [github repo](https://github.com/gathuku/bash_alias) to see available aliases and add more.
+
+Installation
+
+Clone in `.aliases` directory in your home.
+```
+git clone git@github.com:gathuku/bash_alias.git .aliases
+```
+Setup
+
+Enable bash aliases in terminal by running the command:
+```
+source ~/.aliases/bash_aliases
+```
+
 ### Limitations of Aliases
   1. Aliases can only be used with simple text replacements, no arguments/parameters.
   2.  Similar named aliases cannot co-exist.
