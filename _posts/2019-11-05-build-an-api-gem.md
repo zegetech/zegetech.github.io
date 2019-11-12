@@ -306,10 +306,12 @@ module Mygem
 end
 
 class Configuration
-  attr_accessor :access_token
+  attr_accessor :confirmation_url, :validation_url, :short_code
 
   def initialize
-    @access_token = nil
+    @confirmation_url = "https://example.com/confirmation"
+    @validation_url = "https://example.com/validation"
+    @short_code = "600234"
   end
 end
 
