@@ -7,6 +7,7 @@ published: true
 author: Tom Nyongesa
 blog-image: daraja-2/daraja1.png
 intro: MPESA has just unveiled their new API, Daraja 2.0. It has been hailed as the height of developer heaven with its crisp clear structure, solid security and great syntax. Simply put, It's BEAUTIFUL..... Same reliability of G2 SOAP API, accessibility of Daraja 1.0, simplicity of Stripe API and Security of Visa! Bravo!!!
+keywords: Mpesa Daraja Safaricom
 ---
 
 ![daraja](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}<br>

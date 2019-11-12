@@ -5,6 +5,7 @@ categories: developer, jekyll
 author: Tom Nyongesa
 blog-image: jekyll/setupenvironment.png
 intro: You’ve probably heard of Jekyll before or this is the very first time you getting to hear it. Whichever the case, today we’re going to dive into the prerequisites of getting started with Jekyll. This is a step by step ultimate guide to setting up your environment.
+keywords: Jekyll Static Website Setup
 ---
 
 ![Setting Up Environment for Jekyll](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}
@@ -15,25 +16,25 @@ intro: You’ve probably heard of Jekyll before or this is the very first time y
 This is a static site generator. A tool that creates websites that don’t really need interaction with databases. This may be important to businesses or simply personal brands that want to create an online presence. You could be an artist, photographer, producer, startup owner...it doesn't matter.
 
 ### Ruby
-Jekyll is a ruby gem (simply put as Ruby app) that runs in a Ruby enabled environment. So you need Ruby to set Jekyll up. *[Jump to ruby setup if you like](#installingRuby).* Ruby is an interpreted programming languge that is fully object oriented, concise and very elegant. Don't worry if you aren't techsavvy, we are not going to dive into programming. We just want to set up our environment and get it ready for building your online presence with Jekyll. 
+Jekyll is a ruby gem (simply put as Ruby app) that runs in a Ruby enabled environment. So you need Ruby to set Jekyll up. *[Jump to ruby setup if you like](#installingRuby).* Ruby is an interpreted programming languge that is fully object oriented, concise and very elegant. Don't worry if you aren't techsavvy, we are not going to dive into programming. We just want to set up our environment and get it ready for building your online presence with Jekyll.
 
 ### RVM
 RVM is Ruby Version Manager. It is a tool that's used to install and manage multiple Ruby versions.
 
 ### Gems
-A gem is technically ruby code. In some programming languages a gem is called a plugin, library or package like in Javacript or Java. A gem gives you access to specified functions that have been created by the gem creator. As a matter of fact, Jekyll is a Ruby Gem that was created to help people build websites from start to finish without a hustle. 
+A gem is technically ruby code. In some programming languages a gem is called a plugin, library or package like in Javacript or Java. A gem gives you access to specified functions that have been created by the gem creator. As a matter of fact, Jekyll is a Ruby Gem that was created to help people build websites from start to finish without a hustle.
 
 ### Gemfile
 This is a file that lists a Jekyll site dependencies. Simply, a list of Gems needed for a Jekyll website to run.
 
 ## Getting Started
 ![cloud-comic](/assets/images/blog/jekyll/cartoon-installer.jpg){:class="img-responsive center"}
-You are probably curious about how you would build a website easily without the complexities of backends and frontends and database.... you  know like the olden days!! Just two steps to get your website up and running. 
+You are probably curious about how you would build a website easily without the complexities of backends and frontends and database.... you  know like the olden days!! Just two steps to get your website up and running.
 
 ### For Windows Users
-Kindly check out how to set up [ jekyll for windows](https://jekyllrb.com/docs/installation/windows/), an excellent easy to follow tutorial from Jekyll official website. It guides you on how to get Jekyll up and running on windows PC. 
+Kindly check out how to set up [ jekyll for windows](https://jekyllrb.com/docs/installation/windows/), an excellent easy to follow tutorial from Jekyll official website. It guides you on how to get Jekyll up and running on windows PC.
 
-Wait, you can [dual boot (run both Windows and Linux on your PC)](https://opensource.com/article/18/5/dual-boot-linux) and get Jekyll working on Linux! *Just a heads up, running Linux alongside Windows won't slow down your computer.* 
+Wait, you can [dual boot (run both Windows and Linux on your PC)](https://opensource.com/article/18/5/dual-boot-linux) and get Jekyll working on Linux! *Just a heads up, running Linux alongside Windows won't slow down your computer.*
 
 ### For Linux Users
 #### Step 1 - Install Ruby {#installingRuby}
@@ -64,13 +65,13 @@ You can now proceed with RVM installation. In your terminal,
 sudo gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 ```
 
-If it prompts you for a password, type in your password and hit enter. Then, 
+If it prompts you for a password, type in your password and hit enter. Then,
 
 ```
 curl -sSL https://get.rvm.io | sudo bash -s stable
 ```
 
-After installation is done 
+After installation is done
 ```
 rvm -v
 ```
@@ -80,7 +81,7 @@ If is doesn't, it means the session needs to load the newly installed RVM. For t
 rvm install ruby
 ```
 
-To verify that Ruby was successfully installed, in your command line, type in: 
+To verify that Ruby was successfully installed, in your command line, type in:
 
 ```
 ruby -v
@@ -88,8 +89,8 @@ ruby -v
 
 As of this post, Ruby 2.5.1 will be installed on your machine.
 
-### Step 2 - Install Jekyll 
-Install Jekyll and confirm the installation by running the commands below. It should print out the latest Jekyll version installed. 
+### Step 2 - Install Jekyll
+Install Jekyll and confirm the installation by running the commands below. It should print out the latest Jekyll version installed.
 
 ```
 sudo gem install jekyll

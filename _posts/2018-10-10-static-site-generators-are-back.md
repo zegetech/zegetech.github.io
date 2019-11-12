@@ -6,6 +6,7 @@ author: Melvin Atieno
 blog-image: ssg/typewriter-old.jpg
 intro: |
     Remember your first website? I want to assume you started off, like most developers, by creating a series of HTML files linking within it images, CSS and perhaps a sprinkle of JavaScript. Files load on your browser and that was it!!. No web server required. Life was simple!!!
+keywords: jekyll static sites 
 ---
 ![old never dies](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 
@@ -39,7 +40,7 @@ A [Static Site Generator(SSG)](https://www.staticgen.com/) is a compromise betwe
 
 In essence, it generates a static HTML-only website using CMS-like concepts such as templates. The content can be extracted from a database but, more typically, [markdown](https://www.markdownguide.org/) files are used.
 
-It creates web pages through a series of customizable templates and user data entry. Static sites generate pages when the owner makes changes to them and hosts the page as a pre-made set of HTML, CSS, and JavaScript files. 
+It creates web pages through a series of customizable templates and user data entry. Static sites generate pages when the owner makes changes to them and hosts the page as a pre-made set of HTML, CSS, and JavaScript files.
 This contrasts CMS-based sites, which look for updates and build pages when a visitor accesses them.
 
 Static site generators essentially abandon updating websites through a back-end system and do not require server processing to generate pages. Instead, generators create and update pages through an editor and save the updated versions to the hosting platform.
@@ -57,13 +58,13 @@ Static sites keep it simple since there's not much to mess up when there's only 
 
 **3) Traffic surges**
 
-Unexpected traffic peaks on a website can be a problem, especially when it relies intensively on database calls or heavy processing. 
+Unexpected traffic peaks on a website can be a problem, especially when it relies intensively on database calls or heavy processing.
 A static site is generally better prepared for those situations, as serving static HTML pages consumes a very small amount of server resources. It also benefits greatly from Content Distribution Networks, CDNs, to increase availability and speed
 
 **4) Client Control Considerations**
 
 Using a CMS is not necessarily easy, and it offers considerable power to content editors. You can lock down rights such as plugin installation, but it won’t stop changes to things like font, colors, corrupting the layout etc.
-A static site can use Markdown files. This limits the user’s options; they make fewer mistakes and cannot adversely affect the pages. 
+A static site can use Markdown files. This limits the user’s options; they make fewer mistakes and cannot adversely affect the pages.
 
 **5) Developer friendly, Client friendly**
 
@@ -91,7 +92,7 @@ Templated markup should be prebuilt at deploy time, usually using a site generat
 
 ![Jekyll](/assets/images/blog/ssg/jekyll-logo.png){:class="img-resposive center"}
 
-Now that that's settled am sure you want to get started with a static site generator. 
+Now that that's settled am sure you want to get started with a static site generator.
 With the whole lot of available options like [Hugo, Hexo, Gatsby, NUXT, MkDocs, Jekyll...etc](https://www.staticgen.com/)
 you are probably wondering which one you should use.
 
@@ -132,7 +133,7 @@ Run the following commands on your terminal
 
 - Build the site and make it available on a local server
     ```bash
-    bundle exec jekyll serve 
+    bundle exec jekyll serve
     ```
 
 Now browse to [http://localhost:4000](http://localhost:4000) to see your brand new boilerplate Jekyll website
@@ -153,7 +154,7 @@ On installation, a jekyll site usually looks something like this:
 
 3. `.gitignore` The paths to the files you want to exclude go here.
 
-4. `_site` This is where Jekyll puts the entire static site after the build. 
+4. `_site` This is where Jekyll puts the entire static site after the build.
 
 5. `404.html`- Page displayed when one tries to access a broken link on your site. If you know how to create a single page template, you have the option of customizing this page.
 
@@ -218,8 +219,8 @@ jekyll_compose:
     categories:
     published: false
     author:
-    blog-image: 
-    intro: 
+    blog-image:
+    intro:
 ~~~
 With this set-up, you will be guaranteed that all your posts have the expected structure. This is especially useful while working with multiple contributors.
 

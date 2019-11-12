@@ -6,6 +6,7 @@ author: Melvin Atieno
 blog-image: ci-cd/rocketlaunch.jpg
 intro: |
     Continuous Integration (CI) is a development practice that involves the aggregation of small bits of code into a shared repository, frequently.<br/>Continuous Deployment is closely related to Continuous Integration. It refers to the release to production of a software that passes set automated tests. In other words it means frequently making the most recently functional version of a software available for use.
+keywords: Pipeline Continuous Deployment Development CI CD Jekyll Travis
 
 ---
 {:.post-figure}
@@ -53,7 +54,7 @@ Now to the `travis.yml` file add the following.
 language: ruby
 node_js:
     - "8.10"
-rvm: 
+rvm:
     - 2.5.1
 install:
     - gem install jekyll bundler
@@ -113,8 +114,8 @@ We then added an optional step, `after_success`. This means, quite obviously, th
 after_success:
     - echo "Build was successful"
  ```   
-Now when you log in to your Travis account and activate the repository. 
-Great, now push some changes to GitHub. Automated builds!!! 
+Now when you log in to your Travis account and activate the repository.
+Great, now push some changes to GitHub. Automated builds!!!
 
 ## 3. Contains self-testing mechanism for the project's builds.
 
@@ -137,7 +138,7 @@ The above only installs the gem. To use it we update the `.travis.yml` to contai
 ```yaml
 script:
     - bundle exec jekyll build
-    - bundle exec htmlproofer ./_site 
+    - bundle exec htmlproofer ./_site
 ```
 
 The `./_site` tag is to avoid testing external sites.
@@ -150,7 +151,7 @@ To add automated deployment we will need to add a deployment step. At the bottom
 deploy:
     provider: firebase
     skip_cleanup: true
-    token: 
+    token:
         env: $FIREBASE_TOKEN
     on:
         branch: release
@@ -163,9 +164,9 @@ Since the directory is what we want to deploy, we want Travis to skip the cleanu
 
 ![image-title-here](/assets/images/blog/ci-cd/firebase.png){:class="img-responsive center"}
 
-In order to deploy, Travis needs access to the provider account, in this case firebase. The `token`  allows deployment to firebabse using the ci api. Here we have told Travis to use the environmental variable `FIREBASE_TOKEN`which we will set in the travis settings. 
+In order to deploy, Travis needs access to the provider account, in this case firebase. The `token`  allows deployment to firebabse using the ci api. Here we have told Travis to use the environmental variable `FIREBASE_TOKEN`which we will set in the travis settings.
 
-The `env` key simply tells Travis to obtain the key from an environment variable. 
+The `env` key simply tells Travis to obtain the key from an environment variable.
 A firebase token is a token generated through the [firbase ci login](https://github.com/firebase/firebase-tools#using-with-ci-systems)
 ```bash
 firebase login: ci
@@ -180,7 +181,7 @@ Great. So this is what the final `.travis.yml` file looks like.
 language: ruby
 node_js:
     - "8.10"
-rvm: 
+rvm:
     - 2.5.1
 install:
     - gem install jekyll bundler
@@ -200,7 +201,7 @@ after_success:
 deploy:
     provider: firebase
     skip_cleanup: true
-    token: 
+    token:
         env: $FIREBASE_TOKEN
     on:
         branch: release
@@ -239,4 +240,4 @@ Here's is a list of [allowed or whitelisted plugins and themes](https://github.c
 
 2. Another workaround would be to install [pages-gem](https://github.com/github/pages-gem) which helps GitHub Page's users bootstrap and maintain a Jekyll build environment that most closely matches the GitHub pages build environment. With this, if it works locally you are sure it'll work on Github pages.
 
-3. You are not required to install `Jekyll` separately If you decide to use `github-pages gem`. This is because Jekyll 3.7.4 is a runtime dependency for the github-pages gem. If you have a different version of Jekyll installed then there may be discrepancies between your site run locally and the same site hosted on github pages. 
+3. You are not required to install `Jekyll` separately If you decide to use `github-pages gem`. This is because Jekyll 3.7.4 is a runtime dependency for the github-pages gem. If you have a different version of Jekyll installed then there may be discrepancies between your site run locally and the same site hosted on github pages.

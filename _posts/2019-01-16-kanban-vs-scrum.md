@@ -4,7 +4,8 @@ title: What's you Agile flow? Kanban vs Scrum
 categories: Project management, Agile
 author: Melvin Atieno
 blog-image: kanban-vs-scrum/agileboard.png
-intro: The management method used in a product development process is crucial for the general success of the product development process. The right approach will always lead to the timely delivery of a high-value product. There are a number of different frameworks that can be used for the development of different products. Subsequently, the type of product determines the approach. This post sheds light on two of the main Agile frameworks. 
+intro: The management method used in a product development process is crucial for the general success of the product development process. The right approach will always lead to the timely delivery of a high-value product. There are a number of different frameworks that can be used for the development of different products. Subsequently, the type of product determines the approach. This post sheds light on two of the main Agile frameworks.
+keywords: Agile Project Management Scrum Kanban
 ---
 {:.post-figure}
 ![post image](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
@@ -88,7 +89,7 @@ Kanban is based but not limited to the following principles.
     The tasks progress through the board from the backlog section to the done section. A task is considered done only when it has been tested.
 
 2. **Limited amount of Work-In-Progress(WIP)**    
-   The idea here is to only commit to a new task once an existing task is completed and well in the done section. 
+   The idea here is to only commit to a new task once an existing task is completed and well in the done section.
 
 3. **Flow**  
    At the core of Kanban is the concept of “Flow”. This means that the tasks should flow through the system as evenly as possible, without long waiting times or blockages. Everything that hinders the flow should be critically examined.

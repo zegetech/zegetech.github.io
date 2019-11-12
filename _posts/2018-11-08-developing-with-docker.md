@@ -1,13 +1,14 @@
 ---
-layout: blog 
+layout: blog
 title: Docker in your dev box
 categories: developer, docker
 author: Ngari Ndung'u
 blog-image: docker/whale.jpg
-intro: | 
+intro: |
   So, you probably already know [what docker is](/blog/2018/10/29/what-and-why-docker.html) and what it can do for you. You (hopefully) also know that you don't need to be deploying thousands of services in order to start using docker now.
   This post will walk you through the process of *dockerizing* a jekyll based site(this one).
   By dockerizing the site, the number of dependencies a developer would need to install on their machines is reduced to two; [Docker engine](https://www.docker.com/products/docker-engine) and [Docker compose](https://docs.docker.com/compose/overview/).
+keywords: Docker Containers Images
 ---
 ![Docker crayon sketch](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}
 {{ page.intro }}
@@ -20,7 +21,7 @@ For getting started with docker, what you want is [docker-ce](https://docs.docke
 
 ### Installing on Ubuntu
 
-Docker provides the same avenues you might be used to for installing software on ubuntu: 
+Docker provides the same avenues you might be used to for installing software on ubuntu:
  - Via the docker repository
  - direct package install, and
  - scripts
@@ -231,20 +232,20 @@ To simplify this command, you can create an alias with the following
 ```sh
 # If bash is installed in containter
 dsh() { docker exec -it $@ bash; }
-# if bash isn't in the containter 
+# if bash isn't in the containter
 dsh() { docker exec -it $@ sh; }
 ```
 This will allow you to log into the container with the following command
 ```bash
 dsh $CONTAINER
 ```
-This can be run from any location in the project, unlike the docker-compose version. 
+This can be run from any location in the project, unlike the docker-compose version.
 
 ### Listing Docker containers
 You can find a list of `$CONTAINER`s to `exec` into by running:
 ~~~
 docker container ps
-# or 
+# or
 docker ps
 ~~~
 Once we have a shell, we can run commands as we would normally:
@@ -261,6 +262,6 @@ Take a look at the [compose command-line reference](https://docs.docker.com/comp
 
 ## Ready
 
-And... that's it! Now anybody wanting to start hacking on a docker-compose project only needs to clone the repo, `cd` into the directory and run `docker-compose up`. The amazing part is that it could be any project stack, php, ruby, java, node, anything. No need to set up a local machine to get a working environment. The project comes bundled and isolated thanks to Docker so it will work great without interfering with your current setup. 
+And... that's it! Now anybody wanting to start hacking on a docker-compose project only needs to clone the repo, `cd` into the directory and run `docker-compose up`. The amazing part is that it could be any project stack, php, ruby, java, node, anything. No need to set up a local machine to get a working environment. The project comes bundled and isolated thanks to Docker so it will work great without interfering with your current setup.
 
 They might need to go get a coffee depending on internet speed but hey, time spent enjoying a coffee is time not wasted fighting with dependencies.

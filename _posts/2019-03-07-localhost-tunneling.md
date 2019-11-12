@@ -5,7 +5,8 @@ date: 2019-03-07 12:09 +0300
 categories: developer
 author: Tom Nyongesa
 blog-image: localhost-tunneling/tunneling.jpg
-intro: Sometimes when i work on a project on my laptop, I need to show my boss, workmates, client or just want to test it on my phone. I can do this by taking my development environments(my laptop) to them but what if I'm working on a desktop? Well, I can ask them to come over or ask them to join my network, what if they are thousands of miles away? Well, I can deploy it to the internet but what if I'm not just ready? Well, say hello to [**Localhost Tunneling**](https://en.wikipedia.org/wiki/Tunneling_protocol), my bridge to the outside world! 
+intro: Sometimes when i work on a project on my laptop, I need to show my boss, workmates, client or just want to test it on my phone. I can do this by taking my development environments(my laptop) to them but what if I'm working on a desktop? Well, I can ask them to come over or ask them to join my network, what if they are thousands of miles away? Well, I can deploy it to the internet but what if I'm not just ready? Well, say hello to [**Localhost Tunneling**](https://en.wikipedia.org/wiki/Tunneling_protocol), my bridge to the outside world!
+keywords: Tunneling Localhost Ngrok 
 ---
 
 ![Localhost tunneling](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
@@ -50,7 +51,7 @@ If you experience permission issue, install as admin, though not recommended. Yo
 Start your localserver if you aren't already running one then,
 
 ```bash
-lt --port 80 
+lt --port 80
 ```
 
 ## [Burrow](https://burrow.io/)
@@ -60,7 +61,7 @@ Not interested in installation headaches and package management? Burrow got your
 However, you are required to upgrade your membership @ $4.99/month to continue using their service for another day.
 
 ## [PageKite](https://pagekite.net/)
-Here is another amazing local tunneling tool that has been around for a while and popular among the minecraft gamers. To install, you need to ensure that you have python installed on your machine. Then head to [Pagekite downloads](http://pagekite.net/downloads) page to get the appropriate install for your machine. 
+Here is another amazing local tunneling tool that has been around for a while and popular among the minecraft gamers. To install, you need to ensure that you have python installed on your machine. Then head to [Pagekite downloads](http://pagekite.net/downloads) page to get the appropriate install for your machine.
 
 Here is a quick start for linux users:
 
@@ -74,7 +75,7 @@ Then,
 python2 pagekite.py 80 yourkitename.pagekite.me
 ```
 
-One amazing thing with Pagekite is that you can serve your static files without having a local server on your machine. Cool, right? 
+One amazing thing with Pagekite is that you can serve your static files without having a local server on your machine. Cool, right?
 
 Simply include the path of your static site to the command above,
 

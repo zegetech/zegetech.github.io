@@ -5,10 +5,11 @@ date: 2019-02-28 10:29 +0300
 categories: developer
 author: Ngari Ndung'u
 blog-image: ruby-arguments/ruby_arguments.png
-intro: | 
+intro: |
   Ruby is a very flexible language giving you a myriad of ways to implement logic in your programs.
   Some of this flexibility is evident in how you pass arguments to your ruby methods/functions.
   This is a run-down of the available options.
+keywords: Ruby Arguments Method Functions
 ---
 ![Ruby arguments](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
 

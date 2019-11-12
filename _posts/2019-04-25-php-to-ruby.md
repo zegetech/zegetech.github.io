@@ -6,7 +6,8 @@ categories: developer
 published: true
 author: Tom Nyongesa
 blog-image: php-ruby/phpruby.png
-intro: Learning anything new has always been an uphill task. A good example is trying to learn a new language like Spanish if you are a Swahili speaking native. I don't know Spanish so I won't say much about it but what i gathered is that communication in spanish is 98% similar to that in Swahili with little differences in things like gender specificity. The huge difference comes in how they structure the wordings. Same thing to programming languages. 
+intro: Learning anything new has always been an uphill task. A good example is trying to learn a new language like Spanish if you are a Swahili speaking native. I don't know Spanish so I won't say much about it but what i gathered is that communication in spanish is 98% similar to that in Swahili with little differences in things like gender specificity. The huge difference comes in how they structure the wordings. Same thing to programming languages.
+keywords: PHP Ruby Journey
 ---
 
 ![phptoruby](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
@@ -30,7 +31,7 @@ Prior to the sweetness came the adaptation, understanding how Ruby is structured
 
 I believe that it would be easier for the newbies in programming to dive into Ruby than for intermediate programmers switching to ruby. The challenge for the intermediate programmers is "force of habit". They are more likely to write the new language code with their old language style, principles and philosophies. In my case, i had to unlearn and unset my expectations brought about by coding in PHP. In the end the mindshift was worth it, allowing me to use my experience in coding to fly through Ruby.     
 
-But hey, don't be scared, I just said ruby brought much joy to my development life and the two languages are kind of similar in some ways. 
+But hey, don't be scared, I just said ruby brought much joy to my development life and the two languages are kind of similar in some ways.
 
 ### Here are the ways in which the 2 languages are similar:
 - They are both interpreted languages
@@ -50,7 +51,7 @@ Definitely, yes! The easily notable differences between the 2 languages include:
 - commenting
 
 ```php
-# this is a comment in ruby 
+# this is a comment in ruby
 // this is a comment in php
 ```
 - Everything in Ruby is an object including strings, numbers, hashes, arrays. That's why when converting between 2 data types, oftenly called as type casting, here's what happens:
@@ -58,8 +59,8 @@ Definitely, yes! The easily notable differences between the 2 languages include:
 ```php
 age.to_s # in ruby
 
-strval($age) # in PHP or 
-(string)$age 
+strval($age) # in PHP or
+(string)$age
 ```
 ```ruby
 age.length # in ruby
@@ -79,11 +80,11 @@ $person->age() #method call in PHP
 ```ruby
 # PHP
 $age=10
-echo "I am ".$age." years old" 
+echo "I am ".$age." years old"
 
 # ruby
 age=10
-puts "I am "+age.to_s+" years old" # note the explicit type conversion in ruby. Unlike in # PHP which does an implicit type conversion 
+puts "I am "+age.to_s+" years old" # note the explicit type conversion in ruby. Unlike in # PHP which does an implicit type conversion
 ```
 - ruby uses `do and end` pair keyword as well as `braces {}` to show code blocks, PHP uses `braces {}` only to show code blocks
 - in ruby [duck typing](https://en.wikipedia.org/wiki/Duck_typing) is the way to go while in PHP either type hinting - ***defining type of arguments to pass in a method call*** or duck typing can be used but with care on the kinds of exceptions that may be raised.
@@ -100,12 +101,12 @@ function get_age(PersonObj $person){
 }
 ```
 - debugging in PHP can get a developer in deep pain. If using Xdebug things can get really tough especially when setting it up. If not using Xdebug, var_dump() is an option but this entails numerous browser refreshing which is just a nuisance. Debugging in ruby is simplified. Ruby has got several gems specifically for code debugging. Such gems include byebug that are very simple to use. You simply bundle install the gem, include it in the development and test group and use it by calling `binding.pry` on a file you want to debug.
-- shorter lines of code in basic programming statements like for loops. 
+- shorter lines of code in basic programming statements like for loops.
 
 ```ruby
 # php
-for ($num = 1; $num <= 10; $num ++) { 
-    echo "$num \n"; 
+for ($num = 1; $num <= 10; $num ++) {
+    echo "$num \n";
 }
 
 # ruby
@@ -172,9 +173,9 @@ end
 Ruby also provides tools that help ensure the security of your application. With tools like Brakeman and Rubocop, static code analysis is enabled. This helps ensure that a developer writes code that is tamper-proof and prevent hacker activities in production.
 
 ### Built for the future
-With many startups globally preferring Ruby as their primary programming languages, I would say Ruby was built for the future. This trend has been fueled by the MVC philosophy pioneered by Ruby on Rails and is now being adopted by other languages in the form of Laravel, Meteor etc. Statistics also show that most developers are interested in learning Ruby. Online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead. 
+With many startups globally preferring Ruby as their primary programming languages, I would say Ruby was built for the future. This trend has been fueled by the MVC philosophy pioneered by Ruby on Rails and is now being adopted by other languages in the form of Laravel, Meteor etc. Statistics also show that most developers are interested in learning Ruby. Online learning platforms are also getting more people joining Ruby classes now than before. This just proves that in the coming years Ruby will take the lead.
 
-if you don't believe me, here is a google trends comparison between [Rails and Laravel in the US](https://trends.google.com/trends/explore?geo=US&q=%2Fm%2F0505cl,laravel){:data-proofer-ignore=''}, which is a trendsetting market in technology. 
+if you don't believe me, here is a google trends comparison between [Rails and Laravel in the US](https://trends.google.com/trends/explore?geo=US&q=%2Fm%2F0505cl,laravel){:data-proofer-ignore=''}, which is a trendsetting market in technology.
 
 ![Laravel vs Rails](/assets/images/blog/php-ruby/laravelvrails-us.png){:.img-responsive .center}
 
@@ -196,7 +197,7 @@ Notable companies in the global and local markets using Ruby and RoR include:
 [Andela](https://andela.com/)<br>
 [Fuzu](https://www.fuzu.com/)<br>
 
-Everyone is moving to Ruby, why don't you? 
+Everyone is moving to Ruby, why don't you?
 
 ## PHP vs Ruby
 
@@ -211,15 +212,15 @@ Everyone is moving to Ruby, why don't you?
 
 ## Takeaway
 
-Don't be lured into the jackpot thing that brings instant gratification because it never works. Ever heard of **RoR in 7 days**? As [Peter Norvig](https://en.wikipedia.org/wiki/Peter_Norvig) puts it, those are SCAMs. When transitioning to language B, 
-1. Start with a beginners mindset, have a book in place or official docs so as to understand the architecture of the syntax and semantics and read lots of code in that language from hubs like github, codeplex etc 
+Don't be lured into the jackpot thing that brings instant gratification because it never works. Ever heard of **RoR in 7 days**? As [Peter Norvig](https://en.wikipedia.org/wiki/Peter_Norvig) puts it, those are SCAMs. When transitioning to language B,
+1. Start with a beginners mindset, have a book in place or official docs so as to understand the architecture of the syntax and semantics and read lots of code in that language from hubs like github, codeplex etc
 2. Understand the programming paradigm
 3. Do small but useful projects in that particular language
 4. Have learning timeboxes and deploy ready timeboxes
 5. Don’t cram the syntax it will eventually stick. You can blog about something new you learnt, which will come in handy in future, so that if you get hazy (it happens), you can quickly refer to the blog piece (like zegetech blog), instead of jumping right to googling where you may get varied solutions of your problem
 6. Recreate something from your “used-to” language in your new language, seek a mentor and just practice.  
 
-Try to switch to Ruby today! There are  💎💎💎at the end of the 🌈 
+Try to switch to Ruby today! There are  💎💎💎at the end of the 🌈
 
 ![Try](/assets/images/blog/php-ruby/try.gif){:.img-responsive .center}
 

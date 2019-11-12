@@ -1,5 +1,5 @@
 ---
-layout: blog 
+layout: blog
 title: Deploying a production ready monolithic rails application
 categories: developer, rails
 author: Ngari Ndung'u
@@ -7,6 +7,7 @@ blog-image: deployment/stonehenge.jpg
 intro: So, you finally have your app in a state that you aren't too embarrassed to show off. How do you open it up to the world?
   How do you manage the influx of users? How will you keep it safe from the *dangerous* internets? These are questions we face every time we work on a new product.
   This post explores one of the ways to deploy your shiny new rails application and the common tooling behind it.
+keywords: Deploy Rails Production Monolithic
 ---
 ![Stone pillar](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 

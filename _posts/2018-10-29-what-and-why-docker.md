@@ -6,6 +6,7 @@ author: Melvin Atieno
 blog-image: docker/docker_ship.png
 intro: |
     The first time I had someone "simply" explain what docker is, this is what they said, "Docker is a platform for developers and sysadmins to develop, deploy, and run applications with containers".If you are a beginner programmer or techie you probably need to understand the fundamental concepts around containers and how they compare to virtual machines before you can fully dive into dockerization. This is a beginner-friendly guide that I hope will serve that purpose.
+keywords: Docker Containers Devops Images 
 ---
 
 {:.post-figure}
@@ -35,11 +36,11 @@ A closer look.
 A virtual machine is essentially an emulation of a computer running on your computer resources. It executes programs like a real computer.
 Using our house analogy, a virtual machine is similar to getting an apartment for your office. A fully equipped apartment.
 
-The virtual machine’s emulation engine, called a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html), handles the virtual hardware, including a CPU, memory, hard drive, network interface, and other devices. 
+The virtual machine’s emulation engine, called a [hypervisor](https://www.networkworld.com/article/3243262/virtualization/what-is-a-hypervisor.html), handles the virtual hardware, including a CPU, memory, hard drive, network interface, and other devices.
 
 The virtual hardware devices provided by the hypervisor map to real hardware on your physical machine. For example, a virtual machine’s virtual hard disk is stored in a file located on your hard drive.
 
-The virtual machine that is running on the host machine (again, using a hypervisor) is also often called a “guest machine.” If you run an application in a guest machine, the guest machine will contain both the application and whatever it needs to run that application (e.g. system binaries and libraries). It also carries an entire virtualized hardware stack of its own, including virtualized network adapters, storage, and CPU — which means it also has its own full-fledged guest operating system. 
+The virtual machine that is running on the host machine (again, using a hypervisor) is also often called a “guest machine.” If you run an application in a guest machine, the guest machine will contain both the application and whatever it needs to run that application (e.g. system binaries and libraries). It also carries an entire virtualized hardware stack of its own, including virtualized network adapters, storage, and CPU — which means it also has its own full-fledged guest operating system.
 
 You can have several virtual machines installed on your system. You’re only limited by the amount of storage you have available for them.
 
@@ -70,7 +71,7 @@ You can see that all the operating system level architecture is being shared acr
 
 ![docker logo](/assets/images/blog/docker/dockerlogo.png){:class="img-responsive center"}
 
-Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications. 
+Containerization has been around for decades, but it is Docker that has reinvigorated this ancient technology. Docker’s appeal is that it provides a common toolset, packaging model and deployment mechanism that greatly simplifies the containerization and distribution of applications.
 
 How to create a Docker container will be covered in the [next](/blog/2018/11/08/developing-with-docker.html) post.
 
@@ -86,12 +87,12 @@ Now that you have the picture, here are a few terms you will come across in your
 2. **Docker Client.**
     The Docker Client is what you, as the end-user of Docker, communicate with. Think of it as the UI for Docker.
 3. **Docker Daemon.**
-    The Docker daemon is what actually executes commands sent to the Docker Client — like building, running, and distributing your containers. The Docker Daemon runs on the host machine, but as a user, you never communicate directly with the Daemon. 
+    The Docker daemon is what actually executes commands sent to the Docker Client — like building, running, and distributing your containers. The Docker Daemon runs on the host machine, but as a user, you never communicate directly with the Daemon.
 4. **Dockerfile.**
     A Dockerfile is where you write the instructions to build a Docker image.
 5. **Docker Image.**
     Images are read-only templates that you build from a set of instructions written in your Dockerfile.The blueprints of your application. Images define both what you want your packaged application and its dependencies to look like *and* what processes to run when it’s launched.
-6. **Docker Containers.** 
+6. **Docker Containers.**
     A Docker container, as discussed above, wraps an application’s software into an invisible box with everything the application needs to run. That includes the operating system, application code, runtime, system tools, system libraries, and etc
 7. **Volumes.**
     Volumes are the “data” part of a container. Data volumes exist as specially designed directories and files on the host filesystem. It is initialized when a container is created. It remains untouched even if you destroy, update, or rebuild your container. When you want to update a volume, you make changes to it directly. Data volumes can be shared and reused among multiple containers.

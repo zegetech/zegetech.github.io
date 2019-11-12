@@ -5,6 +5,7 @@ categories: Project Management
 title: Agile Product Development
 blog-image: agile/agile-process.jpg
 intro: What comes to your mind when you come across the word agile? I'm sure you'd have an answer at the blink of an eye. Agile software development has been around for over a decade now, driving people away from the traditional software development process that plainly used to ship software but not products. But what about product development? At Zegetech, we have devised a framework that answers this question and ensures that we get shipping, fast! Take a journey through the process as we share Zegetech's new results-proven and definitely interesting product development process.
+keywords: Management Project Agile 
 ---
 
 ![Agile Product Development](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
@@ -34,14 +35,14 @@ Before the 2-hour brainstorming session, we have set an NDA in place and the cli
 ![Discovery](/assets/images/blog/agile/discovery.jpeg){:class="img-responsive center"}<br>
 Using the concept note as the basis, a 5-day product discovery sprint is held. The result of the discovery sprint is a Software Requirement Specification (SRS).
 
-This stage digs deeper into the concept note. It helps the team analyse the problems further, understand the goals of the project, ideation of the solutions, selection of the best solution, creation of mockups and prototypes and conducting the user tests of the prototypes created. 
+This stage digs deeper into the concept note. It helps the team analyse the problems further, understand the goals of the project, ideation of the solutions, selection of the best solution, creation of mockups and prototypes and conducting the user tests of the prototypes created.
 
 A team of experts and possible product users is part of the entire process culminating with testing with real live users. The goal of this phase is to come up with and validate the best solution that will capitalize on the users' pain points. User pain points are great opportunities and the best selling points. It will be worth it to jump deeper into [Zegetech's Product Discovery](2019-01-19-product-discovery.md)
 
 ## 3. Design
 ![Design](/assets/images/blog/agile/design.png){:class="img-responsive center"}<br>
 
-The Architect now gets his hands dirty with the help of engineers, developers, UX specialists to build out the system architecture and the project plan. The architecture document lays out technical details of technology infrastructure, design elements like process maps, mock ups, flow diagrams, storyboards, database models and depending on the tech stack chosen, more elements. Say for example a neural net model for machine learning or social network centric projects. A detailed system architecture is provided at this stage. 
+The Architect now gets his hands dirty with the help of engineers, developers, UX specialists to build out the system architecture and the project plan. The architecture document lays out technical details of technology infrastructure, design elements like process maps, mock ups, flow diagrams, storyboards, database models and depending on the tech stack chosen, more elements. Say for example a neural net model for machine learning or social network centric projects. A detailed system architecture is provided at this stage.
 
 Because a product is not just technology, we also do a shallow dive into the business aspect of the product through the [business model canvas](https://strategyzer.com/) which will aid the client in kickstarting the business development side of things. Most client want an arrangement where the technolgy partner handles product development and they run and work on the business, so this item is normally a seed or validation of their business development efforts and is optional. It however helps the product and engineering team understand the vision of the product.
 
@@ -52,7 +53,7 @@ Eat, Code, Sleep....Repeat
 
 The project team gets the solution design and prototypes from the design phase, sets up the development environment ready and voila! Work begins!
 
-At Zegetech, we like to kick of with a staging deployment right from the start. From the get go, there is something in live (production replica) for the client to see. Keep in mind that initial weeks of development is like laying foundation... theres nothing much to see. Be that as it may, this allows us to work out end-to-end deployment and incrementally, focusing on the development instead of waiting to the end to tackle dev ops, security and others. Basically, we don't like surprises when launching. With accuracy and clarity from the previous stages, this phase is actually easy-peasy. It involves great coordination amongst project team members, constant communication with end-users to keep the product in check against user needs and experience, timely testing, code reviews and product documentation. 
+At Zegetech, we like to kick of with a staging deployment right from the start. From the get go, there is something in live (production replica) for the client to see. Keep in mind that initial weeks of development is like laying foundation... theres nothing much to see. Be that as it may, this allows us to work out end-to-end deployment and incrementally, focusing on the development instead of waiting to the end to tackle dev ops, security and others. Basically, we don't like surprises when launching. With accuracy and clarity from the previous stages, this phase is actually easy-peasy. It involves great coordination amongst project team members, constant communication with end-users to keep the product in check against user needs and experience, timely testing, code reviews and product documentation.
 
 At Zegetech, the development phase takes a maximum of 3 months. What this means is that we will select a product feature set that can possibly go to pilot and live in 3 months. Anything longer and we'll have issues as experienced from past projects where budgets creep, team morale nose dives and client frustations set in. The product roadmap, which is a working document throughout the pilot phase, will dictate where next the product development will go.
 
@@ -70,16 +71,16 @@ The most common challenges during this phase include:
 ![Pilot](/assets/images/blog/agile/pilot.png){:class="img-responsive center"}
 We now have a pre-launch product or prototype. However, it's still not suitable for public use.
 
-The team now embarks on the first phase of testing the product, which is in the live environment. This is called Alpha Testing. The team deploys to pre-selected target user groups or pilot groups as bugs are caught and annihilated. Here's where we wait in baited breath and hope that our gizmo doesnt explode! unless we built it to explode :-) 
+The team now embarks on the first phase of testing the product, which is in the live environment. This is called Alpha Testing. The team deploys to pre-selected target user groups or pilot groups as bugs are caught and annihilated. Here's where we wait in baited breath and hope that our gizmo doesnt explode! unless we built it to explode :-)
 
-Beta testing follows afterwards. The now refined product is ready for a wider set of target user testing. The choice of the beta version target market will have a great influence on the success of the product in the market. A careful analysis needs to be done before hand. 
+Beta testing follows afterwards. The now refined product is ready for a wider set of target user testing. The choice of the beta version target market will have a great influence on the success of the product in the market. A careful analysis needs to be done before hand.
 
 Beta version is evaluated, bug fixing, market-fit analysis, product performance assessment and customer needs satisfaction evaluation. Once the product is out of glitches and things work satisfactorily, the product is now ready for Version 1.
 
 
 ### Launch or No Launch?
 ![Launch](/assets/images/blog/agile/rocket_launch.gif){:class="img-responsive center"}
-This wholly depends on the critical analysis of customer reactions, product performance and market acceptance. 
+This wholly depends on the critical analysis of customer reactions, product performance and market acceptance.
 
 > <q>A snail can sleep for three years.</q>
 
