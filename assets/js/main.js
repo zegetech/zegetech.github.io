@@ -59,6 +59,25 @@ $(document).ready(function() {
 
 });
 
+//Get every table class and append boostrap table-Responsive
+tables=document.getElementsByTagName("TABLE");//.className="table-responsive";
+
+for (var i = 0; i < tables.length; i++) {
+  //create a div wrapper
+  var wrapper = document.createElement('div');
+  // add table-responsive boostrap class
+  wrapper.className="table-responsive";
+  tables[i].parentNode.insertBefore(wrapper, tables[i]);
+  wrapper.appendChild(tables[i]);
+
+}
+
+images=document.getElementsByClassName("content")[0].getElementsByTagName("IMG");
+
+for (var i = 0; i < images.length; i++) {
+  images[i].className ="img-responsive center";
+}
+
 $('.dropdown').on('show.bs.dropdown', function() {
   $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
 });
@@ -100,3 +119,4 @@ document.getElementById('search-searchbar').addEventListener('keyup',function(){
     $('.dropdown-menu').show();
  }
 })
+
