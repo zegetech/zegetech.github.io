@@ -392,10 +392,32 @@ rvm:
   - 2.6.3
 before_install: gem install bundler -v 2.0.2
 
-script:
-  - bundle exec rake test
+test:
+ script:
+   - bundle exec rake test
+
+```  
+
+Apart from running tests with travis, you may want to deploy your gem to rubygems.org after a version release. Travis CI support [rubygem.org deployment](https://docs.travis-ci.com/user/deployment/rubygems/).
+```yml
+language: ruby
+cache: bundler
+rvm:
+  - 2.6.3
+before_install: gem install bundler -v 2.0.2
+
+test:
+ script:
+   - bundle exec rake test
+
+deploy:
+  provider: rubygems
+  api_key: $RUBY_GEM_API_KEY
+  on:
+    tags: true
 
 ```
+To deploy you will specify a `deploy` job with `rubygems` as the `provider`. Add your `api_key` in travis [environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings) the specify to deploy only when you push a tag. ie `tags: true`.
 
 ### EditorConfig
 EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems.
