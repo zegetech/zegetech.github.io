@@ -334,7 +334,7 @@ Example
  => true
 2.6.3 :002 > Mygem.configure { |config| config.short_code="600234"}
  => "600234"
-2.6.3 :003 > Mygem.configuration.access_token
+2.6.3 :003 > Mygem.configuration.short_code
  => "600234"
 2.6.3 :004 >
 ```
@@ -357,13 +357,15 @@ You can head to `irb` to test the gem
 ```
 docker-compose run app irb
 ```
-In `irb` require the gem ie `require "mygem"` then call `Mygem.jsonip` method which returns your IP address.
+In `irb` require the gem ie `require "mygem"` then call `Mygem.register_urls` method which accept `response_type`, `Completed` or `Cancelled` parameter.
+
 ```bash
-2.6.3 :001 > require 'mygem'
- => true
-2.6.3 :002 > Mygem.jsonip
- => "154.70.39.153"
-2.6.3 :003 >
+2.6.3 :006 > require 'mygem'
+ => false
+2.6.3 :007 > JSON.parse(Mygem.register_urls("Completed").body)
+ => {"meta"=>{"code"=>"0", "description"=>"success"}}
+2.6.3 :008 >
+
 ```
 
 Congratulations!, you now have a working gem. What left is to publish it in [rubygems.org](https://rubygems.org/)
@@ -398,7 +400,7 @@ test:
 
 ```  
 
-Apart from running tests with travis, you may want to deploy your gem to rubygems.org after a version release. Travis CI support [rubygem.org deployment](https://docs.travis-ci.com/user/deployment/rubygems/).
+Apart from running tests with travis, you may want to deploy/publish your gem to rubygems.org after a version release. Travis CI support [rubygem.org deployment](https://docs.travis-ci.com/user/deployment/rubygems/).
 ```yml
 language: ruby
 cache: bundler
