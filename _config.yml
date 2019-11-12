@@ -92,6 +92,7 @@ jekyll_compose:
     author:
     blog-image:
     intro:
+    keywords:
 
 algolia:
   application_id: TN8603H0T3
@@ -111,3 +112,4 @@ algolia:
     - _pages/talent.md
     - _pages/team.md
     - _pages/work.md
+
