@@ -124,5 +124,45 @@ source ~/.aliases/bash_aliases
   3. Aliases cannot be (un)set in subshells or non-interactive environments.
   4. Aliases take time since shell has to interpret them all before showing you prompt.
 
+> The limitation that aliases dont accept parameters can be solved by use of `bash functions`.
+
+### Bash Functions
+A bush function like any other programming language is a set of commands that can be called numerous times. Unlike aliases bash function accepts parameters/Functions and can include multiple commands in its defination.
+
+__Functions Declaration__
+
+Function name followed by parenthesis.`preffered`
+```sh
+#!/bin/bash
+function_name {
+  command
+}
+```
+Or using `function` keyword.
+```sh
+#!/bin/bash
+function function_name {
+  command
+}
+```
+
+__Function Parameters__
+
+To pass any number of arguments to the bash function simply put them right after the function’s name, separated by a space. It is a good practice to double-quote the arguments to avoid misparsing of an argument with spaces in it.
+> The passed parameters are $1, $2, $3 … $n, corresponding to the position of the parameter after the function’s name
+
+Example
+```sh
+#!/bin/bash
+greeting() {
+  echo "Hello $1"
+}
+```
+You can call function `greeting` with argument
+```sh
+greeting "John"
+# Out put
+Hello John
+```
 ### Conclusion
 Hopefully this guide has given you some inspiration for creating your own aliases and bash functions. Extensive use of these can help make your time in the shell more enjoyable and less complex.
