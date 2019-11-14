@@ -470,11 +470,13 @@ docker-compose run app guard init minitest
 ```
 Guard is now watching should start compiling your test on file changes.
 
+### Debugging with pry-byebug
+Pry-byebug adds step by step debugging and stack navigations.
 ###  12-Factor compliance
- Dependancies
+ __Dependancies__
 
  All gem dependencies should be isolated. They should be declared in `Gemfile`
 
- Backing services
+ __Backing services__
 
  Our gem depends on API as the backing services. APIs are accessed using access_token, ensure all your token are stored in environment variables and not committed to the versioning system. Apis resources eg URLs, keys should be in `config` and be easy to change using a configure block. Access different API environment should not result in change in the codebase
