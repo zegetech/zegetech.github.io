@@ -6,7 +6,7 @@ author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
 intro: |
     We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the [What’s your stack](https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform) study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
-keywords: stack report survey study trends tools developer programming languages
+keywords: Stack Report Survey Study Trends Tools Developer Programming Languages
 ---
 
 {:.post-figure}

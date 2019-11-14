@@ -7,7 +7,7 @@ published: true
 author: Melvin Atieno
 blog-image: testing-rails/tdd.jpg
 intro: The process of writing tests can be nerve-racking especially if you have to write them as you write code(TDD). I, however, bring with me the good news. There are tools that can greatly improve your test writing experience. These tools form a foundation on which your tests and ultimately code is built on, improving the experience you will have writing, reading, refactoring and debugging them. This post will take you through a basic yet powerful setup, that incorporates an interesting set of tools, to get you up and running the TDD way.
-keywords: Rails TDD Minitest Rspec 
+keywords: Rails TDD Minitest Rspec Fixtures FactoryBot Robocop Pry-byebug Webmock VCR Faker Brakeman Capistrano
 ---
 ![Testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 

@@ -5,7 +5,7 @@ categories: developer, jekyll
 author: Tom Nyongesa
 blog-image: jekyll/setupenvironment.png
 intro: You’ve probably heard of Jekyll before or this is the very first time you getting to hear it. Whichever the case, today we’re going to dive into the prerequisites of getting started with Jekyll. This is a step by step ultimate guide to setting up your environment.
-keywords: Jekyll Static Website Setup
+keywords: Jekyll Static Website Setup Ruby RVM
 ---
 
 ![Setting Up Environment for Jekyll](/assets/images/blog/{{ page.blog-image }}){:class="img-responsive center"}

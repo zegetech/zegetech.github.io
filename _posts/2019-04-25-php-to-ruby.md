@@ -7,7 +7,7 @@ published: true
 author: Tom Nyongesa
 blog-image: php-ruby/phpruby.png
 intro: Learning anything new has always been an uphill task. A good example is trying to learn a new language like Spanish if you are a Swahili speaking native. I don't know Spanish so I won't say much about it but what i gathered is that communication in spanish is 98% similar to that in Swahili with little differences in things like gender specificity. The huge difference comes in how they structure the wordings. Same thing to programming languages.
-keywords: PHP Ruby Journey
+keywords: PHP Ruby Journey Ruby on Rails Laravel 
 ---
 
 ![phptoruby](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}

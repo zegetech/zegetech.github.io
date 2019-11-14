@@ -5,7 +5,7 @@ categories: Project Management
 title: Agile Product Development
 blog-image: agile/agile-process.jpg
 intro: What comes to your mind when you come across the word agile? I'm sure you'd have an answer at the blink of an eye. Agile software development has been around for over a decade now, driving people away from the traditional software development process that plainly used to ship software but not products. But what about product development? At Zegetech, we have devised a framework that answers this question and ensures that we get shipping, fast! Take a journey through the process as we share Zegetech's new results-proven and definitely interesting product development process.
-keywords: Management Project Agile 
+keywords: Management Project Agile Product
 ---
 
 ![Agile Product Development](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}

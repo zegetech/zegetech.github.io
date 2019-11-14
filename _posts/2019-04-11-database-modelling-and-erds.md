@@ -7,7 +7,7 @@ published: true
 author: Melvin Atieno
 blog-image: ERD/blog-image2.jpg
 intro: Data is perhaps the most important part of any software system; And it lives in a database. A database can be defined as a system in which data is stored in an organized format to allow analysis, easy-access, manipulation and, if necessary, augmentation. In order to come up with a database system that meets all the needs of a system, software developers take on a process commonly referred to as database modelling. This process involves defining and analysing a system’s data requirements, determining what information is needed and how it will be organized or accessed and ultimately coming up with a visual architecture of the intended database for development.
-keywords: ERDs Database Modelling 
+keywords: ERDs Database Modeling MySQL Workbench ERM UML
 ---
 
 ![database modelling](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}

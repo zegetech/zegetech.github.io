@@ -8,7 +8,7 @@ intro: |
   Ruby on Rails, abbreviated RoR or just Rails is a web application framework for developing database backed web applications.
   Rails has been used to build some of the most popular websites including Github, Airbnb and Hulu. Twitter also began life as a rails application.
   While the choice of framework is not a straight forward one, choosing rails looks like a pretty safe bet.
-keywords: Ruby Rails MVC Framework
+keywords: Ruby Rails MVC Framework RVM Rails-API
 ---
 {:.post-figure}
 ![Photo of a railroad with pink vegetation](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}

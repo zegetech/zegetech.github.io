@@ -6,7 +6,7 @@ author: Melvin Atieno
 blog-image: ssg/typewriter-old.jpg
 intro: |
     Remember your first website? I want to assume you started off, like most developers, by creating a series of HTML files linking within it images, CSS and perhaps a sprinkle of JavaScript. Files load on your browser and that was it!!. No web server required. Life was simple!!!
-keywords: jekyll static sites 
+keywords: Jekyll Static Sites Ruby CMS
 ---
 ![old never dies](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 

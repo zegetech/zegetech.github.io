@@ -5,7 +5,7 @@ categories: technology
 author: Melvin Atieno
 blog-image: cloud-computing/cloud.jpg
 intro: You've probably heard about it. There's a high chance you have used it. There's a higher chance you will be using it in the future. The cloud. The cloud is one of those things everyone sort of knows but somehow cannot clearly define. What is the cloud? Who made the cloud? Where is the cloud? How does it work? What is cloud computing? And what happens when it rains? Yes these are just some of the questions that this blog intends to answer in a bid to demystify the mystery that is the cloud.
-keywords: Cloud Computing Storage
+keywords: Cloud Computing Storage Saas Paas Iaas
 ---
 
 {:.post-figure}

@@ -5,7 +5,7 @@ categories: developer, payments
 author: Ngari Ndung'u, Tom Nyongesa, Melvin Atieno
 blog-image: internationalPGs/online_payment.jpg
 intro: Previously we went out and tested the popular [Kenyan payment gateways](/blog/2019/01/14/payment-gateways-Kenya.html). We looked into the methods of payment they allowed, and the integration options they offered. We paid special attention to the APIs, their documentation and general usability. To kick off this year, we went global!  Yes, we looked into popular international payment gateways, Visa and Mastercard integration. With developers in mind, we set out to see what these platforms have to offer and how they offered it. Here’s what we found.
-keywords: Payments Survey Global 
+keywords: Payments Survey Global BrainTree Paypal Stripe SecurionPay Authorize.Net
 ---
 ![online payment](/assets/images/blog/{{page.blog-image}}){:class="img-resposive center"}
 

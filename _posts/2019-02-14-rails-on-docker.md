@@ -6,7 +6,7 @@ categories: developer
 author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa, Kariuki Gathitu
 blog-image: rails-docker/railsondocker.png
 intro: Rails and Docker are important components in the development processes at Zegetech. Rails is our chosen platform for most of what we build, and docker provides pain-free environment management both for development and in production. We have previously covered these two technologies separately, and this post covers the sweet spot at their intersection. We will take you through the process of configuring a rails development environment on docker, and configure a postgresql database for it.
-keywords: Rails Docker Container Images Compose
+keywords: Rails Docker Container Images Compose PostgreSQL Alpinelinux
 ---
 ![Cover Image](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 

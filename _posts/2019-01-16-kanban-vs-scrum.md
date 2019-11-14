@@ -5,7 +5,7 @@ categories: Project management, Agile
 author: Melvin Atieno
 blog-image: kanban-vs-scrum/agileboard.png
 intro: The management method used in a product development process is crucial for the general success of the product development process. The right approach will always lead to the timely delivery of a high-value product. There are a number of different frameworks that can be used for the development of different products. Subsequently, the type of product determines the approach. This post sheds light on two of the main Agile frameworks.
-keywords: Agile Project Management Scrum Kanban
+keywords: Agile Project Management Scrum Kanban Waterfall
 ---
 {:.post-figure}
 ![post image](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}

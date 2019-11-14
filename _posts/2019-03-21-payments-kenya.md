@@ -11,7 +11,7 @@ intro: |
   Ever wonder what the kenyan story looks like? We recently ran a survey within the developer community in Kenya, with the aim of understanding the state of the payment integrations ecosystem.
   We wanted to find out the pains(and joys) that developers go through while integrating payments in Kenya.
   We are happy to finally release the survey results back to the community to hopefully help move us all a step forward.
-keywords: Survey Payments Integrations
+keywords: Survey Payments Integrations Mpesa Daraja
 ---
 ![stacked colored coins](/assets/images/blog/{{page.blog-image}}){: .img-responsive .center}
 

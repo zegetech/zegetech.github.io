@@ -6,7 +6,7 @@ categories: developer
 author: Tom Nyongesa
 blog-image: localhost-tunneling/tunneling.jpg
 intro: Sometimes when i work on a project on my laptop, I need to show my boss, workmates, client or just want to test it on my phone. I can do this by taking my development environments(my laptop) to them but what if I'm working on a desktop? Well, I can ask them to come over or ask them to join my network, what if they are thousands of miles away? Well, I can deploy it to the internet but what if I'm not just ready? Well, say hello to [**Localhost Tunneling**](https://en.wikipedia.org/wiki/Tunneling_protocol), my bridge to the outside world!
-keywords: Tunneling Localhost Ngrok 
+keywords: Tunneling Localhost Ngrok Localtunnel Borrow Pagekite
 ---
 
 ![Localhost tunneling](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}

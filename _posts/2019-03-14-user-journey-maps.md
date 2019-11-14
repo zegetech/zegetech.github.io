@@ -7,7 +7,7 @@ published: true
 author: Tom Nyongesa
 blog-image: ux-design/user_maze.jpg
 intro: Among the many tasks involved in [discovery phase](/blog/2019/01/19/product-discovery.html) is user journey mapping. This tends to answer the question "how will your product's user achieve the core goals of your product". In this piece, we will get to understand what user journey mapping means, why it's important to do, how it's done and sampling of the best user flow design tools highly recommended by [UX](https://en.wikipedia.org/wiki/User_experience_design) designers.
-keywords: Management Project Experience
+keywords: Management Project Experience Product
 ---
 
 ![User Journey](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
