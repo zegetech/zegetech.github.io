@@ -1,12 +1,13 @@
 ---
 layout: blog
-title: Amazing Bash aliases
+title: Amazing Bash aliases and Functions
 date: 2019-11-08 11:24 +0300
 categories:
 published: false
 author: Gathuku Ndung'u
 blog-image: bash_alias/bash_alias.jpg
 intro: Writing the same long command can be the most annoying thing when working in the terminal. Especially to those of us used to touches and GUIs(Graphical user interfaces). Its true most of us don't like terminal. While it hardly a solution to most of our complaints we can simplify some of them.
+keywords: Bash Alias Functions Terminal Scripts
 ---
 
 ![bash_alias](/assets/images/blog/bash_alias/bash_alias.jpg){:.img-responsive .center}
@@ -103,7 +104,7 @@ unalias ll
 >>Eg `please shutdown`
 
 ### Amazing aliases
-We have compiled a list of commonly used aliases which you can install and get started easily.Check the [github repo](https://github.com/gathuku/bash_alias) to see available aliases and add more.
+We have compiled a list of commonly used aliases that you can install and get started easily. Check the [github repo](https://github.com/gathuku/bash_alias) to see available aliases and add more.
 
 Installation
 
@@ -124,10 +125,10 @@ source ~/.aliases/bash_aliases
   3. Aliases cannot be (un)set in subshells or non-interactive environments.
   4. Aliases take time since shell has to interpret them all before showing you prompt.
 
-> The limitation that aliases dont accept parameters can be solved by use of `bash functions`.
+> The limitation that aliases don't accept parameters can be solved by the use of `bash functions`.
 
 ### Bash Functions
-A bush function like any other programming language is a set of commands that can be called numerous times. Unlike aliases bash function accepts parameters/Functions and can include multiple commands in its defination.
+A bush function like any other programming language is a set of commands that can be called numerous times. Unlike aliases, bash function accepts parameters/Functions and can include multiple commands in its definition.
 
 __Functions Declaration__
 
@@ -148,7 +149,7 @@ function function_name {
 
 __Function Parameters__
 
-To pass any number of arguments to the bash function simply put them right after the function’s name, separated by a space. It is a good practice to double-quote the arguments to avoid misparsing of an argument with spaces in it.
+To pass any number of arguments to the bash function simply put them right after the function’s name, separated by a space. It is a good practice to double-quote the arguments to avoid the misparsing of an argument with spaces in it.
 > The passed parameters are $1, $2, $3 … $n, corresponding to the position of the parameter after the function’s name
 
 Example
@@ -161,8 +162,57 @@ greeting() {
 You can call function `greeting` with argument
 ```sh
 greeting "John"
-# Out put
+# Output
 Hello John
 ```
+
+__Bash Functions Examples__
+1.  Kill Processes
+```
+kp () {
+  ps aux | grep $1 > /dev/null
+  mypid=$(pidof $1)
+  if [ "$mypid" != "" ]; then
+    kill -9 $(pidof $1)
+    if [[ "$?" == "0" ]]; then
+      echo "PID $mypid ($1) killed."
+    fi
+  else
+    echo "None killed."
+  fi
+  return;
+}
+```
+ The function will kill a process by name  eg `kp "firefox"`
+
+2. Uptime
+```
+myuptime () {
+  uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
+  return;
+}
+```
+Displays system uptime.
+
+3. Tar and Compress
+```
+targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
+# extra .tar.gz
+untargz() { tar -zxvf $1; rm -r $1; }
+```
+For more useful bash functions check our [repository](https://github.com/gathuku/bash_alias)
+__Installation__
+
+Clone in `.aliases` directory in your home.
+```
+git clone git@github.com:gathuku/bash_alias.git .aliases
+```
+Setup
+
+Enable bash functions in terminal by running the command:
+```
+source ~/.aliases/bash_functions
+```
+
 ### Conclusion
-Hopefully this guide has given you some inspiration for creating your own aliases and bash functions. Extensive use of these can help make your time in the shell more enjoyable and less complex.
+Hopefully, this guide has given you some inspiration for creating your aliases and bash functions. Extensive use of these can help make your time in the shell more enjoyable and less complex.
