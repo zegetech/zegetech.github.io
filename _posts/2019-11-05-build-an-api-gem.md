@@ -471,7 +471,37 @@ docker-compose run app guard init minitest
 Guard is now watching should start compiling your test on file changes.
 
 ### Debugging with pry-byebug
-Pry-byebug adds step by step debugging and stack navigations.
+[Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) adds step by step debugging and stack navigations.Pry bye-bug lets you.
+1. Stop execution anywhere in any piece of code to look around and see what’s going on.
+2. View a complete backtrace of every bit of code leading up to where you are
+
+To install add `gem 'pry-byebug'` in your Gemfile.
+Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use `binding.pry` where you want the execution to stop. Example when we call `binding.pry` in register_urls method we get below output which help to inspect where your code is having probems
+```sh
+26: def self.register_urls(response_type)
+ 27:   url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
+ 28:   headers={
+ 29:     "accept"=>"application/vnd.api+json",
+ 30:     "Content-Type"=>"application/vnd.api+json"
+ 31:   }
+ 32:   body={
+ 33:     data:{
+ 34:       type:"urls",
+ 35:       id:1,
+ 36:       attributes:{
+ 37:         confirmation_url: Configuration.new.confirmation_url,
+ 38:         validation_url: Configuration.new.validation_url,
+ 39:         short_code: Configuration.new.short_code,
+ 40:         response_type: response_type
+ 41:       }
+ 42:     }
+ 43:   }
+ 44:   binding.pry
+=> 45:   Faraday.post(url,body.to_json,headers)
+ 46: end
+
+```
+
 ###  12-Factor compliance
  __Dependancies__
 
