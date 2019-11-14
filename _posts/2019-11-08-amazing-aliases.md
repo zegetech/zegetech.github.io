@@ -167,7 +167,7 @@ Hello John
 ```
 
 __Bash Functions Examples__
-1.  __Kill Processes__
+1.  __Kill Processes__ -
 The function will kill a process by name  eg `kp "firefox"`
 ```
 kp () {
@@ -186,7 +186,7 @@ kp () {
 ```
 
 
-2. __Uptime__
+2. __Uptime__ -
 Displays system uptime.
 ```
 myuptime () {
@@ -196,7 +196,7 @@ myuptime () {
 ```
 Displays system uptime.
 
-3. __Tar and Compress__
+3. __Tar and Compress__ -
 Compress a folder ie `targz test`
 ```
 targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
