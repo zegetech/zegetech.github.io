@@ -167,7 +167,8 @@ Hello John
 ```
 
 __Bash Functions Examples__
-1.  Kill Processes
+1.  __Kill Processes__
+The function will kill a process by name  eg `kp "firefox"`
 ```
 kp () {
   ps aux | grep $1 > /dev/null
@@ -183,9 +184,10 @@ kp () {
   return;
 }
 ```
- The function will kill a process by name  eg `kp "firefox"`
 
-2. Uptime
+
+2. __Uptime__
+Displays system uptime.
 ```
 myuptime () {
   uptime | awk '{ print "Uptime:", $3, $4, $5 }' | sed 's/,//g'
@@ -194,13 +196,16 @@ myuptime () {
 ```
 Displays system uptime.
 
-3. Tar and Compress
+3. __Tar and Compress__
+Compress a folder ie `targz test`
 ```
 targz() { tar -zcvf $1.tar.gz $1; rm -r $1; }
 # extra .tar.gz
 untargz() { tar -zxvf $1; rm -r $1; }
 ```
+
 For more useful bash functions check our [repository](https://github.com/gathuku/bash_alias)
+
 __Installation__
 
 Clone in `.aliases` directory in your home.
