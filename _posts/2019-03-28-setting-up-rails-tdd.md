@@ -7,6 +7,7 @@ published: true
 author: Melvin Atieno
 blog-image: testing-rails/tdd.jpg
 intro: The process of writing tests can be nerve-racking especially if you have to write them as you write code(TDD). I, however, bring with me the good news. There are tools that can greatly improve your test writing experience. These tools form a foundation on which your tests and ultimately code is built on, improving the experience you will have writing, reading, refactoring and debugging them. This post will take you through a basic yet powerful setup, that incorporates an interesting set of tools, to get you up and running the TDD way.
+keywords: Rails TDD Minitest Rspec Fixtures FactoryBot Robocop Pry-byebug Webmock VCR Faker Brakeman Capistrano
 ---
 ![Testing](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 
@@ -34,7 +35,7 @@ The framework of choice determines the format of the tests. Here's a list of pop
 
 1. [minitest](https://guides.rubyonrails.org/testing.html#rails-meets-minitest). Rails default testing framework. It is fast, clean and lets developers choose between Ruby test syntax and a Rspec-style DSL. Extra features such as test reporting and coverage are available through [extensions](https://github.com/seattlerb/minitest#known-extensions)
 2. [rspec](http://rspec.info/)A DSL for writing tests. While most of the features offered by Rspec can be achieved with minitest through extensions, it might be a hassle when the number of extensions needed to get you up and running are too many. In such situations Rspec.
-   
+
 ## Test data
 
 For good tests, you'll need to give some thought on setting up test data. Test data refers to data that can be loaded and re-used throughout tests eliminating the need to manually enter data every time you run them.
@@ -88,7 +89,7 @@ Code is bound to have bugs. The process of debugging is made easy with the right
 ## Automation
 
 1. [Guard](https://github.com/guard/guard). Automates various tasks by running custom rules whenever file or directories are modified. It's used to help avoid mundane, repetitive actions and commands such as "relaunching" tools after changing source files or configurations. In the case of TDD, it will automatically run related tests when related files are edited.
-2. [ Capistrano](https://github.com/capistrano/capistrano) A framework for building automated deployment scripts. Can handle a number of tasks including copying files, migrating databases, and compiling assets. 
+2. [ Capistrano](https://github.com/capistrano/capistrano) A framework for building automated deployment scripts. Can handle a number of tasks including copying files, migrating databases, and compiling assets.
 
 ## Performance.
 
@@ -251,7 +252,7 @@ $ docker-compose exec app bundle exec guard init
 A `Guardfile` will be generated in your app's root directory. We will now edit the generated guardfile to watch our directories. Comment all the uncommented lines then comment out the Rails 4 section. This is because the directory structure for rails 5 is similar to that of rails 4. The final guardfile:
 ```ruby
     guard :minitest do
-   #commented code 
+   #commented code
   # Rails 4
   watch(%r{^app/(.+)\.rb$})                               { |m| "test/#{m[1]}_test.rb" }
   watch(%r{^app/controllers/application_controller\.rb$}) { 'test/controllers' }
@@ -260,7 +261,7 @@ A `Guardfile` will be generated in your app's root directory. We will now edit t
   watch(%r{^lib/(.+)\.rb$})                               { |m| "test/lib/#{m[1]}_test.rb" }
   watch(%r{^test/.+_test\.rb$})
   watch(%r{^test/test_helper\.rb$}) { 'test' }
-  #commented code 
+  #commented code
 end
 ```
 fire it up
@@ -288,7 +289,7 @@ Fire it up
 ```bash
    $ docker-compose exec app rubocop
 ```
->23 files inspected, 90 offenses detected!! 
+>23 files inspected, 90 offenses detected!!
 
 Auto-correct offenses?
 ```bash
@@ -320,11 +321,11 @@ And this can be done in the guard console.
 **6. bundler-audit**
 
 With the gem already installed, bundler-audit is ready to go.
-Run bundler-audit to check for vulnerable versions of gems and insecure gem sources. 
+Run bundler-audit to check for vulnerable versions of gems and insecure gem sources.
 And the best part? It does not require a network connection
 ```bash
 $ docker-compose exec app bundle audit
-``` 
+```
 
 
 

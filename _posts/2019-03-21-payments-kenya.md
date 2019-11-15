@@ -2,15 +2,16 @@
 layout: blog
 title: Kenya Payments Integration Survey
 date: 2019-03-21 10:36 +0300
-categories: developer 
+categories: developer
 published: true
 author: Kariuki Gathitu, Ngari Ndung'u
 blog-image: integrations-survey/kenyamoney.jpg
-intro: | 
+intro: |
   The [Stack overflow developer survey results](https://insights.stackoverflow.com/survey/2019) came out recently  to tell an interesting story.
   Ever wonder what the kenyan story looks like? We recently ran a survey within the developer community in Kenya, with the aim of understanding the state of the payment integrations ecosystem.
   We wanted to find out the pains(and joys) that developers go through while integrating payments in Kenya.
-  We are happy to finally release the survey results back to the community to hopefully help move us all a step forward. 
+  We are happy to finally release the survey results back to the community to hopefully help move us all a step forward.
+keywords: Survey Payments Integrations Mpesa Daraja
 ---
 ![stacked colored coins](/assets/images/blog/{{page.blog-image}}){: .img-responsive .center}
 
@@ -30,16 +31,16 @@ Of interest is that a number of CTO's in Kenyan companies are active in day to d
 
 ![developer roles](/assets/images/blog/integrations-survey/developer_roles.png){: .img-responsive .center}
 
-With API's being the new oil in the digital revolution, it was great to see that over 75% of developers were quite conversant with APIs, with most of them preferring RESTful APIs as opposed to SOAP, GraphQL or platform specific SDKs. 
+With API's being the new oil in the digital revolution, it was great to see that over 75% of developers were quite conversant with APIs, with most of them preferring RESTful APIs as opposed to SOAP, GraphQL or platform specific SDKs.
 
 ![how well developers understand apis](/assets/images/blog/integrations-survey/conversant.png){: .img-responsive .center}
 ![api preference](/assets/images/blog/integrations-survey/api_preference.png){: .img-responsive .center}
 
-The majority had already experienced  payment APIs, Social nework API's and cloud services like firebase, with Over 90% of respondents having already done a payment integration. 
+The majority had already experienced  payment APIs, Social nework API's and cloud services like firebase, with Over 90% of respondents having already done a payment integration.
 It goes without saying that the most popular payment API integrated was MPESA, with three times as many developers having integrated with it than any other payment api.
 Surprisingly of the gateways mentioned, the new entrant into payments integration, Africas talking came in top.
 It however seemed that there wasn't a consistent featureset to describe what a payment gateway meant.
-It might have been a case of comparing apples to oranges. 
+It might have been a case of comparing apples to oranges.
 
 ![api integrations](/assets/images/blog/integrations-survey/integrated_with.png){: .img-responsive .center}
 
@@ -52,7 +53,7 @@ A majority of the projects were B2C facing projects targeting mainly local custo
 
 Over 58% of integrations were direct integrations to MPESA while 35% were integrations via third party services.
 It also seems that there is a need for payment aggregators to be more inclusive as over 70% of respondents had needed to integrate with more than one payment gateway for their projects in order to have multiple payment options.
-These choices included MPESA, Card (VIsa and Mastercard), Equitel, Pesalink, Airtel and Direct to Bank. Of these, MPESA, Card and Equitel were the most popular respectively. 
+These choices included MPESA, Card (VIsa and Mastercard), Equitel, Pesalink, Airtel and Direct to Bank. Of these, MPESA, Card and Equitel were the most popular respectively.
 
 ![Mpesa](/assets/images/blog/integrations-survey/mpesa_daraja.png){:class="img-responsive center"}
 
@@ -65,7 +66,7 @@ Wonder how much of that is just because developers love 'building from scratch'.
 ![mode of integration of mpesa](/assets/images/blog/integrations-survey/mpesa_integration.png){:class="img-responsive center"}
 
 Seems like an opportunity for a payment gateway to license software or a gateway PaaS provider to leverage.
-More so because the time to integration varied greatly from a few days to multiple weeks. 
+More so because the time to integration varied greatly from a few days to multiple weeks.
 
 Most developers discovered their payment gateways from referral by partners such as MPESA or friends, as well as through google searches.
 ![how payment gateways were discovered](/assets/images/blog/integrations-survey/pgw_discovery.png){: .img-responsive .center}

@@ -5,6 +5,7 @@ author: Ngari Ndung'u
 category: Project Management
 intro: Ever wondered why there are so many products that look good, work but don't work well for you? Why the last update to your favorite app was so ugly and unintuitive you almost ditched it? Or why you remember that big launch but never come across someone using the product? While these can be explained away by a brutal market, poor product development plays a large part. Product discovery is a process to reduce the chances of this happening to you, and gives your product a better shot at success.
 blog-image: product-discovery/discovery.png
+keywords: Product Discover Prototypes Design
 ---
 ![Board with notes](/assets/images/blog/{{page.blog-image}}){:.img-responsive}
 
@@ -58,7 +59,7 @@ The design sprint is carried out by a small cross-functional team consisting of 
 
 Within one week the team explores the problem and chooses a single high-impact theme to explore.
 They then propose individual solutions and collectively narrow down to just a few for which they build prototypes for.
-The team then tests the prototypes in one-on-one customer interviews noting down the effectiveness of each. 
+The team then tests the prototypes in one-on-one customer interviews noting down the effectiveness of each.
 The process can be repeated as often as required till the problem is clearly defined or discarded as not viable.
 You can learn more about the process by watching [the story](https://www.thesprintbook.com/videos/) (second video).
 
@@ -84,4 +85,3 @@ In addition to the benefits derived from any product discovery process, the desi
 
 All these combine to ensure that the business is building a product that has utility, is needed by the market and aligns with the business's goals.
 In turn ensuring that the right resources are allocated and giving the product a good chance for success.
-
