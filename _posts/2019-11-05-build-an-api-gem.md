@@ -383,7 +383,7 @@ Now you can publish your gem with command. The command will take spec version pu
 ```
 docker-compose run app rake release
 ```
-> Ensure you have included the gem server in your gemspecs and also the version.
+> Ensure you have included the gem server in your gemspec and also the version `lib/mygem/version.rb`.
 
 ## Debugging and Automation  
 ### CI/CD with Travis
@@ -424,7 +424,7 @@ deploy:
 To deploy you will specify a `deploy` job with `rubygems` as the `provider`. Add your `api_key` in travis [environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings) the specify to deploy only when you push a tag. ie `tags: true`.
 
 ### EditorConfig
-EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems.
+[EditorConfig](https://editorconfig.org/) helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems. Below `editorconfig` can be used to define `indent_style`, `indent_size` and more.
 
 ```
 #.editorconfig
@@ -451,7 +451,7 @@ __Rubocop__
 
 __Guard__
 
-[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. To install guard add `gem "guard"` in your gem the build the container to install guard gem.
+[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. To install guard add `gem 'guard'` in your Gemfile then build the container to install guard gem.
 
 Generate an empty Guardfile with:
 ```sh
@@ -464,7 +464,7 @@ docker-compose run app exec guard
 You can now start using guard plugins.
 For example let's use [guard-minitest](https://github.com/guard/guard-minitest) plugin. Add `gem 'guard-minitest'` in your `Gemfile` and install.
 
-Add guard definition to your Guardfile by running the following command:
+Add guard definition to your `Guardfile` by running the following command:
 ```
 docker-compose run app guard init minitest
 ```
@@ -476,7 +476,7 @@ Guard is now watching should start compiling your test on file changes.
 2. View a complete backtrace of every bit of code leading up to where you are
 
 To install add `gem 'pry-byebug'` in your Gemfile.
-Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use `binding.pry` where you want the execution to stop. Example when we call `binding.pry` in register_urls method we get below output which help to inspect where your code is having probems
+Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use `binding.pry` where you want the execution to stop. Example when we call `binding.pry` in register_urls method we get below output which help to inspect where your code is having problems
 ```sh
 26: def self.register_urls(response_type)
  27:   url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
