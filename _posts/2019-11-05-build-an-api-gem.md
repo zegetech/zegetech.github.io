@@ -150,7 +150,7 @@ docker build -t mygem . && docker run -it mygem
 
 ### Register URLs
 
- We will implement a `resiter_urls` method in `lib/mygem.rb`, the method will accept `responsetype` parameter. Response type can be `Completed` or `Cancelled`.
+ We will implement a `resiter_urls` method in `lib/mygem.rb`, the method will accept `response_type` parameter. Response type can be `Completed` or `Cancelled`.
 
  ```ruby
  def self.register_urls(response_type)
@@ -177,7 +177,7 @@ end
  ```
 
 ### Payouts
-The endpoint allows business to send money to constomers. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`,`amount`,`recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
+The endpoint allows businesses to send money to customers. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`, `amount`, `recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
 
 ```ruby
 def self.payouts(category,amount,recipient_no,reference)
@@ -273,12 +273,12 @@ def  test_payouts
 end
 ```
 
-Great!, now we have implemented a two methods `register_urls` and `payouts` with their respective tests.
+Great!, now we have implemented two methods `register_urls` and `payouts` with their respective tests.
 
 
 
 ##  Configurable Block
-In the examples above we have used `confirmation_url:Configuration.new.confirmation_url` . This will fetch `confirmation_url` from our configuration. Having a configure block help in assing variables used by a gem. The example below demostrate how you can implement it.
+In the examples above we have used `confirmation_url:Configuration.new.confirmation_url` . This will fetch `confirmation_url` from our configuration. Having a configure block help in passing variables used by a gem. The example below demostrate how you can implement it.
 ```ruby
 require "mygem/version"
 require 'net/http'
@@ -447,7 +447,7 @@ Linter provides an interface to Ruby's builtin syntax analysis. It will be used 
 
 __Rubocop__
 
-[Rubocop](https://rubocop.readthedocs.io/en/latest/) is a Ruby linter for code analysis and formating your codebase. Apart from formating Rubocop automatically fixed problem for you. Readmore on installation and usage in their [documentation](https://rubocop.readthedocs.io/en/latest/)
+[Rubocop](https://rubocop.readthedocs.io/en/latest/) is a Ruby linter for code analysis and formating your codebase. Apart from formating Rubocop automatically fixed the problem for you. Readmore on installation and usage in their [documentation](https://rubocop.readthedocs.io/en/latest/)
 
 __Guard__
 
@@ -471,7 +471,7 @@ docker-compose run app guard init minitest
 Guard is now watching should start compiling your test on file changes.
 
 ### Debugging with pry-byebug
-[Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) adds step by step debugging and stack navigations.Pry bye-bug lets you.
+[Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) adds step by step debugging and stack navigations. Pry bye-bug lets you.
 1. Stop execution anywhere in any piece of code to look around and see what’s going on.
 2. View a complete backtrace of every bit of code leading up to where you are
 
