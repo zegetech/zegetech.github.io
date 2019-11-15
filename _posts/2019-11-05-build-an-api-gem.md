@@ -210,7 +210,7 @@ end
 
 Now, this can get a little bit complicated since the API response is dynamic. To solve this you we need `webmock` for stabbing our responses. To use webmock `require "webmock/minitest"` in `test_helper.rb`.With the below code we are mimicking the API response with our desired response. This is great because we don't need an internet connection to run our test thus improves test running speed.
 
-### Testing register_urls
+### Testing `register_urls`
 ```ruby
 def test_it_registers_ulrls
     url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
@@ -241,7 +241,7 @@ def test_it_registers_ulrls
   end
 ```
 
-### Testing payouts
+### Testing `payouts`
 ```ruby
 def  test_payouts
   url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts"
@@ -273,7 +273,7 @@ def  test_payouts
 end
 ```
 
-Great!, now we have implemented a method that returns an IP and tested it.
+Great!, now we have implemented a two methods `register_urls` and `payouts` with their respective tests.
 
 
 
