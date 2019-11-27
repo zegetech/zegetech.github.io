@@ -263,7 +263,35 @@ end
 
 Great!, now we have implemented two methods `register_urls` and `payouts` with their respective tests with VCR.
 
+## Testing data(Fixtures)
+For testing data we need to create a `yaml` file to store the data then we can load the data in our code. The code below can be used to load the yaml data.
+```ruby
+yaml_fixtures = Dir[File.expand_path('fixtures/**/*.y*ml', __dir__)].map do |f|
+  erb_yaml = ERB.new(File.read(f))
+  YAML.safe_load(erb_yaml.result)
+end.inject(:merge)
 
+FIXTURES = yaml_fixtures.freeze
+```
+The above code reads all the `yaml` files in `fixtures` directory. Adds support for ERB syntax. Then assigns results to `Fixtures` hash.
+
+Example if you have in the `yaml` file.
+```yml
+body:
+  data:
+    attributes:
+      amount: 100
+      category: BusinessPayment
+      posted_at: "2019-03-18T17:22:09.651011Z"
+      recipient_id_number: "21212121"
+      recipient_id_type: national_id
+      recipient_no: "0722000024"
+      recipient_type: msisdn
+      reference: "12345678"
+    id: <%= SecureRandom.uuid %>
+    type: payouts
+```
+You can be able feature body with `FIXTURES[:body]`.
 
 ##  Configurable Block
 In the examples above we have used VCR configure block inside our `test_helper.rb`. Having a configure block help in passing variables used by a gem. The example below demostrate how you can implement it.
@@ -330,36 +358,6 @@ Example
  => "600234"
 2.6.3 :004 >
 ```
-
-## Testing data(Fixtures)
-For testing data we need to create a `yaml` file to store the data then we can load the data in our code. The code below can be used to load the yaml data.
-```ruby
-yaml_fixtures = Dir[File.expand_path('fixtures/**/*.y*ml', __dir__)].map do |f|
-  erb_yaml = ERB.new(File.read(f))
-  YAML.safe_load(erb_yaml.result)
-end.inject(:merge)
-
-FIXTURES = yaml_fixtures.freeze
-```
-The above code reads all the `yaml` files in `fixtures` directory. Adds support for ERB syntax. Then assigns results to `Fixtures` hash.
-
-Example if you have in the `yaml` file.
-```yml
-body:
-  data:
-    attributes:
-      amount: 100
-      category: BusinessPayment
-      posted_at: "2019-03-18T17:22:09.651011Z"
-      recipient_id_number: "21212121"
-      recipient_id_type: national_id
-      recipient_no: "0722000024"
-      recipient_type: msisdn
-      reference: "12345678"
-    id: <%= SecureRandom.uuid %>
-    type: payouts
-```
-You can be able feature body with `FIXTURES[:body]`.
 
 ## Building the Gem
 To build the gem update gemspec in `mygem.gemspec` then we can build a gem out of it with the below command.
