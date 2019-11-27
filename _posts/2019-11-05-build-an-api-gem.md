@@ -437,52 +437,7 @@ deploy:
 ```
 To deploy you will specify a `deploy` job with `rubygems` as the `provider`. Add your `api_key` in travis [environment variables](https://docs.travis-ci.com/user/environment-variables/#defining-variables-in-repository-settings) the specify to deploy only when you push a tag. ie `tags: true`.
 
-### EditorConfig
-[EditorConfig](https://editorconfig.org/) helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems. Below `editorconfig` can be used to define `indent_style`, `indent_size` and more.
 
-```
-#.editorconfig
-root = true
-
-[*]
-indent_style = space
-indent_size = 2
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
-
-[*.{sh,markdown}]
-indent_size = 4
-```
-
-### Linter and Guard Automation
-Linter provides an interface to Ruby's builtin syntax analysis. It will be used with files that have the Ruby syntax. Many IDE usually have linter packages for almost every language. Just install in your IDE and everything will be well.
-
-__Rubocop__
-
-[Rubocop](https://rubocop.readthedocs.io/en/latest/) is a Ruby linter for code analysis and formating your codebase. Apart from formating Rubocop automatically fixed the problem for you. Readmore on installation and usage in their [documentation](https://rubocop.readthedocs.io/en/latest/)
-
-__Guard__
-
-[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. Ensure you have `guard` in development depesndencies.
-
-Generate an empty Guardfile with:
-```sh
-docker-compose run app exec guard init
-```
-Run Guard through Docker with:
-```sh
-docker-compose run app exec guard
-```
-You can now start using guard plugins.
-For example let's use [guard-minitest](https://github.com/guard/guard-minitest) plugin. Add `gem 'guard-minitest'` development dependancies and install.
-
-Add guard definition to your `Guardfile` by running the following command:
-```
-docker-compose run app guard init minitest
-```
-Guard is now watching should start compiling your test on file changes.
 
 ### Debugging with pry-byebug
 [Pry-byebug](https://github.com/deivid-rodriguez/pry-byebug) adds step by step debugging and stack navigations. Pry bye-bug lets you.
@@ -515,6 +470,34 @@ Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use 
 
 ```
 
+### Linter and Guard Automation
+Linter provides an interface to Ruby's builtin syntax analysis. It will be used with files that have the Ruby syntax. Many IDE usually have linter packages for almost every language. Just install in your IDE and everything will be well.
+
+__Rubocop__
+
+[Rubocop](https://rubocop.readthedocs.io/en/latest/) is a Ruby linter for code analysis and formating your codebase. Apart from formating Rubocop automatically fixed the problem for you. Readmore on installation and usage in their [documentation](https://rubocop.readthedocs.io/en/latest/)
+
+__Guard__
+
+[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. Ensure you have `guard` in development depesndencies.
+
+Generate an empty Guardfile with:
+```sh
+docker-compose run app exec guard init
+```
+Run Guard through Docker with:
+```sh
+docker-compose run app exec guard
+```
+You can now start using guard plugins.
+For example let's use [guard-minitest](https://github.com/guard/guard-minitest) plugin. Add `gem 'guard-minitest'` development dependancies and install.
+
+Add guard definition to your `Guardfile` by running the following command:
+```
+docker-compose run app guard init minitest
+```
+Guard is now watching should start compiling your test on file changes.
+
 ### Code coverage
 Remember on our `coverage` dependancies we had `coveralls` and `simplecov`.
 [simplecov](https://github.com/colszowka/simplecov) is a code coverage gem with automatic mering across tests suites.
@@ -527,6 +510,26 @@ The next time you run the tests a `coverage` directory is created in `root`. Ope
 > Remember to add `coverage` in `gitignore`
 
 [Coverals](https://coveralls.io/) can be used as hosted/online code coverage.
+
+### EditorConfig
+[EditorConfig](https://editorconfig.org/) helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. It consists of a file format for defining coding styles. EditorConfig files are easily readable and they work nicely with version control systems. Below `editorconfig` can be used to define `indent_style`, `indent_size` and more.
+
+```
+#.editorconfig
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{sh,markdown}]
+indent_size = 4
+```
+
 ###  12-Factor compliance
  __Dependancies__
 
