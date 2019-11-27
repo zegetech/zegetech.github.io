@@ -16,7 +16,7 @@ intro: Ruby Gem allows us to package our code to use later or share it with othe
 1. Setting up a docker container
 2. Bootstrapping your gem
 3. Implementing functionalities
-4. Test coverage(Webmock and VCR)
+4. Test &  code coverage(Webmock and VCR)
 5. Configurable block
 6. Building your gem
 7. Publishing your gem
@@ -130,17 +130,29 @@ Gem 'mygem' was successfully created. For more information on making a RubyGem v
 Congrats! You now have your gem ready to implement functionalities.
 
 ## Implement Functionality
-The good thing about ruby gem is we can also use other gem by including them in `Gemfile`. In this section our gem will implement [Daraja 2.0 Mock](https://app.swaggerhub.com/apis-docs/zegetech/mpesaUniAPI/1.0) API. To get along with TDD we will require some other gems.
-- [webmock](https://github.com/bblimke/webmock) - A gem for stubbing and setting expectation for HTTP requests.
+The good thing about ruby gem is we can also use other gem by including them in `mygem.gemspec`. In this section our gem will implement [Daraja 2.0 Mock](https://app.swaggerhub.com/apis-docs/zegetech/mpesaUniAPI/1.0) API. To get along with TDD we will require some other development dependencies.
+- [VCR](https://github.com/vcr/vcr) - A gem thats records HTTP interaction and replay them later.
 - [Faraday](https://github.com/lostisland/faraday) - A simple and flexible HTTP client gem.
 - [JSON](https://rubygems.org/gems/json/versions/1.8.3) - A gem for parsing API JSON responses.
 
-Include all the gems in your `Gemfile`
+Include all the gems in your `mygem.gemspec`. Check on Rubygems.org for the latest versions.
 ```
-# Gemfile
-gem 'faraday'
-gem 'json', '~> 1.8', '>= 1.8.3'
-gem 'webmock'
+spec.add_development_dependency 'bundler', '~>2.0.0'
+spec.add_development_dependency 'rake', '~>10.0'
+# runtime dependancies
+spec.add_runtime_dependency 'faraday', '~> 0.17.0'
+spec.add_runtime_dependency 'json', '~> 2.2'
+spec.add_runtime_dependency 'openssl', '~> 2.1'
+# testing
+spec.add_development_dependency 'minitest', '~> 5.0'
+spec.add_development_dependency 'minitest-reporters', '~> 1.4'
+spec.add_development_dependency 'vcr', '~> 5.0'
+# debugging
+spec.add_development_dependency 'byebug', '~> 11.0'
+spec.add_development_dependency 'pry-byebug', '~> 3.7'
+# code coverage
+spec.add_development_dependency 'coveralls', '~> 0.8'
+spec.add_development_dependency 'simplecov', '~> 0.16.1'
 ```
 
 Then build your container  to install the gems and copy files to the container
@@ -208,77 +220,53 @@ end
 
 ## Testing
 
-Now, this can get a little bit complicated since the API response is dynamic. To solve this you we need `webmock` for stabbing our responses. To use webmock `require "webmock/minitest"` in `test_helper.rb`.With the below code we are mimicking the API response with our desired response. This is great because we don't need an internet connection to run our test thus improves test running speed.
+Now, this can get a little bit complicated since the API response is dynamic. To solve this you we need `VCR` for recording HTTP interactions. To use VCR `require "vcr"` in `test_helper.rb`. Then we need to pass a configuration block for VCR.
+```ruby
+# Configure VCR
+VCR.configure do |config|
+  config.allow_http_connections_when_no_cassette = false
+  config.cassette_library_dir = File.expand_path('cassettes', __dir__)
+  config.hook_into :webmock
+  config.ignore_request { ENV['DISABLE_VCR'] }
+  config.ignore_localhost = true
+  config.default_cassette_options = {
+    record: :new_episodes
+  }
+end
+```
+From the above config we have defined our cassette directory as `cassettes`. [Read more](https://relishapp.com/vcr/vcr/v/2-0-0-beta1/docs/configuration/hooks) on VCR configuration.
 
 ### Testing `register_urls`
 ```ruby
 def test_it_registers_ulrls
-    url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
-    headers={
-      "accept"=>"application/vnd.api+json",
-      "Content-Type"=>"application/vnd.api+json"
-    }
-    body={
-      data:{
-        type:"urls",
-        id:1,
-        attributes:{
-          confirmation_url: "https://example.com/confirmation",
-          validation_url: "https://example.com/validation",
-          short_code: "600234",
-          response_type: "Completed"
-        }
-      }
-    }
-    stub_request(:post,url).
-    with(
-      body:body.to_json,
-      headers: headers
-    ).
-    to_return(status: 200, body:"", headers: {})
 
-    assert_equal 200, Mygem.register_urls("Completed").status
+    VCR.use_cassette('register_urls') do
+      response = Mygem.register_urls("Completed")
+      assert_equal 200, response.status
+    end
+
   end
 ```
+From the above test we use cassette `register_urls` to load HTTP interaction recorded. If a the cassette contain data no real connection will be made. This feature makes our test to run very fast.
 
 ### Testing `payouts`
 ```ruby
 def  test_payouts
-  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts"
-  headers={
-    "accept"=>"application/vnd.api+json",
-    "Content-Type"=>"application/vnd.api+json"
-  }
-  body={
-    data:{
-      type:"payouts",
-      id:1,
-      attributes: {
-        category: "BusinessPayment",
-        amount: 1000,
-        recipient_no: "25472264885",
-        recipient_type: "msisdn",
-        posted_at: Time.now,
-        recipient_id_type: "national_id",
-        recipient_id_number: "12345567",
-        reference: "142345654"
-      }
-    }
-  }
 
-  stub_request(:post,url).
-  with(body: body.to_json, headers: headers).
-  to_return(status: 200, body:"", headers:{})
-  assert_equal 200, Mygem.payouts("BusinessPayment",1000,"25472264885","142345654").status
+  VCR.use_cassette('payouts') do
+    response = Mygem.payouts("BusinessPayment",1000,"25472264885","142345654")
+    assert_equal(200, response.status)
+  end
+
 end
 ```
 
-Great!, now we have implemented two methods `register_urls` and `payouts` with their respective tests.
+Great!, now we have implemented two methods `register_urls` and `payouts` with their respective tests with VCR.
 
 
 
 ##  Configurable Block
-In the examples above we have used `confirmation_url:Configuration.new.confirmation_url` . This will fetch `confirmation_url` from our configuration. Having a configure block help in passing variables used by a gem. The example below demostrate how you can implement it.
+In the examples above we have used VCR configure block inside our `test_helper.rb`. Having a configure block help in passing variables used by a gem. The example below demostrate how you can implement it.
 ```ruby
 require "mygem/version"
 require 'net/http'
@@ -325,6 +313,8 @@ Mygem.configure do |config|
    config.short_code = "600234"
 end
 ```
+> The block can be added in `test_helper.rb` to load data for testing.
+
 To retrieve the assigned variable.
 ```ruby
 Mygem.configuration.short_code
@@ -342,8 +332,34 @@ Example
 ```
 
 ## Testing data(Fixtures)
-Since this is not a rails app we cannot be able to use fixtures which by default comes with rails. But don't worry there are many fixtures replacements out there.
-We can use [factory_bot ](https://github.com/thoughtbot/factory_bot) a fixtures replacement with a straightforward definition syntax, support for multiple build strategies (saved instances, unsaved instances, attribute hashes, and stubbed objects), and support for multiple factories for the same class (user, admin_user, and so on), including factory inheritance. Read on how to get [started](https://github.com/thoughtbot/factory_bot/blob/master/GETTING_STARTED.md) with factory_bot.
+For testing data we need to create a `yaml` file to store the data then we can load the data in our code. The code below can be used to load the yaml data.
+```ruby
+yaml_fixtures = Dir[File.expand_path('fixtures/**/*.y*ml', __dir__)].map do |f|
+  erb_yaml = ERB.new(File.read(f))
+  YAML.safe_load(erb_yaml.result)
+end.inject(:merge)
+
+FIXTURES = yaml_fixtures.freeze
+```
+The above code reads all the `yaml` files in `fixtures` directory. Adds support for ERB syntax. Then assigns results to `Fixtures` hash.
+
+Example if you have in the `yaml` file.
+```yml
+body:
+  data:
+    attributes:
+      amount: 100
+      category: BusinessPayment
+      posted_at: "2019-03-18T17:22:09.651011Z"
+      recipient_id_number: "21212121"
+      recipient_id_type: national_id
+      recipient_no: "0722000024"
+      recipient_type: msisdn
+      reference: "12345678"
+    id: <%= SecureRandom.uuid %>
+    type: payouts
+```
+You can be able feature body with `FIXTURES[:body]`.
 
 ## Building the Gem
 To build the gem update gemspec in `mygem.gemspec` then we can build a gem out of it with the below command.
@@ -451,7 +467,7 @@ __Rubocop__
 
 __Guard__
 
-[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. To install guard add `gem 'guard'` in your Gemfile then build the container to install guard gem.
+[Guard](https://github.com/guard/guard) is a great tool for quickly running your Ruby app tests as you develop the code. As you edit and change the files in your app, Guard can trigger tests specific to the files you are modifying. Ensure you have `guard` in development depesndencies.
 
 Generate an empty Guardfile with:
 ```sh
@@ -462,7 +478,7 @@ Run Guard through Docker with:
 docker-compose run app exec guard
 ```
 You can now start using guard plugins.
-For example let's use [guard-minitest](https://github.com/guard/guard-minitest) plugin. Add `gem 'guard-minitest'` in your `Gemfile` and install.
+For example let's use [guard-minitest](https://github.com/guard/guard-minitest) plugin. Add `gem 'guard-minitest'` development dependancies and install.
 
 Add guard definition to your `Guardfile` by running the following command:
 ```
@@ -475,7 +491,6 @@ Guard is now watching should start compiling your test on file changes.
 1. Stop execution anywhere in any piece of code to look around and see what’s going on.
 2. View a complete backtrace of every bit of code leading up to where you are
 
-To install add `gem 'pry-byebug'` in your Gemfile.
 Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use `binding.pry` where you want the execution to stop. Example when we call `binding.pry` in register_urls method we get below output which help to inspect where your code is having problems
 ```sh
 26: def self.register_urls(response_type)
@@ -502,6 +517,18 @@ Require pry-byebug `require 'pry-byebug'` in your class. To start debugging use 
 
 ```
 
+### Code coverage
+Remember on our `coverage` dependancies we had `coveralls` and `simplecov`.
+[simplecov](https://github.com/colszowka/simplecov) is a code coverage gem with automatic mering across tests suites.
+To to use simplecov add it in developement dependancies then Launch and use SimpleCov at the very top of `test_helper.rb`
+```
+require 'simplecov'
+SimpleCov.start
+```
+The next time you run the tests a `coverage` directory is created in `root`. Open `coverage/index.html` with your browser to view the coverage statistics.
+> Remember to add `coverage` in `gitignore`
+
+[Coverals](https://coveralls.io/) can be used as hosted/online code coverage.
 ###  12-Factor compliance
  __Dependancies__
 
