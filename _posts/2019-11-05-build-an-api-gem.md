@@ -5,10 +5,10 @@ date: 2019-11-05 17:15 +0300
 categories: developer
 published: false
 author: Gathuku Ndung'u
-blog-image: api_gem/ruby_gem.jpg
+blog-image: api_gem/ruby_gem.png
 intro: Ruby Gem allows us to package our code to use later or share it with other developers. This is very helpful since we don't have to waste time reinventing the wheel. The good thing about gems everyone can make them. Through the entire blog, we will be looking at how to build a gem that consumes an API.
 ---
-![gem_image](/assets/images/blog/api_gem/ruby_gem.jpg){:.img-responsive .center}
+![gem_image](/assets/images/blog/api_gem/ruby_gem.png){:.img-responsive .center}
 
 {{page.intro}}
 
