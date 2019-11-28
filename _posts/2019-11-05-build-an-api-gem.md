@@ -160,36 +160,41 @@ Then build your container  to install the gems and copy files to the container
 docker build -t mygem . && docker run -it mygem
 ```
 
-### Register URLs
 
- We will implement a `resiter_urls` method in `lib/mygem.rb`, the method will accept `response_type` parameter. Response type can be `Completed` or `Cancelled`.
+### Payouts `Business Paybil`
+The endpoint allows businesses to send money to a business paybil. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`, `amount`, `recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
+> category will be `BusinessPaybil` , recepient_no a `paybil` number and recepient_type  `shorcode`
 
- ```ruby
- def self.register_urls(response_type)
-  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/urls"
+```ruby
+def self.payouts(category,amount,recipient_no,reference)
+  url="https://virtserver.swaggerhub.com/zegetech/mpesaUniAPI/1.0/mpesa/payouts"
   headers={
     "accept"=>"application/vnd.api+json",
     "Content-Type"=>"application/vnd.api+json"
   }
   body={
     data:{
-      type:"urls",
+      type:"payouts",
       id:1,
-      attributes:{
-        confirmation_url: Configuration.new.confirmation_url,
-        validation_url: Configuration.new.validation_url,
-        short_code: Configuration.new.short_code,
-        response_type: response_type
+      attributes: {
+        category: category,
+        amount: amount,
+        recipient_no: recipient_no,
+        recipient_type: "shorcode",
+        posted_at: Time.now,
+        recipient_id_type: "national_id",
+        recipient_id_number: "12345567",
+        reference: reference
       }
     }
   }
-
   Faraday.post(url,body.to_json,headers)
 end
- ```
-
-### Payouts
+```
+### Payouts `Customers`
 The endpoint allows businesses to send money to customers. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`, `amount`, `recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
+
+> category will be `BusinessPayment` , recpient_type `msisdn` and recipient_no a `valid phone`
 
 ```ruby
 def self.payouts(category,amount,recipient_no,reference)
@@ -236,20 +241,20 @@ end
 ```
 From the above config we have defined our cassette directory as `cassettes`. [Read more](https://relishapp.com/vcr/vcr/v/2-0-0-beta1/docs/configuration/hooks) on VCR configuration.
 
-### Testing `register_urls`
+### Testing payouts `to Business Paybill`
 ```ruby
-def test_it_registers_ulrls
+def  test_payouts
 
-    VCR.use_cassette('register_urls') do
-      response = Mygem.register_urls("Completed")
-      assert_equal 200, response.status
-    end
-
+  VCR.use_cassette('payouts') do
+    response = Mygem.payouts("BusinessPayBill",1000,"601000","142345678")
+    assert_equal(200, response.status)
   end
+
+end
 ```
 From the above test we use cassette `register_urls` to load HTTP interaction recorded. If a the cassette contain data no real connection will be made. This feature makes our test to run very fast.
 
-### Testing `payouts`
+### Testing payouts `to customer`
 ```ruby
 def  test_payouts
 
@@ -362,16 +367,16 @@ Example
 ## Building the Gem
 To build the gem update gemspec in `mygem.gemspec` then we can build a gem out of it with the below command.
 ```
-docker-compose run app gem build mygem.gemspec
+ gem build mygem.gemspec
 ```
 Then install the built gem with below command
 ```
-docker-compose run app  gem install mygem-0.1.0.gem
+gem install mygem-0.1.0.gem
 
 ```
 You can head to `irb` to test the gem
 ```
-docker-compose run app irb
+ irb
 ```
 In `irb` require the gem ie `require "mygem"` then call `Mygem.register_urls` method which accept `response_type`, `Completed` or `Cancelled` parameter.
 
@@ -395,7 +400,7 @@ The above command will get [rubyGems.org](https://rubygems.org/) API key and sto
 
 Now you can publish your gem with command. The command will take spec version push to version control with the tag. Then push to specified gem server ie rubygems.org
 ```
-docker-compose run app rake release
+rake release
 ```
 > Ensure you have included the gem server in your gemspec and also the version `lib/mygem/version.rb`.
 
