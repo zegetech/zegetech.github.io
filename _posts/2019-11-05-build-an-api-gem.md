@@ -161,9 +161,9 @@ docker build -t mygem . && docker run -it mygem
 ```
 
 
-### Payouts `Business Paybil`
-The endpoint allows businesses to send money to a business paybil. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`, `amount`, `recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
-> category will be `BusinessPaybil` , recepient_no a `paybil` number and recepient_type  `shorcode`
+### Payouts `Business Paybill`
+The endpoint allows businesses to send money to a business paybill. To implement it in our gem we will need a method `payouts` in `Mygem` class. The method will accept `category`, `amount`, `recipient_no` and `reference`  parameters. The user consuming the gem will need to pass the arguments when making call to this method.
+> category will be `BusinessPaybill` , recepient_no a `paybill` number and recepient_type  `shorcode`
 
 ```ruby
 def self.payouts(category,amount,recipient_no,reference)
