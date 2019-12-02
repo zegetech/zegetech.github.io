@@ -47,7 +47,7 @@ The shortened parameter names do not help either. It worked but took a while.
 
 [Africa's talking](http://docs.africastalking.com/) provides Restful APIs for integration with their various services. These services include; SMS, voice, Payments, USSD, and Airtime. Our point of focus was mainly their payment services. Customer to Business (C2B), Business to Customer (B2C), and Business to business (B2B). The services are offered over mobile, banks and cards. There are client SDKs for PHP, Python, C#, Java, JS, and Ruby. For mobile payments, Africa's talking does the hosting and one needs a dedicated pay bill with Safaricom M-Pesa (application process takes approximately 5 days). They do not offer any other mobile payment services. The bank payment and card payment services are currently only available in Nigeria. The accepted cards are MasterCard and Verve cards. Africa's talking offers a sandbox, a simulator and associated endpoints for testing. On integration one also gets a dashboard on which they can monitor transactions and carry out other maintenance services such as getting credentials for authentication and creating products.
 
-[Africa's Talking Postman Collection](https://github.com/tomshy/PaymentGatewaysKe/blob/master/Africas%20Talking.postman_collection.json)
+[Africa's Talking Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEu )
 
 ### 5. Jambo Pay
 ![Jambo Pay](/assets/images/blog/localgateways/jambopay.png){:class="img-responsive center img-standard"}
@@ -81,7 +81,7 @@ If you need to test the APIs with your test account credentials, you have to aut
 
 [Lipisha](https://lipisha.com/payments/accounts/index.php/app/launch) is a payment service provider that allows integration through webhooks, popular e-commerce Plugins, and RestAPIs. The details on integration through plugins is not available. The APIs allow integration of mobile and card payment services. The available option for mobile payment services is M-Pesa. The endpoints also allow integration of payout services to clients' mobile wallet. The documentation could be made clearer for all the services Lipisha can provide. They offer a sandbox for testing and the endpoints can be tested manually using postman.
 
-[Lipisha Postman Collection](https://github.com/tomshy/PaymentGatewaysKe/blob/master/Lipisha%20APIs.postman_collection.json)
+[Lipisha Postman Collection](https://documenter.getpostman.com/view/5951719/RzfnkSEw)
 
 ### 9. Flutterwave
 ![Flutterwave](/assets/images/blog/localgateways/rave.svg){:class="img-responsive center img-standard"}
