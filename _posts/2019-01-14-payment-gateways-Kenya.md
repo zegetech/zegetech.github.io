@@ -107,7 +107,7 @@ There are official client libraries for Python, Ruby and PHP with code samples f
 At the time of testing, the test environment seemed to be in maintenance. Being unable to load BXC(Beyonic test currency) we couldn’t test the payments endpoints.
 It was still possible to test some collection endpoints using the documented test numbers.
 
-[Beyonic Postman Collection](https://github.com/tomshy/PaymentGatewaysKe/blob/master/beyonic.postman_collection.json)
+[Beyonic Postman Collection](https://documenter.getpostman.com/view/1238477/RznHKdXd)
 
 ### 12. Direct Pay
 ![Direct Pay](/assets/images/blog/localgateways/dpo.png){:class="img-responsive center img-standard"}
