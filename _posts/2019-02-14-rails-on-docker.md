@@ -6,12 +6,13 @@ categories: developer
 author: Melvin Atieno, Ngari Ndung'u, Tom Nyongesa, Kariuki Gathitu
 blog-image: rails-docker/railsondocker.png
 intro: Rails and Docker are important components in the development processes at Zegetech. Rails is our chosen platform for most of what we build, and docker provides pain-free environment management both for development and in production. We have previously covered these two technologies separately, and this post covers the sweet spot at their intersection. We will take you through the process of configuring a rails development environment on docker, and configure a postgresql database for it.
+keywords: Rails Docker Container Images Compose PostgreSQL Alpinelinux
 ---
 ![Cover Image](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 
 {{page.intro}}
 
-You might want to take a look at our previous blogs for some background information on what we will be setting up. 
+You might want to take a look at our previous blogs for some background information on what we will be setting up.
 - [What and Why Ruby on Rails](2018-10-17-why-ruby-on-rails.md)
 - [What and Why Docker](2018-10-29-what-and-why-docker.md)
 - [Developing with Docker](2018-11-08-developing-with-docker.md)
@@ -50,7 +51,7 @@ ENV BUILD_PACKAGES="curl-dev ruby-dev build-base bash" \
     DB_PACKAGES="postgresql-dev postgresql-client" \
     RUBY_PACKAGES="ruby-json yaml nodejs"
 
-# Update and install base packages 
+# Update and install base packages
 RUN apk update && \
     apk upgrade && \
     apk add --update\
@@ -61,7 +62,7 @@ RUN apk update && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /usr/src/app
 
-# Create system user to run as non-root. 
+# Create system user to run as non-root.
 RUN addgroup -S admin -g 1000 && adduser -S -g '' -u 1000 -G admin deploy
 
 # Set the Rails Environment Variables for production
@@ -92,14 +93,14 @@ COPY --chown=deploy:admin . ./
 # Expose the applications port to the host machine
 EXPOSE 3000
 
-# Command to run when the container is started. 
+# Command to run when the container is started.
 CMD ["puma", "-C", "config/puma.rb"]
 ```
 
 {:.image-attribution}
 Dockerfile
 
-We run the Dockerfile installation commands as a new `deploy` user, which is the [recommended practice](https://medium.com/@mode/processes-in-containers-should-not-run-as-root-2feae3f0df3b). And when we copy files across, in order to avoid permission issues, we make sure the copy user is the non-root user we created. 
+We run the Dockerfile installation commands as a new `deploy` user, which is the [recommended practice](https://medium.com/@mode/processes-in-containers-should-not-run-as-root-2feae3f0df3b). And when we copy files across, in order to avoid permission issues, we make sure the copy user is the non-root user we created.
 
 ```ruby
 # Gemfile
@@ -180,7 +181,7 @@ docker-compose build
 This generates a new rails boilerplate in the current directory. Because our volumes are mapped, anything happening in the container is reflected on the host machine, so our directory will now have a brand new rails application. The `--no-deps` flag tells compose not to start dependent services, in this case the *postgres* service.
 
 ### 2. Connect the database
-We have the postgres DB in its own container with the official image from docker hub. We need to point our app to this database instance. 
+We have the postgres DB in its own container with the official image from docker hub. We need to point our app to this database instance.
 
 ```yaml
 # app/config/database.yml
@@ -211,7 +212,7 @@ docker-compose run app rails db:create
 ```
 The database file are persisted in the `data:` docker volume. Without it you would need to run `docker-compose run web rake db:create` whenever restarting your app to recreate the database.
 
-Your app should be available at [localhost](http://localhost). 
+Your app should be available at [localhost](http://localhost).
 ![Rails welcome](/assets/images/blog/rails-docker/rails_welcome.png){:class="img-responsive center"}
 To stop the application run `docker-compose down`.
 If all went well, then we need to "save" our app in git. Stop the app and check it into git
@@ -220,7 +221,7 @@ docker-compose down
 git add .
 git commit -m 'Version 0.0.0 -  App Initialized'
 ```
-So now we have our app boilerplate ready with persistence on a separate postgresql database. 
+So now we have our app boilerplate ready with persistence on a separate postgresql database.
 
 ### 3. Code
 As beautiful as the rails welcome page is, it doesn't tell us if our environment behaves as we need it to. Let's do some quick scaffolding to test.
