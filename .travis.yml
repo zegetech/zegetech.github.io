@@ -31,4 +31,4 @@ deploy:
     branch: release
 
 after_deploy:
-  - ALGOLIA_API_KEY=$ALGOLIA_API_KEY bundle exec jekyll algolia
+  - bundle exec jekyll algolia
