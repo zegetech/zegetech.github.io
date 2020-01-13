@@ -1,12 +1,12 @@
 ---
 layout: blog
 title: Search a Static Site
-date: 2019-10-02 14:09 +0300
+date: 2020-01-02 14:09 +0300
 categories: Developer
 published: true
 author: Gathuku Ndung'u
 blog-image: algolia-search/image-search.jpg
-intro: We built [our](https://zegetech.com) website on Jekyll. Jekyll great for developers and we love it. The blog post we release have become a big source of refernce for many in the team. As the posts grow, finding then meant scrolling through the pages to get the posts. We needed search. Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) are a very good tool to build static websites. They make it easy to build and deploy sites with Zero or extremely low costs. However, search is one of the features not supported out of the box.
+intro: We built [our](https://zegetech.com) website on Jekyll. Jekyll is great for developers and we love it. The blog posts we release have become a big source of reference for many in the team. As the number of posts grow, refering back to a post meant scrolling through the pages to get the posts. Not a very good experience. We needed search. Static site Genarator(SSG) such as [Jekyll](https://jekyllrb.com/), [Gatsby](https://www.gatsbyjs.org/),[Gridsome](https://gridsome.org/) and [Hugo](https://gohugo.io/) are a great tool to build static websites. They make it easy to build and deploy sites with Zero or extremely low costs. However, search is one of the features not supported out of the box.
 keywords: Jekyll Search Algolia Instantsearch Widgets
 ---
 
@@ -14,21 +14,21 @@ keywords: Jekyll Search Algolia Instantsearch Widgets
 
 {{page.intro}}
 
-Adding search functionality in Jekyll site or whichever SSG generator you are using is no difficulty. Let's explore some tools that we can use.
+Adding search functionality to a Jekyll site or whichever SSG generator you are using is no difficulty. Let's explore some tools that we can use.
 
 1. [Lunr.js](https://lunrjs.com/) is a blazing fast simple full-text search engine for client-side applications. It's designed to be small, yet full-featured, enabling you to provide a great search experience without the need for external, server-side, search services
 
 2. [Google Custom Search Engine](https://developers.google.com/custom-search) enables you to create a search engine for your website, or blog. It allows the configuration of search results with images. You can fine-tune the ranking, add your promotions and customize the look and feel of the search results.
 
-3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a lightweight search library built on javascript. It entirely operates on the client-side and no server-side required.
+3. [Jekyll simple search](https://github.com/christian-fei/Simple-Jekyll-Search) is a lightweight search library built on javascript. It operates entirely on the client-side and no server-side required.
 
 4. [Algolia](https://www.algolia.com/) is a reliable SAAS platforms for building search into your website. It is billed to power billions of queries for thousands of companies every year and delivering results within 100ms. Impressive!
 
->Given all the options, we decided to try out Algolia for out blog search because it seems to be optimised to support large websites.
+> Given all the options, we decided to try out Algolia for adding search to our blog because it seems powerfully optimised and has a pretty generous free community plan, perfect for our small website.
 
 
 ### Why Algolia?
-Speed is a critical part of keeping users happy. Algolia is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% guarantee. The goal of JAMstack is to eliminate server dependencies why add one when you can use [algolia free community plan](https://www.algolia.com/)
+Speed is a critical part of keeping users happy. Algolia claims the following; It is aggressively designed to reduce latency. In a benchmarking test, Algolia returned results up to 200x faster than Elasticsearch. Algolia infrastructure is distributed around 6 regions in the world with around 47 datacentres proving 99.99% guarantee. The goal of JAMstack is to eliminate server dependencies why add one when you can use [algolia free community plan](https://www.algolia.com/)
 
 ### How algolia works
 Algolia provides a REST API to query and update your search indices. All input and output is provided in JSON, making it extremely easy to use in frontend Javascript.
@@ -61,7 +61,7 @@ You will need to provide algolia credentials to index your site. Open a free [co
 
 algolia:
   application_id: your_application_id
-  index_name:     jekyll # replace with your index name
+  index_name:     mywebsite.com # replace with the name of your index (index database)
 
 ```
 ### Usage
@@ -70,9 +70,9 @@ Once you add the application_id and index_name run below command to index your s
 ```shell
 ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 ```
-> Note: that ALGOLIA_API_KEY should be set to your admin API key. This key has write access to your index so will be able to push new data. This is also why you have to set it on the command line and not in the `_config.yml` file or anywhere in our code.
+> Note: that env variable ALGOLIA_API_KEY should be set to the value of your Algolia admin API key. This key has write access to your index so will be able to push new data. Keep it out of git by setting it in the command or if using docker, as an env variable. If using CI/CD, ALGOLIA_API_KEY in teh pipeline and then run the command `bundle exec jekyll algolia` after deploying your website. 
 >
->>You want to keep this key secret and not commit it to your versioning system.
+>You want to keep this key secret and not commit it to your versioning system.
 
 Below is a sample output
 
@@ -146,7 +146,7 @@ const search = instantsearch({
 search.start();
 ```
 >The `apiKey` should be the `Search-Only API Key`. This key doesn't have any write access, you should not worry about committing it in your version control. It gives public search access to a public website.
->> You can always regenerate this key in your Algolia dashboard.
+> You can always regenerate this key in your Algolia dashboard.
 
 Congrats! you are now connected with Algolia.
 
@@ -188,7 +188,7 @@ You can now be able to see the results without styling. To customize the view we
       container: '#hits',
       templates: {
         empty: 'No results',
-        item: '<em>Hit {{objectID}}</em>: {{{_highlightResult.name.value}}}'
+        item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
       }
     })
   );
@@ -237,14 +237,17 @@ We now can search our website and find those post that we want, quickly and easi
 
 ###  Limitations
 
-Algolia community plan provides 50K operations and 10k records per month. To know more about how algolia counts records and operations check their official [blog](https://www.algolia.com/doc/faq/accounts-billing/how-algolia-count-records-and-operation/). Apart from that below some of the limitations compared to an enterprise plan, they can be classified in terms of features and support. Check algolia [pricing page](https://www.algolia.com/pricing/) to see difference of various plans.
+Algolia community plan provides 50K operations and 10k records per month, pretty generous. Perfect for a small to medium webisite. To know more about how algolia counts records and operations check their official [blog](https://www.algolia.com/doc/faq/accounts-billing/how-algolia-count-records-and-operation/). Apart from that below some of the limitations that the community plan lacks compared to an enterprise plan. they can be classified in terms of features and support. Check algolia [pricing page](https://www.algolia.com/pricing/) to see difference of various plans.
 
- | Features                                        | Support           |
- |------------------------------- -                 |-------------------|
- | Advanced analytics                              | Email support     |
- | Advanced APIs(Analytics,Insights and monitoring)| Extension support |
- | Pesonalization                                  | Coding guidance   |
- | Query Rules (Merchandizing & Intent detection)  | Live chat for implementation support|
- | Service level agreement (SLA)                   | Phone alerting    |
- | Additional Team members                         | Dedicated point of contact |
- | Granular Team Permissions                       | Desicated implementation engineer|
+| Features                                        | Support           |
+|--------------------------------                 |-------------------|
+| Advanced analytics                              | Email support     |
+| Advanced APIs(Analytics,Insights and monitoring)| Extension support |
+| Pesonalization                                  | Coding guidance   |
+| Query Rules (Merchandizing & Intent detection)  | Live chat for implementation support|
+| Service level agreement (SLA)                   | Phone alerting    |
+| Additional Team members                         | Dedicated point of contact |
+| Granular Team Permissions                       | Desicated implementation engineer|
+
+<br/>
+Give it a try an add some search to your static site.
