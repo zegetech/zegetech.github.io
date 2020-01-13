@@ -35,7 +35,7 @@ Algolia provides a REST API to query and update your search indices. All input a
 To create, update, and maintain an Algolia search index, you’ll need to generate a valid JSON array of all of the content in your Jekyll site.
 
 ## Implementing Algolia in Jekyll
-To implement algolia search in Jekyll we will use [jekyll-algolia](https://github.com/algolia/jekyll-algolia), a Jekyll plugin maintained by Algolia team, which will help us generate a JSON array and connect with Algolia search  
+To implement Algolia search in Jekyll we will use [jekyll-algolia](https://github.com/algolia/jekyll-algolia), a Jekyll plugin maintained by Algolia team, which will help us generate a JSON array and connect with Algolia search  
 
 Lets get started:-
 ### Installation
@@ -54,7 +54,7 @@ end
 Then run, `bundle install` to update dependencies
 
 ### Configuration
-You will need to provide algolia credentials to index your site. Open a free [community plan](https://www.algolia.com/users/sign_in). Once signed in you can get the API keys. Once you have your credentials, you should define your `application_id` and `index_name` inside your `_config.yml` file like this:
+You will need to provide Algolia credentials to index your site. Open a free [community plan](https://www.algolia.com/users/sign_in). Once signed in you can get the API keys. Once you have your credentials, you should define your `application_id` and `index_name` inside your `_config.yml` file like this:
 
 ```yml
 # _config.yml
@@ -104,10 +104,10 @@ algolia:
 ```
 
 # Frontend
-Building frontend that allows user to do the actual search is not part of the `jekyll-algolia` plugin. The best solution is to use [instantSearch.js](https://github.com/algolia/instantsearch.js/) library which makes it easy to design perfect search experience using prepackaged widgets.
+Building frontend that allows users to do the actual search is not part of the `jekyll-algolia` plugin. The best solution is to use [instantSearch.js](https://github.com/algolia/instantsearch.js/) library which makes it easy to design perfect search experience using prepackaged widgets.
 
 ## Implementing instant search
-Instant search is meant to be used with algolia, so the API credentials to an algolia index is needed
+Instant search is meant to be used with Algolia, so the API credentials to an algolia index is needed
 
 ### Install `instantSearch.js`
 You can install `instantSearch.js` through `CDN` or a dependencies management system(`YARN/NPM`)
@@ -154,7 +154,7 @@ The `appId`,`apiKey` and `indexName` are mandatory as gotten from [Algolia Dashb
 Congrats! you are now connected with Algolia.
 
 ### Display results
-The importance of search is to display results, by default InstantSearch.js will do a query at the start of the page and will retrieve the most relevant hits. To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets/js/). Here we first define the container of our results, this could be in any `.html` file/page where we want to display results.
+The importance of search is to display results, by default InstantSearch.js will do a query at the start of the page and will retrieve the most relevant hits. To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by Algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets/js/). Here we first define the container of our results, this could be in any `.html` file/page where we want to display results.
 
 ```html
 <!-- index.html -->
@@ -288,7 +288,7 @@ We now can search our website and find those posts that we want, quickly and eas
 
 ###  Limitations
 
-Algolia community plan provides 50K operations and 10k records per month, pretty generous. Perfect for a small to medium website. To know more about how algolia counts records and operations check their official [blog](https://www.algolia.com/doc/faq/accounts-billing/how-algolia-count-records-and-operation/). Apart from that below some of the limitations that the community plan lacks compared to an enterprise plan. they can be classified in terms of features and support. Check algolia [pricing page](https://www.algolia.com/pricing/) to see the difference of various plans.
+Algolia community plan provides 50K operations and 10k records per month, pretty generous. Perfect for a small to medium website. To know more about how Algolia counts records and operations check their official [blog](https://www.algolia.com/doc/faq/accounts-billing/how-algolia-count-records-and-operation/). Apart from that below some of the limitations that the community plan lacks compared to an enterprise plan. they can be classified in terms of features and support. Check Algolia [pricing page](https://www.algolia.com/pricing/) to see the difference of various plans.
 
 | Features                                        | Support           |
 |--------------------------------                 |-------------------|
