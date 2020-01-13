@@ -3,7 +3,7 @@ layout: blog
 title: Amazing Bash aliases and Functions
 date: 2019-11-08 11:24 +0300
 categories:
-published: false
+published: true
 author: Gathuku Ndung'u
 blog-image: bash_alias/bash_alias.jpg
 intro: Writing the same long command can be the most annoying thing when working in the terminal. Especially to those of us used to touches and GUIs(Graphical user interfaces). Its true most of us don't like terminal. While it hardly a solution to most of our complaints we can simplify some of them.
