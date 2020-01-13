@@ -70,7 +70,7 @@ Once you add the application_id and index_name run below command to index your s
 ```shell
 ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 ```
-> Note: that env variable ALGOLIA_API_KEY should be set to the value of your Algolia admin API key. This key has write access to your index so will be able to push new data. Keep it out of git by setting it in the command or if using docker, as an env variable. If using CI/CD, ALGOLIA_API_KEY in teh pipeline and then run the command `bundle exec jekyll algolia` after deploying your website. 
+> Note: that env variable ALGOLIA_API_KEY should be set to the value of your Algolia admin API key. This key has write access to your index so will be able to push new data. Keep it out of git by setting it in the command or if using docker, as an env variable. If using CI/CD, ALGOLIA_API_KEY in teh pipeline and then run the command `bundle exec jekyll algolia` after deploying your website.
 >
 >You want to keep this key secret and not commit it to your versioning system.
 
@@ -134,8 +134,10 @@ const instantsearch = require('instantsearch.js');
 
 ### Initialization
 To initialize instant search you will need an algolia account with a non-empty index. Provide app credentials then call the `start` method.
+> Its advisable to use a separate javascript file ie `algolia.js` or any other name you like.
 
 ```javascript
+# algolia.js
 const search = instantsearch({
   appId: 'your_app_id',
   apiKey: 'your_api_key',
@@ -145,23 +147,32 @@ const search = instantsearch({
 
 search.start();
 ```
+The `appId`,`apiKey` and `indexName` are mandatory as gotten form [Algolia Dashboard](https://www.algolia.com/users/sign_in)
 >The `apiKey` should be the `Search-Only API Key`. This key doesn't have any write access, you should not worry about committing it in your version control. It gives public search access to a public website.
 > You can always regenerate this key in your Algolia dashboard.
 
 Congrats! you are now connected with Algolia.
 
 ### Display results
-The importance of search is to display results, To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets/js/)
+The importance of search is to display results,by default InstantSearch.js will do a query at the start of the page and will retrieve the most relevant hits. To display results, [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) will be used. Hits widget will display all the results returned by algolia and update when new results are passed. With instantSearch.js you need to provide a container for each widget which tells instantSearch.js where to display the widget. Learn more about [widgets](https://www.algolia.com/doc/api-reference/widgets/js/). Here we first define the container of our results, this could be in any `.html` file/page where we want to display results.
 
 ```html
+<!-- index.html -->
 <div id="hits">
   <!-- Hits widget will appear here -->
 </div>
 ```
-Once you set a container for the hits, add the [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) in instantSearch instance.
-```html
-<script>
-  const search = instantsearch(options);
+Once you set a container for the hits, add the [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) in instantSearch instance, using `addWidget` method. Add this in `algolia.js` or the same javascript file you initialized Algolia.
+
+```javascript
+# algolia.js
+
+  const search = instantsearch({
+    appId: 'your_app_id',
+    apiKey: 'your_api_key',
+    indexName: 'index_name',
+    routing: true
+  });
 
   search.addWidget(
     instantsearch.widgets.hits({
@@ -170,18 +181,17 @@ Once you set a container for the hits, add the [hits widget](https://www.algolia
   );
 
   search.start();
-</script>
-
 ```
-You can now be able to see the results without styling. To customize the view we need a special option for hits called `template`, the option accepts a [mustache](https://mustache.github.io/mustache.5.html) template string or a function returning a string.
+You can now be able to see the results without styling.This view lets you inspect the values that are retrieved from Algolia, in order to build your custom view. To customize the view we need a special option for hits called `template`, the option accepts a [mustache](https://mustache.github.io/mustache.5.html) template string or `a function returning a string`.
 
-```html
-<div id="hits">
-  <!-- Hits widget will appear here -->
-</div>
+```javascript
 
-<script>
-  const search = instantsearch(options);
+  const search = instantsearch({
+    appId: 'your_app_id',
+    apiKey: 'your_api_key',
+    indexName: 'index_name',
+    routing: true
+  });
 
   search.addWidget(
     instantsearch.widgets.hits({
@@ -194,13 +204,45 @@ You can now be able to see the results without styling. To customize the view we
   );
 
   search.start();
-</script>
 ```
 The above example used `_highlightResult` that contains attributes highlighted based on the current query. This aspect of the search gives user feedback on the matching parts of the results.
 
+We can also use a funtion returning a string, which i find better since here we can be able to pass actual html syntax for sylling.
+
+> We used this approach in zegetech website since its more flexible and presentable
+
+Example.
+```javascript
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      empty: 'No results',
+      item: data => '
+          <div>
+           <h1 class="text-green">${data.title}</h1>
+           <p>${data.content.substring(0,150)}</p>
+          </div>
+      '
+    }
+  })
+);
+
+```
+> Note the arrow symbol represents ES6 syntax for defining a function
+
+Using this approach:-
+- You can be able to customize you view with html in a neat way.
+- Use html classes from your favourite  framework eg boostrap ie `<h1 class="text-green">${data.title}</h1>`
+- Attach valid javascript code in your results eg `data.content.substring(0,150)` to only display first 150 characters in a string.
+
 ### Add search Box
 Now that we have added results, we can start querying our index, to achieve this we need a [searchBox](https://www.algolia.com/doc/api-reference/widgets/search-box/js/) widget.
+
+ In html `index.html`
 ```html
+<!--- index.html -->
+
 <div id="search-box">
   <!-- SearchBox widget will appear here -->
 </div>
@@ -209,9 +251,15 @@ Now that we have added results, we can start querying our index, to achieve this
   <!-- Hits widget will appear here -->
 </div>
 
-<script>
-  const search = instantsearch(options);
-
+```
+ In javascript `algolia.js`
+```javascript
+  const search = instantsearch({
+    appId: 'your_app_id',
+    apiKey: 'your_api_key',
+    indexName: 'index_name',
+    routing: true
+  });
   // initialize SearchBox
   search.addWidget(
     instantsearch.widgets.searchBox({
@@ -223,12 +271,15 @@ Now that we have added results, we can start querying our index, to achieve this
   // initialize hits widget
   search.addWidget(
     instantsearch.widgets.hits({
-      container: '#hits'
+      container: '#hits',
+      templates: {
+        empty: 'No results',
+        item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
+      }
     })
   );
 
   search.start();
-</script>
 ```
 
 The search is now active. The good thing Algolia computes the matching part. For more configurate results configure [attributeToRetrieve](https://www.algolia.com/doc/rest-api/search/#param-attributesToRetrieve) and [attributeToHighlight](https://www.algolia.com/doc/rest-api/search/#param-attributesToHighlight) of your index.
