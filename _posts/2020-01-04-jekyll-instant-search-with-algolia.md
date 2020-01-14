@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Search a Static Site
+title: Search the Static
 date: 2020-01-02 14:09 +0300
 categories: Developer
 published: true
@@ -67,7 +67,7 @@ algolia:
 ### Usage
 Once you add the application_id and index_name run below command to index your site.
 
-```shell
+```sh
 ALGOLIA_API_KEY='your_admin_api_key' bundle exec jekyll algolia
 ```
 > Note: that env variable ALGOLIA_API_KEY should be set to the value of your Algolia admin API key. This key has write access to your index so will be able to push new data. Keep it out of git by setting it in the command or if using docker, as an env variable. If using CI/CD, ALGOLIA_API_KEY in the pipeline and then run the command `bundle exec jekyll algolia` after deploying your website.
@@ -128,7 +128,7 @@ yarn add instantsearch.js
 ```
 Then
 
-```javascript
+```js
 const instantsearch = require('instantsearch.js');
 ```
 
@@ -136,8 +136,8 @@ const instantsearch = require('instantsearch.js');
 To initialize instant search you will need an Algolia account with a non-empty index. Provide app credentials then call the `start` method.
 > Its advisable to use a separate javascript file ie `algolia.js` or any other name you like.
 
-```javascript
-# algolia.js
+```js
+// algolia.js
 const search = instantsearch({
   appId: 'your_app_id',
   apiKey: 'your_api_key',
@@ -164,46 +164,44 @@ The importance of search is to display results, by default InstantSearch.js will
 ```
 Once you set a container for the hits, add the [hits widget](https://www.algolia.com/doc/api-reference/widgets/hits/js/) in instantSearch instance, using `addWidget` method. Add this in `algolia.js` or the same javascript file you initialized Algolia.
 
-```javascript
-# algolia.js
+```js
+// algolia.js
+const search = instantsearch({
+  appId: 'your_app_id',
+  apiKey: 'your_api_key',
+  indexName: 'index_name',
+  routing: true
+});
 
-  const search = instantsearch({
-    appId: 'your_app_id',
-    apiKey: 'your_api_key',
-    indexName: 'index_name',
-    routing: true
-  });
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits'
+  })
+);
 
-  search.addWidget(
-    instantsearch.widgets.hits({
-      container: '#hits'
-    })
-  );
-
-  search.start();
+search.start();
 ```
 You can now be able to see the results without styling. This view lets you inspect the values that are retrieved from Algolia, to build your custom view. To customize the view we need a special option for hits called `template`, the option accepts a [mustache](https://mustache.github.io/mustache.5.html) template string or `a function returning a string`.
 
-```javascript
+```js
+const search = instantsearch({
+  appId: 'your_app_id',
+  apiKey: 'your_api_key',
+  indexName: 'index_name',
+  routing: true
+});
 
-  const search = instantsearch({
-    appId: 'your_app_id',
-    apiKey: 'your_api_key',
-    indexName: 'index_name',
-    routing: true
-  });
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      empty: 'No results',
+      item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
+    }
+  })
+);
 
-  search.addWidget(
-    instantsearch.widgets.hits({
-      container: '#hits',
-      templates: {
-        empty: 'No results',
-        item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
-      }
-    })
-  );
-
-  search.start();
+search.start();
 ```
 The above example used `_highlightResult` that contains attributes highlighted based on the current query. This aspect of the search gives user feedback on the matching parts of the results.
 
@@ -212,7 +210,8 @@ We can also use a function returning a string, which I find better since here we
 > We used this approach in zegetech website since its more flexible and presentable
 
 Example.
-```javascript
+
+```js
 search.addWidget(
   instantsearch.widgets.hits({
     container: '#hits',
@@ -240,9 +239,9 @@ Using this approach:-
 Now that we have added results, we can start querying our index, to achieve this we need a [searchBox](https://www.algolia.com/doc/api-reference/widgets/search-box/js/) widget.
 
  In html `index.html`
+
 ```html
 <!--- index.html -->
-
 <div id="search-box">
   <!-- SearchBox widget will appear here -->
 </div>
@@ -253,33 +252,34 @@ Now that we have added results, we can start querying our index, to achieve this
 
 ```
  In javascript `algolia.js`
-```javascript
-  const search = instantsearch({
-    appId: 'your_app_id',
-    apiKey: 'your_api_key',
-    indexName: 'index_name',
-    routing: true
-  });
-  // initialize SearchBox
-  search.addWidget(
-    instantsearch.widgets.searchBox({
-      container: '#search-box',
-      placeholder: 'Search for products'
-    })
-  );
+```js
+// algolia.js
+const search = instantsearch({
+  appId: 'your_app_id',
+  apiKey: 'your_api_key',
+  indexName: 'index_name',
+  routing: true
+});
+// initialize SearchBox
+search.addWidget(
+  instantsearch.widgets.searchBox({
+    container: '#search-box',
+    placeholder: 'Search for products'
+  })
+);
 
-  // initialize hits widget
-  search.addWidget(
-    instantsearch.widgets.hits({
-      container: '#hits',
-      templates: {
-        empty: 'No results',
-        item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
-      }
-    })
-  );
+// initialize hits widget
+search.addWidget(
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates: {
+      empty: 'No results',
+      item: '<em>Hit {{objectID}}</em>: {{_highlightResult.name.value}}}'
+    }
+  })
+);
 
-  search.start();
+search.start();
 ```
 
 The search is now active. The good thing Algolia computes the matching part. For more configuration results configure [attributeToRetrieve](https://www.algolia.com/doc/rest-api/search/#param-attributesToRetrieve) and [attributeToHighlight](https://www.algolia.com/doc/rest-api/search/#param-attributesToHighlight) of your index.
