@@ -96,9 +96,11 @@ _Please note that we only have a proposal for the B2C and C2B APIs. Be on the lo
 **Sample database model for Developer App**
 ![ERD](/assets/images/blog/daraja-2/uniapi.png){: .img-responsive .center}
 
-[Daraja 2.0 API Specification](https://app.swaggerhub.com/apis/zegetech/Handaki/1.0)<br>
-[Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/8bd5ed444fd1da03db77)<br>
-[Daraja 2.0 Postman Documentation](https://documenter.getpostman.com/view/5951719/SWE57eTD?version=latest)
+
+[Daraja 2.0 API Specification](https://app.swaggerhub.com/apis/zegetech/mpesaUniAPI/1.0)<br>
+[Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/bd902a95eb356c2d4308)<br>
+[Daraja 2.0 Postman Documentation](#)
+
 
 If you think that you've experienced issues with the current [Daraja API](https://developer.safaricom.co.ke/apis) and would like to experience a better solution to MPESA integration feel free to try out the proposed solution and design.
 
