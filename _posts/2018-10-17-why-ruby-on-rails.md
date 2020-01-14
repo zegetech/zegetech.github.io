@@ -8,6 +8,7 @@ intro: |
   Ruby on Rails, abbreviated RoR or just Rails is a web application framework for developing database backed web applications.
   Rails has been used to build some of the most popular websites including Github, Airbnb and Hulu. Twitter also began life as a rails application.
   While the choice of framework is not a straight forward one, choosing rails looks like a pretty safe bet.
+keywords: Ruby Rails MVC Framework RVM Rails-API
 ---
 {:.post-figure}
 ![Photo of a railroad with pink vegetation](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
@@ -33,7 +34,7 @@ It can't get any easier can it? See more examples [here](https://www.ruby-lang.o
 Applications built with rails follow the MVC (Model-View-Controller) architectural pattern.
 Similar frameworks include [django](https://www.djangoproject.com/)
 , built on python and [Laravel](https://laravel.com/)
-, built on PHP. 
+, built on PHP.
 These frameworks mostly offer similar features, with an [ORM](https://guides.rubyonrails.org/active_record_basics.html)(Object Relational Mapping) and a templating language being default.
 
 The ORM abstracts away the complexity of mapping data between your application and database, and provides a means to evolve your database safely.
@@ -58,7 +59,7 @@ The documentation in kindle format is easily one of the best I have seen, provid
 Worried about some important but daunting functionality? Don't be, there's probably a *gem* or two that could help.
 Rails uses [*RubyGems*](https://rubygems.org/) for package management, giving you access to a wide array of community contributed gems that do everything from making text prettier to handling authentication.
 
-Proper documentation, availability of packages and an opinionated framework combine to make development fast, really fast. 
+Proper documentation, availability of packages and an opinionated framework combine to make development fast, really fast.
 
 ### Sharp edges
 
@@ -75,7 +76,7 @@ Programming after all is a journey of discovery.
 
 ## First Steps
 
-So, where do you go after you decide to start building with rails? 
+So, where do you go after you decide to start building with rails?
 
 ### Just enough Ruby
 
@@ -96,7 +97,7 @@ Ruby works best with unix based operating systems such as MacOs and Linux. Windo
 ```bash
 sudo apt-get install ruby
 ```
-This will install ruby system-wide for all users. There are a few issues with installing ruby this way. 
+This will install ruby system-wide for all users. There are a few issues with installing ruby this way.
 First if on an older distribution, the installed ruby packages may be outdated.
 Second, what happens if you want to work on a project that relies on a lower ruby version?
 You would have to downgrade your install, work on the project, and when done re-install the higher version. Not very performant.
@@ -147,4 +148,3 @@ Learn it and you will be all the happier for it.
 
 This here was just a start. There is a lot of material out there on working with rails.
 Rails is a mature technology and most solutions will only be a google search away. So what are you waiting for? Go forth and create!
-

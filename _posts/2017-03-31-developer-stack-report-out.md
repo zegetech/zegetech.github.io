@@ -6,15 +6,16 @@ author: Kariuki Gathitu
 blog-image: stack-off/stack-off.jpg
 intro: |
     We are excited to present you with the first edition of Zegetech’s Stack Off Report. All the information you will find here is based on the data from the [What’s your stack](https://docs.google.com/forms/d/e/1FAIpQLSfFRuxdnXepeZMdNatfOSpkme72qaB0xapCAhxNJc-Yi__ovQ/closedform) study conducted by Zege Technologies where we engaged over 100 developers in Kenya. With “Stack Off”, a study was conducted among the developer community and Zegetech, aimed at shedding some light on the most important trends in software development and gain an insight into developers’ stack preferences.
+keywords: Stack Report Survey Study Trends Tools Developer Programming Languages
 ---
 
 {:.post-figure}
 ![image-title-here](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}
 
 {{ page.intro}}
-                                        
+
 We asked developers which area of development they are most comfortable with, which languages they use on a daily basis, what tools they use in building their application and more
-Developers also revealed where they store their code, what types of infrastructure they prefer and where they keep their servers. Finally, we asked devs how long they have been coding, how many live apps they have and how they would like to interact with each other. [Download the report here](http://bit.ly/2myyOLQ). Here's what we found out. 
+Developers also revealed where they store their code, what types of infrastructure they prefer and where they keep their servers. Finally, we asked devs how long they have been coding, how many live apps they have and how they would like to interact with each other. [Download the report here](http://bit.ly/2myyOLQ). Here's what we found out.
 
 ![image-title-here](/assets/images/blog/stack-off/designer-developer.jpg){:class="img-responsive center"}
 
@@ -86,7 +87,7 @@ We summarised the stack responses here, narrowing down the choices. If you are n
 The idea is to pick at least one cell in each row as you move through the various rows of the stack to build your full stack of tools.
 ![image-title-here](/assets/images/blog/stack-off/chart-15.png){:class="img-responsive center"}
 
-Here is our stack at Zegetech. Also check out the detailed version at [https://stackshare.io/zege-technologies/zege-technologies](https://stackshare.io/zege-technologies/zege-technologies) 
+Here is our stack at Zegetech. Also check out the detailed version at [https://stackshare.io/zege-technologies/zege-technologies](https://stackshare.io/zege-technologies/zege-technologies)
 ![image-title-here](/assets/images/blog/stack-off/chart-16.png){:class="img-responsive center"}
 
 We are glad to have worked with the developer community to bring you this report. We hope that you found it interesting, enlightening and actionable. Did we leave out any of your favorite tools? The next edition is coming -  Stack Off 2017 where we hope to get even more insight from you and developers and designers in Kenya.
@@ -114,4 +115,4 @@ Please feel free to connect with us on our website, email or linkedin page. We a
 	</form>
 </div>
 
-[Download the report here](http://bit.ly/2myyOLQ). Feel free to contact us at [hi[at]zegetech[dot]com](/mailtohi.html) 
+[Download the report here](http://bit.ly/2myyOLQ). Feel free to contact us at [hi[at]zegetech[dot]com](/mailtohi.html)

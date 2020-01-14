@@ -6,6 +6,7 @@ categories: developer
 author: Tom Nyongesa
 blog-image: swagger/swagger.png
 intro: We recently [examined APIs](/blog/2018/12/08/api-dive.html), where we got into what APIs are, how to build effective, efficient and usable APIs and also looked into the various tools one can use in the API lifecycle. In this post, we would like to focus on Swagger / Open API, a tool that has been adopted greatly by developers across the globe.
+keywords: API Swagger Swaggerhub JSONAPI Mocking
 ---
 
 ![Swagger](/assets/images/blog/{{page.blog-image}}){:class="img-responsive center"}

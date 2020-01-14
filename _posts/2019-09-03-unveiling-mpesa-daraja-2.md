@@ -7,6 +7,7 @@ published: true
 author: Tom Nyongesa
 blog-image: daraja-2/daraja1.png
 intro: MPESA has just unveiled their new API, Daraja 2.0. It has been hailed as the height of developer heaven with its crisp clear structure, solid security and great syntax. Simply put, It's BEAUTIFUL..... Same reliability of G2 SOAP API, accessibility of Daraja 1.0, simplicity of Stripe API and Security of Visa! Bravo!!!
+keywords: Mpesa Daraja Safaricom Apigee G2 Postman Collection Design SOAP
 ---
 
 ![daraja](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}<br>
@@ -59,7 +60,7 @@ Security is another major concern of the community. Even though the current G2 S
 
 Additionally, with both, you have to combine certain required variables, encrypt the result and including it in the request body, Not fogetting there is already an OAUTH implermentation in Daraja as well. Conventionally, security credentials should be included in the headers and not having many mini credentials as it is Daraja - _[see example below](#mpesa_daraja)_
 
-Another security complexity arises when integrating callback APIs like C2B API. For G2 SOAP, developers are required to secure their callback endpoints by only trusting SSL certificates from Mpesa broker - meaning any communication without the broker SSL certificate would fail. This in addition to a VPN connection. Although this works well, it's not conventional. It adds security implementation complexity and difficulty to developer apps. 
+Another security complexity arises when integrating callback APIs like C2B API. For G2 SOAP, developers are required to secure their callback endpoints by only trusting SSL certificates from Mpesa broker - meaning any communication without the broker SSL certificate would fail. This in addition to a VPN connection. Although this works well, it's not conventional. It adds security implementation complexity and difficulty to developer apps.
 
 For Daraja, callback have more or less no standard security. Daraja can't push transaction to secured developer endpoints. It does not support any authorization mechanism like JWT, Digest Auth, Bearer Token or OAUTH, most of which require headers in the payload. As a work around, the developer can use Auth models than can embed security on the URL such as Token Auth or Basic auth. And ofcourse the last, most famous line of defense...Security by Obscurity! Either way, a good balance of security, standardization and ease of implementation should be found for an API that targets a public developer base.
 
@@ -76,7 +77,7 @@ We will call it **Daraja 2.0**
 ### Proposed Structure...
 
 - uses JSONAPI format. Treats everything as a resource.
-- uses JWT for authentication. The JWT token encapulates all authorization. 
+- uses JWT for authentication. The JWT token encapulates all authorization.
 - secures developer endpoints
 - uses conventional naming styles
 - uses globally accepted data formats like time formats which are always in UTC.
@@ -95,9 +96,11 @@ _Please note that we only have a proposal for the B2C and C2B APIs. Be on the lo
 **Sample database model for Developer App**
 ![ERD](/assets/images/blog/daraja-2/uniapi.png){: .img-responsive .center}
 
+
 [Daraja 2.0 API Specification](https://app.swaggerhub.com/apis/zegetech/mpesaUniAPI/1.0)<br>
 [Daraja 2.0 Postman Collection](https://www.getpostman.com/collections/bd902a95eb356c2d4308)<br>
-[Daraja 2.0 Postman Documentation](https://documenter.getpostman.com/view/1238477/SVfTQ7q6)
+[Daraja 2.0 Postman Documentation](#)
+
 
 If you think that you've experienced issues with the current [Daraja API](https://developer.safaricom.co.ke/apis) and would like to experience a better solution to MPESA integration feel free to try out the proposed solution and design.
 
@@ -461,7 +464,7 @@ What stands out the most about this design is that it is clear. You don't even n
 - What is `ConversationID` and `OriginatorConversationID` ?
 - What is `CommandID` ?
 - What Timezone is the `TransactionCompletedDateTime` in ?
-- Why can't they just separate `msisdn number` and `recipient name`. 
+- Why can't they just separate `msisdn number` and `recipient name`.
 - Who build this api... why am i here... what is the meaning of life ???
 
 

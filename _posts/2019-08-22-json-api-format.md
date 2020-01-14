@@ -11,6 +11,7 @@ intro: |
   It is also probable that any two of those APIs differed considerably in how their requests and responses are structured.
   But what if they were not? What if you could have a consistent and instantly recognizable structure?
   Well, with JSON:API, you can.
+keywords: JSON::API REST APIs
 ---
 ![Hallway with concrete pillars](/assets/images/blog/{{page.blog-image}}){:.img-responsive .center}
 
@@ -32,7 +33,7 @@ JSON:API provides a standard structure that makes the different components of a 
     "included": [],
     "meta": {}
   }
-``` 
+```
 
 ```json
 {
@@ -48,7 +49,7 @@ JSON:API provides a standard structure that makes the different components of a 
     }
   ]
 }
-``` 
+```
 
 `data` represents the *resource object(s)* or *primary data* requested or being manipulated. A document MUST contain at least one of the following top-level members: `data`, `errors` and `meta`. The members `data` and `errors` MUST NOT coexist in the same document.
 
@@ -80,13 +81,13 @@ It makes sense therefore that an API responds to a request to e.g `/articles/1/`
     ]
   }
 ```
-**Easier API discovery with [HATEOAS](https://restfulapi.net/hateoas/) support** - 
+**Easier API discovery with [HATEOAS](https://restfulapi.net/hateoas/) support** -
 Hypermedia As The Engine Of Application State is a REST concept that allows the inclusion of context-relevant links in a response.
 This allows the client to navigate the API without much prior knowledge of its capabilities.
 It effectively makes the API self-documenting making manual exploration of the API much easier.
 This functionality is provided via the optional `links` key of a jsonapi document.
 
-**Easier testing with well defined structures** - 
+**Easier testing with well defined structures** -
 The structure of a jsonapi document renders itself well for testing.
 While testing for high-level success/error responses, we can simply check that the API responds with a data/errors body respectively.
 We all do some Postman/Curl/whatever testing right? The readability of a JSON:API response really shines here:
@@ -149,5 +150,5 @@ There are both client and server-side implementations, and chances are, your fav
 
 ## So...
 We've been transitioning to JSON:API, and I can't claim that it was an easy sell.
-There were times when we question the suitability of the specification, mostly when we're feeling lazy or shackled by old structure thinking. 
+There were times when we question the suitability of the specification, mostly when we're feeling lazy or shackled by old structure thinking.
 Overall we are sticking with it because we feel that it gives us consistency, a clean structure and provides room to extend our APIs in the future. In our quest to find a solution to ground as through the [challenges of API development](2018-12-08-api-dive.md), we evaluated a number of options and JSON:API won. In a sense, we are bringing order and efficiency to our API development process, not fogetting our mantra as zegetech... **Be Kind to Future Self**
