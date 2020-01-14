@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Search the Static
-date: 2020-01-14 14:09 +0300
+date: 2020-01-14 08:00 +0300
 categories: Developer
 published: true
 author: Gathuku Ndung'u
