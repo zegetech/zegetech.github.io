@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Amazing Bash aliases and Functions
-date: 2020-01-21 11:24 +0300
+date: 2020-01-21 08:00 +0300
 categories:
 published: false
 author: Gathuku Ndung'u
