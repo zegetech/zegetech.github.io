@@ -1,7 +1,7 @@
 ---
 layout: blog
 title: Amazing Bash aliases and Functions
-date: 2020-01-14 11:24 +0300
+date: 2020-01-21 11:24 +0300
 categories:
 published: false
 author: Gathuku Ndung'u
@@ -206,7 +206,7 @@ __Bash Functions Examples__
     untargz() { tar -zxvf $1; rm -r $1; }
     ```
 
-    We have compiled a list of commonly used aliases that you can install and get started easily. Check the [github repo](https://github.com/gathuku/bash_alias) to see available aliases and add more.
+    We have compiled a list of commonly used aliases that you can install and get started easily. Check the [github repo](https://github.com/zegetech/bash_alias).
 
 ### Conclusion
 Hopefully, this guide has given you some inspiration for creating your aliases and bash functions. Extensive use of these can help make your time in the shell more enjoyable and less complex.
