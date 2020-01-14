@@ -15,6 +15,7 @@
       </div><!--//navbar-header-->
       <div id="navbar-collapse" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
+          {% if (page.title == "Blog" or page.layout == "blog") %}
           <!-- Search Box with dropdown-->
           <li class="nav-item active">
             <div class="dropdown col-md-8">
@@ -38,6 +39,7 @@
             </div>
           </li>
           <!-- end search box -->
+          {% endif %}
 
           <li class="{% if page.title == "Home" %} active {% endif %} nav-item"><a href="/">Home</a></li>
           <li class="{% if page.title == "Work" %} active {% endif %} nav-item"><a href="/work.html">Work</a></li>

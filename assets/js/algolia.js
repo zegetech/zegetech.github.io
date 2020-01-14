@@ -9,7 +9,7 @@ const search = instantsearch({
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-searchbar',
-    placeholder: 'Search  ...',
+    placeholder: 'Search blog ...',
     poweredBy: false, // This is required if you're on the free Community plan
     showReset: true,
     searchAsYouType: true,
