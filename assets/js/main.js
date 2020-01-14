@@ -63,6 +63,8 @@ $(document).ready(function() {
 tables=document.getElementsByTagName("TABLE");//.className="table-responsive";
 
 for (var i = 0; i < tables.length; i++) {
+  //Add striped
+  tables[i].classList.add("table-striped");
   //create a div wrapper
   var wrapper = document.createElement('div');
   // add table-responsive boostrap class
@@ -119,4 +121,3 @@ document.getElementById('search-searchbar').addEventListener('keyup',function(){
     $('.dropdown-menu').show();
  }
 })
-
