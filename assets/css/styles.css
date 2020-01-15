@@ -2557,36 +2557,18 @@ th{
   background-color: #999;
   color: #414a58;
   padding: 2px 5px 2px 5px;
+  background-color: #DF4627;
 }
 
 td{
   /* border:2px solid #000000; */
   padding: 1px 5px 1px 5px;
 }
+/* stripped table */
+.table-striped>tbody>tr:nth-child(odd) {background-color: #FFF }
+.table-striped>tbody>tr:nth-child(even) {background-color: #1886C3 }
 
 code.highlighter-rouge{
   background-color: #272721;
   color: #d8d2d3;
-}
-
-/* table styles */
-.table {
-  border: solid 1px #DDEEEE;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font: inherit
-}
- .table thead th{
-    background-color: #DDEFEF;
-    border: solid 1px #DDEEEE;
-    color: #336B6B;
-    padding: 10px;
-    text-align: left;
-    text-shadow: 1px 1px 1px #fff;
- }
- .table tbody td {
-    border: solid 1px #DDEEEE;
-    color: #333;
-    padding: 10px;
-    text-shadow: 1px 1px 1px #fff;
 }
