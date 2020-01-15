@@ -158,6 +158,7 @@ On a scale of 1-5, here are the findings based on the following features:
 | Beyonic | 4 | 4 | 3 | 4 | 3 | **3** |
 | Direct Pay | - | - | - | - | - | - |
 | Cellulant - Mula | 4 | 4 | 4 | 2 | 4 | **4** |
+{:.table-hover .table-striped}
 
 Here's a table that summarizes the functionality. I believe this will help you save some time:
 
@@ -175,6 +176,7 @@ Here's a table that summarizes the functionality. I believe this will help you s
 | Rave | Yes | Yes | Yes | Yes | Yes | Mpesa, Credit/Debit card |
 | Beyonic | Yes | Yes | Yes | Yes | Yes | Mpesa, Airtel |
 | Cellulant - Mula | Yes | No | Yes | Yes | Yes | Mpesa, Airtel, Card Payment, Banks, MTN, Tigo |
+{:.table-hover .table-striped}
 
 The list doesn't end there. There are other gateways that exist that are not quite mainstream payment processers. However they do enable customers to get paid in kenya via various payment channels. These could be payment integrator companies or niche market gateways. Some notable mentions include:
 

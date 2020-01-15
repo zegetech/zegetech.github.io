@@ -203,4 +203,4 @@ Here's a summary:
 |payU | select countries |merchant |WS-Security |Page redirect, checkout, API | No | SOAP | XML |
 |Braintree | select countries |merchant |Token auth |SDKs| Yes | N/A | XML/JSON |
 |Mastercard | global |merchant, acquirer | oauth 1.0a |SDKs, checkout | Yes | N/A | N/A |
-{:.table}
+{:.table-hover .table-striped}
