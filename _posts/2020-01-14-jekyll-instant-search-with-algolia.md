@@ -299,6 +299,7 @@ Algolia community plan provides 50K operations and 10k records per month, pretty
 | Service level agreement (SLA)                   | Phone alerting    |
 | Additional Team members                         | Dedicated point of contact |
 | Granular Team Permissions                       | Desiccated implementation engineer|
+{:.table-hover .table-striped}
 
 <br/>
 Give it a try and add some search to your static site.

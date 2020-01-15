@@ -209,6 +209,7 @@ Everyone is moving to Ruby, why don't you?
 | Jobs Posting| 21% | 3% |
 | Ease of development| Takes time | Saves time |
 | Famous Web Framework| Laravel, others: codeigniter | Ruby on Rails, others: Sinatra |
+{:.table-hover .table-striped}
 
 ## Takeaway
 
