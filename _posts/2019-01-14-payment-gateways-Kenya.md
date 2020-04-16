@@ -196,4 +196,4 @@ We'll be looking out for other gateways if we have left out any.
 
 Happy development!
 
-PS: Be on the lookout for an upcoming detailed analysis of the international Payment Gateways like [Paypal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/), [Stripe](https://stripe.com/), [Visa](https://www.visa.co.ke/) and more!
+PS: Be on the lookout for an upcoming detailed analysis of the international Payment Gateways like [Paypal Payments Pro](https://developer.paypal.com/docs/payflow/website-payments-pro/#), [Stripe](https://stripe.com/), [Visa](https://www.visa.co.ke/) and more!
