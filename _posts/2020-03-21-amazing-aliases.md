@@ -1,12 +1,12 @@
 ---
 layout: blog
 title: Amazing Bash aliases and Functions
-date: 2020-01-21 08:00 +0300
-categories:
-published: false
+date: 2020-03-21 08:00 +0300
+categories: developer
+published: true
 author: Gathuku Ndung'u
 blog-image: bash_alias/bash_alias.jpg
-intro: Writing the same long command can be quite tiresome when working in the Unix/Linux/MacOs terminal. Especially to those of us wh need to do it time and again. Shortcuts are great. You get there, but way faster that the long route. And same with these bash commands. You can increase your speed in terminal usage and preserve your brain cells by keeping in mind simplified, alternative, shortcut commands. Bash aliases make this possible, increasing your workflows speed and ease while using terminal.
+intro: Writing the same long command can be quite tiresome when working in the Unix/Linux/MacOs terminal. Especially to those of us who need to do it time and again. Shortcuts are great. You get there, but way faster than the long route. And same with these bash commands. You can increase your speed in terminal usage and preserve your brain cells by keeping in mind simplified, alternative, shortcut commands. Bash aliases make this possible, increasing your workflows speed and ease while using terminal.
 keywords: Bash Alias Functions Terminal Scripts
 ---
 
@@ -23,7 +23,7 @@ docker-compose up
 sudo apt-get update
 npm install --save angular
 ```
-Every Developer, Sysadmin and DevOps Engineer interact daily and repeatedly with these commands in their day to day work. It's tiresome to write these commands every time we need them. Is there a simple way?.
+Every developer, sysadmin and dev-ops engineer interact daily and repeatedly with these commands in their day to day work. It's tiresome to write these commands every time we need them. Is there a simple way?.
 
 What if I tell you can use
 
@@ -38,7 +38,7 @@ docker-compose up
 Yes it's possible... meet bash Alias
 
 ## What is Bash Alias?
-A Bash alias is a method of supplementing or overriding Bash commands with new ones. Bash aliases make it easy for users to customize their experience in a [POSIX](https://en.wikipedia.org/wiki/POSIX) terminal.
+A Bash alias is a method of supplementing or overriding Bash commands with new ones. Bash aliases make it easy for users to customize their experience in a [POSIX](https://en.wikipedia.org/wiki/POSIX) terminal, which you definitely have is running Mac or Linux.
 
 ## How to implement Aliases
  By default, most Unix based Operating systems like Linux and MacOs ships with some common aliases. To list these default aliases in your system, head to your terminal and type `alias` then press `enter`. For example below is a list of default aliases in `ubuntu 18`.
@@ -65,7 +65,7 @@ Aliases are often defined in a bash sourced(run when terminal starts) file such 
 ```sh
 touch ~/.bash_aliases
 ```
-The `$HOME/.bash_aliases` must be loaded in your `$HOME/.bashrc`. Most distributions load it by default but its good to confirm. Below command in load the file.
+The `$HOME/.bash_aliases` must be loaded in your `$HOME/.bashrc`. Most distributions load it by default but its good to confirm. Below command will load the file.
 
 ```sh
 if [ -f ~/.bash_aliases ]; then
