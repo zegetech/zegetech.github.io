@@ -79,11 +79,11 @@ For request authorization, the *Merchant Id*, *Public Key* and *private key* are
 Integration examples [here](https://developers.braintreepayments.com/start/example-integrations#repositories).
 After a successful integration, check out whether the new transactions have been included in your sandbox account.
 
-## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+## 4. [PayPal Payments Pro](https://developer.paypal.com/docs/payflow/website-payments-pro/#)
 
 Paypal is a long term big player in the online payments niche. It recently introduced a product dubbed Paypal Payments Pro that allows online merchants to accept payments regardless of whether they have a paypal account or not.
 
-[![Paypal](/assets/images/blog/internationalPGs/paypal.png)](https://developer.paypal.com/docs/classic/products/paypal-payments-pro/)
+[![Paypal](/assets/images/blog/internationalPGs/paypal.png)](https://developer.paypal.com/docs/payflow/website-payments-pro/#)
 {:.img-responsive .center}
 
 It accepts Payments made through Paypal, phone, mail, fax, Visa, MasterCard®, American Express and Discover.
