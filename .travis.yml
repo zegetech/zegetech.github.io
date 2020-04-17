@@ -25,9 +25,10 @@ script:
 deploy:
   skip_cleanup: true
   provider: firebase
-  edge: true
   token:
-    secure: $FIREBASE_TOKEN
+    # gem install travis
+    # travis encrypt "1//03VWqbL4tkzRM......"
+    secure: qfvVhd64qNeOmUJ/3QvniGqd4QZhEGZpkGO9lxGEhOyOIDK9GYeaKuHYql5mCsn64ix4n2vPQod3kWRU6HNf5pF9U6xv0GA01Yl8WaVY0zg4+KSLxK9r0kGrVb44ebgBNV+O/Y5bm5mrV4Q3HRoytJbToTHkZJH8i+uNJy1+pSEqSbg8WIQvLanbhF/X31MVt38/Kz5zGyK9vqxIJaDtiD4BGCnsgTmsDMIe2md6Wmce3JlIq4Jg97pYCh20l/0brsDbwQURcHGigYMnvRCa8qMN1rqc+0TFHEVptvYrhIa7VowrRaFAzfXIsZ7IVcrs0x7QUwhTq+R44WhtcLQj/x59FzjpbuZDdZF7MyjcmupIF2cjbqnVcJf3F82RJ6g67ffjMH8Z6DxRArMABTksInim5XZXKSQhzm0mQ7hCvdlFkL4GHPhISdtV24c8u4ecIQhPy2c7mHYUbpQFZe0xEDDj84b/fMog7haRwlatwzcWGUNjVTJR667IGn03i1SFGtoNRgwTMqiG1EWkBEJwspwCkCHVDXBJTWXAwH9MwPPJ1tc9nblR67cw9GUNieRUdZ3BVD4DkoCzoVmqJRPdtRIhcsgYNtIJk2qxi0DHKKoTvGCMkcH17EI06Ra07WHXyjWKzWuAWLKg9kUZsCvUWU4BA9Ald5it/u4c+Pdsjxc=
   on:
     branch: release
 
