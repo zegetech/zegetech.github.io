@@ -25,6 +25,7 @@ script:
 deploy:
   skip_cleanup: true
   provider: firebase
+  edge: true
   token:
     secure: $FIREBASE_TOKEN
   on:
